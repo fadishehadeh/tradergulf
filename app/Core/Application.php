@@ -60,7 +60,29 @@ final class Application
     {
         View::setApplication($this);
         $this->applySecurityHeaders();
-        $this->router->dispatch(Request::capture());
+        $request = Request::capture();
+        $this->trackPageView($request);
+        $this->router->dispatch($request);
+    }
+
+    private function trackPageView(Request $request): void
+    {
+        if ($request->method() !== 'GET') return;
+        $path = $request->path();
+        if (str_starts_with($path, '/admin') || $path === '/feed' || str_starts_with($path, '/go/')) return;
+
+        $ua  = $_SERVER['HTTP_USER_AGENT'] ?? '';
+        $bot = (int)(bool) preg_match('/bot|crawl|slurp|spider|mediapartners|facebookexternalhit|whatsapp|curl|python|wget|headless/i', $ua);
+
+        $ip      = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '')[0];
+        $referer = substr($_SERVER['HTTP_REFERER'] ?? '', 0, 512);
+
+        try {
+            $this->database->execute(
+                'INSERT INTO page_views (path, referrer, ip, bot) VALUES (?, ?, ?, ?)',
+                [substr($path, 0, 512), $referer, substr(trim($ip), 0, 45), $bot]
+            );
+        } catch (\Throwable) {}
     }
 
     private function loadConfig(): void

@@ -28,6 +28,7 @@ use App\Modules\Chat\ChatController;
 use App\Modules\Affiliate\AffiliateController;
 use App\Modules\Rss\RssController;
 use App\Modules\Admin\Contacts\AdminContactController;
+use App\Modules\Admin\Analytics\AdminAnalyticsController;
 
 $router = $app->router();
 
@@ -113,6 +114,9 @@ $router->post('/admin/logout', [AdminAuthController::class, 'logout']);
 
 // Dashboard
 $router->get('/admin', [AdminDashboardController::class, 'index']);
+
+// Analytics
+$router->get('/admin/analytics', [AdminAnalyticsController::class, 'index']);
 
 // Brokers
 $router->get('/admin/brokers', [AdminBrokerController::class, 'index']);

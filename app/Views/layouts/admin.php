@@ -30,6 +30,7 @@
 
         <div class="sidebar-section">Main</div>
         <?php adminNavLink(url('admin'), '📊', 'Dashboard', $currentPath, $adminBase); ?>
+        <?php adminNavLink(url('admin/analytics'), '📈', 'Analytics', $currentPath, $adminBase); ?>
 
         <div class="sidebar-section">Content</div>
         <?php adminNavLink(url('admin/brokers'), '🏦', 'Brokers', $currentPath, $adminBase); ?>
