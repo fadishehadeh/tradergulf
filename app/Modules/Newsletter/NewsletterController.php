@@ -28,10 +28,19 @@ class NewsletterController extends Controller
         }
 
         try {
-            $this->db()->execute(
+            $affected = $this->db()->execute(
                 'INSERT IGNORE INTO newsletter_subscribers (email, source) VALUES (?, ?)',
                 [$email, $source]
             );
+
+            if ($affected > 0) {
+                $to = setting('contact_email', '');
+                if ($to) {
+                    $headers = "From: noreply@tradergulf.com\r\nContent-Type: text/plain; charset=UTF-8";
+                    @mail($to, '[Trader Gulf] New newsletter subscriber', "Email: $email\nSource: $source", $headers);
+                }
+            }
+
             header('Content-Type: application/json');
             echo json_encode(['ok' => true]);
         } catch (\Throwable $e) {

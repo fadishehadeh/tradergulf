@@ -51,6 +51,14 @@ class PageController extends Controller
              $_SERVER['REMOTE_ADDR'] ?? null]
         );
 
+        $to = setting('contact_email', '');
+        if ($to) {
+            $headers = "From: noreply@tradergulf.com\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
+            $mailSubject = '[Trader Gulf Contact] ' . ($subject ?: '(no subject)');
+            $body = "Name: $name\nEmail: $email\nSubject: $subject\n\n$message";
+            @mail($to, $mailSubject, $body, $headers);
+        }
+
         session()->flash('success', 'Your message has been sent. We\'ll reply within 2 business days.');
         Response::redirect('contact');
     }
