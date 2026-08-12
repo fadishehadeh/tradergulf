@@ -356,10 +356,14 @@ document.getElementById('navToggle').addEventListener('click', function() {
             gtag('consent', 'update', {analytics_storage: granted ? 'granted' : 'denied', ad_storage: granted ? 'granted' : 'denied'});
         }
     }
-    if (!localStorage.getItem('tg_cookie_consent')) {
-        setTimeout(function() { bar.style.transform = 'translateY(0)'; }, 800);
+    function nudgeFloaters(up) {
+        var el = document.getElementById('chatToggle');
+        if (el) el.style.bottom = up ? 'calc(1.5rem + ' + (bar.offsetHeight + 12) + 'px)' : '';
     }
-    function dismiss() { bar.style.transform = 'translateY(120%)'; }
+    if (!localStorage.getItem('tg_cookie_consent')) {
+        setTimeout(function() { bar.style.transform = 'translateY(0)'; nudgeFloaters(true); }, 800);
+    }
+    function dismiss() { bar.style.transform = 'translateY(120%)'; nudgeFloaters(false); }
     document.getElementById('cookieAccept').addEventListener('click', function() {
         localStorage.setItem('tg_cookie_consent', 'accepted');
         updateConsent(true); dismiss();
