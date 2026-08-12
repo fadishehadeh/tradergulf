@@ -90,7 +90,7 @@ echo '<script type="application/ld+json">' . json_encode([
     'itemListElement' => [
         ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',                        'item' => url()],
         ['@type' => 'ListItem', 'position' => 2, 'name' => $isNews ? 'News' : 'Guides',   'item' => url($section)],
-        ['@type' => 'ListItem', 'position' => 3, 'name' => $guide['title']],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => $guide['title'], 'item' => url($section . '/' . $guide['slug'])],
     ],
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
 
@@ -104,7 +104,7 @@ echo '<script type="application/ld+json">' . json_encode([
     'dateModified'   => $modDate,
     'inLanguage'     => 'en',
     'url'            => url($section . '/' . $guide['slug']),
-    'author'         => ['@type' => 'Organization', 'name' => $orgName, 'url' => url()],
+    'author'         => ['@type' => 'Person', 'name' => $guide['author'] ?? $orgName, 'url' => url('about')],
     'publisher'      => [
         '@type' => 'Organization',
         'name'  => $orgName,

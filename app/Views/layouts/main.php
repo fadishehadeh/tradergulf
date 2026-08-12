@@ -27,6 +27,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
     <meta property="og:title"       content="<?= e($ogTitle) ?>">
     <meta property="og:description" content="<?= e($ogDesc) ?>">
     <meta property="og:url"         content="<?= e($ogUrl) ?>">
+    <meta property="og:locale"      content="en_US">
     <?php if ($ogImg): ?>
     <meta property="og:image"       content="<?= e($ogImg) ?>">
     <meta property="og:image:width" content="1200">
@@ -108,10 +109,12 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 
     <?php if (isset($headSchemas)) echo $headSchemas; ?>
 
-    <!-- Arabic font (lazy-loaded only in RTL mode) -->
-    <?php if ($_isRtl): ?>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+    <!-- Preconnect to critical third parties -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
+    <?php if (setting('adsense_publisher_id')): ?>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
     <?php endif; ?>
 
     <link rel="stylesheet" href="<?= asset('css/app.css') ?>">

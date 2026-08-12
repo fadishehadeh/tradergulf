@@ -152,7 +152,10 @@ class PageController extends Controller
     {
         $content = setting('robots_txt');
         if (empty($content)) {
-            $content = "User-agent: *\nAllow: /\nDisallow: /admin/\n";
+            $content = "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /go/\n";
+        }
+        if (!str_contains($content, 'Disallow: /go/')) {
+            $content = rtrim($content) . "\nDisallow: /go/\n";
         }
         if (!str_contains($content, 'Sitemap:')) {
             $content = rtrim($content) . "\n\nSitemap: " . url('sitemap.xml') . "\n";

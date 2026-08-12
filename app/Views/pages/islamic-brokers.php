@@ -46,7 +46,7 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bSc
         <?php foreach ($brokers as $b): ?>
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
             <?php if (!empty($b['logo'])): ?>
-            <img src="<?= e($b['logo']) ?>" alt="<?= e($b['name']) ?> logo" style="width:80px;height:52px;object-fit:contain;flex-shrink:0">
+            <img src="<?= e($b['logo']) ?>" alt="<?= e($b['name']) ?> logo" loading="lazy" style="width:80px;height:52px;object-fit:contain;flex-shrink:0">
             <?php else: ?>
             <div style="width:80px;height:52px;background:var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--text-muted);flex-shrink:0"><?= e($b['name']) ?></div>
             <?php endif; ?>

@@ -248,7 +248,7 @@ $breadcrumbSchema = [
     'itemListElement' => [
         ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',    'item' => url()],
         ['@type' => 'ListItem', 'position' => 2, 'name' => 'Brokers', 'item' => url('brokers')],
-        ['@type' => 'ListItem', 'position' => 3, 'name' => $broker['name'] . ' Review'],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => $broker['name'] . ' Review', 'item' => url('brokers/' . $broker['slug'])],
     ],
 ];
 

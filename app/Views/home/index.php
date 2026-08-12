@@ -28,7 +28,7 @@ function renderStars(float $rating): string {
             <?php if (!empty($bn['image_url'])): ?>
             <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-image-link" rel="nofollow noopener sponsored" target="_blank"
                data-track="banner_click" data-track-label="<?= e($bn['bname'] ?: 'banner') ?>">
-                <img src="<?= e($bn['image_url']) ?>" alt="<?= e($bn['bname'] ?: 'Sponsored') ?>" class="banner-img-full">
+                <img src="<?= e($bn['image_url']) ?>" alt="<?= e($bn['bname'] ?: 'Sponsored') ?>" class="banner-img-full" loading="lazy">
             </a>
             <?php else: ?>
             <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-landscape" rel="nofollow noopener" target="_blank"
@@ -62,6 +62,7 @@ function renderStars(float $rating): string {
                     <?php if (!empty($broker['logo'])): ?>
                     <img src="<?= asset('img/brokers/' . $broker['logo']) ?>"
                          alt="<?= e($broker['name']) ?> logo"
+                         loading="lazy"
                          style="max-height:36px;max-width:130px;object-fit:contain">
                     <?php else: ?>
                     <div class="broker-logo-placeholder"><?= e($broker['name']) ?></div>
@@ -232,7 +233,7 @@ if ($bp1 || $bp2):
             <?php if (!empty($bn['image_url'])): ?>
             <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-image-link" rel="nofollow noopener sponsored" target="_blank"
                data-track="banner_click" data-track-label="<?= e($bn['bname'] ?: 'banner') ?>">
-                <img src="<?= e($bn['image_url']) ?>" alt="<?= e($bn['bname'] ?: 'Sponsored') ?>" class="banner-img-full">
+                <img src="<?= e($bn['image_url']) ?>" alt="<?= e($bn['bname'] ?: 'Sponsored') ?>" class="banner-img-full" loading="lazy">
             </a>
             <?php else: ?>
             <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-landscape" rel="nofollow noopener" target="_blank"

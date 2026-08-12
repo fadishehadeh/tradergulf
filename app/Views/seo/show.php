@@ -61,7 +61,7 @@ function seoStars(float $r): string {
                 <tr style="<?= $i % 2 === 0 ? '' : 'background:#fafafa' ?>">
                     <td style="padding:.85rem 1rem;border-bottom:1px solid var(--border)">
                         <?php if (!empty($br['logo'])): ?>
-                        <img src="<?= asset('img/brokers/' . $br['logo']) ?>"
+                        <img src="<?= asset('img/brokers/' . $br['logo']) ?>" loading="lazy"
                              alt="<?= e($br['name']) ?>"
                              style="max-height:28px;max-width:100px;object-fit:contain;display:block">
                         <?php else: ?>
