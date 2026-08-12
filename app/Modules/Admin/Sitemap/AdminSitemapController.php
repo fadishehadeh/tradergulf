@@ -13,7 +13,7 @@ class AdminSitemapController extends AdminBaseController
     {
         $this->requireAuth();
 
-        $path    = public_path('sitemap.xml');
+        $path    = web_path('sitemap.xml');
         $exists  = file_exists($path);
         $lastMod = $exists ? date('Y-m-d H:i:s', (int)filemtime($path)) : null;
         $urlCount = 0;
@@ -101,7 +101,7 @@ class AdminSitemapController extends AdminBaseController
         }
         $xml .= '</urlset>';
 
-        file_put_contents(public_path('sitemap.xml'), $xml);
+        file_put_contents(web_path('sitemap.xml'), $xml);
 
         // Auto-ping IndexNow (Bing) if key is configured
         $indexNowKey = setting('indexnow_key');

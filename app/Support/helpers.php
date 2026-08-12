@@ -44,6 +44,13 @@ function public_path(string $path = ''): string {
     return $path ? $pub . DIRECTORY_SEPARATOR . ltrim($path, '\\/') : $pub;
 }
 
+function web_path(string $path = ''): string {
+    // WEB_ROOT env var lets production point to the real web root (separate from BASE_PATH/public)
+    $root = env('WEB_ROOT') ?: public_path();
+    $root = rtrim($root, '\\/');
+    return $path ? $root . DIRECTORY_SEPARATOR . ltrim($path, '\\/') : $root;
+}
+
 function url(string $path = ''): string {
     $base = rtrim(config('app.url', 'http://localhost'), '/');
     $path = ltrim($path, '/');
