@@ -1,0 +1,31 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Production config (keep locally only)
+prod.env
+prod_index.php
+
+# Uploads (generated at runtime)
+public/assets/img/brokers/*.jpg
+public/assets/img/brokers/*.png
+public/assets/img/brokers/*.webp
+public/assets/img/brokers/*.svg
+public/assets/img/banners/*.jpg
+public/assets/img/banners/*.png
+public/assets/img/banners/*.webp
+
+# Generated sitemap
+public/sitemap.xml
+
+# Logs / caches
+*.log
+error_log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
