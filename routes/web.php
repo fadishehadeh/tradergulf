@@ -29,6 +29,7 @@ use App\Modules\Affiliate\AffiliateController;
 use App\Modules\Rss\RssController;
 use App\Modules\Admin\Contacts\AdminContactController;
 use App\Modules\Admin\Analytics\AdminAnalyticsController;
+use App\Modules\Admin\Admins\AdminAdminsController;
 
 $router = $app->router();
 
@@ -117,6 +118,13 @@ $router->get('/admin', [AdminDashboardController::class, 'index']);
 
 // Analytics
 $router->get('/admin/analytics', [AdminAnalyticsController::class, 'index']);
+
+// Admin user management
+$router->get('/admin/admins', [AdminAdminsController::class, 'index']);
+$router->get('/admin/admins/create', [AdminAdminsController::class, 'create']);
+$router->post('/admin/admins/create', [AdminAdminsController::class, 'store']);
+$router->post('/admin/admins/{id}/delete', [AdminAdminsController::class, 'delete']);
+$router->post('/admin/admins/{id}/password', [AdminAdminsController::class, 'changePassword']);
 
 // Brokers
 $router->get('/admin/brokers', [AdminBrokerController::class, 'index']);

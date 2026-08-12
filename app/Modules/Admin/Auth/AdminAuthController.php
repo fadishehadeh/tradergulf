@@ -13,7 +13,7 @@ class AdminAuthController extends AdminBaseController
     public function loginForm(Request $request): void
     {
         if (session()->get('admin_logged_in')) {
-            Response::redirect('/admin');
+            Response::redirect('admin');
         }
 
         View::render('admin/auth/login', [
@@ -25,28 +25,33 @@ class AdminAuthController extends AdminBaseController
     {
         $this->verifyCsrf();
 
-        $username = trim($_POST['username'] ?? '');
+        $email    = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
 
-        $validUser = $username === env('ADMIN_USER', 'admin');
-        $validPass = password_verify($password, env('ADMIN_PASS_HASH', ''));
+        $admin = app()->database()->fetch(
+            'SELECT * FROM admins WHERE email = ? AND is_active = 1',
+            [$email]
+        );
 
-        if ($validUser && $validPass) {
+        if ($admin && password_verify($password, $admin['password_hash'])) {
             session()->regenerate();
             session()->set('admin_logged_in', true);
-            session()->set('admin_user', $username);
-            Response::redirect('/admin');
+            session()->set('admin_user', $admin['email']);
+            session()->set('admin_name', $admin['name'] ?: $admin['email']);
+            session()->set('admin_id', (int) $admin['id']);
+            Response::redirect('admin');
         }
 
-        session()->flash('error', 'Invalid username or password.');
-        Response::redirect('/admin/login');
+        session()->flash('error', 'Invalid email or password.');
+        Response::redirect('admin/login');
     }
 
     public function logout(Request $request): void
     {
         session()->forget('admin_logged_in');
         session()->forget('admin_user');
-        session()->flash('success', 'You have been logged out.');
-        Response::redirect('/admin/login');
+        session()->forget('admin_name');
+        session()->forget('admin_id');
+        Response::redirect('admin/login');
     }
 }

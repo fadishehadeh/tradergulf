@@ -52,6 +52,7 @@
         ?>
 
         <div class="sidebar-section">System</div>
+        <?php adminNavLink(url('admin/admins'), '👥', 'Admin Users', $currentPath, $adminBase); ?>
         <?php adminNavLink(url('admin/settings'), '⚙️', 'Settings', $currentPath, $adminBase); ?>
 
         <div class="sidebar-section" style="margin-top:auto"></div>
@@ -59,7 +60,7 @@
     </nav>
 
     <div class="sidebar-footer">
-        Logged in as <strong style="color:rgba(255,255,255,.6)"><?= e(session()->get('admin_user', 'admin')) ?></strong>
+        Logged in as <strong style="color:rgba(255,255,255,.6)"><?= e(session()->get('admin_name', session()->get('admin_user', 'admin'))) ?></strong>
     </div>
 </aside>
 
