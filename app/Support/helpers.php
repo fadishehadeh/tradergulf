@@ -76,16 +76,9 @@ function csrf_field(): string {
     return '<input type="hidden" name="_csrf" value="' . e(csrf_token()) . '">';
 }
 
-function lang(): string {
-    try {
-        $l = session()->get('lang', 'en');
-        return in_array($l, ['en', 'ar']) ? $l : 'en';
-    } catch (\Throwable) {
-        return 'en';
-    }
-}
+function lang(): string { return 'en'; }
 
-function is_rtl(): bool { return lang() === 'ar'; }
+function is_rtl(): bool { return false; }
 
 function t(string $key): string {
     static $strings = null;

@@ -149,16 +149,6 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
             <a href="<?= url('glossary') ?>"><?= t('Glossary') ?></a>
             <a href="<?= url('compare') ?>" class="btn btn-primary btn-sm nav-cta"><?= t('Compare Now') ?></a>
 
-            <!-- Language switcher -->
-            <div class="lang-switcher">
-                <?php if ($_lang === 'ar'): ?>
-                <a href="<?= url('set-lang/en') ?>" class="lang-btn lang-btn-active">EN</a>
-                <a href="<?= url('set-lang/ar') ?>" class="lang-btn">ع</a>
-                <?php else: ?>
-                <a href="<?= url('set-lang/en') ?>" class="lang-btn">EN</a>
-                <a href="<?= url('set-lang/ar') ?>" class="lang-btn lang-btn-ar">ع</a>
-                <?php endif; ?>
-            </div>
         </nav>
     </div>
 </header>
