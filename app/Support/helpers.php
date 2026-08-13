@@ -111,7 +111,23 @@ function ad_zone(string $slug): string {
              ORDER BY a.id DESC LIMIT 1",
             [$slug]
         );
-        if (!$ad) return $cache[$slug] = '';
+        if (!$ad) {
+            $zone = $db->fetch('SELECT width, height, name FROM ad_zones WHERE slug = ?', [$slug]);
+            if (!$zone) return $cache[$slug] = '';
+            $w = (int)$zone['width']; $h = (int)$zone['height'];
+            $adUrl = url('advertise');
+            $html  = '<div style="text-align:center;padding:.75rem 0">';
+            $html .= '<a href="' . $adUrl . '" title="Advertise here" style="display:inline-block;text-decoration:none">';
+            $html .= '<div style="width:100%;max-width:' . $w . 'px;height:' . min($h, 90) . 'px;margin:0 auto;';
+            $html .= 'border:2px dashed rgba(52,211,153,.4);border-radius:8px;background:rgba(52,211,153,.04);';
+            $html .= 'display:flex;align-items:center;justify-content:center;gap:.75rem;color:rgba(52,211,153,.7);';
+            $html .= 'font-size:.8rem;font-weight:600;letter-spacing:.04em">';
+            $html .= '<span style="opacity:.6">📢</span>';
+            $html .= '<span>Your ad here &mdash; ' . $w . '×' . $h . 'px</span>';
+            $html .= '<span style="background:rgba(52,211,153,.15);padding:.2rem .6rem;border-radius:4px;font-size:.72rem">Advertise →</span>';
+            $html .= '</div></a></div>';
+            return $cache[$slug] = $html;
+        }
         $db->execute('UPDATE ads SET impressions = impressions + 1 WHERE id = ?', [$ad['id']]);
         $href = url('ad/' . $ad['id'] . '/click');
         $alt  = e($ad['alt_text'] ?: ($ad['advertiser'] ? $ad['advertiser'] . ' advertisement' : 'Advertisement'));
