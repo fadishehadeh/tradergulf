@@ -230,9 +230,17 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
                 <h4><?= t('Brokers') ?></h4>
                 <a href="<?= url('brokers') ?>"><?= t('All Reviews') ?></a>
                 <a href="<?= url('compare') ?>"><?= t('Compare Brokers') ?></a>
-                <a href="<?= url('best/islamic-forex-brokers') ?>">Islamic Accounts</a>
-                <a href="<?= url('best/best-forex-brokers-in-uae') ?>">UAE Brokers</a>
-                <a href="<?= url('best/best-forex-brokers-in-saudi-arabia') ?>">Saudi Brokers</a>
+                <a href="<?= url('islamic-forex-brokers') ?>">Islamic Accounts</a>
+            </div>
+            <div class="footer-col">
+                <h4>Brokers by Country</h4>
+                <a href="<?= url('forex-brokers-in/uae') ?>">🇦🇪 UAE</a>
+                <a href="<?= url('forex-brokers-in/saudi-arabia') ?>">🇸🇦 Saudi Arabia</a>
+                <a href="<?= url('forex-brokers-in/kuwait') ?>">🇰🇼 Kuwait</a>
+                <a href="<?= url('forex-brokers-in/qatar') ?>">🇶🇦 Qatar</a>
+                <a href="<?= url('forex-brokers-in/bahrain') ?>">🇧🇭 Bahrain</a>
+                <a href="<?= url('forex-brokers-in/oman') ?>">🇴🇲 Oman</a>
+                <a href="<?= url('forex-brokers-in/egypt') ?>">🇪🇬 Egypt</a>
             </div>
             <div class="footer-col">
                 <h4><?= t('Tools &amp; Learn') ?></h4>
