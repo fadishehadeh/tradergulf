@@ -155,6 +155,39 @@ function ad_zone(string $slug): string {
     }
 }
 
+function lead_capture_form(string $brokerSlug, string $brokerName, string $affiliateUrl): string {
+    if (!$affiliateUrl) return '';
+    $id   = 'lcf_' . preg_replace('/[^a-z0-9]/', '', strtolower($brokerSlug));
+    $dest = url('go/' . $brokerSlug);
+    $sub  = url('newsletter/subscribe');
+    $csrf = csrf_token();
+    $nm   = htmlspecialchars($brokerName, ENT_QUOTES, 'UTF-8');
+    return '<div style="background:linear-gradient(135deg,rgba(15,27,53,.96) 0%,rgba(9,17,42,.98) 100%);border:1px solid rgba(245,158,11,.25);border-radius:12px;padding:1.75rem 2rem;margin:2rem 0">'
+        . '<div style="display:flex;gap:1.25rem;align-items:flex-start">'
+        . '<div style="font-size:2rem;line-height:1">&#128273;</div>'
+        . '<div style="flex:1">'
+        . '<h3 style="color:#fff;font-size:1rem;margin:0 0 .25rem">Open an Account with ' . $nm . '</h3>'
+        . '<p style="color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 1.1rem;line-height:1.5">Enter your email and we\'ll send you the latest welcome offer details before you visit the broker site.</p>'
+        . '<form id="' . $id . '" style="display:flex;gap:.5rem;flex-wrap:wrap">'
+        . '<input type="email" id="' . $id . '_em" placeholder="Your email address" required '
+        .        'style="flex:1;min-width:200px;padding:.55rem .85rem;border-radius:7px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:.88rem;outline:none">'
+        . '<button type="submit" style="padding:.55rem 1.25rem;background:var(--accent);color:var(--navy-dark);font-weight:700;font-size:.88rem;border:none;border-radius:7px;cursor:pointer;white-space:nowrap">'
+        . 'Open Account &#8594;</button>'
+        . '</form>'
+        . '<p style="color:rgba(255,255,255,.3);font-size:.7rem;margin:.6rem 0 0">No spam. Trading involves significant risk of loss.</p>'
+        . '</div></div></div>'
+        . '<script>(function(){'
+        . 'var f=document.getElementById(' . json_encode($id) . ');'
+        . 'if(!f)return;'
+        . 'f.addEventListener("submit",function(e){'
+        . 'e.preventDefault();'
+        . 'var em=document.getElementById(' . json_encode($id . '_em') . ').value.trim();'
+        . 'if(em){var fd=new FormData();fd.append("email",em);fd.append("source",' . json_encode('lead_broker_' . $brokerSlug) . ');fd.append("_csrf",' . json_encode($csrf) . ');'
+        . 'fetch(' . json_encode($sub) . ',{method:"POST",body:fd}).catch(function(){});}'
+        . 'window.open(' . json_encode($dest) . ',"_blank","noopener,noreferrer");'
+        . '});})();</script>';
+}
+
 function setting(string $key, string $default = ''): string {
     static $cache = null;
     if ($cache === null) {

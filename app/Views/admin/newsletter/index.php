@@ -3,7 +3,10 @@
         <h2 style="font-size:1.05rem;margin:0">Newsletter Subscribers</h2>
         <div style="font-size:.82rem;color:var(--a-text-muted);margin-top:.2rem"><?= number_format($total) ?> total subscribers</div>
     </div>
-    <a href="<?= url('admin/settings') ?>" class="btn-a btn-a-outline btn-a-sm">&#8592; Settings</a>
+    <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+        <a href="<?= url('admin/newsletter/campaign') ?>" class="btn-a btn-a-accent btn-a-sm">&#9993; Send Campaign</a>
+        <a href="<?= url('admin/settings') ?>" class="btn-a btn-a-outline btn-a-sm">&#8592; Settings</a>
+    </div>
 </div>
 
 <div class="a-card">

@@ -11,13 +11,30 @@
     <div class="container" style="max-width:820px">
 
         <?php if (empty($members)): ?>
-        <!-- Default team if no settings configured -->
         <?php $members = [
             ['name'=>'Fadi Shehadeh','role'=>'Founder & Chief Editor','bio'=>'10+ years in forex trading and financial analysis. Based in the UAE, with deep expertise in Gulf-region broker regulation, DFSA compliance, and MENA trading markets. Previously traded proprietary capital at a Dubai-based fund.','img'=>''],
             ['name'=>'Sara Al-Mansouri','role'=>'Senior Broker Analyst','bio'=>'Certified Financial Analyst (CFA) with expertise in Gulf-region broker regulation and compliance. Specializes in Islamic finance products and halal trading accounts for Muslim investors in Saudi Arabia, UAE, and Kuwait.','img'=>''],
             ['name'=>'James Khoury','role'=>'US & Global Markets Analyst','bio'=>'Specialist in NFA/CFTC-regulated brokers and US trading legislation. Reviews global brokers for cross-border traders and US expats in the Gulf region. Based in New York.','img'=>''],
         ]; ?>
         <?php endif; ?>
+
+        <?php
+        // Person schema — runs after $members is fully populated
+        $headSchemas = ($headSchemas ?? '');
+        foreach ($members as $m) {
+            if (empty($m['name'])) continue;
+            $ps = [
+                '@context'    => 'https://schema.org',
+                '@type'       => 'Person',
+                'name'        => $m['name'],
+                'jobTitle'    => $m['role'] ?? '',
+                'description' => $m['bio'] ?? '',
+                'worksFor'    => ['@type' => 'Organization', 'name' => 'Trader Gulf', 'url' => url()],
+            ];
+            $j = json_encode($ps, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            $headSchemas .= "<script type=\"application/ld+json\">$j</script>\n";
+        }
+        ?>
 
         <?php foreach ($members as $member): ?>
         <?php if (empty($member['name'])) continue; ?>

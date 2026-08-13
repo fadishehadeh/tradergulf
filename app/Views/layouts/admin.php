@@ -44,6 +44,7 @@
         <?php adminNavLink(url('admin/seo'), '🔍', 'SEO Pages', $currentPath, $adminBase); ?>
         <?php adminNavLink(url('admin/sitemap'), '🗺️', 'Sitemap', $currentPath, $adminBase); ?>
         <?php adminNavLink(url('admin/newsletter'), '📧', 'Newsletter', $currentPath, $adminBase); ?>
+        <?php adminNavLink(url('admin/newsletter/campaign'), '📨', 'Send Campaign', $currentPath, $adminBase); ?>
 
         <div class="sidebar-section">Inbox</div>
         <?php

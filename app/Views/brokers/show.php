@@ -209,6 +209,11 @@ $sections = [
             <?php endif; ?>
         </section>
 
+        <!-- Lead-gen capture -->
+        <?php if ($broker['affiliate_url']): ?>
+        <?= lead_capture_form($broker['slug'], $broker['name'], $broker['affiliate_url']) ?>
+        <?php endif; ?>
+
         <!-- Social Share -->
         <?php
         $shareUrl   = urlencode(url('brokers/' . $broker['slug']));

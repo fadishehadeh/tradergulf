@@ -193,6 +193,8 @@ $router->post('/admin/sitemap/ping', [AdminSitemapController::class, 'ping']);
 
 // Newsletter admin
 $router->get('/admin/newsletter', [AdminNewsletterController::class, 'index']);
+$router->get('/admin/newsletter/campaign', [AdminNewsletterController::class, 'campaign']);
+$router->post('/admin/newsletter/campaign/send', [AdminNewsletterController::class, 'sendCampaign']);
 $router->post('/admin/newsletter/{id}/delete', [AdminNewsletterController::class, 'delete']);
 
 // Contact messages admin
