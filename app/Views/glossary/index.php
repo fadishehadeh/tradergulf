@@ -7,6 +7,13 @@
 
 <div class="container">
 
+    <div style="text-align:center;padding:.5rem 0 1.25rem">
+        <div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem">Advertisement</div>
+        <a href="https://clicks.pipaffiliates.com/c?m=150423&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored" data-track="banner_click" data-track-label="pip_glossary">
+            <img src="https://ads.pipaffiliates.com/i/150423?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
+        </a>
+    </div>
+
     <nav class="glossary-nav" aria-label="Glossary alphabet">
         <?php
         $alphabet = range('A', 'Z');

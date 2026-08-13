@@ -112,6 +112,13 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
 
         <?= ad_zone('broker_review_top') ?>
 
+        <div style="text-align:center;padding:.25rem 0 1.25rem">
+            <div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem">Advertisement</div>
+            <a href="https://clicks.pipaffiliates.com/c?m=133352&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored" data-track="banner_click" data-track-label="pip_versus">
+                <img src="https://ads.pipaffiliates.com/i/133352?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
+            </a>
+        </div>
+
         <h2 style="font-size:1.2rem;margin-bottom:1.25rem"><?= e($b1['name']) ?> vs <?= e($b2['name']) ?> — Quick Comparison</h2>
 
         <?php

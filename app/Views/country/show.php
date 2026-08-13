@@ -48,6 +48,13 @@ $fullName = $country['full_name'];
 
         <?= ad_zone('broker_listing_top') ?>
 
+        <div style="text-align:center;padding:.25rem 0 1.25rem">
+            <div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:.3rem">Advertisement</div>
+            <a href="https://clicks.pipaffiliates.com/c?m=132385&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored" data-track="banner_click" data-track-label="pip_country">
+                <img src="https://ads.pipaffiliates.com/i/132385?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
+            </a>
+        </div>
+
         <h2 style="font-size:1.2rem;margin-bottom:1.25rem">Top Forex Brokers for <?= e($name) ?> Traders</h2>
 
         <?php foreach ($brokers as $i => $b): ?>

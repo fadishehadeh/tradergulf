@@ -18,6 +18,13 @@ function renderStars(float $rating): string {
 
     <?php $__listingTopAd = ad_zone('broker_listing_top'); if ($__listingTopAd) echo $__listingTopAd; ?>
 
+    <div style="text-align:center;padding:.5rem 0 1rem">
+        <div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem">Advertisement</div>
+        <a href="https://clicks.pipaffiliates.com/c?m=131472&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored" data-track="banner_click" data-track-label="pip_brokers_listing">
+            <img src="https://ads.pipaffiliates.com/i/131472?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
+        </a>
+    </div>
+
     <?php $__betweenAd = ad_zone('between_listings'); ?>
     <div style="display:flex;flex-direction:column;gap:1rem">
     <?php foreach ($brokers as $__brokerIdx => $b): ?>

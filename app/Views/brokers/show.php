@@ -84,6 +84,14 @@ $sections = [
         </div>
         <?php endif; ?>
 
+        <!-- PipAffiliates banner -->
+        <div style="text-align:center;padding:.25rem 0 1.25rem">
+            <div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem">Advertisement</div>
+            <a href="https://clicks.pipaffiliates.com/c?m=132200&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored" data-track="banner_click" data-track-label="pip_broker_review">
+                <img src="https://ads.pipaffiliates.com/i/132200?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
+            </a>
+        </div>
+
         <!-- Overview -->
         <section id="overview">
             <h2>Overview</h2>
