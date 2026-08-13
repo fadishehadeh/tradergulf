@@ -118,6 +118,12 @@
             Active (shown on site)
         </label>
 
+        <label class="a-checkbox">
+            <input type="checkbox" name="is_featured" value="1"
+                   <?= !empty($broker['is_featured']) ? 'checked' : '' ?>>
+            ⭐ Featured (pinned to top, gold border — paid placement)
+        </label>
+
         <div class="form-actions">
             <button type="submit" class="btn-a btn-a-accent">
                 <?= isset($broker['id']) ? 'Save Changes' : 'Create Broker' ?>

@@ -21,7 +21,7 @@ function renderStars(float $rating): string {
     <?php $__betweenAd = ad_zone('between_listings'); ?>
     <div style="display:flex;flex-direction:column;gap:1rem">
     <?php foreach ($brokers as $__brokerIdx => $b): ?>
-        <div class="card">
+        <div class="card" <?= !empty($b['is_featured']) ? 'style="border-color:rgba(245,158,11,.4);box-shadow:0 0 0 1px rgba(245,158,11,.15)"' : '' ?>>
             <div class="card-body" style="display:grid;grid-template-columns:160px 1fr auto;gap:1.5rem;align-items:center">
 
                 <!-- Logo + Rating -->
@@ -42,7 +42,12 @@ function renderStars(float $rating): string {
 
                 <!-- Stats -->
                 <div>
-                    <h3 style="margin-bottom:.25rem"><?= e($b['name']) ?> Review</h3>
+                    <h3 style="margin-bottom:.25rem">
+                        <?= e($b['name']) ?> Review
+                        <?php if (!empty($b['is_featured'])): ?>
+                        <span style="font-size:.65rem;background:var(--accent);color:var(--navy-dark);padding:.15rem .45rem;border-radius:4px;font-weight:700;vertical-align:middle;margin-left:.4rem">⭐ FEATURED</span>
+                        <?php endif; ?>
+                    </h3>
                     <?php if ($b['tagline']): ?>
                     <p style="color:var(--muted);font-size:.9rem;margin-bottom:.85rem"><?= e($b['tagline']) ?></p>
                     <?php endif; ?>

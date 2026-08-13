@@ -16,7 +16,7 @@ class BrokerController extends Controller
 
         $total   = (int)$this->db()->fetchValue('SELECT COUNT(*) FROM brokers WHERE is_active = 1');
         $brokers = $this->db()->fetchAll(
-            "SELECT * FROM brokers WHERE is_active = 1 ORDER BY sort_order ASC LIMIT $perPage OFFSET $offset"
+            "SELECT * FROM brokers WHERE is_active = 1 ORDER BY is_featured DESC, sort_order ASC LIMIT $perPage OFFSET $offset"
         );
         $pages = (int)ceil($total / $perPage);
 

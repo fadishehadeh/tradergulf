@@ -47,13 +47,13 @@ class AdminBrokerController extends AdminBaseController
         $this->db()->execute(
             'INSERT INTO brokers (name, slug, headquarters, founded_year, min_deposit,
              spread_eurusd, max_leverage, overall_rating, regulation, platforms,
-             affiliate_url, logo, is_active)
-             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
+             affiliate_url, logo, is_active, is_featured)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
             [
                 $data['name'], $data['slug'], $data['headquarters'], $data['founded_year'],
                 $data['min_deposit'], $data['spread_eurusd'], $data['max_leverage'],
                 $data['overall_rating'], $data['regulation'], $data['platforms'],
-                $data['affiliate_url'], $data['logo'], $data['is_active'],
+                $data['affiliate_url'], $data['logo'], $data['is_active'], $data['is_featured'],
             ]
         );
 
@@ -87,12 +87,12 @@ class AdminBrokerController extends AdminBaseController
         $this->db()->execute(
             'UPDATE brokers SET name=?, slug=?, headquarters=?, founded_year=?, min_deposit=?,
              spread_eurusd=?, max_leverage=?, overall_rating=?, regulation=?, platforms=?,
-             affiliate_url=?, logo=?, is_active=? WHERE id=?',
+             affiliate_url=?, logo=?, is_active=?, is_featured=? WHERE id=?',
             [
                 $data['name'], $data['slug'], $data['headquarters'], $data['founded_year'],
                 $data['min_deposit'], $data['spread_eurusd'], $data['max_leverage'],
                 $data['overall_rating'], $data['regulation'], $data['platforms'],
-                $data['affiliate_url'], $data['logo'], $data['is_active'], (int) $id,
+                $data['affiliate_url'], $data['logo'], $data['is_active'], $data['is_featured'], (int) $id,
             ]
         );
 
@@ -164,6 +164,7 @@ class AdminBrokerController extends AdminBaseController
             'affiliate_url'  => trim($post['affiliate_url'] ?? ''),
             'logo'           => trim($post['logo'] ?? ''),
             'is_active'      => isset($post['is_active']) ? 1 : 0,
+            'is_featured'    => isset($post['is_featured']) ? 1 : 0,
         ];
     }
 }

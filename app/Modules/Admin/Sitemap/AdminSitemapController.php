@@ -70,6 +70,15 @@ class AdminSitemapController extends AdminBaseController
             $urls[] = ['loc' => $base . $loc, 'lastmod' => $today, 'priority' => $pri, 'freq' => $freq];
         }
 
+        // Comparison pages
+        foreach ([
+            'exness-vs-xm', 'pepperstone-vs-ic-markets', 'exness-vs-pepperstone',
+            'xm-vs-ic-markets', 'exness-vs-ic-markets', 'avatrade-vs-pepperstone',
+            'fp-markets-vs-ic-markets',
+        ] as $pair) {
+            $urls[] = ['loc' => $base . '/compare/' . $pair, 'lastmod' => $today, 'priority' => '0.75', 'freq' => 'monthly'];
+        }
+
         // Active brokers
         foreach ($this->db()->fetchAll('SELECT slug FROM brokers WHERE is_active = 1 ORDER BY sort_order ASC') as $b) {
             $urls[] = ['loc' => $base . '/brokers/' . $b['slug'], 'lastmod' => $today, 'priority' => '0.85', 'freq' => 'monthly'];

@@ -130,7 +130,7 @@ class CountryController extends Controller
         if (!$country) $this->notFound();
 
         $brokers = $this->db()->fetchAll(
-            'SELECT * FROM brokers WHERE is_active = 1 ORDER BY overall_rating DESC, sort_order ASC'
+            'SELECT * FROM brokers WHERE is_active = 1 ORDER BY is_featured DESC, overall_rating DESC, sort_order ASC'
         );
 
         $pageUrl   = url('forex-brokers-in/' . $country['slug']);
