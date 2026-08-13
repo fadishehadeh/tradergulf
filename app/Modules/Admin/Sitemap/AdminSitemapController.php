@@ -58,6 +58,14 @@ class AdminSitemapController extends AdminBaseController
             ['/contact', '0.4', 'monthly'],
             ['/privacy-policy', '0.3', 'monthly'],
             ['/risk-disclaimer', '0.3', 'monthly'],
+            ['/islamic-forex-brokers', '0.8', 'weekly'],
+            ['/forex-brokers-in/uae', '0.85', 'weekly'],
+            ['/forex-brokers-in/saudi-arabia', '0.85', 'weekly'],
+            ['/forex-brokers-in/kuwait', '0.85', 'weekly'],
+            ['/forex-brokers-in/qatar', '0.8', 'weekly'],
+            ['/forex-brokers-in/bahrain', '0.8', 'weekly'],
+            ['/forex-brokers-in/oman', '0.8', 'weekly'],
+            ['/forex-brokers-in/egypt', '0.8', 'weekly'],
         ] as [$loc, $pri, $freq]) {
             $urls[] = ['loc' => $base . $loc, 'lastmod' => $today, 'priority' => $pri, 'freq' => $freq];
         }
