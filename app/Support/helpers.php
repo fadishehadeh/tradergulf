@@ -116,15 +116,13 @@ function ad_zone(string $slug): string {
             if (!$zone) return $cache[$slug] = '';
             $w = (int)$zone['width']; $h = (int)$zone['height'];
             $adUrl = url('advertise');
-            $html  = '<div style="text-align:center;padding:.75rem 0">';
-            $html .= '<a href="' . $adUrl . '" title="Advertise here" style="display:inline-block;text-decoration:none">';
-            $html .= '<div style="width:100%;max-width:' . $w . 'px;height:' . min($h, 90) . 'px;margin:0 auto;';
-            $html .= 'border:2px dashed rgba(52,211,153,.4);border-radius:8px;background:rgba(52,211,153,.04);';
-            $html .= 'display:flex;align-items:center;justify-content:center;gap:.75rem;color:rgba(52,211,153,.7);';
-            $html .= 'font-size:.8rem;font-weight:600;letter-spacing:.04em">';
-            $html .= '<span style="opacity:.6">📢</span>';
-            $html .= '<span>Your ad here &mdash; ' . $w . '×' . $h . 'px</span>';
-            $html .= '<span style="background:rgba(52,211,153,.15);padding:.2rem .6rem;border-radius:4px;font-size:.72rem">Advertise →</span>';
+            $html  = '<div style="margin:.5rem 0">';
+            $html .= '<a href="' . $adUrl . '" style="display:block;text-decoration:none">';
+            $html .= '<div style="width:100%;height:80px;background:#0f1b35;border-radius:8px;';
+            $html .= 'display:flex;align-items:center;justify-content:space-between;padding:0 2rem;box-sizing:border-box">';
+            $html .= '<div style="color:rgba(255,255,255,.35);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase">';
+            $html .= 'Advertisement &nbsp;&middot;&nbsp; ' . $w . '&times;' . $h . '</div>';
+            $html .= '<div style="background:#34d399;color:#09112a;font-size:.78rem;font-weight:700;padding:.45rem 1.1rem;border-radius:6px;letter-spacing:.03em">Advertise Here</div>';
             $html .= '</div></a></div>';
             return $cache[$slug] = $html;
         }
