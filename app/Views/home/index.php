@@ -47,17 +47,22 @@ function renderStars(float $rating): string {
 </div>
 <?php endif; ?>
 
+<!-- BANNER 2 – PipAffiliates -->
+<div class="banner-section">
+    <div class="container">
+        <div class="banner-label"><?= t('Sponsored') ?></div>
+        <div class="banner-wrap" style="text-align:center">
+            <a href="https://clicks.pipaffiliates.com/c?m=131432&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored"
+               data-track="banner_click" data-track-label="pipaffiliates_homepage">
+                <img src="https://ads.pipaffiliates.com/i/131432?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
+            </a>
+        </div>
+    </div>
+</div>
+
 <?php $__adZone = ad_zone('homepage_leaderboard'); if ($__adZone): ?>
 <div class="container"><?= $__adZone ?></div>
 <?php endif; ?>
-
-<!-- PipAffiliates banner -->
-<div class="container" style="text-align:center;padding:.75rem 0">
-    <div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:.3rem">Advertisement</div>
-    <a href="https://clicks.pipaffiliates.com/c?m=131432&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored">
-        <img src="https://ads.pipaffiliates.com/i/131432?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
-    </a>
-</div>
 
 <!-- FEATURED BROKERS -->
 <section class="section">
