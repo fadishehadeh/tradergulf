@@ -19,7 +19,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
     <?php
     $ogTitle = $title ?? setting('site_name', 'Trader Gulf');
     $ogDesc  = $metaDesc ?? setting('site_tagline', '');
-    $ogImg   = $ogImage ?? setting('og_image', '');
+    $ogImg   = $ogImage ?? setting('og_image', asset('img/og-default.svg'));
     $ogUrl   = $canonical ?? url(ltrim(strtok($_SERVER['REQUEST_URI'] ?? '/', '?'), '/'));
     ?>
     <meta property="og:site_name"   content="<?= e(setting('site_name', 'Trader Gulf')) ?>">
@@ -150,7 +150,15 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 <header class="site-header">
     <div class="container header-inner">
         <a href="<?= url() ?>" class="site-logo">
-            <span class="site-logo-text">Trader<span>Gulf</span></span>
+            <svg width="38" height="38" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0" aria-hidden="true">
+                <rect width="32" height="32" rx="7" fill="#0f1b35"/>
+                <rect x="3"    y="24" width="5.5" height="7"  rx="1.5" fill="#34d399" opacity="0.4"/>
+                <rect x="10.5" y="18" width="5.5" height="13" rx="1.5" fill="#34d399" opacity="0.65"/>
+                <rect x="18"   y="11" width="5.5" height="20" rx="1.5" fill="#34d399" opacity="0.85"/>
+                <rect x="25.5" y="4"  width="5.5" height="27" rx="1.5" fill="#34d399"/>
+                <polyline points="5.75,24 13.25,18 20.75,11 28.25,4" fill="none" stroke="white" stroke-width="1.2" stroke-opacity="0.2" stroke-linecap="round"/>
+            </svg>
+            <div class="site-logo-text">TRADER<span>GULF</span></div>
         </a>
 
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
