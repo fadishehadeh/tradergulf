@@ -32,6 +32,7 @@ use App\Modules\Admin\Analytics\AdminAnalyticsController;
 use App\Modules\Admin\Admins\AdminAdminsController;
 use App\Modules\Admin\Ads\AdminAdsController;
 use App\Modules\Ads\AdsController;
+use App\Modules\Country\CountryController;
 
 $router = $app->router();
 
@@ -95,6 +96,9 @@ $router->get('/terms-of-service', [PageController::class, 'terms']);
 
 // MENA / Gulf pages (Phase 2)
 $router->get('/islamic-forex-brokers', [PageController::class, 'islamicBrokers']);
+
+// Country SEO pages — /forex-brokers-in/{country-slug}
+$router->get('/forex-brokers-in/{country}', [CountryController::class, 'show']);
 
 // Advertise page
 $router->get('/advertise', [PageController::class, 'advertise']);
