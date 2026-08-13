@@ -16,8 +16,11 @@ function renderStars(float $rating): string {
 
 <div class="container">
 
+    <?php $__listingTopAd = ad_zone('broker_listing_top'); if ($__listingTopAd) echo $__listingTopAd; ?>
+
+    <?php $__betweenAd = ad_zone('between_listings'); ?>
     <div style="display:flex;flex-direction:column;gap:1rem">
-    <?php foreach ($brokers as $b): ?>
+    <?php foreach ($brokers as $__brokerIdx => $b): ?>
         <div class="card">
             <div class="card-body" style="display:grid;grid-template-columns:160px 1fr auto;gap:1.5rem;align-items:center">
 
@@ -65,6 +68,9 @@ function renderStars(float $rating): string {
 
             </div>
         </div>
+        <?php if ($__betweenAd && ($__brokerIdx + 1) % 4 === 0 && ($__brokerIdx + 1) < count($brokers)): ?>
+        <?= $__betweenAd ?>
+        <?php endif; ?>
     <?php endforeach; ?>
     </div>
 

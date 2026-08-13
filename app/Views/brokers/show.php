@@ -66,6 +66,8 @@ $sections = [
             <a href="#<?= $id ?>"><?= $label ?></a>
             <?php endforeach; ?>
         </nav>
+
+        <?php $__sidebarAd = ad_zone('broker_review_sidebar'); if ($__sidebarAd) echo $__sidebarAd; ?>
     </aside>
 
     <!-- REVIEW CONTENT -->

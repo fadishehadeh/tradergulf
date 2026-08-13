@@ -58,6 +58,8 @@
             <a href="<?= url('calculators/position-size') ?>" class="btn btn-ghost btn-sm btn-block" style="margin-bottom:.4rem">Position Size</a>
             <a href="<?= url('calculators/margin') ?>"        class="btn btn-ghost btn-sm btn-block">Margin Calculator</a>
         </div>
+        <?php $__guideAd = ad_zone('guide_sidebar'); if ($__guideAd) echo $__guideAd; ?>
+
         <?php if (!empty($related)): ?>
         <div class="card card-body">
             <h4 style="margin-bottom:.75rem">Related Articles</h4>

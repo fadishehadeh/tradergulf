@@ -97,6 +97,36 @@ function t(string $key): string {
     return $strings[$key] ?? $key;
 }
 
+function ad_zone(string $slug): string {
+    static $cache = [];
+    if (array_key_exists($slug, $cache)) return $cache[$slug];
+    try {
+        $db = app()->database();
+        $ad = $db->fetch(
+            "SELECT a.*, z.width, z.height FROM ads a
+             JOIN ad_zones z ON z.id = a.zone_id
+             WHERE z.slug = ? AND a.is_active = 1
+               AND (a.starts_at IS NULL OR a.starts_at <= CURDATE())
+               AND (a.ends_at   IS NULL OR a.ends_at   >= CURDATE())
+             ORDER BY a.id DESC LIMIT 1",
+            [$slug]
+        );
+        if (!$ad) return $cache[$slug] = '';
+        $db->execute('UPDATE ads SET impressions = impressions + 1 WHERE id = ?', [$ad['id']]);
+        $href = url('ad/' . $ad['id'] . '/click');
+        $alt  = e($ad['alt_text'] ?: ($ad['advertiser'] ? $ad['advertiser'] . ' advertisement' : 'Advertisement'));
+        $html  = '<div style="text-align:center;padding:.75rem 0">';
+        $html .= '<div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem">Advertisement</div>';
+        $html .= '<a href="' . $href . '" target="_blank" rel="nofollow noopener sponsored">';
+        $html .= '<img src="' . e($ad['image_url']) . '" alt="' . $alt . '" ';
+        $html .= 'style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">';
+        $html .= '</a></div>';
+        return $cache[$slug] = $html;
+    } catch (\Throwable) {
+        return $cache[$slug] = '';
+    }
+}
+
 function setting(string $key, string $default = ''): string {
     static $cache = null;
     if ($cache === null) {

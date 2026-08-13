@@ -30,6 +30,8 @@ use App\Modules\Rss\RssController;
 use App\Modules\Admin\Contacts\AdminContactController;
 use App\Modules\Admin\Analytics\AdminAnalyticsController;
 use App\Modules\Admin\Admins\AdminAdminsController;
+use App\Modules\Admin\Ads\AdminAdsController;
+use App\Modules\Ads\AdsController;
 
 $router = $app->router();
 
@@ -99,6 +101,9 @@ $router->get('/advertise', [PageController::class, 'advertise']);
 
 // AI Chat endpoint
 $router->post('/api/chat', [ChatController::class, 'respond']);
+
+// Ad click tracking
+$router->get('/ad/{id}/click', [AdsController::class, 'click']);
 
 // Affiliate link cloaking
 $router->get('/go/{slug}', [AffiliateController::class, 'go']);
@@ -189,3 +194,12 @@ $router->post('/admin/newsletter/{id}/delete', [AdminNewsletterController::class
 $router->get('/admin/contacts', [AdminContactController::class, 'index']);
 $router->get('/admin/contacts/{id}', [AdminContactController::class, 'show']);
 $router->post('/admin/contacts/{id}/delete', [AdminContactController::class, 'delete']);
+
+// Ad spaces admin
+$router->get('/admin/ads', [AdminAdsController::class, 'index']);
+$router->get('/admin/ads/create', [AdminAdsController::class, 'create']);
+$router->post('/admin/ads/create', [AdminAdsController::class, 'store']);
+$router->get('/admin/ads/{id}/edit', [AdminAdsController::class, 'edit']);
+$router->post('/admin/ads/{id}/edit', [AdminAdsController::class, 'update']);
+$router->post('/admin/ads/{id}/toggle', [AdminAdsController::class, 'toggle']);
+$router->post('/admin/ads/{id}/delete', [AdminAdsController::class, 'delete']);

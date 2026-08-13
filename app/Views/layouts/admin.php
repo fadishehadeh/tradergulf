@@ -39,7 +39,8 @@
         <?php adminNavLink(url('admin/pages'), '📄', 'Static Pages', $currentPath, $adminBase); ?>
 
         <div class="sidebar-section">Marketing</div>
-        <?php adminNavLink(url('admin/banners'), '🖼️', 'Banners', $currentPath, $adminBase); ?>
+        <?php adminNavLink(url('admin/ads'), '💰', 'Ad Spaces', $currentPath, $adminBase); ?>
+        <?php adminNavLink(url('admin/banners'), '🖼️', 'IB Banners', $currentPath, $adminBase); ?>
         <?php adminNavLink(url('admin/seo'), '🔍', 'SEO Pages', $currentPath, $adminBase); ?>
         <?php adminNavLink(url('admin/sitemap'), '🗺️', 'Sitemap', $currentPath, $adminBase); ?>
         <?php adminNavLink(url('admin/newsletter'), '📧', 'Newsletter', $currentPath, $adminBase); ?>

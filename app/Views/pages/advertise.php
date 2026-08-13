@@ -55,62 +55,52 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
         <h2 style="font-size:1.5rem;margin-bottom:.5rem">Ad Formats &amp; Pricing</h2>
         <p style="color:var(--text-muted);margin-bottom:2.5rem">All placements are reviewed for quality. Broker partners receive preferred placement.</p>
 
+        <?php
+        $placements = [
+            ['tag'=>'Homepage','name'=>'Homepage Leaderboard','size'=>'728×90','price'=>'$299','unit'=>'/month','popular'=>false,
+             'desc'=>'Full-width image banner displayed directly below the hero section on the homepage. Maximum visibility for every new visitor.'],
+            ['tag'=>'Broker Reviews','name'=>'Broker Review Page Top','size'=>'970×90','price'=>'$349','unit'=>'/month','popular'=>true,
+             'desc'=>'Wide banner below the page header on every individual broker review page — seen by high-intent visitors actively evaluating brokers.'],
+            ['tag'=>'Broker Listings','name'=>'Broker Listings Top','size'=>'728×90','price'=>'$249','unit'=>'/month','popular'=>false,
+             'desc'=>'Banner at the very top of the /brokers comparison page, above all broker rows. Seen by every visitor browsing the full broker list.'],
+            ['tag'=>'Broker Listings','name'=>'Between Broker Listings','size'=>'728×90','price'=>'$199','unit'=>'/month','popular'=>false,
+             'desc'=>'Your banner injected naturally after every 4th broker row as visitors scroll through listings. High scroll-depth, high engagement.'],
+            ['tag'=>'Broker Reviews','name'=>'Broker Review Sidebar','size'=>'300×250','price'=>'$199','unit'=>'/month','popular'=>false,
+             'desc'=>'Sticky rectangle ad in the sidebar of all individual broker review pages. Visible throughout the full read — high dwell time.'],
+            ['tag'=>'Guides & News','name'=>'Guide / Article Sidebar','size'=>'300×250','price'=>'$149','unit'=>'/month','popular'=>false,
+             'desc'=>'Rectangle ad in the sidebar of all trading guides and news articles. Targets education-stage traders who are researching before committing.'],
+            ['tag'=>'Email','name'=>'Newsletter Sponsorship','size'=>'600×100','price'=>'$149','unit'=>'/send','popular'=>false,
+             'desc'=>'Featured placement in our subscriber email digest. Your logo, headline, and CTA sent directly to verified opt-in MENA traders.'],
+            ['tag'=>'Content','name'=>'Sponsored Review / Article','size'=>'—','price'=>'$799','unit'=>'one-time','popular'=>false,
+             'desc'=>'In-depth SEO-optimised article or broker review featuring your brand. Permanent placement with schema markup and sponsored disclosure.'],
+        ];
+        ?>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem">
-
-            <!-- Leaderboard banner -->
-            <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.75rem">
-                <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:.5rem">Homepage</div>
-                <h3 style="font-size:1.05rem;margin-bottom:.5rem">Leaderboard Banner</h3>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">728×90 or custom image banner above/below broker listings. Your logo, message, and CTA — or supply your own image.</p>
-                <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:.25rem">$299 <span style="font-size:.85rem;font-weight:400;color:var(--text-muted)">/month</span></div>
-                <div style="font-size:.78rem;color:var(--text-muted)">Min. 1 month · exclusive per position</div>
-            </div>
-
-            <!-- Portrait card -->
-            <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.75rem">
-                <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:.5rem">Homepage</div>
-                <h3 style="font-size:1.05rem;margin-bottom:.5rem">Featured Broker Card</h3>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">300×600 portrait card with your broker data (spread, deposit, leverage, regulation) pulled automatically from your profile. Prominent "Open Account" CTA.</p>
-                <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:.25rem">$199 <span style="font-size:.85rem;font-weight:400;color:var(--text-muted)">/month</span></div>
-                <div style="font-size:.78rem;color:var(--text-muted)">Min. 1 month · 2 positions available</div>
-            </div>
-
-            <!-- Top broker position -->
-            <div style="background:var(--card-bg);border:2px solid var(--accent);border-radius:12px;padding:1.75rem;position:relative">
+        <?php foreach ($placements as $p): ?>
+            <div style="background:var(--card-bg);border:<?= $p['popular'] ? '2px solid var(--accent)' : '1px solid var(--border)' ?>;border-radius:12px;padding:1.75rem;position:relative">
+                <?php if ($p['popular']): ?>
                 <div style="position:absolute;top:-1px;right:1.25rem;background:var(--accent);color:var(--navy-dark);font-size:.68rem;font-weight:700;padding:.2rem .65rem;border-radius:0 0 6px 6px">MOST POPULAR</div>
-                <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:.5rem">Broker Listings</div>
-                <h3 style="font-size:1.05rem;margin-bottom:.5rem">Top Broker Placement</h3>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">Guaranteed first or second position in our broker listings and homepage featured cards. Includes "Editor's Pick" badge and priority in comparison tool results.</p>
-                <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:.25rem">$499 <span style="font-size:.85rem;font-weight:400;color:var(--text-muted)">/month</span></div>
-                <div style="font-size:.78rem;color:var(--text-muted)">3-month minimum · 1 position only</div>
+                <?php endif; ?>
+                <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:.5rem"><?= $p['tag'] ?></div>
+                <h3 style="font-size:1.05rem;margin-bottom:.35rem"><?= $p['name'] ?></h3>
+                <div style="font-size:.75rem;color:var(--text-muted);margin-bottom:.75rem;font-family:monospace"><?= $p['size'] ?>px</div>
+                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem;line-height:1.55"><?= $p['desc'] ?></p>
+                <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:.25rem">
+                    <?= $p['price'] ?> <span style="font-size:.85rem;font-weight:400;color:var(--text-muted)"><?= $p['unit'] ?></span>
+                </div>
+                <a href="<?= url('contact') ?>" class="btn btn-outline btn-sm" style="margin-top:.75rem"
+                   data-track="cta_click" data-track-label="advertise_<?= strtolower(str_replace(' ','_',$p['name'])) ?>">
+                    Book This Spot →
+                </a>
             </div>
+        <?php endforeach; ?>
 
-            <!-- Review article -->
-            <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.75rem">
-                <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:.5rem">Content</div>
-                <h3 style="font-size:1.05rem;margin-bottom:.5rem">Sponsored Review / Article</h3>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">In-depth broker review or educational article featuring your brand. Includes SEO optimisation, schema markup, and a permanent "Sponsored" disclosure label.</p>
-                <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:.25rem">$799 <span style="font-size:.85rem;font-weight:400;color:var(--text-muted)">one-time</span></div>
-                <div style="font-size:.78rem;color:var(--text-muted)">Permanent placement · SEO indexed</div>
-            </div>
-
-            <!-- Newsletter -->
-            <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.75rem">
-                <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:.5rem">Email</div>
-                <h3 style="font-size:1.05rem;margin-bottom:.5rem">Newsletter Sponsorship</h3>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">Featured placement in our subscriber email digest. Includes your logo, headline, and CTA link. Sent to verified opt-in subscribers in MENA.</p>
-                <div style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:.25rem">$149 <span style="font-size:.85rem;font-weight:400;color:var(--text-muted)">/send</span></div>
-                <div style="font-size:.78rem;color:var(--text-muted)">Min. 3 sends · growing list</div>
-            </div>
-
-            <!-- Custom -->
             <div style="background:var(--card-bg);border:1px dashed var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:200px">
                 <div style="font-size:1.75rem;margin-bottom:.5rem">🤝</div>
                 <h3 style="font-size:1.05rem;margin-bottom:.5rem">Custom Package</h3>
-                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">IB partnerships, affiliate programmes, geo-targeted placements, and bespoke integrations. Let's talk.</p>
+                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1rem">IB partnerships, geo-targeted placements, run-of-site packages, and bespoke integrations. Let's talk.</p>
                 <a href="<?= url('contact') ?>" class="btn btn-outline btn-sm">Get in Touch</a>
             </div>
-
         </div>
     </div>
 </section>

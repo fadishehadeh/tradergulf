@@ -47,6 +47,10 @@ function renderStars(float $rating): string {
 </div>
 <?php endif; ?>
 
+<?php $__adZone = ad_zone('homepage_leaderboard'); if ($__adZone): ?>
+<div class="container"><?= $__adZone ?></div>
+<?php endif; ?>
+
 <!-- FEATURED BROKERS -->
 <section class="section">
     <div class="container">
