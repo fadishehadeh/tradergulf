@@ -51,6 +51,7 @@ $router->get('/brokers/{slug}', [BrokerController::class, 'show']);
 // Compare
 $router->get('/compare', [CompareController::class, 'index']);
 $router->get('/compare/data', [CompareController::class, 'data']);
+$router->get('/compare/{versus}', [CompareController::class, 'comparison']);
 
 // Calculators
 $router->get('/calculators/pip', [CalculatorController::class, 'pip']);
