@@ -33,6 +33,10 @@ $sections = [
     </div>
 </div>
 
+<?php $__reviewTopAd = ad_zone('broker_review_top'); if ($__reviewTopAd): ?>
+<div class="container" style="padding-top:1rem"><?= $__reviewTopAd ?></div>
+<?php endif; ?>
+
 <div class="container">
 <div class="review-layout">
 
