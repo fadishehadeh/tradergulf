@@ -33,6 +33,7 @@ use App\Modules\Admin\Admins\AdminAdminsController;
 use App\Modules\Admin\Ads\AdminAdsController;
 use App\Modules\Ads\AdsController;
 use App\Modules\Country\CountryController;
+use App\Modules\Search\SearchController;
 
 $router = $app->router();
 
@@ -40,6 +41,9 @@ $router = $app->router();
 
 // Home
 $router->get('/', [HomeController::class, 'index']);
+
+// Search
+$router->get('/search', [SearchController::class, 'index']);
 
 // Language switcher
 $router->get('/set-lang/{lang}', [SetLangController::class, 'switch']);

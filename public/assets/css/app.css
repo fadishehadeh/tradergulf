@@ -116,6 +116,14 @@ main { flex: 1; padding: 2rem 0; }
 }
 .nav-cta:hover { background: var(--accent-h) !important; }
 
+.nav-search-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 7px; flex-shrink: 0;
+    color: rgba(255,255,255,.8); transition: background .15s, color .15s;
+    padding: 0 !important; margin-left: .25rem;
+}
+.nav-search-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+
 .nav-toggle {
     display: none;
     background: none;

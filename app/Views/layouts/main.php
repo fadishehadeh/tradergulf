@@ -102,7 +102,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
         'name'=>setting('site_name','Trader Gulf'),'url'=>url(),
         'description'=>setting('site_tagline','Independent forex broker reviews.'),
         'potentialAction'=>['@type'=>'SearchAction',
-            'target'=>['@type'=>'EntryPoint','urlTemplate'=>url('brokers').'?q={search_term_string}'],
+            'target'=>['@type'=>'EntryPoint','urlTemplate'=>url('search').'?q={search_term_string}'],
             'query-input'=>'required name=search_term_string'],
         'publisher'=>['@type'=>'Organization','name'=>setting('site_name','Trader Gulf'),'url'=>url()],
     ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?></script>
@@ -170,7 +170,9 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
             <a href="<?= url('guides') ?>"><?= t('Guides') ?></a>
             <a href="<?= url('glossary') ?>"><?= t('Glossary') ?></a>
             <a href="<?= url('compare') ?>" class="btn btn-primary btn-sm nav-cta"><?= t('Compare Now') ?></a>
-
+            <a href="<?= url('search') ?>" class="nav-search-btn" aria-label="Search" title="Search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </a>
         </nav>
     </div>
 </header>

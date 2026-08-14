@@ -1,3 +1,15 @@
+<?php
+// DefinedTerm schema
+$_defText = substr(strip_tags($term['definition_html'] ?? ''), 0, 500);
+$_schema  = ['@context'=>'https://schema.org','@type'=>'DefinedTerm',
+    'name'       => $term['term'],
+    'description'=> $_defText,
+    'url'        => url('glossary/' . $term['slug']),
+    'inDefinedTermSet' => ['@type'=>'DefinedTermSet','name'=>'Forex Trading Glossary','url'=>url('glossary')],
+];
+$headSchemas = ($headSchemas ?? '')
+    . '<script type="application/ld+json">' . json_encode($_schema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <div class="breadcrumbs">
