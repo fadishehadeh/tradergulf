@@ -475,7 +475,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
         input.value = '';
         addTyping();
 
-        fetch('/api/chat', {
+        fetch(<?= json_encode(url('api/chat')) ?>, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({message: text})
