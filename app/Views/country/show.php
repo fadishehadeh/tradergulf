@@ -163,3 +163,45 @@ if ($__lcBroker):
     </div>
 </section>
 <?php endif; ?>
+
+<?php
+// ── Structured data ────────────────────────────────────────────────
+$__countryBreadcrumb = [
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',                          'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Forex Brokers',                 'item' => url('brokers')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => 'Best Forex Brokers in ' . $fullName, 'item' => url('forex-brokers-in/' . $slug)],
+    ],
+];
+
+$__countryItemList = [
+    '@context'        => 'https://schema.org',
+    '@type'           => 'ItemList',
+    'name'            => 'Best Forex Brokers in ' . $fullName . ' ' . date('Y'),
+    'description'     => $country['intro'],
+    'url'             => url('forex-brokers-in/' . $slug),
+    'numberOfItems'   => count($brokers),
+    'itemListElement' => array_values(array_map(fn($b, $i) => [
+        '@type'    => 'ListItem',
+        'position' => $i + 1,
+        'name'     => $b['name'],
+        'url'      => url('brokers/' . $b['slug']),
+    ], $brokers, array_keys($brokers))),
+];
+?>
+<script type="application/ld+json"><?= json_encode($__countryBreadcrumb, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+<script type="application/ld+json"><?= json_encode($__countryItemList, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+
+<?php if (!empty($country['faqs'])): ?>
+<script type="application/ld+json"><?= json_encode([
+    '@context'   => 'https://schema.org',
+    '@type'      => 'FAQPage',
+    'mainEntity' => array_map(fn($f) => [
+        '@type'          => 'Question',
+        'name'           => $f['q'],
+        'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f['a']],
+    ], $country['faqs']),
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+<?php endif; ?>

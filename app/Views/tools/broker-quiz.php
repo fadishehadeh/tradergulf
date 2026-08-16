@@ -1,5 +1,25 @@
 <?php
 // broker-quiz.php — $brokersJson passed from ToolsController
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'            => 'https://schema.org',
+    '@type'               => 'WebApplication',
+    'name'                => 'Forex Broker Finder Quiz',
+    'description'         => 'Answer 5 quick questions and get a personalised forex broker recommendation matched to your trading style, experience, and region.',
+    'url'                 => url('broker-quiz'),
+    'applicationCategory' => 'FinanceApplication',
+    'operatingSystem'     => 'Web',
+    'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+    'featureList'         => 'Personalised broker matching, Islamic account filter, leverage preference, Gulf region support',
+    'provider'            => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',         'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Broker Quiz',  'item' => url('broker-quiz')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
 ?>
 <!-- Broker Quiz -->
 <section class="tool-hero">

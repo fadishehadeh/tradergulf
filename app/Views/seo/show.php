@@ -5,6 +5,37 @@ function seoStars(float $r): string {
 }
 ?>
 
+<?php
+$__seoBreadcrumb = [
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',           'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Brokers',        'item' => url('brokers')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => $page['h1'],      'item' => url('best/' . $page['slug'])],
+    ],
+];
+echo '<script type="application/ld+json">' . json_encode($__seoBreadcrumb, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+
+if (!empty($brokers)) {
+    $__seoItemList = [
+        '@context'        => 'https://schema.org',
+        '@type'           => 'ItemList',
+        'name'            => $page['h1'],
+        'description'     => strip_tags($page['intro_html'] ?? ''),
+        'url'             => url('best/' . $page['slug']),
+        'numberOfItems'   => count($brokers),
+        'itemListElement' => array_values(array_map(fn($b, $i) => [
+            '@type'    => 'ListItem',
+            'position' => $i + 1,
+            'name'     => $b['name'],
+            'url'      => url('brokers/' . $b['slug']),
+        ], $brokers, array_keys($brokers))),
+    ];
+    echo '<script type="application/ld+json">' . json_encode($__seoItemList, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+}
+?>
+
 <!-- Breadcrumb -->
 <div style="background:#f8fafc;border-bottom:1px solid var(--border);padding:.65rem 0">
     <div class="container" style="font-size:.82rem;color:var(--muted)">

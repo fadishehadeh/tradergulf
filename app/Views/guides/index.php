@@ -37,3 +37,28 @@
     </div>
 <?php endif; ?>
 </div>
+
+<?php if (!empty($guides)): ?>
+<script type="application/ld+json"><?= json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',                   'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Forex Trading Guides', 'item' => url('guides')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+<script type="application/ld+json"><?= json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'ItemList',
+    'name'            => 'Forex Trading Guides',
+    'description'     => 'Beginner-friendly guides to help you understand forex trading and make better decisions.',
+    'url'             => url('guides'),
+    'numberOfItems'   => count($guides),
+    'itemListElement' => array_values(array_map(fn($g, $i) => [
+        '@type'    => 'ListItem',
+        'position' => $i + 1,
+        'name'     => $g['title'],
+        'url'      => url('guides/' . $g['slug']),
+    ], $guides, array_keys($guides))),
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+<?php endif; ?>

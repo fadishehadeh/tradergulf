@@ -107,3 +107,30 @@ function renderStars(float $rating): string {
     </div>
 
 </div>
+
+<?php
+$__breadcrumb = [
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Forex Broker Reviews', 'item' => url('brokers')],
+    ],
+];
+$__itemList = [
+    '@context'       => 'https://schema.org',
+    '@type'          => 'ItemList',
+    'name'           => 'Best Forex Brokers — Independent Reviews',
+    'description'    => 'Independent, in-depth reviews of the world\'s top forex and CFD brokers.',
+    'url'            => url('brokers'),
+    'numberOfItems'  => count($brokers),
+    'itemListElement'=> array_values(array_map(fn($b, $i) => [
+        '@type'    => 'ListItem',
+        'position' => $i + 1,
+        'name'     => $b['name'] . ' Review',
+        'url'      => url('brokers/' . $b['slug']),
+    ], $brokers, array_keys($brokers))),
+];
+?>
+<script type="application/ld+json"><?= json_encode($__breadcrumb, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+<script type="application/ld+json"><?= json_encode($__itemList, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>

@@ -172,10 +172,12 @@ class PageController extends Controller
     {
         $content = setting('robots_txt');
         if (empty($content)) {
-            $content = "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /go/\n";
+            $content = "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /go/\nDisallow: /set-lang/\nDisallow: /api/\nDisallow: /ad/\nDisallow: /compare/data\nDisallow: /newsletter/\n";
         }
-        if (!str_contains($content, 'Disallow: /go/')) {
-            $content = rtrim($content) . "\nDisallow: /go/\n";
+        foreach (['/go/', '/set-lang/', '/api/', '/ad/', '/compare/data', '/newsletter/'] as $path) {
+            if (!str_contains($content, 'Disallow: ' . $path)) {
+                $content = rtrim($content) . "\nDisallow: " . $path . "\n";
+            }
         }
         if (!str_contains($content, 'Sitemap:')) {
             $content = rtrim($content) . "\n\nSitemap: " . url('sitemap.xml') . "\n";

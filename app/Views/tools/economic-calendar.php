@@ -1,3 +1,25 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'            => 'https://schema.org',
+    '@type'               => 'WebApplication',
+    'name'                => 'Forex Economic Calendar',
+    'description'         => 'Live economic events calendar with high-impact data releases, central bank decisions, and market-moving announcements. Track NFP, FOMC, CPI, and more.',
+    'url'                 => url('economic-calendar'),
+    'applicationCategory' => 'FinanceApplication',
+    'operatingSystem'     => 'Web',
+    'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+    'featureList'         => 'Live economic events, NFP FOMC CPI releases, central bank decisions, high-impact forex calendar',
+    'provider'            => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',               'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Economic Calendar',  'item' => url('economic-calendar')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <!-- Economic Calendar -->
 <section class="tool-hero">
     <div class="container">

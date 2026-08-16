@@ -301,6 +301,13 @@ $reviewSchema = [
         'url'         => $broker['affiliate_url'] ?: url('brokers/' . $broker['slug']),
         'areaServed'  => 'Worldwide',
         'currenciesAccepted' => 'USD, EUR, GBP',
+        'aggregateRating' => [
+            '@type'       => 'AggregateRating',
+            'ratingValue' => (string)$broker['overall_rating'],
+            'bestRating'  => '5',
+            'worstRating' => '1',
+            'reviewCount' => '1',
+        ],
     ],
 ];
 

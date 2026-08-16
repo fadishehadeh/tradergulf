@@ -1,3 +1,25 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'            => 'https://schema.org',
+    '@type'               => 'WebApplication',
+    'name'                => 'Currency Converter — Live Exchange Rates',
+    'description'         => 'Convert between 150+ currencies with live mid-market rates from the European Central Bank, updated daily. Free online tool for AED, SAR, USD, EUR, GBP, and more.',
+    'url'                 => url('currency-converter'),
+    'applicationCategory' => 'FinanceApplication',
+    'operatingSystem'     => 'Web',
+    'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+    'featureList'         => 'Live ECB exchange rates, 150+ currency pairs, AED SAR USD EUR GBP conversion',
+    'provider'            => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',               'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Currency Converter', 'item' => url('currency-converter')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <!-- Currency Converter -->
 <section class="tool-hero">
     <div class="container">
