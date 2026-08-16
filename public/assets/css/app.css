@@ -1470,3 +1470,229 @@ body.rtl input, body.rtl textarea, body.rtl select { text-align: right; }
 body.rtl .chat-toggle-btn { right:auto; left:1.5rem; }
 body.rtl .chat-panel      { right:auto; left:1.5rem; }
 
+/* ── CSS variable aliases (fallbacks for older sections) ─── */
+:root {
+    --card-bg:   var(--card, #ffffff);
+    --text-main: var(--text, #1e293b);
+    --text-muted: var(--muted, #64748b);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Guide / Article page
+   ═══════════════════════════════════════════════════════════ */
+
+/* Two-column layout: article + sidebar */
+.guide-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+    padding-bottom: 3rem;
+}
+
+@media (max-width: 900px) {
+    .guide-layout { grid-template-columns: 1fr; }
+    .guide-sidebar { order: -1; }
+}
+
+/* --- Article column --------------------------------------- */
+.guide-article {
+    min-width: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+@media (max-width: 600px) {
+    .guide-article { padding: 1.25rem; }
+}
+
+/* Meta bar under h1 */
+.guide-meta-bar {
+    font-size: .82rem;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem;
+    margin-top: .5rem;
+}
+
+/* Lead excerpt */
+.guide-excerpt {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.7;
+    border-left: 4px solid var(--accent);
+    padding: .75rem 1rem;
+    margin: 1.5rem 0;
+    background: rgba(245,158,11,.05);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Table of Contents */
+.guide-toc {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    margin: 1.5rem 0;
+}
+.guide-toc strong {
+    display: block;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin-bottom: .65rem;
+}
+.guide-toc ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+.guide-toc ol li a {
+    font-size: .88rem;
+    color: var(--navy);
+    text-decoration: none;
+    line-height: 1.4;
+}
+.guide-toc ol li a:hover { color: var(--accent); text-decoration: underline; }
+
+/* Article body typography */
+.guide-body { line-height: 1.8; color: var(--text); }
+.guide-body h2 {
+    font-size: 1.35rem;
+    margin: 2.25rem 0 .75rem;
+    padding-top: .5rem;
+    border-top: 1px solid var(--border);
+    color: var(--navy);
+    scroll-margin-top: 80px;
+}
+.guide-body h3 {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 .5rem;
+    color: var(--navy);
+    scroll-margin-top: 80px;
+}
+.guide-body h2:first-child,
+.guide-body h3:first-child { border-top: none; margin-top: 0; }
+.guide-body p { margin-bottom: 1rem; }
+.guide-body ul, .guide-body ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+.guide-body li { margin-bottom: .35rem; }
+.guide-body a { color: var(--blue); }
+.guide-body strong { color: var(--navy); }
+.guide-body blockquote {
+    border-left: 4px solid var(--accent);
+    padding: .75rem 1rem;
+    margin: 1.25rem 0;
+    color: var(--muted);
+    font-style: italic;
+    background: rgba(245,158,11,.04);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Key takeaways box */
+.key-takeaways {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+    color: #fff;
+}
+.key-takeaways h3 {
+    color: var(--accent);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: .85rem;
+}
+.key-takeaways ul { padding-left: 1.25rem; }
+.key-takeaways li { margin-bottom: .5rem; font-size: .92rem; line-height: 1.6; color: rgba(255,255,255,.88); }
+
+/* FAQ section */
+.guide-body .faq-list { margin-top: .75rem; }
+.guide-body details.faq-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: .6rem;
+    overflow: hidden;
+}
+.guide-body details.faq-item summary {
+    padding: .9rem 1rem;
+    font-weight: 600;
+    font-size: .92rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--navy);
+}
+.guide-body details.faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--accent); }
+.guide-body details.faq-item[open] summary::after { content: '−'; }
+.guide-body details.faq-item > div,
+.guide-body details.faq-item > p {
+    padding: 0 1rem 1rem;
+    font-size: .88rem;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* Share bar */
+.guide-share {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin: 2rem 0 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: .82rem;
+    color: var(--muted);
+}
+.share-btn {
+    padding: .35rem .85rem;
+    border-radius: 6px;
+    font-size: .78rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity .15s;
+}
+.share-btn:hover { opacity: .8; text-decoration: none; }
+.share-tw { background: #000;    color: #fff; }
+.share-li { background: #0077b5; color: #fff; }
+.share-fb { background: #1877f2; color: #fff; }
+.share-wa { background: #25d366; color: #fff; }
+
+/* Editorial independence note */
+.editorial-note {
+    font-size: .78rem;
+    color: var(--muted);
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: .85rem 1rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+.editorial-note strong { color: var(--navy); }
+
+/* --- Sidebar ------------------------------------------------ */
+.guide-sidebar { position: sticky; top: 1.5rem; }
+.guide-sidebar-inner { display: flex; flex-direction: column; gap: 1rem; }
+
+@media (max-width: 900px) {
+    .guide-sidebar { position: static; }
+    .guide-sidebar-inner { display: grid; grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .guide-sidebar-inner { grid-template-columns: 1fr; }
+}
+
+/* Card / card-body utility (if not already global) */
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius, 8px); }
+.card-body { padding: 1.25rem; }
+
