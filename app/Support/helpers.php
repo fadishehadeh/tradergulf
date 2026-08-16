@@ -112,33 +112,7 @@ function ad_zone(string $slug): string {
             [$slug]
         );
         if (!$ad) {
-            $zone = $db->fetch('SELECT width, height, name, price_monthly FROM ad_zones WHERE slug = ?', [$slug]);
-            if (!$zone) return $cache[$slug] = '';
-            $w = (int)$zone['width']; $h = (int)$zone['height'];
-            $price = '$' . number_format((float)$zone['price_monthly'], 0) . '/mo';
-            $adUrl = url('advertise');
-            $isWide = $w >= 600;
-            static $styleEmitted = false;
-            $style = '';
-            if (!$styleEmitted) {
-                $style = '<style>@keyframes adPulse{0%,100%{opacity:1;text-shadow:0 0 20px #34d399,0 0 40px #34d399}50%{opacity:.55;text-shadow:none}}.ad-ph-text{animation:adPulse 1.6s ease-in-out infinite}</style>';
-                $styleEmitted = true;
-            }
-            $html = $style . '<div style="margin:.5rem 0"><a href="' . $adUrl . '" style="display:block;text-decoration:none">';
-            if ($isWide) {
-                $html .= '<div style="width:100%;height:90px;background:#0f1b35;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;box-sizing:border-box">';
-                $html .= '<div class="ad-ph-text" style="color:#34d399;font-size:1.6rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase">Advertise Here</div>';
-                $html .= '<div style="text-align:right"><div style="background:#34d399;color:#09112a;font-size:.85rem;font-weight:800;padding:.55rem 1.4rem;border-radius:6px;letter-spacing:.03em">Book This Spot</div><div style="color:rgba(255,255,255,.3);font-size:.68rem;margin-top:.35rem">' . $w . '&times;' . $h . ' &middot; ' . $price . '</div></div>';
-                $html .= '</div>';
-            } else {
-                $html .= '<div style="width:100%;min-height:200px;background:#0f1b35;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:1.5rem;box-sizing:border-box;text-align:center">';
-                $html .= '<div class="ad-ph-text" style="color:#34d399;font-size:1.3rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase">Advertise Here</div>';
-                $html .= '<div style="color:rgba(255,255,255,.3);font-size:.72rem">' . $w . '&times;' . $h . ' &middot; ' . $price . '</div>';
-                $html .= '<div style="background:#34d399;color:#09112a;font-size:.8rem;font-weight:800;padding:.5rem 1.25rem;border-radius:6px">Book This Spot</div>';
-                $html .= '</div>';
-            }
-            $html .= '</a></div>';
-            return $cache[$slug] = $html;
+            return $cache[$slug] = '';
         }
         $db->execute('UPDATE ads SET impressions = impressions + 1 WHERE id = ?', [$ad['id']]);
         $href = url('ad/' . $ad['id'] . '/click');
