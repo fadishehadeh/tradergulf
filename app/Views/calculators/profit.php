@@ -91,7 +91,7 @@ SCRIPT;
 <div class="container" style="padding:1.5rem 0 2.5rem">
     <a href="<?= url('advertise') ?>" class="advertise-here-sm" data-track="cta_click" data-track-label="advertise_profit_bottom">
         <div class="adv-inner">
-            <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise Here</div><div class="adv-sub">Reach active forex traders — contact fshehadeh@gmail.com</div></div>
+            <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise Here</div><div class="adv-sub">Reach active forex traders</div></div>
             <div class="adv-btn">Get In Touch →</div>
         </div>
     </a>

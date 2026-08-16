@@ -38,7 +38,7 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bSc
 <div class="container" style="padding:.75rem 0">
     <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_islamic_top">
         <div class="adv-inner">
-            <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach active forex traders across the Gulf region — email fshehadeh@gmail.com</div></div>
+            <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach active forex traders across the Gulf region</div></div>
             <div class="adv-btn">Get In Touch →</div>
         </div>
     </a>

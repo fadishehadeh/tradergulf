@@ -10,7 +10,7 @@
     <div style="padding:.5rem 0 1.25rem">
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_compare_top">
             <div class="adv-inner">
-                <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach thousands of active forex traders — email fshehadeh@gmail.com</div></div>
+                <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach thousands of active forex traders</div></div>
                 <div class="adv-btn">Get In Touch →</div>
             </div>
         </a>

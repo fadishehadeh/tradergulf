@@ -162,7 +162,7 @@ function renderStars(float $rating): string {
                 <div>
                     <div class="adv-tag">Advertisement</div>
                     <div class="adv-title">Advertise With Trader Gulf</div>
-                    <div class="adv-sub">Reach active forex traders across the Gulf region — email fshehadeh@gmail.com</div>
+                    <div class="adv-sub">Reach active forex traders across the Gulf region</div>
                 </div>
                 <div class="adv-btn">Get In Touch →</div>
             </div>
