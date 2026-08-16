@@ -112,10 +112,12 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
 
         <?= ad_zone('broker_review_top') ?>
 
-        <div style="text-align:center;padding:.25rem 0 1.25rem">
-            <div style="font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem">Advertisement</div>
-            <a href="https://clicks.pipaffiliates.com/c?m=133352&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored" data-track="banner_click" data-track-label="pip_versus">
-                <img src="https://ads.pipaffiliates.com/i/133352?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
+        <div style="padding:.25rem 0 1.25rem">
+            <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_versus_top">
+                <div class="adv-inner">
+                    <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach thousands of active forex traders — email fshehadeh@gmail.com</div></div>
+                    <div class="adv-btn">Get In Touch →</div>
+                </div>
             </a>
         </div>
 

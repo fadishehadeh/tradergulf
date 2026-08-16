@@ -1,12 +1,33 @@
 <div class="page-header">
     <div class="container">
         <h1>Forex Market News</h1>
-        <p>Latest forex market news, analysis, and updates.</p>
+        <p>Live market news, analysis, and updates from the global forex markets.</p>
     </div>
 </div>
 
-<div class="container">
-<?php if (!empty($news)): ?>
+<div class="container" style="padding-bottom:3rem">
+
+    <!-- TradingView News Widget -->
+    <div style="margin-bottom:2rem">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+            {
+                "feedMode": "all_symbols",
+                "isTransparent": false,
+                "displayMode": "regular",
+                "width": "100%",
+                "height": 600,
+                "colorTheme": "dark",
+                "locale": "en"
+            }
+            </script>
+        </div>
+    </div>
+
+    <!-- Also show internal news articles if any -->
+    <?php if (!empty($news)): ?>
+    <h2 style="font-size:1.2rem;margin-bottom:1.25rem">Recent Analysis</h2>
     <div class="article-grid">
     <?php foreach ($news as $n): ?>
         <div class="article-card">
@@ -16,13 +37,10 @@
                 <?php if ($n['excerpt']): ?>
                 <p><?= e($n['excerpt']) ?></p>
                 <?php endif; ?>
+                <a href="<?= url('news/' . $n['slug']) ?>" class="btn btn-ghost btn-sm" style="margin-top:.75rem">Read More →</a>
             </div>
         </div>
     <?php endforeach; ?>
     </div>
-<?php else: ?>
-    <div style="text-align:center;padding:4rem;color:var(--muted)">
-        <p>No news articles yet. Check back soon.</p>
-    </div>
-<?php endif; ?>
+    <?php endif; ?>
 </div>

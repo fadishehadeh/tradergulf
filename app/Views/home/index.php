@@ -19,44 +19,42 @@ function renderStars(float $rating): string {
     </div>
 </section>
 
-<!-- BANNER 1 – Landscape -->
-<?php if (!empty($banners['home_landscape_1'])): $bn = $banners['home_landscape_1']; ?>
+<!-- ADVERTISE HERE – hero-zone banner (shows real banner when active, placeholder otherwise) -->
 <div class="banner-section">
     <div class="container">
+        <?php if (!empty($banners['home_landscape_1'])): $bn = $banners['home_landscape_1']; ?>
         <div class="banner-label"><?= t('Sponsored') ?></div>
         <div class="banner-wrap">
             <?php if (!empty($bn['image_url'])): ?>
             <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-image-link" rel="nofollow noopener sponsored" target="_blank"
-               data-track="banner_click" data-track-label="<?= e($bn['bname'] ?: 'banner') ?>">
-                <img src="<?= e($bn['image_url']) ?>" alt="<?= e($bn['bname'] ?: 'Sponsored') ?>" class="banner-img-full" loading="lazy">
+               data-track="banner_click" data-track-label="<?= e($bn['headline'] ?: 'banner') ?>">
+                <img src="<?= e($bn['image_url']) ?>" alt="<?= e($bn['headline'] ?: 'Sponsored') ?>" class="banner-img-full" loading="lazy">
             </a>
             <?php else: ?>
             <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-landscape" rel="nofollow noopener" target="_blank"
                <?= !empty($bn['bg_style']) ? 'style="' . e($bn['bg_style']) . '"' : '' ?>
-               data-track="banner_click" data-track-label="<?= e($bn['bname'] ?: 'banner') ?>">
-                <div class="b-logo"><?= e($bn['bname'] ?: $bn['headline']) ?></div>
+               data-track="banner_click" data-track-label="<?= e($bn['headline'] ?: 'banner') ?>">
+                <div class="b-logo"><?= e($bn['headline']) ?></div>
                 <div class="b-copy">
                     <strong><?= e($bn['headline']) ?></strong>
-                    <?= e($bn['sub_text']) ?>
+                    <?= e($bn['sub_text'] ?? '') ?>
                 </div>
                 <div class="b-cta"><?= e($bn['cta_text'] ?: t('Open Account')) ?> &rarr;</div>
             </a>
             <?php endif; ?>
         </div>
-    </div>
-</div>
-<?php endif; ?>
-
-<!-- BANNER 2 – PipAffiliates -->
-<div class="banner-section">
-    <div class="container">
-        <div class="banner-label"><?= t('Sponsored') ?></div>
-        <div class="banner-wrap" style="text-align:center">
-            <a href="https://clicks.pipaffiliates.com/c?m=131432&c=1236678" referrerpolicy="no-referrer-when-downgrade" target="_blank" rel="nofollow noopener sponsored"
-               data-track="banner_click" data-track-label="pipaffiliates_homepage">
-                <img src="https://ads.pipaffiliates.com/i/131432?c=1236678" width="600" height="90" referrerpolicy="no-referrer-when-downgrade" alt="Sponsored" style="max-width:100%;height:auto;border-radius:6px;display:inline-block" loading="lazy">
-            </a>
-        </div>
+        <?php else: ?>
+        <a href="<?= url('advertise') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">
+            <div class="adv-inner">
+                <div>
+                    <div class="adv-tag">Your Ad Here</div>
+                    <div class="adv-title">Advertise With Trader Gulf</div>
+                    <div class="adv-sub">Reach thousands of active forex traders across the Gulf region and MENA</div>
+                </div>
+                <div class="adv-btn">Get In Touch →</div>
+            </div>
+        </a>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -124,93 +122,8 @@ function renderStars(float $rating): string {
     </div>
 </section>
 
-<!-- BANNER 2 – Portrait pair -->
-<?php
-$bp1 = $banners['home_portrait_1'] ?? null;
-$bp2 = $banners['home_portrait_2'] ?? null;
-if ($bp1 || $bp2):
-?>
-<div class="banner-section" style="background:var(--navy-dark);padding:2rem 0">
-    <div class="container">
-        <div class="banner-label" style="color:rgba(255,255,255,.35)"><?= t('Partner Brokers') ?></div>
-        <div class="banner-portrait-pair">
-
-            <?php if ($bp1): ?>
-            <a href="<?= e($bp1['link_url'] ?: '#') ?>" class="banner-portrait" rel="nofollow noopener" target="_blank"
-               <?= !empty($bp1['bg_style']) ? 'style="' . e($bp1['bg_style']) . '"' : '' ?>>
-                <?php if (!empty($bp1['badge_text'])): ?>
-                <div class="b-tag"><?= e($bp1['badge_text']) ?></div>
-                <?php endif; ?>
-                <div class="b-name"><?= e($bp1['bname'] ?: $bp1['headline']) ?></div>
-                <?php if (!empty($bp1['overall_rating'])): ?>
-                <div class="b-rating"><?= str_repeat('★', (int)round((float)$bp1['overall_rating'])) ?> <?= e($bp1['overall_rating']) ?></div>
-                <?php endif; ?>
-                <?php if (!empty($bp1['spread_eurusd'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('EUR/USD Spread') ?></span><span class="b-stat-value"><?= e($bp1['spread_eurusd']) ?> <?= t('pips') ?></span></div>
-                <?php endif; ?>
-                <?php if (!empty($bp1['min_deposit'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('Min Deposit') ?></span><span class="b-stat-value">$<?= number_format((float)$bp1['min_deposit']) ?></span></div>
-                <?php endif; ?>
-                <?php if (!empty($bp1['max_leverage'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('Max Leverage') ?></span><span class="b-stat-value"><?= e($bp1['max_leverage']) ?></span></div>
-                <?php endif; ?>
-                <?php if (!empty($bp1['regulation'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('Regulation') ?></span><span class="b-stat-value"><?= e($bp1['regulation']) ?></span></div>
-                <?php endif; ?>
-                <?php if (!empty($bp1['platforms'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('Platforms') ?></span><span class="b-stat-value"><?= e($bp1['platforms']) ?></span></div>
-                <?php endif; ?>
-                <div class="b-cta"><?= e($bp1['cta_text'] ?: t('Trade Now')) ?> &rarr;</div>
-                <div class="b-disclaimer">74–89% of retail CFD accounts lose money.</div>
-            </a>
-            <?php endif; ?>
-
-            <?php if ($bp2): ?>
-            <a href="<?= e($bp2['link_url'] ?: '#') ?>" class="banner-portrait" rel="nofollow noopener" target="_blank"
-               <?= !empty($bp2['bg_style']) ? 'style="' . e($bp2['bg_style']) . '"' : '' ?>>
-                <?php if (!empty($bp2['badge_text'])): ?>
-                <div class="b-tag"><?= e($bp2['badge_text']) ?></div>
-                <?php endif; ?>
-                <div class="b-name"><?= e($bp2['bname'] ?: $bp2['headline']) ?></div>
-                <?php if (!empty($bp2['overall_rating'])): ?>
-                <div class="b-rating"><?= str_repeat('★', (int)round((float)$bp2['overall_rating'])) ?> <?= e($bp2['overall_rating']) ?></div>
-                <?php endif; ?>
-                <?php if (!empty($bp2['spread_eurusd'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('EUR/USD Spread') ?></span><span class="b-stat-value"><?= e($bp2['spread_eurusd']) ?> <?= t('pips') ?></span></div>
-                <?php endif; ?>
-                <?php if (!empty($bp2['min_deposit'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('Min Deposit') ?></span><span class="b-stat-value">$<?= number_format((float)$bp2['min_deposit']) ?></span></div>
-                <?php endif; ?>
-                <?php if (!empty($bp2['max_leverage'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('Max Leverage') ?></span><span class="b-stat-value"><?= e($bp2['max_leverage']) ?></span></div>
-                <?php endif; ?>
-                <?php if (!empty($bp2['regulation'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('Regulation') ?></span><span class="b-stat-value"><?= e($bp2['regulation']) ?></span></div>
-                <?php endif; ?>
-                <?php if (!empty($bp2['platforms'])): ?>
-                <div class="b-stat"><span class="b-stat-label"><?= t('Platforms') ?></span><span class="b-stat-value"><?= e($bp2['platforms']) ?></span></div>
-                <?php endif; ?>
-                <div class="b-cta"><?= e($bp2['cta_text'] ?: t('Open Account')) ?> &rarr;</div>
-                <div class="b-disclaimer">74–89% of retail CFD accounts lose money.</div>
-            </a>
-            <?php endif; ?>
-
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
-<!-- COMPARE CTA -->
-<section class="section section-alt">
-    <div class="container" style="text-align:center">
-        <h2><?= t('Compare Brokers Side by Side') ?></h2>
-        <p style="color:var(--muted);max-width:500px;margin:.75rem auto 1.75rem"><?= t('Select up to 4 brokers and instantly compare spreads, leverage, regulation, platforms and more.') ?></p>
-        <a href="<?= url('compare') ?>" class="btn btn-primary btn-lg"><?= t('Open Compare Tool') ?></a>
-    </div>
-</section>
-
 <!-- CALCULATORS -->
-<section class="section">
+<section class="section section-alt">
     <div class="container">
         <div class="section-header">
             <h2><?= t('Trading Calculators') ?></h2>
@@ -241,37 +154,25 @@ if ($bp1 || $bp2):
     </div>
 </section>
 
-<!-- BANNER 3 – Landscape -->
-<?php if (!empty($banners['home_landscape_2'])): $bn = $banners['home_landscape_2']; ?>
+<!-- ADVERTISE HERE – mid-page slot (replaces Pepperstone banner) -->
 <div class="banner-section">
     <div class="container">
-        <div class="banner-label"><?= t('Sponsored') ?></div>
-        <div class="banner-wrap">
-            <?php if (!empty($bn['image_url'])): ?>
-            <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-image-link" rel="nofollow noopener sponsored" target="_blank"
-               data-track="banner_click" data-track-label="<?= e($bn['bname'] ?: 'banner') ?>">
-                <img src="<?= e($bn['image_url']) ?>" alt="<?= e($bn['bname'] ?: 'Sponsored') ?>" class="banner-img-full" loading="lazy">
-            </a>
-            <?php else: ?>
-            <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-landscape" rel="nofollow noopener" target="_blank"
-               <?= !empty($bn['bg_style']) ? 'style="' . e($bn['bg_style']) . '"' : '' ?>
-               data-track="banner_click" data-track-label="<?= e($bn['bname'] ?: 'banner') ?>">
-                <div class="b-logo"><?= e($bn['bname'] ?: $bn['headline']) ?></div>
-                <div class="b-copy">
-                    <strong><?= e($bn['headline']) ?></strong>
-                    <?= e($bn['sub_text']) ?>
+        <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_mid_slot">
+            <div class="adv-inner">
+                <div>
+                    <div class="adv-tag">Advertisement</div>
+                    <div class="adv-title">Advertise With Trader Gulf</div>
+                    <div class="adv-sub">Reach active forex traders across the Gulf region — email fshehadeh@gmail.com</div>
                 </div>
-                <div class="b-cta"><?= e($bn['cta_text'] ?: t('Trade Now')) ?> &rarr;</div>
-            </a>
-            <?php endif; ?>
-        </div>
+                <div class="adv-btn">Get In Touch →</div>
+            </div>
+        </a>
     </div>
 </div>
-<?php endif; ?>
 
 <!-- GUIDES + NEWS -->
 <?php if (!empty($latestGuides) || !empty($latestNews)): ?>
-<section class="section section-alt">
+<section class="section">
     <div class="container">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem">
 

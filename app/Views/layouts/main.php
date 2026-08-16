@@ -152,10 +152,10 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
         <a href="<?= url() ?>" class="site-logo">
             <svg width="38" height="38" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0" aria-hidden="true">
                 <rect width="32" height="32" rx="7" fill="#0f1b35"/>
-                <rect x="3"    y="24" width="5.5" height="7"  rx="1.5" fill="#34d399" opacity="0.4"/>
-                <rect x="10.5" y="18" width="5.5" height="13" rx="1.5" fill="#34d399" opacity="0.65"/>
-                <rect x="18"   y="11" width="5.5" height="20" rx="1.5" fill="#34d399" opacity="0.85"/>
-                <rect x="25.5" y="4"  width="5.5" height="27" rx="1.5" fill="#34d399"/>
+                <rect x="3"    y="24" width="5.5" height="7"  rx="1.5" fill="#f59e0b" opacity="0.4"/>
+                <rect x="10.5" y="18" width="5.5" height="13" rx="1.5" fill="#f59e0b" opacity="0.65"/>
+                <rect x="18"   y="11" width="5.5" height="20" rx="1.5" fill="#f59e0b" opacity="0.85"/>
+                <rect x="25.5" y="4"  width="5.5" height="27" rx="1.5" fill="#f59e0b"/>
                 <polyline points="5.75,24 13.25,18 20.75,11 28.25,4" fill="none" stroke="white" stroke-width="1.2" stroke-opacity="0.2" stroke-linecap="round"/>
             </svg>
             <div class="site-logo-text">TRADER<span>GULF</span></div>
@@ -185,26 +185,6 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 <!-- ========== FOOTER ========== -->
 <footer class="site-footer">
     <div class="container">
-        <!-- Newsletter strip -->
-        <?php if (setting('newsletter_enabled', '1') === '1'): ?>
-        <div class="newsletter-strip">
-            <div class="newsletter-text">
-                <strong><?= t('Stay Updated') ?></strong>
-                <span><?= t('Get the latest broker reviews and market insights in your inbox.') ?></span>
-            </div>
-            <form class="newsletter-form" id="footerNewsletter" action="<?= url('newsletter/subscribe') ?>" method="post">
-                <?= csrf_field() ?>
-                <input type="hidden" name="source" value="footer">
-                <input type="email" name="email" required
-                       placeholder="<?= t('Your email address') ?>"
-                       class="newsletter-input">
-                <button type="submit" class="newsletter-btn"><?= t('Subscribe') ?></button>
-            </form>
-            <div class="newsletter-success" id="newsletterSuccess" style="display:none">
-                ✓ <?= t('Thank you for subscribing!') ?>
-            </div>
-        </div>
-        <?php endif; ?>
 
         <div class="footer-grid">
             <div class="footer-brand">
@@ -255,8 +235,6 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
             <div class="footer-col">
                 <h4><?= t('Company') ?></h4>
                 <a href="<?= url('about') ?>"><?= t('About Us') ?></a>
-                <a href="<?= url('team') ?>">Our Team</a>
-                <a href="<?= url('methodology') ?>">Methodology</a>
                 <a href="<?= url('contact') ?>"><?= t('Contact') ?></a>
                 <a href="<?= url('advertise') ?>">Advertise</a>
                 <a href="<?= url('affiliate-disclosure') ?>">Affiliate Disclosure</a>
@@ -392,25 +370,6 @@ document.getElementById('navToggle').addEventListener('click', function() {
     });
 })();
 
-// ── Newsletter AJAX ──────────────────────────────────────────────────────────
-(function() {
-    var form = document.getElementById('footerNewsletter');
-    if (!form) return;
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var fd = new FormData(form);
-        fetch(form.action, {method:'POST', body: fd})
-            .then(function(r) { return r.json(); })
-            .then(function(d) {
-                if (d.ok) {
-                    form.style.display = 'none';
-                    var s = document.getElementById('newsletterSuccess');
-                    if (s) s.style.display = 'block';
-                }
-            })
-            .catch(function() {});
-    });
-})();
 
 // ── AI Chatbot ───────────────────────────────────────────────────────────────
 (function() {
