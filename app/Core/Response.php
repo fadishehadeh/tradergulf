@@ -31,9 +31,11 @@ final class Response
             exit;
         }
 
-        echo "<!DOCTYPE html><html><head><title>$title</title></head>"
+        $safeTitle   = htmlspecialchars($title,   ENT_QUOTES, 'UTF-8');
+        $safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
+        echo "<!DOCTYPE html><html><head><title>$safeTitle</title></head>"
            . "<body style='font-family:sans-serif;text-align:center;padding:80px'>"
-           . "<h1>$title</h1><p>$message</p><a href='/'>Go Home</a></body></html>";
+           . "<h1>$safeTitle</h1><p>$safeMessage</p><a href='/'>Go Home</a></body></html>";
         exit;
     }
 }

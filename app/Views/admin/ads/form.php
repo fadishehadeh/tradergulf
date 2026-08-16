@@ -5,7 +5,7 @@
                 <?= $ad ? 'Edit Ad' : 'New Ad' ?> — <?= e($zone['name']) ?>
             </h3>
             <p style="color:var(--a-muted);font-size:.8rem;margin:.2rem 0 0">
-                <?= $zone['width'] ?>×<?= $zone['height'] ?>px &nbsp;·&nbsp;
+                <?= e((string)$zone['width']) ?>×<?= e((string)$zone['height']) ?>px &nbsp;·&nbsp;
                 $<?= number_format((float)$zone['price_monthly'], 0) ?>/month
             </p>
         </div>

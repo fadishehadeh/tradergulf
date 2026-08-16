@@ -21,8 +21,8 @@ class ChatController extends Controller
             exit;
         }
 
-        // If Claude API key is configured, use it
-        $apiKey = setting('claude_api_key', '');
+        // Prefer env var; fall back to settings table for backwards compat
+        $apiKey = env('CLAUDE_API_KEY', setting('claude_api_key', ''));
         if ($apiKey !== '') {
             $reply = $this->claudeReply($message, $apiKey);
             echo json_encode(['reply' => $reply]);

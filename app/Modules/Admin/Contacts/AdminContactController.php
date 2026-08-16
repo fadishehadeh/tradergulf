@@ -18,11 +18,14 @@ class AdminContactController extends AdminBaseController
         $perPage = 30;
         $offset  = ($page - 1) * $perPage;
 
-        $where = $filter === 'unread' ? 'WHERE is_read = 0' : '';
+        $onlyUnread = ($filter === 'unread');
+        $whereParam  = $onlyUnread ? [1] : [];
+        $whereSql    = $onlyUnread ? 'WHERE is_read = ?' : '';
 
-        $total   = (int)$this->db()->fetchValue("SELECT COUNT(*) FROM contact_messages $where");
+        $total   = (int)$this->db()->fetchValue("SELECT COUNT(*) FROM contact_messages $whereSql", $whereParam);
         $messages = $this->db()->fetchAll(
-            "SELECT * FROM contact_messages $where ORDER BY created_at DESC LIMIT $perPage OFFSET $offset"
+            "SELECT * FROM contact_messages $whereSql ORDER BY created_at DESC LIMIT $perPage OFFSET $offset",
+            $whereParam
         );
         $pages = (int)ceil($total / $perPage);
         $unread = (int)$this->db()->fetchValue('SELECT COUNT(*) FROM contact_messages WHERE is_read = 0');

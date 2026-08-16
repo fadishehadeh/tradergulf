@@ -30,7 +30,7 @@
                 <select id="broker_id" name="broker_id">
                     <option value="">— None —</option>
                     <?php foreach ($brokers as $br): ?>
-                    <option value="<?= $br['id'] ?>" <?= ((int)($banner['broker_id'] ?? 0) === (int)$br['id']) ? 'selected' : '' ?>>
+                    <option value="<?= (int)$br['id'] ?>" <?= ((int)($banner['broker_id'] ?? 0) === (int)$br['id']) ? 'selected' : '' ?>>
                         <?= e($br['name']) ?>
                     </option>
                     <?php endforeach; ?>
