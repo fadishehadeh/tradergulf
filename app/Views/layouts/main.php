@@ -296,6 +296,30 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 </div>
 <?php endif; ?>
 
+<!-- ========== MOBILE BOTTOM NAV ========== -->
+<nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+    <a href="<?= url() ?>" class="mbn-item" data-page="">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+        <span>Home</span>
+    </a>
+    <a href="<?= url('brokers') ?>" class="mbn-item" data-page="brokers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        <span>Brokers</span>
+    </a>
+    <a href="<?= url('compare') ?>" class="mbn-item" data-page="compare">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 9l9-6 9 6"/><path d="M3 15l9 6 9-6"/></svg>
+        <span>Compare</span>
+    </a>
+    <a href="<?= url('calculators') ?>" class="mbn-item" data-page="calculators">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="18" x2="16" y2="18"/></svg>
+        <span>Calculators</span>
+    </a>
+    <a href="<?= url('search') ?>" class="mbn-item" data-page="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Search</span>
+    </a>
+</nav>
+
 <!-- ========== COOKIE CONSENT ========== -->
 <div id="cookieBar" style="
     position:fixed;bottom:0;left:0;right:0;z-index:999;
@@ -461,5 +485,13 @@ document.getElementById('navToggle').addEventListener('click', function() {
 })();
 </script>
 <?php if (isset($pageScripts)) echo $pageScripts; ?>
+<script>
+(function() {
+    var seg = window.location.pathname.split('/').filter(Boolean)[0] || '';
+    document.querySelectorAll('.mbn-item').forEach(function(a) {
+        if (a.dataset.page === seg) a.classList.add('active');
+    });
+})();
+</script>
 </body>
 </html>
