@@ -126,9 +126,9 @@ class AdminBrokerController extends AdminBaseController
             return null;
         }
         $mime = (new \finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
-        $allowed = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp', 'image/svg+xml' => 'svg'];
+        $allowed = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'];
         if (!isset($allowed[$mime])) {
-            session()->flash('error', 'Invalid logo file type. Use JPG, PNG, WebP, or SVG.');
+            session()->flash('error', 'Invalid logo file type. Use JPG, PNG, or WebP.');
             return null;
         }
         $ext  = $allowed[$mime];

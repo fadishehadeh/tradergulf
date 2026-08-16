@@ -9,6 +9,16 @@ final class Session
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_name(env('SESSION_NAME', 'tg_session'));
+            $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+                   || (($_SERVER['SERVER_PORT'] ?? 80) == 443);
+            session_set_cookie_params([
+                'lifetime' => 0,
+                'path'     => '/',
+                'domain'   => '',
+                'secure'   => $secure,
+                'httponly' => true,
+                'samesite' => 'Lax',
+            ]);
             session_start();
         }
         $this->ageFlash();

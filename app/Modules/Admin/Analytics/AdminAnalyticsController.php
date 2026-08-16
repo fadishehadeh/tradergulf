@@ -40,7 +40,7 @@ class AdminAnalyticsController extends AdminBaseController
              GROUP BY day ORDER BY day ASC"
         );
 
-        $this->view('admin/analytics/index', [
+        $this->render('admin/analytics/index', [
             'pageTitle'    => 'Analytics',
             'totals'       => $totals,
             'topPages'     => $topPages,

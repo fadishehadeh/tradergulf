@@ -3,14 +3,15 @@ declare(strict_types=1);
 
 namespace App\Modules\Admin\Ads;
 
-use App\Core\Controller;
 use App\Core\Request;
 use App\Core\Response;
+use App\Modules\Admin\AdminBaseController;
 
-class AdminAdsController extends Controller
+class AdminAdsController extends AdminBaseController
 {
     public function index(Request $request): void
     {
+        $this->requireAuth();
         $zones = $this->db()->fetchAll(
             'SELECT z.*,
                     COUNT(a.id)            AS total_ads,
@@ -38,6 +39,7 @@ class AdminAdsController extends Controller
 
     public function create(Request $request): void
     {
+        $this->requireAuth();
         $zoneId = (int) ($request->input('zone_id') ?? 0);
         $zone   = $this->db()->fetch('SELECT * FROM ad_zones WHERE id = ?', [$zoneId]);
         if (!$zone) {
@@ -54,6 +56,8 @@ class AdminAdsController extends Controller
 
     public function store(Request $request): void
     {
+        $this->requireAuth();
+        $this->verifyCsrf();
         $zoneId    = (int) $request->input('zone_id');
         $advertiser = trim($request->input('advertiser', ''));
         $imageUrl   = trim($request->input('image_url', ''));
@@ -80,6 +84,7 @@ class AdminAdsController extends Controller
 
     public function edit(Request $request, string $id): void
     {
+        $this->requireAuth();
         $ad   = $this->db()->fetch('SELECT * FROM ads WHERE id = ?', [(int) $id]);
         $zone = $ad ? $this->db()->fetch('SELECT * FROM ad_zones WHERE id = ?', [$ad['zone_id']]) : null;
 
@@ -97,6 +102,8 @@ class AdminAdsController extends Controller
 
     public function update(Request $request, string $id): void
     {
+        $this->requireAuth();
+        $this->verifyCsrf();
         $advertiser = trim($request->input('advertiser', ''));
         $imageUrl   = trim($request->input('image_url', ''));
         $clickUrl   = trim($request->input('click_url', ''));
@@ -122,6 +129,8 @@ class AdminAdsController extends Controller
 
     public function toggle(Request $request, string $id): void
     {
+        $this->requireAuth();
+        $this->verifyCsrf();
         $this->db()->execute(
             'UPDATE ads SET is_active = 1 - is_active WHERE id = ?',
             [(int) $id]
@@ -131,6 +140,8 @@ class AdminAdsController extends Controller
 
     public function delete(Request $request, string $id): void
     {
+        $this->requireAuth();
+        $this->verifyCsrf();
         $this->db()->execute('DELETE FROM ads WHERE id = ?', [(int) $id]);
         session()->flash('success', 'Ad deleted.');
         Response::redirect('admin/ads');

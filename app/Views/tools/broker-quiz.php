@@ -156,20 +156,52 @@
             return;
         }
         container.innerHTML = '';
+        function esc(s) {
+            return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+        }
         scored.forEach(function(item, idx) {
             var b = item.b;
             var div = document.createElement('div');
             div.className = 'quiz-result-broker';
-            var logoHtml = b.logo
-                ? '<img src="'+b.logo+'" alt="'+b.name+' logo">'
-                : '<div style="width:60px;height:40px;background:var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--text-muted)">'+b.name.slice(0,4)+'</div>';
-            var badge = idx === 0 ? '<span style="font-size:.68rem;background:var(--accent);color:var(--navy-dark);padding:.12rem .45rem;border-radius:4px;font-weight:700;margin-left:.4rem">Best Match</span>' : '';
-            div.innerHTML = logoHtml +
-                '<div class="quiz-result-broker-info">' +
-                    '<strong>' + b.name + badge + '</strong>' +
-                    '<span>Min deposit: $' + (b.min_deposit||'—') + ' · Rating: ' + (b.overall_rating||'—') + '/10</span>' +
-                '</div>' +
-                '<a href="/brokers/'+b.slug+'" style="font-size:.82rem;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap">Review &rarr;</a>';
+
+            /* Build logo safely — use DOM methods to avoid innerHTML injection */
+            var logoWrap = document.createElement('div');
+            logoWrap.style.cssText = 'width:60px;height:40px;flex-shrink:0';
+            if (b.logo) {
+                var img = document.createElement('img');
+                img.src = b.logo;                          /* src is a URL, not HTML */
+                img.alt = esc(b.name) + ' logo';
+                img.style.cssText = 'width:60px;height:40px;object-fit:contain';
+                logoWrap.appendChild(img);
+            } else {
+                logoWrap.style.cssText += ';background:var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--text-muted)';
+                logoWrap.textContent = b.name.slice(0, 4);
+            }
+
+            var info = document.createElement('div');
+            info.className = 'quiz-result-broker-info';
+
+            var strong = document.createElement('strong');
+            strong.textContent = b.name;
+            if (idx === 0) {
+                var badge = document.createElement('span');
+                badge.style.cssText = 'font-size:.68rem;background:var(--accent);color:var(--navy-dark);padding:.12rem .45rem;border-radius:4px;font-weight:700;margin-left:.4rem';
+                badge.textContent = 'Best Match';
+                strong.appendChild(badge);
+            }
+            var meta = document.createElement('span');
+            meta.textContent = 'Min deposit: $' + (b.min_deposit || '—') + ' · Rating: ' + (b.overall_rating || '—') + '/10';
+            info.appendChild(strong);
+            info.appendChild(meta);
+
+            var link = document.createElement('a');
+            link.href = '/brokers/' + encodeURIComponent(b.slug);
+            link.style.cssText = 'font-size:.82rem;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap';
+            link.textContent = 'Review →';
+
+            div.appendChild(logoWrap);
+            div.appendChild(info);
+            div.appendChild(link);
             container.appendChild(div);
         });
     }

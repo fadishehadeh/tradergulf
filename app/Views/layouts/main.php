@@ -61,18 +61,9 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
     <script async src="https://www.googletagmanager.com/gtag/js?id=<?= e(setting('google_analytics')) ?>"></script>
     <script>
     gtag('js', new Date());
-    <?php $gaDebug = !empty($_GET['ga_debug']); ?>
     gtag('config', '<?= e(setting('google_analytics')) ?>', {
-        anonymize_ip: true<?= $gaDebug ? ',\n        debug_mode: true' : '' ?>
+        anonymize_ip: true
     });
-    <?php if ($gaDebug): ?>
-    window.addEventListener('load', function() {
-        gtag('event', 'ga4_test_event', {debug_mode: true, event_category: 'debug', event_label: 'manual_test'});
-        var b = document.createElement('div');
-        b.innerHTML = '<div style="position:fixed;bottom:1rem;right:1rem;background:#1a73e8;color:#fff;padding:.75rem 1.25rem;border-radius:8px;font-family:sans-serif;font-size:.85rem;z-index:99999;box-shadow:0 4px 12px rgba(0,0,0,.3)">📡 GA4 Debug Mode ON — test event fired.<br><small>Check <a href="https://analytics.google.com" target="_blank" style="color:#a8d1ff">Analytics → DebugView</a></small></div>';
-        document.body.appendChild(b);
-    });
-    <?php endif; ?>
     </script>
     <?php endif; ?>
 

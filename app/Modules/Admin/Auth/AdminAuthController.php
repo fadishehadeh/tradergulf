@@ -28,12 +28,26 @@ class AdminAuthController extends AdminBaseController
         $email    = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
 
+        /* Brute-force protection: max 5 attempts per IP per 15 minutes */
+        $ip      = $_SERVER['REMOTE_ADDR'] ?? '';
+        $lockKey = '_login_attempts_' . md5($ip);
+        $lockTs  = '_login_lockout_until_' . md5($ip);
+
+        $lockUntil = session()->get($lockTs, 0);
+        if ($lockUntil > time()) {
+            $wait = (int) ceil(($lockUntil - time()) / 60);
+            session()->flash('error', "Too many failed attempts. Try again in {$wait} minute(s).");
+            Response::redirect('admin/login');
+        }
+
         $admin = app()->database()->fetch(
             'SELECT * FROM admins WHERE email = ? AND is_active = 1',
             [$email]
         );
 
         if ($admin && password_verify($password, $admin['password_hash'])) {
+            session()->set($lockKey, 0);
+            session()->set($lockTs, 0);
             session()->regenerate();
             session()->set('admin_logged_in', true);
             session()->set('admin_user', $admin['email']);
@@ -42,16 +56,22 @@ class AdminAuthController extends AdminBaseController
             Response::redirect('admin');
         }
 
-        session()->flash('error', 'Invalid email or password.');
+        $attempts = (int) session()->get($lockKey, 0) + 1;
+        session()->set($lockKey, $attempts);
+        if ($attempts >= 5) {
+            session()->set($lockTs, time() + 900); // 15-minute lockout
+            session()->set($lockKey, 0);
+            session()->flash('error', 'Too many failed attempts. Login locked for 15 minutes.');
+        } else {
+            session()->flash('error', 'Invalid email or password. Attempt ' . $attempts . ' of 5.');
+        }
         Response::redirect('admin/login');
     }
 
     public function logout(Request $request): void
     {
-        session()->forget('admin_logged_in');
-        session()->forget('admin_user');
-        session()->forget('admin_name');
-        session()->forget('admin_id');
+        $this->verifyCsrf();
+        session()->destroy();
         Response::redirect('admin/login');
     }
 }

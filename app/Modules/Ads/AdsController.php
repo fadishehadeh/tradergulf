@@ -15,7 +15,7 @@ class AdsController extends Controller
             [(int) $id]
         );
 
-        if ($ad) {
+        if ($ad && preg_match('#^https?://#i', $ad['click_url'])) {
             $this->db()->execute(
                 'UPDATE ads SET clicks = clicks + 1 WHERE id = ?',
                 [(int) $id]

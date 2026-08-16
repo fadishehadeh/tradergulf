@@ -35,6 +35,12 @@ class PageController extends Controller
 
     public function contactSubmit(Request $request): void
     {
+        $token = $_POST['_csrf'] ?? '';
+        if (!session()->verifyToken($token)) {
+            session()->flash('error', 'Security token mismatch. Please try again.');
+            Response::redirect('contact');
+        }
+
         $name    = trim($request->input('name', ''));
         $email   = trim($request->input('email', ''));
         $subject = trim($request->input('subject', ''));
@@ -53,8 +59,14 @@ class PageController extends Controller
 
         $to = setting('contact_email', '');
         if ($to) {
-            $headers = "From: noreply@tradergulf.com\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
-            $mailSubject = '[Trader Gulf Contact] ' . ($subject ?: '(no subject)');
+            /* Strip CR/LF from user-supplied email to prevent header injection */
+            $safeEmail = str_replace(["\r", "\n"], '', $email);
+            $headers   = implode("\r\n", [
+                'From: noreply@tradergulf.com',
+                'Reply-To: ' . $safeEmail,
+                'Content-Type: text/plain; charset=UTF-8',
+            ]);
+            $mailSubject = '[Trader Gulf Contact] ' . substr(preg_replace('/[\r\n]/', '', $subject ?: '(no subject)'), 0, 200);
             $body = "Name: $name\nEmail: $email\nSubject: $subject\n\n$message";
             @mail($to, $mailSubject, $body, $headers);
         }

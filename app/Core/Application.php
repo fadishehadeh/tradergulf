@@ -74,7 +74,7 @@ final class Application
         $ua  = $_SERVER['HTTP_USER_AGENT'] ?? '';
         $bot = (int)(bool) preg_match('/bot|crawl|slurp|spider|mediapartners|facebookexternalhit|whatsapp|curl|python|wget|headless/i', $ua);
 
-        $ip      = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '')[0];
+        $ip      = $_SERVER['REMOTE_ADDR'] ?? '';
         $referer = substr($_SERVER['HTTP_REFERER'] ?? '', 0, 512);
 
         try {
@@ -98,5 +98,21 @@ final class Application
         header('X-Content-Type-Options: nosniff', true);
         header('X-Frame-Options: SAMEORIGIN', true);
         header('Referrer-Policy: strict-origin-when-cross-origin', true);
+        header('Strict-Transport-Security: max-age=31536000; includeSubDomains', true);
+        header('Permissions-Policy: geolocation=(), microphone=(), camera=()', true);
+
+        $csp = implode('; ', [
+            "default-src 'self'",
+            "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://s3.tradingview.com https://widget.tradingview.com https://pagead2.googlesyndication.com",
+            "style-src 'self' 'unsafe-inline'",
+            "img-src 'self' data: https:",
+            "font-src 'self' data:",
+            "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
+            "frame-src https://www.tradingview.com",
+            "object-src 'none'",
+            "base-uri 'self'",
+            "form-action 'self'",
+        ]);
+        header('Content-Security-Policy: ' . $csp, true);
     }
 }

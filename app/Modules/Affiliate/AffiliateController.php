@@ -22,8 +22,8 @@ class AffiliateController extends Controller
 
         // Log the click
         $source  = trim($_GET['src'] ?? '');
-        $ip      = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
-        $ip      = explode(',', $ip)[0]; // take first IP if forwarded
+        /* Use REMOTE_ADDR as authoritative; X-Forwarded-For is user-controlled */
+        $ip = $_SERVER['REMOTE_ADDR'] ?? '';
         $ua      = substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 512);
         $referer = substr($_SERVER['HTTP_REFERER'] ?? '', 0, 512);
 
@@ -37,7 +37,11 @@ class AffiliateController extends Controller
             // Non-fatal — still redirect
         }
 
-        header('Location: ' . $broker['affiliate_url'], true, 302);
+        $url = $broker['affiliate_url'];
+        if (!preg_match('#^https?://#i', $url)) {
+            Response::abort(400);
+        }
+        header('Location: ' . $url, true, 302);
         header('Cache-Control: no-store, no-cache, must-revalidate');
         exit;
     }

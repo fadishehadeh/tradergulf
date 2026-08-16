@@ -27,6 +27,14 @@ class NewsletterController extends Controller
             exit;
         }
 
+        /* CSRF check */
+        $token = $request->input('_csrf', '');
+        if (!session()->verifyToken($token)) {
+            header('Content-Type: application/json');
+            echo json_encode(['ok' => false, 'error' => 'Token mismatch']);
+            exit;
+        }
+
         /* honeypot — bots fill in the hidden 'hp' field, legit JS form never does */
         if ($request->input('hp', '') !== '') {
             header('Content-Type: application/json');

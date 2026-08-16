@@ -29,7 +29,7 @@ abstract class AdminBaseController extends Controller
         $token = $_POST['_csrf'] ?? '';
         if (!session()->verifyToken($token)) {
             session()->flash('error', 'Security token mismatch. Please try again.');
-            Response::redirect($_SERVER['HTTP_REFERER'] ?? url('/admin'));
+            Response::redirect('admin');
         }
     }
 }
