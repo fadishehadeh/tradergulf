@@ -27,13 +27,22 @@ class NewsletterController extends Controller
             exit;
         }
 
+        /* honeypot — bots fill in the hidden 'hp' field, legit JS form never does */
+        if ($request->input('hp', '') !== '') {
+            header('Content-Type: application/json');
+            echo json_encode(['ok' => true]);
+            exit;
+        }
+
         try {
-            $affected = $this->db()->execute(
+            $this->db()->execute(
                 'INSERT IGNORE INTO newsletter_subscribers (email, source) VALUES (?, ?)',
                 [$email, $source]
             );
 
-            if ($affected > 0) {
+            $inserted = (int)$this->db()->lastInsertId() > 0;
+
+            if ($inserted) {
                 $to = setting('contact_email', '');
                 if ($to) {
                     $headers = "From: noreply@tradergulf.com\r\nContent-Type: text/plain; charset=UTF-8";

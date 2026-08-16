@@ -143,6 +143,7 @@ function lead_capture_form(string $brokerSlug, string $brokerName, string $affil
         . '<h3 style="color:#fff;font-size:1rem;margin:0 0 .25rem">Open an Account with ' . $nm . '</h3>'
         . '<p style="color:rgba(255,255,255,.6);font-size:.82rem;margin:0 0 1.1rem;line-height:1.5">Enter your email and we\'ll send you the latest welcome offer details before you visit the broker site.</p>'
         . '<form id="' . $id . '" style="display:flex;gap:.5rem;flex-wrap:wrap">'
+        . '<input type="text" name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">'
         . '<input type="email" id="' . $id . '_em" placeholder="Your email address" required '
         .        'style="flex:1;min-width:200px;padding:.55rem .85rem;border-radius:7px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:.88rem;outline:none">'
         . '<button type="submit" style="padding:.55rem 1.25rem;background:var(--accent);color:var(--navy-dark);font-weight:700;font-size:.88rem;border:none;border-radius:7px;cursor:pointer;white-space:nowrap">'
