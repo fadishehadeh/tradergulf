@@ -1,3 +1,26 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'            => 'https://schema.org',
+    '@type'               => 'WebApplication',
+    'name'                => 'Forex Position Size Calculator',
+    'description'         => 'Free forex position size calculator. Calculate the correct lot size to risk a fixed percentage of your account on any currency pair.',
+    'url'                 => url('calculators/position-size'),
+    'applicationCategory' => 'FinanceApplication',
+    'operatingSystem'     => 'Web',
+    'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+    'featureList'         => 'Position sizing, risk percentage management, lot size calculation, stop loss integration',
+    'provider'            => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',                      'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Calculators',               'item' => url('calculators')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => 'Position Size Calculator',  'item' => url('calculators/position-size')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <div class="breadcrumbs">

@@ -1,3 +1,21 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'    => 'https://schema.org',
+    '@type'       => 'AboutPage',
+    'name'        => 'How We Rate Forex Brokers — Our Methodology',
+    'description' => 'Transparent, consistent, and independent methodology for rating forex brokers. We assess regulation, spreads, platforms, deposits, and customer support.',
+    'url'         => url('methodology'),
+    'publisher'   => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',        'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Methodology', 'item' => url('methodology')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <section style="background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);padding:3.5rem 0 2.5rem;text-align:center">
     <div class="container">
         <h1 style="font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:.65rem">How We Rate Forex Brokers</h1>

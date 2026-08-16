@@ -1,3 +1,26 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'            => 'https://schema.org',
+    '@type'               => 'WebApplication',
+    'name'                => 'Forex Profit & Loss Calculator',
+    'description'         => 'Free forex profit and loss calculator. Estimate your potential profit or loss before entering a trade on any currency pair.',
+    'url'                 => url('calculators/profit'),
+    'applicationCategory' => 'FinanceApplication',
+    'operatingSystem'     => 'Web',
+    'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+    'featureList'         => 'Profit and loss calculation, entry/exit price, lot size, all currency pairs',
+    'provider'            => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',               'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Calculators',        'item' => url('calculators')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => 'Profit Calculator',  'item' => url('calculators/profit')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <div class="breadcrumbs">

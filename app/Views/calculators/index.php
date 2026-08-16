@@ -1,3 +1,27 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',        'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Calculators', 'item' => url('calculators')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'ItemList',
+    'name'            => 'Free Forex Trading Calculators',
+    'description'     => 'Free tools to calculate pip value, position size, margin, and profit before you trade.',
+    'url'             => url('calculators'),
+    'numberOfItems'   => 4,
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Pip Calculator',           'url' => url('calculators/pip')],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Position Size Calculator', 'url' => url('calculators/position-size')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => 'Margin Calculator',        'url' => url('calculators/margin')],
+        ['@type' => 'ListItem', 'position' => 4, 'name' => 'Profit Calculator',        'url' => url('calculators/profit')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <h1>Forex Trading Calculators</h1>

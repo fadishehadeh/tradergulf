@@ -66,6 +66,15 @@ class AdminSitemapController extends AdminBaseController
             ['/forex-brokers-in/bahrain', '0.8', 'weekly'],
             ['/forex-brokers-in/oman', '0.8', 'weekly'],
             ['/forex-brokers-in/egypt', '0.8', 'weekly'],
+            ['/forex-brokers-in/jordan', '0.75', 'weekly'],
+            ['/forex-brokers-in/iraq', '0.75', 'weekly'],
+            ['/forex-brokers-in/morocco', '0.75', 'weekly'],
+            ['/forex-brokers-in/turkey', '0.75', 'weekly'],
+            ['/forex-brokers-in/lebanon', '0.7', 'weekly'],
+            ['/currency-converter', '0.75', 'weekly'],
+            ['/economic-calendar', '0.75', 'weekly'],
+            ['/broker-quiz', '0.75', 'monthly'],
+            ['/compare', '0.8', 'weekly'],
         ] as [$loc, $pri, $freq]) {
             $urls[] = ['loc' => $base . $loc, 'lastmod' => $today, 'priority' => $pri, 'freq' => $freq];
         }
@@ -74,7 +83,10 @@ class AdminSitemapController extends AdminBaseController
         foreach ([
             'exness-vs-xm', 'pepperstone-vs-ic-markets', 'exness-vs-pepperstone',
             'xm-vs-ic-markets', 'exness-vs-ic-markets', 'avatrade-vs-pepperstone',
-            'fp-markets-vs-ic-markets',
+            'fp-markets-vs-ic-markets', 'pepperstone-vs-exness', 'xtb-vs-pepperstone',
+            'etoro-vs-xm', 'ic-markets-vs-avatrade', 'capital-com-vs-etoro',
+            'xm-vs-avatrade', 'exness-vs-avatrade', 'pepperstone-vs-xm',
+            'ic-markets-vs-exness', 'xtb-vs-xm', 'ig-vs-pepperstone',
         ] as $pair) {
             $urls[] = ['loc' => $base . '/compare/' . $pair, 'lastmod' => $today, 'priority' => '0.75', 'freq' => 'monthly'];
         }

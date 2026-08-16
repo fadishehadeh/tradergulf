@@ -116,25 +116,29 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 
 <!-- ========== TICKER TAPE ========== -->
 <div class="ticker-wrap">
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-        "symbols":[
-            {"proName":"FX:EURUSD","title":"EUR/USD"},
-            {"proName":"FX:GBPUSD","title":"GBP/USD"},
-            {"proName":"FX:USDJPY","title":"USD/JPY"},
-            {"proName":"FX:USDSAD","title":"USD/SAR"},
-            {"proName":"FX:USDAED","title":"USD/AED"},
-            {"proName":"TVC:GOLD","title":"XAU/USD"},
-            {"proName":"TVC:USOIL","title":"WTI Oil"},
-            {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"}
-        ],
-        "showSymbolLogo":false,
-        "colorTheme":"dark",
-        "isTransparent":false,
-        "displayMode":"adaptive",
-        "locale":"<?= $_lang === 'ar' ? 'ar_AE' : 'en' ?>"
-    }
-    </script>
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright" style="display:none"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+            "symbols":[
+                {"proName":"FX:EURUSD","title":"EUR/USD"},
+                {"proName":"FX:GBPUSD","title":"GBP/USD"},
+                {"proName":"FX:USDJPY","title":"USD/JPY"},
+                {"proName":"FX:USDSAR","title":"USD/SAR"},
+                {"proName":"FX:USDAED","title":"USD/AED"},
+                {"proName":"TVC:GOLD","title":"XAU/USD"},
+                {"proName":"TVC:USOIL","title":"WTI Oil"},
+                {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"}
+            ],
+            "showSymbolLogo":false,
+            "colorTheme":"dark",
+            "isTransparent":true,
+            "displayMode":"adaptive",
+            "locale":"<?= $_lang === 'ar' ? 'ar_AE' : 'en' ?>"
+        }
+        </script>
+    </div>
 </div>
 
 <!-- ========== HEADER ========== -->

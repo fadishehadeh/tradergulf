@@ -1,3 +1,26 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'            => 'https://schema.org',
+    '@type'               => 'WebApplication',
+    'name'                => 'Pip Value Calculator',
+    'description'         => 'Free forex pip calculator. Calculate the value of one pip for any currency pair and lot size instantly. Supports all major and minor pairs.',
+    'url'                 => url('calculators/pip'),
+    'applicationCategory' => 'FinanceApplication',
+    'operatingSystem'     => 'Web',
+    'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+    'featureList'         => 'Pip value calculation, all currency pairs, standard/mini/micro lot support',
+    'provider'            => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',           'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Calculators',    'item' => url('calculators')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => 'Pip Calculator', 'item' => url('calculators/pip')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <div class="breadcrumbs">

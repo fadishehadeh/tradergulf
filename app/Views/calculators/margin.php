@@ -1,3 +1,26 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'            => 'https://schema.org',
+    '@type'               => 'WebApplication',
+    'name'                => 'Forex Margin Calculator',
+    'description'         => 'Free forex margin calculator. Calculate the margin required to open a leveraged position on any currency pair. Supports 1:30 to 1:2000 leverage.',
+    'url'                 => url('calculators/margin'),
+    'applicationCategory' => 'FinanceApplication',
+    'operatingSystem'     => 'Web',
+    'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+    'featureList'         => 'Margin calculation, all leverage levels, all currency pairs, real-time results',
+    'provider'            => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',              'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Calculators',       'item' => url('calculators')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => 'Margin Calculator', 'item' => url('calculators/margin')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <div class="breadcrumbs">

@@ -1,3 +1,21 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',         'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Forex News',   'item' => url('news')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'   => 'https://schema.org',
+    '@type'      => 'WebPage',
+    'name'       => 'Forex Market News',
+    'description'=> 'Live market news, analysis, and updates from the global forex markets. Covering GCC, MENA, and international currency markets.',
+    'url'        => url('news'),
+    'provider'   => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <h1>Forex Market News</h1>

@@ -121,6 +121,86 @@ class CountryController extends Controller
                 ['q' => 'Do Egyptian forex brokers offer Islamic accounts?', 'a' => 'Yes. All major international brokers reviewed on Trader Gulf offer Islamic swap-free accounts. These comply with Sharia principles and are popular among Muslim traders in Egypt.'],
             ],
         ],
+        'jordan' => [
+            'slug'        => 'jordan',
+            'name'        => 'Jordan',
+            'full_name'   => 'Hashemite Kingdom of Jordan',
+            'currency'    => 'JOD (Jordanian Dinar)',
+            'regulators'  => 'JSC (Jordan Securities Commission)',
+            'flag'        => '🇯🇴',
+            'population'  => '10.8 million',
+            'intro'       => 'Jordan has a well-educated population with a growing interest in financial markets. The Jordan Securities Commission (JSC) regulates financial services across the Kingdom. Amman-based traders have embraced forex and CFD trading as a means of generating income, with strong demand for Arabic-language platforms, Islamic swap-free accounts, and brokers accepting Jordanian payment methods.',
+            'faqs'        => [
+                ['q' => 'Is forex trading legal in Jordan?', 'a' => 'Forex trading is permitted in Jordan under the oversight of the Jordan Securities Commission (JSC). Most Jordanian traders access markets via internationally regulated brokers such as those licensed by the FCA, ASIC, or CySEC, as locally licensed forex brokers are limited.'],
+                ['q' => 'Which forex brokers accept Jordanian traders?', 'a' => 'Most major international brokers accept Jordanian clients, including Exness, XM, IC Markets, Pepperstone, and AvaTrade. Verify account eligibility and local payment method support before depositing.'],
+                ['q' => 'Are Islamic swap-free accounts available in Jordan?', 'a' => 'Yes. All leading brokers offer Islamic swap-free accounts that eliminate overnight interest charges. These accounts comply with Sharia principles and are in high demand among Jordanian Muslim traders.'],
+                ['q' => 'How can Jordanian traders fund their accounts?', 'a' => 'Visa, Mastercard, bank wire transfer, and e-wallets such as Skrill and Neteller are widely supported. Some brokers also accept Jordanian Dinar deposits, though USD-denominated accounts are more common.'],
+            ],
+        ],
+        'iraq' => [
+            'slug'        => 'iraq',
+            'name'        => 'Iraq',
+            'full_name'   => 'Republic of Iraq',
+            'currency'    => 'IQD (Iraqi Dinar)',
+            'regulators'  => 'ISC (Iraq Securities Commission), CBI (Central Bank of Iraq)',
+            'flag'        => '🇮🇶',
+            'population'  => '42 million',
+            'intro'       => 'Iraq is one of the largest Arab countries by population, and interest in forex trading has grown significantly as internet access and financial literacy expand. The Iraq Securities Commission (ISC) and Central Bank of Iraq (CBI) oversee financial services. Iraqi traders typically access global forex markets through internationally regulated brokers offering Arabic-language platforms, Islamic accounts, and USD-denominated trading.',
+            'faqs'        => [
+                ['q' => 'Can I trade forex in Iraq?', 'a' => 'Forex trading is practised by many Iraqi residents through internationally regulated brokers. The Iraq Securities Commission (ISC) and Central Bank of Iraq (CBI) oversee financial services. Traders are advised to use reputable internationally regulated brokers and consult local regulations.'],
+                ['q' => 'Which brokers work best for Iraqi traders?', 'a' => 'Brokers with low minimum deposits, Arabic-language support, and reliable USD-denominated accounts are best for Iraqi traders. Exness, XM, and AvaTrade are commonly used. Verify deposit and withdrawal options, as some local payment methods may be limited.'],
+                ['q' => 'Are Islamic forex accounts available in Iraq?', 'a' => 'Yes. Islamic swap-free accounts are offered by all major brokers reviewed on Trader Gulf. These accounts are essential for Muslim Iraqi traders as they eliminate overnight interest (swap) charges.'],
+                ['q' => 'What is the best way to deposit to a forex account from Iraq?', 'a' => 'International bank wire, Visa/Mastercard, and e-wallets such as Skrill and Neteller are the most accessible options for Iraqi traders. USD accounts are strongly recommended to avoid IQD conversion complexity.'],
+            ],
+        ],
+        'morocco' => [
+            'slug'        => 'morocco',
+            'name'        => 'Morocco',
+            'full_name'   => 'Kingdom of Morocco',
+            'currency'    => 'MAD (Moroccan Dirham)',
+            'regulators'  => 'AMMC (Autorite Marocaine du Marche des Capitaux)',
+            'flag'        => '🇲🇦',
+            'population'  => '37 million',
+            'intro'       => 'Morocco is one of Africa\'s most financially developed nations, with a sophisticated regulatory framework overseen by the AMMC (Autorite Marocaine du Marche des Capitaux). Moroccan traders have increasingly turned to international forex and CFD markets, attracted by the ability to diversify away from dirham-denominated assets. Arabic and French-language broker support is important for this market.',
+            'faqs'        => [
+                ['q' => 'Is forex trading legal in Morocco?', 'a' => 'Forex trading by retail investors exists in a regulated environment in Morocco. The AMMC oversees capital markets. Direct retail forex trading with foreign brokers is subject to foreign exchange controls. Most traders access markets via internationally regulated platforms.'],
+                ['q' => 'What brokers are best for Moroccan traders?', 'a' => 'Brokers offering French-language or Arabic support, low minimum deposits, and e-wallet funding perform best in Morocco. Exness, XM, and AvaTrade are popular among Moroccan traders. USD-denominated accounts are standard.'],
+                ['q' => 'Can Moroccan Muslims use Islamic accounts?', 'a' => 'Yes. All leading international brokers offer Islamic swap-free accounts. These are popular among Morocco\'s Muslim majority as they comply with Sharia law by eliminating overnight interest charges.'],
+                ['q' => 'How do Moroccan traders fund forex accounts?', 'a' => 'Visa, Mastercard, and international bank wire are the primary funding methods. E-wallets like Skrill are also widely used. Due to foreign exchange controls, funding amounts and methods may be subject to local banking restrictions.'],
+            ],
+        ],
+        'turkey' => [
+            'slug'        => 'turkey',
+            'name'        => 'Turkey',
+            'full_name'   => 'Republic of Turkey',
+            'currency'    => 'TRY (Turkish Lira)',
+            'regulators'  => 'SPK/CMB (Capital Markets Board of Turkey)',
+            'flag'        => '🇹🇷',
+            'population'  => '85 million',
+            'intro'       => 'Turkey sits at the crossroads of Europe and the Middle East, with one of the region\'s most active retail forex markets. The Capital Markets Board (SPK/CMB) regulates the Turkish financial sector. Turkish traders are sophisticated and experienced, with strong demand for low spreads, high leverage, and both Turkish-language and Arabic-language platform support.',
+            'faqs'        => [
+                ['q' => 'Is forex trading legal in Turkey?', 'a' => 'Yes, forex trading is legal and regulated in Turkey by the Capital Markets Board (SPK/CMB). Licensed Turkish brokers operate under strict leverage and margin rules. Many Turkish traders also use internationally regulated offshore brokers for higher leverage.'],
+                ['q' => 'What leverage can Turkish traders access?', 'a' => 'CMB-regulated Turkish entities cap leverage at 1:10 for major pairs. However, many Turkish traders access international brokers offering up to 1:500 leverage via offshore entities. Always understand the risks of high leverage before trading.'],
+                ['q' => 'Which are the best forex brokers for Turkey?', 'a' => 'IG, Pepperstone, XM, and AvaTrade are popular among Turkish traders. Look for brokers with Turkish Lira account options, low spreads, and reliable Turkish-language customer support.'],
+                ['q' => 'Is MetaTrader 4 available for Turkish traders?', 'a' => 'Yes. MetaTrader 4 and MetaTrader 5 are widely available in Turkey. Most internationally regulated brokers, including XM, Exness, and IC Markets, offer MT4 and MT5 with full Turkish-language support.'],
+            ],
+        ],
+        'lebanon' => [
+            'slug'        => 'lebanon',
+            'name'        => 'Lebanon',
+            'full_name'   => 'Lebanese Republic',
+            'currency'    => 'USD (primarily) / LBP (Lebanese Pound)',
+            'regulators'  => 'CMA (Capital Markets Authority Lebanon)',
+            'flag'        => '🇱🇧',
+            'population'  => '5 million (plus ~14 million diaspora)',
+            'intro'       => 'Lebanon has a long tradition of financial sophistication, and despite economic challenges, forex trading remains popular among Lebanese residents and diaspora. The Capital Markets Authority (CMA) oversees Lebanon\'s financial sector. Lebanese traders primarily conduct forex trading in USD, which is the de facto currency for most transactions. Arabic-language support and low minimum deposits are key priorities.',
+            'faqs'        => [
+                ['q' => 'Can Lebanese residents trade forex?', 'a' => 'Yes. Lebanese residents can access international forex brokers through online platforms. The Capital Markets Authority (CMA) Lebanon oversees financial services. Given the local banking environment, traders typically use international e-wallets and cards to fund accounts.'],
+                ['q' => 'What is the best way to fund a forex account from Lebanon?', 'a' => 'Due to local banking restrictions, Lebanese traders commonly use Skrill, Neteller, or international Visa/Mastercard prepaid cards. USD-denominated accounts are essential. Cryptocurrency deposits are also accepted by some brokers.'],
+                ['q' => 'Are there Islamic forex accounts for Lebanese Muslims?', 'a' => 'Yes. All major international brokers offer Islamic swap-free accounts that eliminate overnight interest charges. These are available to Lebanese traders regardless of their location.'],
+                ['q' => 'Which brokers are most accessible for Lebanese traders?', 'a' => 'Brokers with e-wallet funding options, low minimum deposits, and Arabic-language support are best for Lebanese traders. XM, Exness, and AvaTrade are popular choices. Verify that your chosen broker accepts Lebanese clients.'],
+            ],
+        ],
     ];
 
     public function show(Request $request, string $country): void
@@ -161,10 +241,26 @@ class CountryController extends Controller
             ],
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
+        $itemListSchema = json_encode([
+            '@context'        => 'https://schema.org',
+            '@type'           => 'ItemList',
+            'name'            => 'Best Forex Brokers in ' . $country['full_name'] . ' ' . date('Y'),
+            'description'     => $country['intro'],
+            'url'             => $pageUrl,
+            'numberOfItems'   => count($brokers),
+            'itemListElement' => array_values(array_map(fn($b, $i) => [
+                '@type'    => 'ListItem',
+                'position' => $i + 1,
+                'name'     => $b['name'],
+                'url'      => url('brokers/' . $b['slug']),
+            ], $brokers, array_keys($brokers))),
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
         $schemas = "<script type=\"application/ld+json\">$bSchema</script>";
         if ($faqSchema) {
             $schemas .= "<script type=\"application/ld+json\">$faqSchema</script>";
         }
+        $schemas .= "<script type=\"application/ld+json\">$itemListSchema</script>";
 
         $this->render('country/show', [
             'title'       => $pageTitle,

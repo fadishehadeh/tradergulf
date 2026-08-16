@@ -1130,6 +1130,10 @@ main { flex: 1; padding: 2rem 0; }
 }
 .ticker-wrap .tradingview-widget-container {
     height: 46px;
+    overflow: hidden;
+}
+.ticker-wrap .tradingview-widget-copyright {
+    display: none !important;
 }
 
 /* ============================================================

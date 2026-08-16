@@ -1,3 +1,25 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'            => 'https://schema.org',
+    '@type'               => 'WebApplication',
+    'name'                => 'Forex Broker Comparison Tool',
+    'description'         => 'Compare up to 4 forex brokers side-by-side. Compare spreads, leverage, regulation, minimum deposit, platforms, and more. Free broker comparison tool.',
+    'url'                 => url('compare'),
+    'applicationCategory' => 'FinanceApplication',
+    'operatingSystem'     => 'Web',
+    'offers'              => ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD'],
+    'featureList'         => 'Side-by-side broker comparison, spreads, leverage, regulation, Islamic accounts, platforms',
+    'provider'            => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',                    'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Compare Forex Brokers',   'item' => url('compare')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <h1><?= t('Compare Forex Brokers') ?></h1>

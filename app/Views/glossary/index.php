@@ -1,3 +1,21 @@
+<?php
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',          'item' => url()],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Forex Glossary','item' => url('glossary')],
+    ],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+echo '<script type="application/ld+json">' . json_encode([
+    '@context'    => 'https://schema.org',
+    '@type'       => 'DefinedTermSet',
+    'name'        => 'Forex Glossary',
+    'description' => 'Plain-English definitions of key forex and CFD trading terms every trader needs to know.',
+    'url'         => url('glossary'),
+    'provider'    => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+?>
 <div class="page-header">
     <div class="container">
         <h1>Forex Glossary</h1>
