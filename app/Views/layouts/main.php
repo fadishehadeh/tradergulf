@@ -133,7 +133,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
             ],
             "showSymbolLogo":false,
             "colorTheme":"dark",
-            "isTransparent":false,
+            "isTransparent":true,
             "displayMode":"adaptive",
             "locale":"<?= $_lang === 'ar' ? 'ar_AE' : 'en' ?>"
         }
