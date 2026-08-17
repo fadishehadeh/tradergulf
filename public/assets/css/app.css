@@ -61,8 +61,7 @@ main { flex: 1; padding: 0 0 2rem; }
     overflow: hidden; height: 46px; max-height: 46px;
 }
 .ticker-wrap .tradingview-widget-container,
-.ticker-wrap .tradingview-widget-container__widget { height: 46px; }
-.ticker-wrap iframe { height: 46px !important; max-height: 46px !important; }
+.ticker-wrap .tradingview-widget-container__widget { height: 78px; }
 .ticker-wrap .tradingview-widget-copyright { display: none !important; }
 .ticker-wrap img { display: none !important; }
 
