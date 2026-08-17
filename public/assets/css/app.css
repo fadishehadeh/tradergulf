@@ -154,12 +154,6 @@ main { flex: 1; padding: 2rem 0; }
     .nav-dropdown-menu a { color: rgba(255,255,255,.72); font-size: .85rem; }
 }
 
-/* TradingView news widget */
-.tradingview-news-wrap { border-radius: 12px; overflow: hidden; height: 420px; }
-.tradingview-news-wrap .tradingview-widget-container,
-.tradingview-news-wrap .tradingview-widget-container__widget,
-.tradingview-news-wrap iframe { height: 420px !important; overflow: hidden !important; }
-.tradingview-news-wrap .tradingview-widget-copyright { display: none !important; }
 
 .nav-cta {
     background: var(--accent) !important;
