@@ -55,6 +55,25 @@ ul, ol { padding-left: 1.25rem; }
 .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
 main { flex: 1; padding: 0 0 2rem; }
 
+/* ── Ticker tape ──────────────────────────────────────────── */
+.ticker-wrap {
+    width: 100%; background: #131722;
+    overflow: hidden; height: 46px; max-height: 46px;
+}
+.ticker-wrap .tradingview-widget-container,
+.ticker-wrap .tradingview-widget-container__widget { height: 46px; }
+.ticker-wrap iframe { height: 46px !important; max-height: 46px !important; }
+.ticker-wrap .tradingview-widget-copyright { display: none !important; }
+.ticker-wrap img { display: none !important; }
+
+/* ── TradingView news widget ──────────────────────────────── */
+.tradingview-news-wrap { border-radius: 12px; overflow: hidden; height: 420px; }
+.tradingview-news-wrap .tradingview-widget-container,
+.tradingview-news-wrap .tradingview-widget-container__widget,
+.tradingview-news-wrap iframe { height: 420px !important; }
+.tradingview-news-wrap .tradingview-widget-copyright { display: none !important; }
+.tradingview-news-wrap img { display: none !important; }
+
 /* --- Header ----------------------------------------------- */
 .site-header {
     background: var(--navy);

@@ -120,6 +120,36 @@ function renderStars(float $rating): string {
     </div>
 </section>
 
+<!-- MARKET NEWS – TradingView news feed -->
+<section class="section" id="tvNewsSection">
+    <div class="container">
+        <div class="section-header">
+            <h2><?= t('Market News') ?></h2>
+            <p><?= t('Live financial news and market updates from global sources.') ?></p>
+        </div>
+        <div class="tradingview-news-wrap">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright" style="display:none"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+                {
+                    "feedMode": "all_symbols",
+                    "isTransparent": false,
+                    "displayMode": "regular",
+                    "width": "100%",
+                    "height": 420,
+                    "colorTheme": "light",
+                    "locale": "<?= lang() === 'ar' ? 'ar_AE' : 'en' ?>"
+                }
+                </script>
+            </div>
+        </div>
+        <div style="margin-top:1rem;text-align:center">
+            <a href="<?= url('news') ?>" class="btn btn-ghost btn-sm"><?= t('All Market News') ?> &rarr;</a>
+        </div>
+    </div>
+</section>
+
 <!-- ADVERTISE HERE – mid-page slot -->
 <div class="banner-section">
     <div class="container">

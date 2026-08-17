@@ -114,6 +114,33 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 <body class="<?= $_isRtl ? 'rtl' : '' ?>">
 <div class="page-wrapper">
 
+<!-- ========== TICKER TAPE ========== -->
+<div class="ticker-wrap" id="tickerWrap">
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright" style="display:none"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+            "symbols":[
+                {"proName":"FX:EURUSD","title":"EUR/USD"},
+                {"proName":"FX:GBPUSD","title":"GBP/USD"},
+                {"proName":"FX:USDJPY","title":"USD/JPY"},
+                {"proName":"FX:USDSAR","title":"USD/SAR"},
+                {"proName":"FX:USDAED","title":"USD/AED"},
+                {"proName":"TVC:GOLD","title":"XAU/USD"},
+                {"proName":"TVC:USOIL","title":"WTI Oil"},
+                {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"}
+            ],
+            "showSymbolLogo":false,
+            "colorTheme":"dark",
+            "isTransparent":false,
+            "displayMode":"adaptive",
+            "locale":"<?= $_lang === 'ar' ? 'ar_AE' : 'en' ?>"
+        }
+        </script>
+    </div>
+</div>
+
 <!-- ========== HEADER ========== -->
 <header class="site-header">
     <div class="container header-inner">
@@ -381,6 +408,16 @@ document.getElementById('navToggle').addEventListener('click', function() {
         var href = a.getAttribute('href').split('/').filter(Boolean)[0] || '';
         if (path && path === href) a.classList.add('active');
     });
+})();
+
+// Hide TradingView widgets gracefully if blocked/failed to load
+(function() {
+    setTimeout(function() {
+        var ticker = document.getElementById('tickerWrap');
+        if (ticker && !ticker.querySelector('iframe')) ticker.style.display = 'none';
+        var news = document.getElementById('tvNewsSection');
+        if (news && !news.querySelector('iframe')) news.style.display = 'none';
+    }, 5000);
 })();
 
 // ── Click tracking (GA4 custom events) ──────────────────────────────────────
