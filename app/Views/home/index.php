@@ -19,42 +19,19 @@ function renderStars(float $rating): string {
     </div>
 </section>
 
-<!-- ADVERTISE HERE – hero-zone banner (shows real banner when active, placeholder otherwise) -->
+<!-- ADVERTISE HERE – hero slot (always generic) -->
 <div class="banner-section">
     <div class="container">
-        <?php if (!empty($banners['home_landscape_1'])): $bn = $banners['home_landscape_1']; ?>
-        <div class="banner-label"><?= t('Sponsored') ?></div>
-        <div class="banner-wrap">
-            <?php if (!empty($bn['image_url'])): ?>
-            <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-image-link" rel="nofollow noopener sponsored" target="_blank"
-               data-track="banner_click" data-track-label="<?= e($bn['headline'] ?: 'banner') ?>">
-                <img src="<?= e($bn['image_url']) ?>" alt="<?= e($bn['headline'] ?: 'Sponsored') ?>" class="banner-img-full" loading="lazy">
-            </a>
-            <?php else: ?>
-            <a href="<?= e($bn['link_url'] ?: '#') ?>" class="banner-landscape" rel="nofollow noopener" target="_blank"
-               <?= !empty($bn['bg_style']) ? 'style="' . e($bn['bg_style']) . '"' : '' ?>
-               data-track="banner_click" data-track-label="<?= e($bn['headline'] ?: 'banner') ?>">
-                <div class="b-logo"><?= e($bn['headline']) ?></div>
-                <div class="b-copy">
-                    <strong><?= e($bn['headline']) ?></strong>
-                    <?= e($bn['sub_text'] ?? '') ?>
-                </div>
-                <div class="b-cta"><?= e($bn['cta_text'] ?: t('Open Account')) ?> &rarr;</div>
-            </a>
-            <?php endif; ?>
-        </div>
-        <?php else: ?>
-        <a href="<?= url('advertise') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">
+        <a href="<?= url('contact') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">
             <div class="adv-inner">
                 <div>
-                    <div class="adv-tag">Your Ad Here</div>
-                    <div class="adv-title">Advertise With Trader Gulf</div>
-                    <div class="adv-sub">Reach thousands of active forex traders across the Gulf region and MENA</div>
+                    <div class="adv-tag">Advertise With Us</div>
+                    <div class="adv-title">Reach 10,000+ Active Gulf Forex Traders</div>
+                    <div class="adv-sub">Premium ad placements across the GCC &amp; MENA's leading forex comparison portal</div>
                 </div>
-                <div class="adv-btn">Get In Touch →</div>
+                <div class="adv-btn">Get Media Kit →</div>
             </div>
         </a>
-        <?php endif; ?>
     </div>
 </div>
 
@@ -74,18 +51,7 @@ function renderStars(float $rating): string {
         <?php foreach ($featuredBrokers as $broker): ?>
             <div class="broker-card">
                 <div class="broker-card-header">
-                    <?php if (!empty($broker['logo'])): ?>
-                    <img src="<?= asset('img/brokers/' . $broker['logo']) ?>"
-                         alt="<?= e($broker['name']) ?> logo"
-                         loading="lazy"
-                         style="max-height:36px;max-width:130px;object-fit:contain">
-                    <?php else: ?>
-                    <div class="broker-logo-placeholder"><?= e($broker['name']) ?></div>
-                    <?php endif; ?>
-                    <div class="rating-badge">
-                        <span class="stars"><?= renderStars((float)$broker['overall_rating']) ?></span>
-                        <?= e($broker['overall_rating']) ?>
-                    </div>
+                    <div class="broker-name-text"><?= e($broker['name']) ?></div>
                 </div>
 
                 <div class="broker-card-stats">
@@ -154,7 +120,37 @@ function renderStars(float $rating): string {
     </div>
 </section>
 
-<!-- ADVERTISE HERE – mid-page slot (replaces Pepperstone banner) -->
+<!-- MARKET NEWS – TradingView news feed -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2><?= t('Market News') ?></h2>
+            <p><?= t('Live financial news and market updates from global sources.') ?></p>
+        </div>
+        <div class="tradingview-news-wrap">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright" style="display:none"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+                {
+                    "feedMode": "all_symbols",
+                    "isTransparent": false,
+                    "displayMode": "regular",
+                    "width": "100%",
+                    "height": 420,
+                    "colorTheme": "light",
+                    "locale": "<?= lang() === 'ar' ? 'ar_AE' : 'en' ?>"
+                }
+                </script>
+            </div>
+        </div>
+        <div style="margin-top:1rem;text-align:center">
+            <a href="<?= url('news') ?>" class="btn btn-ghost btn-sm"><?= t('All Market News') ?> &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- ADVERTISE HERE – mid-page slot -->
 <div class="banner-section">
     <div class="container">
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_mid_slot">

@@ -162,8 +162,29 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
             <a href="<?= url('brokers') ?>"><?= t('Brokers') ?></a>
             <a href="<?= url('compare') ?>"><?= t('Compare') ?></a>
             <a href="<?= url('calculators') ?>"><?= t('Calculators') ?></a>
-            <a href="<?= url('guides') ?>"><?= t('Guides') ?></a>
-            <a href="<?= url('glossary') ?>"><?= t('Glossary') ?></a>
+
+            <div class="nav-dropdown" id="navDropGuides">
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                    <?= t('Educational Guides') ?> <span class="nav-caret" aria-hidden="true">▾</span>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                    <a href="<?= url('guides') ?>" role="menuitem"><?= t('All Guides') ?></a>
+                    <a href="<?= url('glossary') ?>" role="menuitem"><?= t('Forex Glossary') ?></a>
+                    <a href="<?= url('best/best-forex-brokers-beginners-gcc') ?>" role="menuitem"><?= t('Beginner Guides') ?></a>
+                    <a href="<?= url('best/best-mt4-forex-brokers-gcc') ?>" role="menuitem">MT4 Brokers Guide</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown" id="navDropMarket">
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                    <?= t('Market Updates') ?> <span class="nav-caret" aria-hidden="true">▾</span>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                    <a href="<?= url('economic-calendar') ?>" role="menuitem"><?= t('Economic Calendar') ?></a>
+                    <a href="<?= url('news') ?>" role="menuitem"><?= t('Market News') ?></a>
+                </div>
+            </div>
+
             <a href="<?= url('compare') ?>" class="btn btn-primary btn-sm nav-cta"><?= t('Compare Now') ?></a>
             <a href="<?= url('search') ?>" class="nav-search-btn" aria-label="Search" title="Search">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -220,15 +241,21 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
                 <a href="<?= url('forex-brokers-in/egypt') ?>">🇪🇬 Egypt</a>
             </div>
             <div class="footer-col">
-                <h4><?= t('Tools &amp; Learn') ?></h4>
-                <a href="<?= url('calculators') ?>"><?= t('Calculators') ?></a>
-                <a href="<?= url('currency-converter') ?>">Currency Converter</a>
-                <a href="<?= url('economic-calendar') ?>">Economic Calendar</a>
-                <a href="<?= url('guides') ?>"><?= t('Guides') ?></a>
-                <a href="<?= url('glossary') ?>"><?= t('Glossary') ?></a>
+                <h4><?= t('Educational Guides') ?></h4>
+                <a href="<?= url('guides') ?>"><?= t('All Guides') ?></a>
+                <a href="<?= url('glossary') ?>"><?= t('Forex Glossary') ?></a>
+                <a href="<?= url('best/best-forex-brokers-beginners-gcc') ?>">Beginner Guide</a>
+                <a href="<?= url('best/best-mt4-forex-brokers-gcc') ?>">MT4 Brokers</a>
+                <a href="<?= url('best/best-islamic-forex-brokers-gcc') ?>">Islamic Accounts</a>
+                <a href="<?= url('best/best-low-spread-forex-brokers-mena') ?>">Low Spread Brokers</a>
             </div>
             <div class="footer-col">
-                <h4><?= t('Company') ?></h4>
+                <h4><?= t('Market Updates') ?></h4>
+                <a href="<?= url('economic-calendar') ?>"><?= t('Economic Calendar') ?></a>
+                <a href="<?= url('news') ?>"><?= t('Market News') ?></a>
+                <a href="<?= url('currency-converter') ?>">Currency Converter</a>
+                <a href="<?= url('calculators') ?>"><?= t('Calculators') ?></a>
+                <h4 style="margin-top:1.25rem"><?= t('Company') ?></h4>
                 <a href="<?= url('about') ?>"><?= t('About Us') ?></a>
                 <a href="<?= url('contact') ?>"><?= t('Contact') ?></a>
                 <a href="<?= url('advertise') ?>">Advertise</a>
@@ -340,6 +367,40 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 document.getElementById('navToggle').addEventListener('click', function() {
     document.getElementById('siteNav').classList.toggle('open');
 });
+
+// Nav dropdowns
+(function() {
+    document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+        var btn = dd.querySelector('.nav-dropdown-toggle');
+        var menu = dd.querySelector('.nav-dropdown-menu');
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var isOpen = dd.classList.contains('open');
+            document.querySelectorAll('.nav-dropdown.open').forEach(function(o) {
+                o.classList.remove('open');
+                o.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                dd.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+    document.addEventListener('click', function() {
+        document.querySelectorAll('.nav-dropdown.open').forEach(function(o) {
+            o.classList.remove('open');
+            o.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+        });
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.nav-dropdown.open').forEach(function(o) {
+                o.classList.remove('open');
+                o.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+})();
 
 (function() {
     var path = window.location.pathname.split('/')[1] || '';

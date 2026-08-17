@@ -108,6 +108,52 @@ main { flex: 1; padding: 2rem 0; }
 .site-nav a:hover,
 .site-nav a.active { background: rgba(255,255,255,.12); color: #fff; }
 
+/* ── Nav dropdowns ─────────────────────────────────────── */
+.nav-dropdown { position: relative; }
+
+.nav-dropdown-toggle {
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,.85); font-size: .92rem;
+    padding: .45rem .75rem; border-radius: 6px;
+    display: flex; align-items: center; gap: .3rem;
+    font-family: inherit; line-height: 1.4; white-space: nowrap;
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown.open .nav-dropdown-toggle {
+    background: rgba(255,255,255,.12); color: #fff;
+}
+.nav-caret { font-size: .65rem; opacity: .7; transition: transform .2s; }
+.nav-dropdown.open .nav-caret { transform: rotate(180deg); }
+
+.nav-dropdown-menu {
+    display: none; position: absolute; top: calc(100% + 6px); left: 0;
+    background: var(--navy-dark); border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px; padding: .4rem;
+    min-width: 210px; z-index: 300;
+    box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+.nav-dropdown.open .nav-dropdown-menu { display: block; }
+
+.nav-dropdown-menu a {
+    display: block; padding: .55rem .85rem;
+    color: rgba(255,255,255,.82); font-size: .88rem;
+    border-radius: 6px; text-decoration: none; white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: rgba(255,255,255,.1); color: #fff; }
+
+/* Mobile: show sub-items inline when nav is open */
+@media (max-width: 768px) {
+    .nav-dropdown-toggle { width: 100%; justify-content: space-between; }
+    .nav-dropdown-menu { position: static; border: none; border-radius: 0; padding: 0 0 .25rem .75rem; background: transparent; box-shadow: none; min-width: 0; display: none; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { color: rgba(255,255,255,.72); font-size: .85rem; }
+}
+
+/* TradingView news widget */
+.tradingview-news-wrap { border-radius: 12px; overflow: hidden; }
+.tradingview-news-wrap .tradingview-widget-container { height: 420px; }
+.tradingview-news-wrap .tradingview-widget-copyright { display: none !important; }
+
 .nav-cta {
     background: var(--accent) !important;
     color: var(--navy) !important;
@@ -144,8 +190,8 @@ main { flex: 1; padding: 2rem 0; }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
     margin-bottom: 2.5rem;
 }
 
@@ -240,6 +286,14 @@ main { flex: 1; padding: 2rem 0; }
     font-weight: 700;
     font-size: .8rem;
     flex-shrink: 0;
+}
+
+/* Broker name text (replaces logo/rating in home cards) */
+.broker-name-text {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -.01em;
 }
 
 .rating-badge {
