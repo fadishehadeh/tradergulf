@@ -58,7 +58,7 @@ function url(string $path = ''): string {
 }
 
 function asset(string $path = ''): string {
-    $full = public_path("assets/$path");
+    $full = web_path("assets/$path");
     $v    = is_file($full) ? filemtime($full) : 1;
     return url("assets/$path") . "?v=$v";
 }
