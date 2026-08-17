@@ -55,31 +55,71 @@ ul, ol { padding-left: 1.25rem; }
 .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
 main { flex: 1; padding: 0 0 2rem; }
 
-/* ── Ticker tape ──────────────────────────────────────────── */
+/* ── Custom ticker tape ───────────────────────────────────── */
 .ticker-wrap {
     width: 100%;
     background: #09112a;
     border-bottom: 1px solid rgba(255,255,255,.08);
     overflow: hidden;
-    height: 46px;
-    max-height: 46px;
+    height: 40px;
     position: relative;
     z-index: 100;
 }
-.ticker-wrap,
-.ticker-wrap * { max-height: 46px; overflow: hidden; }
-.ticker-wrap .tradingview-widget-container,
-.ticker-wrap .tradingview-widget-container__widget,
-.ticker-wrap iframe { height: 46px !important; max-height: 46px !important; overflow: hidden !important; }
-.ticker-wrap .tradingview-widget-copyright { display: none !important; }
+.ticker-track {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 0 1.5rem 0 0;
+    font-size: .78rem;
+    flex-shrink: 0;
+}
+.ticker-label { color: rgba(255,255,255,.55); font-weight: 500; }
+.ticker-price { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+.ticker-change { font-size: .72rem; font-weight: 500; }
+.ticker-change.up   { color: #10b981; }
+.ticker-change.down { color: #ef4444; }
+.ticker-placeholder { color: rgba(255,255,255,.3); }
+@keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.ticker-animated {
+    animation: ticker-scroll 40s linear infinite;
+    display: inline-flex;
+    gap: 0;
+}
+.ticker-animated:hover { animation-play-state: paused; }
 
-/* ── TradingView news widget ──────────────────────────────── */
-.tradingview-news-wrap { border-radius: 12px; overflow: hidden; height: 420px; }
-.tradingview-news-wrap .tradingview-widget-container,
-.tradingview-news-wrap .tradingview-widget-container__widget,
-.tradingview-news-wrap iframe { height: 420px !important; }
-.tradingview-news-wrap .tradingview-widget-copyright { display: none !important; }
-.tradingview-news-wrap img { display: none !important; }
+/* ── News widget ──────────────────────────────────────────── */
+.news-widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+.news-widget-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    transition: box-shadow .2s;
+}
+.news-widget-card:hover { box-shadow: var(--shadow-md); }
+.news-widget-card a { color: var(--text); text-decoration: none; }
+.news-widget-card a:hover { color: var(--blue); text-decoration: none; }
+.news-widget-card h3 { font-size: .9rem; line-height: 1.4; margin: 0; }
+.news-widget-card p  { font-size: .8rem; color: var(--muted); margin: 0; line-height: 1.5; }
+.news-widget-date { font-size: .72rem; color: var(--muted); }
+.news-widget-loading { padding: 2rem; text-align: center; color: var(--muted); font-size: .9rem; }
 
 /* --- Header ----------------------------------------------- */
 .site-header {

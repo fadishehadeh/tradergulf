@@ -34,6 +34,8 @@ use App\Modules\Admin\Ads\AdminAdsController;
 use App\Modules\Ads\AdsController;
 use App\Modules\Country\CountryController;
 use App\Modules\Search\SearchController;
+use App\Modules\Api\TickerController;
+use App\Modules\Api\NewsWidgetController;
 
 $router = $app->router();
 
@@ -110,6 +112,10 @@ $router->get('/advertise', [PageController::class, 'advertise']);
 
 // AI Chat endpoint
 $router->post('/api/chat', [ChatController::class, 'respond']);
+
+// Market data widgets
+$router->get('/api/ticker', [TickerController::class, 'rates']);
+$router->get('/api/news-widget', [NewsWidgetController::class, 'feed']);
 
 // Ad click tracking
 $router->get('/ad/{id}/click', [AdsController::class, 'click']);

@@ -116,28 +116,14 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 
 <!-- ========== TICKER TAPE ========== -->
 <div class="ticker-wrap" id="tickerWrap">
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright" style="display:none"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-            "symbols":[
-                {"proName":"FX:EURUSD","title":"EUR/USD"},
-                {"proName":"FX:GBPUSD","title":"GBP/USD"},
-                {"proName":"FX:USDJPY","title":"USD/JPY"},
-                {"proName":"FX:USDSAR","title":"USD/SAR"},
-                {"proName":"FX:USDAED","title":"USD/AED"},
-                {"proName":"TVC:GOLD","title":"XAU/USD"},
-                {"proName":"TVC:USOIL","title":"WTI Oil"},
-                {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"}
-            ],
-            "showSymbolLogo":false,
-            "colorTheme":"dark",
-            "isTransparent":true,
-            "displayMode":"adaptive",
-            "locale":"<?= $_lang === 'ar' ? 'ar_AE' : 'en' ?>"
-        }
-        </script>
+    <div class="ticker-track" id="tickerTrack">
+        <div class="ticker-item ticker-placeholder">
+            <span class="ticker-label">EUR/USD</span><span class="ticker-price">—</span>
+            <span class="ticker-label">GBP/USD</span><span class="ticker-price">—</span>
+            <span class="ticker-label">USD/JPY</span><span class="ticker-price">—</span>
+            <span class="ticker-label">XAU/USD</span><span class="ticker-price">—</span>
+            <span class="ticker-label">BTC/USD</span><span class="ticker-price">—</span>
+        </div>
     </div>
 </div>
 
@@ -548,6 +534,77 @@ document.getElementById('navToggle').addEventListener('click', function() {
     document.querySelectorAll('.mbn-item').forEach(function(a) {
         if (a.dataset.page === seg) a.classList.add('active');
     });
+})();
+</script>
+
+<!-- ── Self-hosted ticker ─────────────────────────────── -->
+<script>
+(function() {
+    function buildTicker(rates) {
+        var doubled = rates.concat(rates); // duplicate for seamless loop
+        var html = '';
+        doubled.forEach(function(r) {
+            html += '<span class="ticker-item">'
+                  + '<span class="ticker-label">' + r.label + '</span>'
+                  + '<span class="ticker-price">' + r.price + '</span>'
+                  + '<span class="ticker-change ' + (r.up ? 'up' : 'down') + '">'
+                  + r.changePct + '</span>'
+                  + '</span>';
+        });
+        var track = document.getElementById('tickerTrack');
+        if (!track) return;
+        var inner = document.createElement('div');
+        inner.className = 'ticker-animated';
+        inner.innerHTML = html;
+        track.innerHTML = '';
+        track.appendChild(inner);
+        // Adjust animation duration by item count
+        var dur = Math.max(20, rates.length * 5);
+        inner.style.animationDuration = dur + 's';
+    }
+
+    function loadTicker() {
+        fetch('/api/ticker')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (Array.isArray(data) && data.length) buildTicker(data);
+            })
+            .catch(function() {});
+    }
+
+    loadTicker();
+    setInterval(loadTicker, 300000); // refresh every 5 min
+})();
+</script>
+
+<!-- ── Self-hosted news widget ────────────────────────── -->
+<script>
+(function() {
+    var grid = document.getElementById('newsWidgetGrid');
+    if (!grid) return;
+
+    fetch('/api/news-widget')
+        .then(function(r) { return r.json(); })
+        .then(function(items) {
+            if (!Array.isArray(items) || !items.length) {
+                grid.innerHTML = '<p style="color:var(--muted);text-align:center;padding:2rem">'
+                    + 'No news available at this time. <a href="<?= url('news') ?>">Browse our news archive</a>.</p>';
+                return;
+            }
+            var html = '';
+            items.forEach(function(item) {
+                html += '<div class="news-widget-card">'
+                      + '<div class="news-widget-date">' + item.date + '</div>'
+                      + '<h3><a href="' + item.url + '" target="_blank" rel="noopener noreferrer">'
+                      + item.title + '</a></h3>';
+                if (item.excerpt) html += '<p>' + item.excerpt + '</p>';
+                html += '</div>';
+            });
+            grid.innerHTML = html;
+        })
+        .catch(function() {
+            grid.innerHTML = '';
+        });
 })();
 </script>
 </body>
