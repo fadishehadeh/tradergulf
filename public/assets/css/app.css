@@ -155,7 +155,7 @@ main { flex: 1; padding: 0 0 2rem; }
     line-height: 1;
 }
 
-.site-logo-text span { color: #34d399; }
+.site-logo-text span { color: var(--accent); }
 
 /* --- Nav -------------------------------------------------- */
 .site-nav { display: flex; align-items: center; gap: .15rem; }

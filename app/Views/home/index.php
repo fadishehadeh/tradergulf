@@ -19,25 +19,19 @@ function renderStars(float $rating): string {
     </div>
 </section>
 
-<!-- ADVERTISE HERE – hero slot (always generic) -->
-<div class="banner-section">
-    <div class="container">
-        <a href="<?= url('contact') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">
-            <div class="adv-inner">
-                <div>
-                    <div class="adv-tag">Advertise With Us</div>
-                    <div class="adv-title">Reach 10,000+ Active Gulf Forex Traders</div>
-                    <div class="adv-sub">Premium ad placements across the GCC &amp; MENA's leading forex comparison portal</div>
-                </div>
-                <div class="adv-btn">Get Media Kit →</div>
+<!-- ADVERTISE HERE – hero slot -->
+<div class="container" style="padding:.75rem 1.25rem">
+    <a href="<?= url('contact') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">
+        <div class="adv-inner" style="padding:1.75rem 2.5rem">
+            <div>
+                <div class="adv-tag">Advertise With Us</div>
+                <div class="adv-title" style="font-size:1.35rem">Reach Active Gulf Forex Traders</div>
+                <div class="adv-sub">Premium placements across the GCC &amp; MENA's leading forex comparison portal</div>
             </div>
-        </a>
-    </div>
+            <div class="adv-btn" style="font-size:.9rem;padding:.75rem 1.75rem">Get In Touch →</div>
+        </div>
+    </a>
 </div>
-
-<?php $__adZone = ad_zone('homepage_leaderboard'); if ($__adZone): ?>
-<div class="container"><?= $__adZone ?></div>
-<?php endif; ?>
 
 <!-- FEATURED BROKERS -->
 <section class="section">

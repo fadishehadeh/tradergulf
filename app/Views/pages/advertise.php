@@ -20,8 +20,7 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
         <h1>Advertise With Trader Gulf</h1>
         <p class="adv-hero-sub">Put your broker or fintech product in front of Gulf-region traders who are actively comparing brokers, running calculators, and researching where to open an account.</p>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.75rem">
-            <a href="<?= url('contact') ?>" class="btn btn-primary btn-lg" data-track="cta_click" data-track-label="advertise_hero_contact">Request Media Kit</a>
-            <a href="#packages" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,.4)">View Packages</a>
+            <a href="<?= url('contact') ?>" class="btn btn-primary btn-lg" data-track="cta_click" data-track-label="advertise_hero_contact">Get In Touch</a>
         </div>
     </div>
 </section>
@@ -30,14 +29,14 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
 <section class="adv-section">
     <div class="container" style="max-width:900px">
         <h2 class="adv-h2">Who We Serve</h2>
-        <p class="adv-lead">Trader Gulf is a forex broker comparison and education hub focused on the Gulf region and MENA. Our visitors come to compare brokers, read independent reviews, use trading calculators, and follow market news — a high-intent, returning audience concentrated in the GCC.</p>
+        <p class="adv-lead">Trader Gulf is a forex broker comparison and education hub focused on the Gulf region and MENA. Our visitors come to compare brokers, read independent reviews, use trading calculators, and follow market news — a high-intent audience concentrated in the GCC.</p>
 
         <div class="adv-grid adv-grid-3">
             <?php $audiences = [
                 ['🎯', 'Broker Researchers', 'Traders actively comparing brokers, reading reviews, and evaluating where to open or fund an account — maximum commercial intent.'],
                 ['🧮', 'Calculator Users', 'Hands-on traders using our pip, margin, and position-size calculators while sizing real trades.'],
                 ['📚', 'Education Seekers', 'Beginner and intermediate traders reading forex guides to improve their understanding before they commit capital.'],
-                ['🌍', 'Gulf-Region Traders', 'Audience concentrated in UAE, Saudi Arabia, Kuwait, Qatar, Bahrain, and wider MENA — underserved by global forex media.'],
+                ['🌍', 'Gulf-Region Traders', 'Audience concentrated in the GCC and wider MENA — underserved by global forex media.'],
                 ['🕌', 'Islamic Finance Traders', 'Traders specifically looking for Shariah-compliant, swap-free accounts — a major segment unique to the Gulf.'],
                 ['📱', 'Mobile-First Traders', 'Majority of traffic arrives on mobile, where our responsive, fast-loading pages keep engagement high.'],
             ]; foreach ($audiences as [$icon, $title, $desc]): ?>
@@ -78,65 +77,8 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
     </div>
 </section>
 
-<!-- Packages -->
-<section class="adv-section" id="packages">
-    <div class="container" style="max-width:960px">
-        <h2 class="adv-h2">Sponsorship Packages</h2>
-        <p class="adv-lead">Flexible options from a standard listing to a full performance partnership. Pricing below is indicative — final rates depend on placement, duration, and region. Contact us for a tailored quote.</p>
-
-        <div class="adv-packages">
-            <?php $packages = [
-                ['Starter Listing', '$99–$199', '/mo', false, [
-                    'Standard listing in the broker directory',
-                    'Logo, key facts and tracked "Visit Broker" link',
-                    'Appears in relevant comparison and tool pages',
-                    'Monthly click report',
-                ], 'New or smaller brokers building a Gulf presence affordably.'],
-                ['Sponsored Card', '$250–$500', '/mo', false, [
-                    'Highlighted, clearly-labelled "Sponsored" card',
-                    'Priority position within a chosen section',
-                    'Short editorial blurb with tracked CTA',
-                    'Monthly click and lead report',
-                ], 'Brokers wanting standout visibility in a key section.'],
-                ['Featured Broker', '$500–$1,500', '/mo', true, [
-                    'Featured placement across high-traffic pages',
-                    'Homepage + directory "Featured Broker" slot',
-                    'Native spotlight article (clearly labelled)',
-                    'Detailed monthly performance report',
-                ], 'Brokers running a flagship awareness push in the Gulf.'],
-                ['CPA / RevShare', 'Performance-based', '', false, [
-                    'CPA: $100–$700 per qualified client',
-                    'RevShare: 20–40% of net revenue',
-                    'Hybrid CPA + RevShare deals available',
-                    'Tracked links with placement + UTM reporting',
-                ], 'Brokers who prefer to pay on results — available from day one.'],
-                ['Sponsored Article', '$250–$750', ' one-time', false, [
-                    'Native, clearly-labelled sponsored article',
-                    'Broker spotlight or guide format',
-                    'Internal links and a tracked CTA',
-                    'Stays live permanently',
-                ], 'Telling a fuller story or launching a new product.'],
-            ]; foreach ($packages as [$name, $price, $period, $featured, $items, $best]): ?>
-            <div class="adv-pkg <?= $featured ? 'adv-pkg-featured' : '' ?>">
-                <?php if ($featured): ?><div class="adv-pkg-badge">Most Visibility</div><?php endif; ?>
-                <div class="adv-pkg-name"><?= $name ?></div>
-                <div class="adv-pkg-price"><?= $price ?><span><?= $period ?></span></div>
-                <ul class="adv-pkg-features">
-                    <?php foreach ($items as $item): ?>
-                    <li><?= $item ?></li>
-                    <?php endforeach; ?>
-                </ul>
-                <div class="adv-pkg-best"><strong>Best for:</strong> <?= $best ?></div>
-            </div>
-            <?php endforeach; ?>
-        </div>
-
-        <p style="font-size:.8rem;color:var(--muted);text-align:center;margin-top:1.5rem">Pricing scales with traffic growth. Early partners lock in preferential rates. Prefer to pay on results? CPA/RevShare is available from day one, standalone or alongside any fixed placement.</p>
-    </div>
-</section>
-
 <!-- Tracking + Compliance -->
-<section class="adv-section adv-section-alt">
+<section class="adv-section">
     <div class="container" style="max-width:900px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem">
             <div>
@@ -163,37 +105,16 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
     </div>
 </section>
 
-<!-- FAQ -->
-<section class="adv-section">
-    <div class="container" style="max-width:700px">
-        <h2 class="adv-h2">Frequently Asked Questions</h2>
-        <?php $faqs = [
-            ['Can I pay only on performance?', 'Yes. Our CPA/RevShare partnership is available from day one — pay per qualified client, on a revenue share, or a hybrid. Fixed-price placements are optional, not required.'],
-            ['Does paying improve a broker\'s review or rating?', 'No. Ratings and rankings are fully independent. Sponsorship buys visibility in clearly-labelled placements — never a higher score or better unpaid ranking.'],
-            ['How quickly can my ad go live?', 'Standard banner placements go live within 24 hours of receiving creatives and confirmation. Sponsored content articles require a brief editorial review but are typically live within 48–72 hours.'],
-            ['Do you share audience numbers?', 'Yes — we share real, current traffic and engagement figures privately on request. We do not publish inflated stats publicly. Request the media kit through the contact form below.'],
-            ['Is the Gulf / MENA focus maintained?', 'Yes. Our content, SEO targeting, and audience acquisition are focused on UAE, Saudi Arabia, Kuwait, Qatar, Bahrain, Oman, and wider MENA — we do not dilute this with generic global traffic.'],
-        ]; foreach ($faqs as [$q, $a]): ?>
-        <details class="faq-item" style="margin-bottom:.6rem;border:1px solid var(--border);border-radius:8px;overflow:hidden">
-            <summary style="padding:.9rem 1rem;font-weight:600;font-size:.92rem;cursor:pointer;list-style:none;color:var(--navy);display:flex;justify-content:space-between;align-items:center">
-                <?= $q ?> <span style="color:var(--accent);font-size:1.2rem;flex-shrink:0;margin-left:.5rem">+</span>
-            </summary>
-            <div style="padding:0 1rem 1rem;font-size:.88rem;color:var(--muted);line-height:1.7"><?= $a ?></div>
-        </details>
-        <?php endforeach; ?>
-    </div>
-</section>
-
 <!-- CTA -->
 <section class="adv-section adv-section-dark">
     <div class="container" style="max-width:620px;text-align:center">
-        <h2 style="color:#fff;margin-bottom:.75rem;font-size:1.4rem">Talk to the Partnership Team</h2>
+        <h2 style="color:#fff;margin-bottom:.75rem;font-size:1.4rem">Interested in Advertising?</h2>
         <p style="color:rgba(255,255,255,.7);margin-bottom:1.75rem;font-size:.93rem;line-height:1.65">
-            Tell us your goals, target regions, and budget — we will come back with a tailored proposal and real audience figures within 24 hours.
+            Reach out at <a href="mailto:fshehadeh@gmail.com" style="color:var(--accent)">fshehadeh@gmail.com</a> or send us a message using the contact form and we'll get back to you within 24 hours.
         </p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
             <a href="<?= url('contact') ?>" class="btn btn-primary btn-lg" data-track="cta_click" data-track-label="advertise_contact">
-                Contact Us →
+                Send Us a Message →
             </a>
         </div>
     </div>
@@ -236,48 +157,6 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
     gap: 1rem;
 }
 .adv-card-icon-sm { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
-
-/* Packages */
-.adv-packages {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.25rem;
-}
-.adv-pkg {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-.adv-pkg-featured {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(245,158,11,.12);
-}
-.adv-pkg-badge {
-    position: absolute;
-    top: -11px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent);
-    color: var(--navy-dark);
-    font-size: .7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    padding: .2rem .75rem;
-    border-radius: 99px;
-    white-space: nowrap;
-}
-.adv-pkg-name { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: .4rem; }
-.adv-pkg-price { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 1rem; }
-.adv-pkg-price span { font-size: .82rem; font-weight: 500; color: var(--muted); }
-.adv-pkg-features { list-style: none; padding: 0; margin: 0 0 1rem; flex: 1; }
-.adv-pkg-features li { font-size: .82rem; padding: .3rem 0; color: var(--text); padding-left: 1.4rem; position: relative; }
-.adv-pkg-features li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-.adv-pkg-best { font-size: .78rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: .75rem; margin-top: auto; line-height: 1.5; }
 
 /* Checklist */
 .adv-check-list { list-style: none; padding: 0; margin: 0; }
