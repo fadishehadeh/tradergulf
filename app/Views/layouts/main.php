@@ -410,11 +410,19 @@ document.getElementById('navToggle').addEventListener('click', function() {
     });
 })();
 
-// Hide TradingView widgets gracefully if blocked/failed to load
+// TradingView widget visibility: reveal after 1.5s (content ready), hide if blocked
 (function() {
     setTimeout(function() {
         var ticker = document.getElementById('tickerWrap');
-        if (ticker && !ticker.querySelector('iframe')) ticker.style.display = 'none';
+        if (ticker) {
+            if (ticker.querySelector('iframe')) {
+                ticker.style.opacity = '1';
+            } else {
+                ticker.style.display = 'none';
+            }
+        }
+    }, 1500);
+    setTimeout(function() {
         var news = document.getElementById('tvNewsSection');
         if (news && !news.querySelector('iframe')) news.style.display = 'none';
     }, 5000);
