@@ -1,12 +1,3 @@
-<?php
-function renderStars(float $rating): string {
-    $full  = floor($rating);
-    $half  = ($rating - $full) >= 0.5 ? 1 : 0;
-    $empty = 5 - $full - $half;
-    return str_repeat('★', (int)$full) . ($half ? '½' : '') . str_repeat('☆', (int)$empty);
-}
-?>
-
 <!-- HERO -->
 <section class="hero">
     <div class="container">

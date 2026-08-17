@@ -1,11 +1,4 @@
 <?php
-function renderStars(float $rating): string {
-    $full  = floor($rating);
-    $half  = ($rating - $full) >= 0.5 ? 1 : 0;
-    $empty = 5 - $full - $half;
-    return str_repeat('★', (int)$full) . ($half ? '½' : '') . str_repeat('☆', (int)$empty);
-}
-
 $sections = [
     'overview'      => 'Overview',
     'pros-cons'     => 'Pros & Cons',
@@ -44,9 +37,8 @@ $sections = [
     <aside class="review-sidebar">
         <div class="review-broker-card">
             <div class="broker-logo-placeholder" style="margin:0 auto .75rem;width:130px;height:50px"><?= e($broker['name']) ?></div>
-            <div class="review-score"><?= e($broker['overall_rating']) ?></div>
-            <div class="review-stars"><?= renderStars((float)$broker['overall_rating']) ?></div>
-            <p style="font-size:.8rem;color:var(--muted);margin-bottom:1.25rem">Overall Rating</p>
+            <div class="review-score"><?= e($broker['overall_rating']) ?><span style="font-size:.9rem;font-weight:500;color:var(--muted)">/5</span></div>
+            <p style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.25rem">Editorial Score</p>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;text-align:center;margin-bottom:1.25rem">
                 <div class="stat-box"><div class="stat-box-value">$<?= e(number_format((float)$broker['min_deposit'])) ?></div><div class="stat-box-label">Min Deposit</div></div>
@@ -71,7 +63,14 @@ $sections = [
             <?php endforeach; ?>
         </nav>
 
-        <?php $__sidebarAd = ad_zone('broker_review_sidebar'); if ($__sidebarAd) echo $__sidebarAd; ?>
+        <?php $__sidebarAd = ad_zone('broker_review_sidebar'); if ($__sidebarAd): echo $__sidebarAd; else: ?>
+        <a href="<?= url('advertise') ?>" class="advertise-here-sm" style="display:block;margin-top:1rem" data-track="cta_click" data-track-label="advertise_broker_sidebar">
+            <div class="adv-inner" style="padding:.9rem 1.25rem;flex-direction:column;align-items:flex-start;gap:.5rem">
+                <div><div class="adv-tag">Advertisement</div><div class="adv-title" style="font-size:.88rem">Advertise Here</div><div class="adv-sub">Reach active forex traders</div></div>
+                <div class="adv-btn" style="font-size:.75rem;padding:.4rem .9rem">Get In Touch →</div>
+            </div>
+        </a>
+        <?php endif; ?>
     </aside>
 
     <!-- REVIEW CONTENT -->

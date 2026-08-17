@@ -1,12 +1,3 @@
-<?php
-function renderStars(float $rating): string {
-    $full  = floor($rating);
-    $half  = ($rating - $full) >= 0.5 ? 1 : 0;
-    $empty = 5 - $full - $half;
-    return str_repeat('★', (int)$full) . ($half ? '½' : '') . str_repeat('☆', (int)$empty);
-}
-?>
-
 <div class="page-header">
     <div class="container">
         <h1>Forex Broker Reviews</h1>
@@ -35,18 +26,9 @@ function renderStars(float $rating): string {
 
                 <!-- Logo + Rating -->
                 <div style="text-align:center">
-                    <?php if (!empty($b['logo'])): ?>
-                    <img src="<?= asset('img/brokers/' . $b['logo']) ?>"
-                         alt="<?= e($b['name']) ?> logo"
-                         loading="lazy"
-                         style="max-height:40px;max-width:130px;object-fit:contain;display:block;margin:0 auto .5rem">
-                    <?php else: ?>
-                    <div class="broker-logo-placeholder" style="margin:0 auto .5rem;width:120px;height:44px"><?= e($b['name']) ?></div>
-                    <?php endif; ?>
-                    <div class="rating-badge" style="justify-content:center">
-                        <span class="stars"><?= renderStars((float)$b['overall_rating']) ?></span>
-                        <strong><?= e($b['overall_rating']) ?></strong>
-                    </div>
+                    <div style="font-weight:800;font-size:1.1rem;color:var(--navy);margin-bottom:.4rem"><?= e($b['name']) ?></div>
+                    <div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em">Editorial Score</div>
+                    <div style="font-size:1.4rem;font-weight:800;color:var(--navy)"><?= e($b['overall_rating']) ?><span style="font-size:.8rem;font-weight:500;color:var(--muted)">/5</span></div>
                 </div>
 
                 <!-- Stats -->
