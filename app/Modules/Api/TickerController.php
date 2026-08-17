@@ -9,13 +9,15 @@ use App\Core\Request;
 class TickerController extends Controller
 {
     private const CACHE_TTL = 300; // 5 minutes
-    private const SYMBOLS = [
+
+    // Yahoo Finance symbols for chart API
+    private const YF_SYMBOLS = [
         'EURUSD=X' => ['label' => 'EUR/USD', 'decimals' => 5],
         'GBPUSD=X' => ['label' => 'GBP/USD', 'decimals' => 5],
         'USDJPY=X' => ['label' => 'USD/JPY', 'decimals' => 3],
         'USDSAR=X' => ['label' => 'USD/SAR', 'decimals' => 4],
         'USDAED=X' => ['label' => 'USD/AED', 'decimals' => 4],
-        'GC=F'     => ['label' => 'XAU/USD', 'decimals' => 2],
+        'GC=F'     => ['label' => 'Gold',    'decimals' => 2],
         'CL=F'     => ['label' => 'WTI Oil', 'decimals' => 2],
         'BTC-USD'  => ['label' => 'BTC/USD', 'decimals' => 0],
     ];
@@ -24,7 +26,6 @@ class TickerController extends Controller
     {
         header('Content-Type: application/json');
         header('Cache-Control: public, max-age=300');
-        header('Access-Control-Allow-Origin: *');
 
         $cacheFile = sys_get_temp_dir() . '/tg_ticker.json';
 
@@ -33,64 +34,135 @@ class TickerController extends Controller
             exit;
         }
 
-        $data = $this->fetchRates();
+        $data = $this->fetchFromYahoo();
 
-        if ($data !== null) {
-            file_put_contents($cacheFile, json_encode($data));
-        } elseif (is_file($cacheFile)) {
-            // Return stale cache rather than failing
-            echo file_get_contents($cacheFile);
-            exit;
-        } else {
-            $this->json(['error' => 'unavailable'], 503);
+        if (empty($data)) {
+            $data = $this->fetchFallback();
         }
 
-        echo json_encode($data);
+        if (!empty($data)) {
+            file_put_contents($cacheFile, json_encode($data));
+            echo json_encode($data);
+        } elseif (is_file($cacheFile)) {
+            echo file_get_contents($cacheFile);
+        } else {
+            echo json_encode([]);
+        }
         exit;
     }
 
-    private function fetchRates(): ?array
+    private function fetchFromYahoo(): array
     {
-        $symbols = implode(',', array_keys(self::SYMBOLS));
-        $url = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols='
+        $symbols = implode(',', array_keys(self::YF_SYMBOLS));
+        $url = 'https://query2.finance.yahoo.com/v8/finance/spark?symbols='
              . urlencode($symbols)
-             . '&fields=symbol,regularMarketPrice,regularMarketChange,regularMarketChangePercent';
+             . '&range=1d&interval=1d';
 
-        $ctx = stream_context_create([
-            'http' => [
-                'timeout'        => 8,
-                'ignore_errors'  => true,
-                'header'         => "User-Agent: Mozilla/5.0\r\n",
-            ],
-            'ssl' => ['verify_peer' => false],
-        ]);
-
-        $body = @file_get_contents($url, false, $ctx);
-        if (!$body) return null;
+        $body = $this->httpGet($url);
+        if (!$body) return [];
 
         $json = json_decode($body, true);
-        $quotes = $json['quoteResponse']['result'] ?? null;
-        if (!$quotes) return null;
+        $spark = $json['spark']['result'] ?? null;
+        if (!$spark) return [];
 
         $result = [];
-        foreach ($quotes as $q) {
-            $sym  = $q['symbol'] ?? '';
-            $meta = self::SYMBOLS[$sym] ?? null;
+        foreach ($spark as $entry) {
+            $sym  = $entry['symbol'] ?? '';
+            $meta = self::YF_SYMBOLS[$sym] ?? null;
             if (!$meta) continue;
 
-            $price   = round((float)($q['regularMarketPrice'] ?? 0), $meta['decimals']);
-            $change  = round((float)($q['regularMarketChange'] ?? 0), $meta['decimals']);
-            $changePct = round((float)($q['regularMarketChangePercent'] ?? 0), 2);
+            $response = $entry['response'][0] ?? null;
+            if (!$response) continue;
 
+            $closes  = $response['indicators']['quote'][0]['close'] ?? [];
+            $closes  = array_values(array_filter($closes, fn($v) => $v !== null));
+            if (count($closes) < 1) continue;
+
+            $current  = end($closes);
+            $previous = count($closes) > 1 ? $closes[count($closes) - 2] : $current;
+            $change   = $current - $previous;
+            $changePct = $previous != 0 ? ($change / $previous) * 100 : 0;
+
+            $dec = $meta['decimals'];
             $result[] = [
                 'label'     => $meta['label'],
-                'price'     => number_format($price, $meta['decimals']),
-                'change'    => ($change >= 0 ? '+' : '') . number_format($change, $meta['decimals']),
-                'changePct' => ($changePct >= 0 ? '+' : '') . $changePct . '%',
+                'price'     => number_format($current, $dec),
+                'change'    => ($change >= 0 ? '+' : '') . number_format($change, $dec),
+                'changePct' => ($changePct >= 0 ? '+' : '') . number_format($changePct, 2) . '%',
                 'up'        => $change >= 0,
             ];
         }
 
         return $result;
+    }
+
+    private function fetchFallback(): array
+    {
+        // ExchangeRate-API (free, no key required)
+        $url  = 'https://open.er-api.com/v6/latest/USD';
+        $body = $this->httpGet($url);
+        if (!$body) return [];
+
+        $json  = json_decode($body, true);
+        $rates = $json['rates'] ?? null;
+        if (!$rates) return [];
+
+        $pairs = [
+            ['label' => 'EUR/USD', 'val' => 1 / ($rates['EUR'] ?? 0), 'dec' => 5],
+            ['label' => 'GBP/USD', 'val' => 1 / ($rates['GBP'] ?? 0), 'dec' => 5],
+            ['label' => 'USD/JPY', 'val' => $rates['JPY'] ?? 0,       'dec' => 3],
+            ['label' => 'USD/SAR', 'val' => $rates['SAR'] ?? 0,       'dec' => 4],
+            ['label' => 'USD/AED', 'val' => $rates['AED'] ?? 0,       'dec' => 4],
+        ];
+
+        // BTC from CoinGecko
+        $btcBody = $this->httpGet('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+        if ($btcBody) {
+            $btc = json_decode($btcBody, true)['bitcoin'] ?? null;
+            if ($btc) {
+                $pairs[] = ['label' => 'BTC/USD', 'val' => $btc['usd'] ?? 0, 'dec' => 0, 'pct' => $btc['usd_24h_change'] ?? 0];
+            }
+        }
+
+        $result = [];
+        foreach ($pairs as $p) {
+            if (empty($p['val'])) continue;
+            $pct = $p['pct'] ?? 0;
+            $result[] = [
+                'label'     => $p['label'],
+                'price'     => number_format($p['val'], $p['dec']),
+                'change'    => '',
+                'changePct' => ($pct >= 0 ? '+' : '') . number_format($pct, 2) . '%',
+                'up'        => $pct >= 0,
+            ];
+        }
+
+        return $result;
+    }
+
+    private function httpGet(string $url): string|false
+    {
+        if (function_exists('curl_init')) {
+            $ch = curl_init($url);
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT        => 8,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                CURLOPT_HTTPHEADER     => ['Accept: application/json, text/plain, */*'],
+            ]);
+            $body = curl_exec($ch);
+            $err  = curl_errno($ch);
+            curl_close($ch);
+            return ($err === 0 && $body) ? $body : false;
+        }
+
+        $ctx = stream_context_create([
+            'http' => ['timeout' => 8, 'ignore_errors' => true,
+                       'header'  => "User-Agent: Mozilla/5.0\r\n"],
+            'ssl'  => ['verify_peer' => false],
+        ]);
+        return @file_get_contents($url, false, $ctx);
     }
 }
