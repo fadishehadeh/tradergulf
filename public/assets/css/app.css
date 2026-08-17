@@ -57,13 +57,21 @@ main { flex: 1; padding: 0 0 2rem; }
 
 /* ── Ticker tape ──────────────────────────────────────────── */
 .ticker-wrap {
-    width: 100%; background: #131722;
-    overflow: hidden; height: 46px; max-height: 46px;
+    width: 100%;
+    background: #09112a;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    overflow: hidden;
+    height: 46px;
+    max-height: 46px;
+    position: relative;
+    z-index: 100;
 }
+.ticker-wrap,
+.ticker-wrap * { max-height: 46px; overflow: hidden; }
 .ticker-wrap .tradingview-widget-container,
-.ticker-wrap .tradingview-widget-container__widget { height: 78px; }
+.ticker-wrap .tradingview-widget-container__widget,
+.ticker-wrap iframe { height: 46px !important; max-height: 46px !important; overflow: hidden !important; }
 .ticker-wrap .tradingview-widget-copyright { display: none !important; }
-.ticker-wrap img { display: none !important; }
 
 /* ── TradingView news widget ──────────────────────────────── */
 .tradingview-news-wrap { border-radius: 12px; overflow: hidden; height: 420px; }
