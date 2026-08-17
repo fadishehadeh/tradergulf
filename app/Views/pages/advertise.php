@@ -110,7 +110,7 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
     <div class="container" style="max-width:620px;text-align:center">
         <h2 style="color:#fff;margin-bottom:.75rem;font-size:1.4rem">Interested in Advertising?</h2>
         <p style="color:rgba(255,255,255,.7);margin-bottom:1.75rem;font-size:.93rem;line-height:1.65">
-            Reach out at <a href="mailto:fshehadeh@gmail.com" style="color:var(--accent)">fshehadeh@gmail.com</a> or send us a message using the contact form and we'll get back to you within 24 hours.
+            Send us a message using the contact form and we'll get back to you within 24 hours.
         </p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
             <a href="<?= url('contact') ?>" class="btn btn-primary btn-lg" data-track="cta_click" data-track-label="advertise_contact">

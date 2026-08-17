@@ -26,19 +26,10 @@ $_error   = session()->getFlash('error');
         </div>
         <?php endif; ?>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem">
-            <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center">
-                <div style="font-size:1.75rem;margin-bottom:.4rem">📧</div>
-                <div style="font-size:.82rem;font-weight:600;color:var(--text-muted);margin-bottom:.25rem">Email</div>
-                <a href="mailto:<?= e(setting('contact_email','info@tradergulf.com')) ?>" style="color:var(--accent);font-size:.88rem">
-                    <?= e(setting('contact_email','info@tradergulf.com')) ?>
-                </a>
-            </div>
-            <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center">
-                <div style="font-size:1.75rem;margin-bottom:.4rem">⏱️</div>
-                <div style="font-size:.82rem;font-weight:600;color:var(--text-muted);margin-bottom:.25rem">Response Time</div>
-                <span style="color:var(--text-main);font-size:.88rem">Within 2 business days</span>
-            </div>
+        <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;margin-bottom:2rem;max-width:280px;margin-left:auto;margin-right:auto">
+            <div style="font-size:1.75rem;margin-bottom:.4rem">⏱️</div>
+            <div style="font-size:.82rem;font-weight:600;color:var(--text-muted);margin-bottom:.25rem">Response Time</div>
+            <span style="color:var(--text-main);font-size:.88rem">Within 2 business days</span>
         </div>
 
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:2rem">
