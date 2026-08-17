@@ -114,33 +114,6 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 <body class="<?= $_isRtl ? 'rtl' : '' ?>">
 <div class="page-wrapper">
 
-<!-- ========== TICKER TAPE ========== -->
-<div class="ticker-wrap">
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright" style="display:none"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-            "symbols":[
-                {"proName":"FX:EURUSD","title":"EUR/USD"},
-                {"proName":"FX:GBPUSD","title":"GBP/USD"},
-                {"proName":"FX:USDJPY","title":"USD/JPY"},
-                {"proName":"FX:USDSAR","title":"USD/SAR"},
-                {"proName":"FX:USDAED","title":"USD/AED"},
-                {"proName":"TVC:GOLD","title":"XAU/USD"},
-                {"proName":"TVC:USOIL","title":"WTI Oil"},
-                {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"}
-            ],
-            "showSymbolLogo":false,
-            "colorTheme":"dark",
-            "isTransparent":true,
-            "displayMode":"adaptive",
-            "locale":"<?= $_lang === 'ar' ? 'ar_AE' : 'en' ?>"
-        }
-        </script>
-    </div>
-</div>
-
 <!-- ========== HEADER ========== -->
 <header class="site-header">
     <div class="container header-inner">
@@ -165,7 +138,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 
             <div class="nav-dropdown" id="navDropGuides">
                 <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-                    <?= t('Educational Guides') ?> <span class="nav-caret" aria-hidden="true">▾</span>
+                    <?= t('Educational Guides') ?> <span class="nav-caret" aria-hidden="true"></span>
                 </button>
                 <div class="nav-dropdown-menu" role="menu">
                     <a href="<?= url('guides') ?>" role="menuitem"><?= t('All Guides') ?></a>
@@ -177,7 +150,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 
             <div class="nav-dropdown" id="navDropMarket">
                 <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-                    <?= t('Market Updates') ?> <span class="nav-caret" aria-hidden="true">▾</span>
+                    <?= t('Market Updates') ?> <span class="nav-caret" aria-hidden="true"></span>
                 </button>
                 <div class="nav-dropdown-menu" role="menu">
                     <a href="<?= url('economic-calendar') ?>" role="menuitem"><?= t('Economic Calendar') ?></a>
