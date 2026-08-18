@@ -39,8 +39,11 @@ class EconomicCalendarController extends Controller
         if ($body && $code === 200) {
             // Filter to relevant currencies only and clean up
             $events = json_decode($body, true) ?: [];
+            // API returns 'country' field (currency code), not 'currency'
             $relevant = ['USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD', 'CHF', 'NZD', 'AED', 'SAR'];
-            $filtered = array_values(array_filter($events, fn($e) => in_array($e['currency'] ?? '', $relevant)));
+            $filtered = array_values(array_filter($events, fn($e) => in_array($e['country'] ?? $e['currency'] ?? '', $relevant)));
+            // Normalize to 'currency' key for JS compatibility
+            $filtered = array_map(fn($e) => array_merge($e, ['currency' => $e['country'] ?? $e['currency'] ?? '']), $filtered);
             $out = json_encode($filtered, JSON_UNESCAPED_UNICODE);
             file_put_contents($cacheFile, $out);
             echo $out;
