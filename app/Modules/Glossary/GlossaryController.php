@@ -20,8 +20,8 @@ class GlossaryController extends Controller
         }
 
         $this->render('glossary/index', [
-            'title'   => 'Forex Glossary | Trading Terms Explained | Trader Gulf',
-            'metaDesc'=> 'A complete forex and trading glossary. Plain-English definitions of key terms every trader needs to know.',
+            'title'   => 'Forex Glossary — Trading Terms for Gulf Traders | Trader Gulf',
+            'metaDesc'=> 'Complete forex and CFD glossary in plain English. Learn what pip, leverage, spread, margin call, and Islamic account mean — essential for UAE and Gulf traders.',
             'grouped' => $grouped,
         ]);
     }

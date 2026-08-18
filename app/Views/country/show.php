@@ -117,18 +117,6 @@ $fullName = $country['full_name'];
     </div>
 </section>
 
-<?php
-// Lead-gen widget for the top broker in this country list
-$__lcBroker = null;
-foreach ($brokers as $__lb) { if (!empty($__lb['affiliate_url'])) { $__lcBroker = $__lb; break; } }
-if ($__lcBroker):
-?>
-<section style="padding:0 0 .5rem">
-    <div class="container" style="max-width:800px">
-        <?= lead_capture_form($__lcBroker['slug'], $__lcBroker['name'], $__lcBroker['affiliate_url']) ?>
-    </div>
-</section>
-<?php endif; ?>
 
 <!-- Country trading guide section -->
 <section style="padding:0 0 2.5rem">

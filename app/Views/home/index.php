@@ -162,6 +162,35 @@
     </div>
 </div>
 
+<!-- BROKERS BY COUNTRY -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <h2><?= t('Forex Brokers by Country') ?></h2>
+            <p><?= t('Find the best regulated forex brokers approved for traders in your country.') ?></p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.75rem">
+            <?php foreach ([
+                ['uae',          '🇦🇪', 'UAE'],
+                ['saudi-arabia', '🇸🇦', 'Saudi Arabia'],
+                ['kuwait',       '🇰🇼', 'Kuwait'],
+                ['qatar',        '🇶🇦', 'Qatar'],
+                ['bahrain',      '🇧🇭', 'Bahrain'],
+                ['oman',         '🇴🇲', 'Oman'],
+                ['egypt',        '🇪🇬', 'Egypt'],
+                ['jordan',       '🇯🇴', 'Jordan'],
+            ] as [$slug, $flag, $label]): ?>
+            <a href="<?= url('forex-brokers-in/' . $slug) ?>"
+               style="display:flex;align-items:center;gap:.6rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;text-decoration:none;color:var(--text-main);font-weight:600;font-size:.88rem;transition:border-color .15s"
+               onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+                <span style="font-size:1.4rem"><?= $flag ?></span>
+                <?= $label ?>
+            </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
 <!-- GUIDES -->
 <?php if (!empty($latestGuides)): ?>
 <section class="section">

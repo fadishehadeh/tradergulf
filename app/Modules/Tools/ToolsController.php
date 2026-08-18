@@ -11,8 +11,8 @@ class ToolsController extends Controller
     public function currencyConverter(Request $request): void
     {
         $this->render('tools/currency-converter', [
-            'title'   => 'Currency Converter — Free Live Rates | Trader Gulf',
-            'metaDesc'=> 'Free currency converter with live exchange rates. Convert between 150+ currencies including AED, SAR, USD, EUR, GBP and more.',
+            'title'   => 'Currency Converter — AED, SAR, USD & Live Rates | Trader Gulf',
+            'metaDesc'=> 'Free currency converter with live exchange rates for AED, SAR, KWD, QAR, USD, EUR, GBP and 150+ currencies. Updated daily from ECB data.',
             'canonical' => url('currency-converter'),
         ]);
     }
@@ -20,8 +20,8 @@ class ToolsController extends Controller
     public function economicCalendar(Request $request): void
     {
         $this->render('tools/economic-calendar', [
-            'title'   => 'Economic Calendar 2025 — Forex Market Events | Trader Gulf',
-            'metaDesc'=> 'Live economic calendar with high-impact forex events: NFP, FOMC, CPI, central bank decisions and more. Updated in real time.',
+            'title'   => 'Forex Economic Calendar ' . date('Y') . ' — Live Events for Gulf Traders | Trader Gulf',
+            'metaDesc'=> 'Live forex economic calendar with high-impact events: NFP, FOMC, CPI, central bank decisions and Gulf market updates. Updated daily.',
             'canonical' => url('economic-calendar'),
         ]);
     }

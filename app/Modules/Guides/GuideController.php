@@ -17,8 +17,8 @@ class GuideController extends Controller
         );
 
         $this->render('guides/index', [
-            'title'   => 'Forex Trading Guides | Learn to Trade | Trader Gulf',
-            'metaDesc'=> 'Beginner-friendly forex trading guides. Learn the basics of forex, risk management, platforms, and strategy.',
+            'title'   => 'Forex Trading Guides for Gulf & UAE Traders ' . date('Y') . ' | Trader Gulf',
+            'metaDesc'=> 'Practical forex trading guides for UAE, Saudi Arabia and Gulf traders. Learn leverage, risk management, Islamic accounts and how to choose a broker.',
             'guides'  => $guides,
         ]);
     }
@@ -56,8 +56,8 @@ class GuideController extends Controller
         );
 
         $this->render('guides/news', [
-            'title'   => 'Forex Market News | Trader Gulf',
-            'metaDesc'=> 'Latest forex market news, analysis, and updates from around the globe.',
+            'title'   => 'Forex Market News & Analysis ' . date('Y') . ' | Trader Gulf',
+            'metaDesc'=> 'Latest forex market news, broker updates, and trading analysis relevant to UAE, Gulf, and MENA traders. Updated regularly.',
             'news'    => $news,
         ]);
     }

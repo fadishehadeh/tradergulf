@@ -214,9 +214,10 @@ class CountryController extends Controller
         );
 
         $pageUrl   = url('forex-brokers-in/' . $country['slug']);
-        $pageTitle = 'Best Forex Brokers in ' . $country['full_name'] . ' 2025 | Trader Gulf';
-        $metaDesc  = 'Compare the top regulated forex brokers for ' . $country['name'] . ' traders in 2025. '
-            . 'Regulated, Islamic accounts, Arabic support. Unbiased expert reviews.';
+        $year      = date('Y');
+        $pageTitle = 'Best Forex Brokers in ' . $country['full_name'] . ' ' . $year . ' | Trader Gulf';
+        $metaDesc  = 'Compare the top regulated forex brokers for ' . $country['name'] . ' traders in ' . $year . '. '
+            . 'Regulated brokers, Islamic swap-free accounts, Arabic support. Independent reviews updated ' . $year . '.';
 
         $faqSchema = null;
         if (!empty($country['faqs'])) {
