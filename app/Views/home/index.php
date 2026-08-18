@@ -1,8 +1,8 @@
 <!-- HERO -->
 <section class="hero">
     <div class="container">
-        <h1><?= t('Find the Best Forex Broker') ?><br><span><?= t('Independent. Transparent. Global.') ?></span></h1>
-        <p><?= t("We review and compare the world's top forex brokers so you can trade with confidence.") ?></p>
+        <h1><?= t('Best Forex Brokers in UAE & Gulf') ?><br><span><?= t('Independent. Regulated. Reviewed.') ?></span></h1>
+        <p><?= t("We review and rank the top regulated forex brokers for traders in UAE, Saudi Arabia, Kuwait and the wider GCC region.") ?></p>
         <div class="hero-actions">
             <a href="<?= url('brokers') ?>" class="btn btn-primary btn-lg"><?= t('View All Brokers') ?></a>
             <a href="<?= url('compare') ?>" class="btn btn-outline btn-lg" style="color:#fff;border-color:#fff"><?= t('Compare Brokers') ?></a>
@@ -36,7 +36,7 @@
         <?php foreach ($featuredBrokers as $broker): ?>
             <div class="broker-card">
                 <div class="broker-card-header">
-                    <div class="broker-name-text"><?= e($broker['name']) ?></div>
+                    <a href="<?= url('brokers/' . $broker['slug']) ?>" class="broker-name-text" style="text-decoration:none;color:inherit"><?= e($broker['name']) ?></a>
                 </div>
 
                 <div class="broker-card-stats">

@@ -39,6 +39,7 @@ class HomeController extends Controller
         $this->render('home/index', [
             'title'          => 'Best Forex Brokers in UAE & Gulf 2025 | Trader Gulf',
             'metaDesc'       => 'Compare the best forex brokers in UAE, Saudi Arabia, Kuwait and the Gulf region. Independent reviews, spreads, regulation and fees — updated 2025.',
+            'canonical'      => url(),
             'featuredBrokers'=> $featuredBrokers,
             'latestGuides'   => $latestGuides,
             'latestNews'     => $latestNews,
