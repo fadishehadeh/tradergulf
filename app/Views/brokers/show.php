@@ -37,9 +37,6 @@ $sections = [
     <aside class="review-sidebar">
         <div class="review-broker-card">
             <div class="broker-logo-placeholder" style="margin:0 auto .75rem;width:130px;height:50px"><?= e($broker['name']) ?></div>
-            <div class="review-score"><?= e($broker['overall_rating']) ?><span style="font-size:.9rem;font-weight:500;color:var(--muted)">/5</span></div>
-            <p style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.25rem">Editorial Score</p>
-
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;text-align:center;margin-bottom:1.25rem">
                 <div class="stat-box"><div class="stat-box-value">$<?= e(number_format((float)$broker['min_deposit'])) ?></div><div class="stat-box-label">Min Deposit</div></div>
                 <div class="stat-box"><div class="stat-box-value"><?= e($broker['max_leverage']) ?></div><div class="stat-box-label">Max Leverage</div></div>
@@ -141,6 +138,16 @@ $sections = [
             <?php endif; ?>
         </section>
 
+        <!-- Mid-page advertise banner -->
+        <div style="padding:.5rem 0 1.25rem">
+            <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_mid">
+                <div class="adv-inner">
+                    <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach active forex traders across the Gulf &amp; MENA region</div></div>
+                    <div class="adv-btn">Get In Touch →</div>
+                </div>
+            </a>
+        </div>
+
         <!-- Account Types -->
         <section id="account-types">
             <h2>Account Types</h2>
@@ -218,10 +225,19 @@ $sections = [
             <?php endif; ?>
         </section>
 
-        <!-- Lead-gen capture -->
-        <?php if ($broker['affiliate_url']): ?>
-        <?= lead_capture_form($broker['slug'], $broker['name'], $broker['affiliate_url']) ?>
-        <?php endif; ?>
+        <!-- Bottom advertise banner -->
+        <div style="margin:2rem 0">
+            <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_bottom">
+                <div class="adv-inner" style="padding:2rem 2.5rem">
+                    <div>
+                        <div class="adv-tag">Advertisement</div>
+                        <div class="adv-title" style="font-size:1.4rem">Advertise With Trader Gulf</div>
+                        <div class="adv-sub" style="font-size:.9rem">Reach active forex traders across the Gulf &amp; MENA region</div>
+                    </div>
+                    <div class="adv-btn" style="font-size:.95rem;padding:.85rem 2rem">Get In Touch →</div>
+                </div>
+            </a>
+        </div>
 
         <!-- Social Share -->
         <?php
@@ -240,21 +256,19 @@ $sections = [
                style="padding:.3rem .75rem;background:#25d366;color:#fff;border-radius:5px;font-size:.8rem;font-weight:600;text-decoration:none">WhatsApp</a>
         </div>
 
-        <!-- Related Brokers -->
-        <?php if (!empty($relatedBrokers)): ?>
+        <!-- Compare banner (full width) -->
         <div style="margin-top:2rem">
-            <h3 style="margin-bottom:1rem">Compare with Other Brokers</h3>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
-            <?php foreach ($relatedBrokers as $rb): ?>
-                <a href="<?= url('brokers/' . $rb['slug']) ?>" class="card card-body" style="text-align:center;text-decoration:none;color:var(--text)">
-                    <div class="broker-logo-placeholder" style="margin:0 auto .5rem;width:90px;height:34px;font-size:.7rem"><?= e($rb['name']) ?></div>
-                    <div style="font-weight:700;font-size:.9rem"><?= e($rb['name']) ?></div>
-                    <div style="color:var(--accent);font-size:.85rem"><?= e($rb['overall_rating']) ?> / 5</div>
-                </a>
-            <?php endforeach; ?>
-            </div>
+            <a href="<?= url('advertise') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_broker_compare">
+                <div class="adv-inner" style="padding:2.5rem 3rem">
+                    <div>
+                        <div class="adv-tag">Advertisement</div>
+                        <div class="adv-title" style="font-size:1.75rem">Advertise With Trader Gulf</div>
+                        <div class="adv-sub" style="font-size:.95rem">Put your broker in front of Gulf-region traders actively comparing options</div>
+                    </div>
+                    <div class="adv-btn" style="font-size:.95rem;padding:.9rem 2.25rem">Get In Touch →</div>
+                </div>
+            </a>
         </div>
-        <?php endif; ?>
 
     </div><!-- .review-content -->
 </div><!-- .review-layout -->
