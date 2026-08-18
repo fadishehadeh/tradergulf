@@ -37,8 +37,8 @@ class HomeController extends Controller
         $banners = array_column($bannerRows, null, 'position');
 
         $this->render('home/index', [
-            'title'          => 'Compare Top Forex Brokers | Trader Gulf',
-            'metaDesc'       => 'Independent forex broker reviews and comparisons for traders worldwide. Find the right broker for your trading style.',
+            'title'          => 'Best Forex Brokers in UAE & Gulf 2025 | Trader Gulf',
+            'metaDesc'       => 'Compare the best forex brokers in UAE, Saudi Arabia, Kuwait and the Gulf region. Independent reviews, spreads, regulation and fees — updated 2025.',
             'featuredBrokers'=> $featuredBrokers,
             'latestGuides'   => $latestGuides,
             'latestNews'     => $latestNews,
