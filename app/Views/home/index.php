@@ -75,18 +75,19 @@
 
 <!-- CALCULATORS -->
 <section class="section section-alt">
-    <div style="display:flex;align-items:stretch;gap:0">
+    <div class="container" style="display:flex;align-items:stretch;gap:1.25rem">
 
         <!-- Left vertical ad -->
         <div class="calc-side-ad">
             <a href="<?= url('advertise') ?>" class="calc-side-ad-inner" data-track="cta_click" data-track-label="advertise_calc_left">
                 <div class="adv-tag" style="writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.15em">Advertisement</div>
-                <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-weight:800;font-size:.85rem;color:#fff;letter-spacing:.04em;margin:.75rem 0">Advertise Here</div>
-                <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:.72rem;color:rgba(255,255,255,.45)">Get In Touch →</div>
+                <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-weight:800;font-size:.95rem;color:#fff;letter-spacing:.04em;margin:1rem 0">Advertise Here</div>
+                <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:.78rem;color:rgba(255,255,255,.5)">Get In Touch →</div>
             </a>
         </div>
 
-        <div class="container" style="flex:1;min-width:0">
+        <!-- Calculators -->
+        <div style="flex:1;min-width:0">
             <div class="section-header">
                 <h2><?= t('Trading Calculators') ?></h2>
                 <p><?= t('Free tools to help you manage risk and calculate trade parameters before you enter the market.') ?></p>
@@ -119,8 +120,8 @@
         <div class="calc-side-ad">
             <a href="<?= url('advertise') ?>" class="calc-side-ad-inner" data-track="cta_click" data-track-label="advertise_calc_right">
                 <div class="adv-tag" style="writing-mode:vertical-rl;letter-spacing:.15em">Advertisement</div>
-                <div style="writing-mode:vertical-rl;font-weight:800;font-size:.85rem;color:#fff;letter-spacing:.04em;margin:.75rem 0">Advertise Here</div>
-                <div style="writing-mode:vertical-rl;font-size:.72rem;color:rgba(255,255,255,.45)">Get In Touch →</div>
+                <div style="writing-mode:vertical-rl;font-weight:800;font-size:.95rem;color:#fff;letter-spacing:.04em;margin:1rem 0">Advertise Here</div>
+                <div style="writing-mode:vertical-rl;font-size:.78rem;color:rgba(255,255,255,.5)">Get In Touch →</div>
             </a>
         </div>
 
