@@ -166,6 +166,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
                 <div class="nav-dropdown-menu" role="menu">
                     <a href="<?= url('economic-calendar') ?>" role="menuitem"><?= t('Economic Calendar') ?></a>
                     <a href="<?= url('news') ?>" role="menuitem"><?= t('Market News') ?></a>
+                    <a href="<?= url('currency-converter') ?>" role="menuitem"><?= t('Currency Converter') ?></a>
                 </div>
             </div>
 
@@ -225,7 +226,6 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
                 <a href="<?= url('economic-calendar') ?>"><?= t('Economic Calendar') ?></a>
                 <a href="<?= url('news') ?>"><?= t('Market News') ?></a>
                 <a href="<?= url('currency-converter') ?>">Currency Converter</a>
-                <a href="<?= url('calculators') ?>"><?= t('Calculators') ?></a>
                 <h4 style="margin-top:1.25rem"><?= t('Company') ?></h4>
                 <a href="<?= url('about') ?>"><?= t('About Us') ?></a>
                 <a href="<?= url('contact') ?>"><?= t('Contact') ?></a>
