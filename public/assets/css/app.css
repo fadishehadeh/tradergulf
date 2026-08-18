@@ -1077,7 +1077,7 @@ main { flex: 1; padding: 0 0 2rem; }
     justify-content: space-between;
     gap: 1.5rem;
     flex-wrap: wrap;
-    padding: 1.1rem 2rem;
+    padding: 1.6rem 2.25rem;
     background: #0f1b35;
     border-left: 4px solid #f59e0b;
 }
@@ -1087,30 +1087,30 @@ main { flex: 1; padding: 0 0 2rem; }
     border-left: 6px solid #f59e0b;
     border-radius: 12px;
 }
-.advertise-here-sm  .adv-inner  { padding: .85rem 1.5rem; }
+.advertise-here-sm  .adv-inner  { padding: 1.1rem 1.75rem; }
 
 .adv-tag {
-    font-size: .62rem;
+    font-size: .65rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .12em;
     color: #f59e0b;
-    margin-bottom: .25rem;
-    opacity: .8;
+    margin-bottom: .3rem;
+    opacity: .85;
 }
 .adv-title {
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.35rem;
+    font-weight: 800;
     color: #fff;
-    margin-bottom: .2rem;
+    margin-bottom: .25rem;
     letter-spacing: .01em;
 }
 .advertise-here-hero .adv-title { font-size: 2rem; letter-spacing: -.01em; }
 .advertise-here-hero .adv-sub   { font-size: 1rem; color: rgba(255,255,255,.65); }
 .advertise-here-hero .adv-btn   { font-size: 1rem; padding: 1rem 2.25rem; border-radius: 8px; }
 .adv-sub {
-    font-size: .8rem;
-    color: rgba(255,255,255,.5);
+    font-size: .88rem;
+    color: rgba(255,255,255,.55);
     line-height: 1.4;
 }
 .adv-btn {
@@ -1118,8 +1118,8 @@ main { flex: 1; padding: 0 0 2rem; }
     background: #f59e0b;
     color: #0a1628;
     font-weight: 800;
-    font-size: .82rem;
-    padding: .6rem 1.4rem;
+    font-size: .95rem;
+    padding: .75rem 1.75rem;
     border-radius: 6px;
     white-space: nowrap;
     letter-spacing: .02em;
