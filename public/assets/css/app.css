@@ -1127,7 +1127,8 @@ main { flex: 1; padding: 0 0 2rem; }
 
 /* --- Calculator side ad strips ----------------------- */
 .calc-side-ad {
-    width: 110px;
+    width: 300px;
+    min-width: 300px;
     flex-shrink: 0;
     display: flex;
     border-radius: 10px;
@@ -1138,17 +1139,19 @@ main { flex: 1; padding: 0 0 2rem; }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    padding: 2rem .75rem;
+    width: 300px;
+    min-height: 600px;
     text-decoration: none;
     background: #0f1b35;
     border: 2px solid rgba(245,158,11,.4);
     border-radius: 10px;
     transition: background .15s, border-color .15s;
-    gap: .25rem;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
 }
 .calc-side-ad-inner:hover { background: #1a2f5e; border-color: #f59e0b; }
-@media (max-width: 900px) { .calc-side-ad { display: none; } }
+@media (max-width: 1200px) { .calc-side-ad { display: none; } }
 
 /* --- Mobile bottom nav -------------------------------- */
 .mobile-bottom-nav {
