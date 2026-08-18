@@ -80,10 +80,10 @@
         <!-- Left vertical ad -->
         <div class="calc-side-ad">
             <a href="<?= url('advertise') ?>" class="calc-side-ad-inner" data-track="cta_click" data-track-label="advertise_calc_left">
-                <div class="adv-tag">Advertisement</div>
-                <div style="font-weight:800;font-size:1.25rem;color:#fff;line-height:1.3">Advertise<br>With Us</div>
-                <div style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.5">Reach active Gulf forex traders</div>
-                <div style="margin-top:.5rem;background:#f59e0b;color:#0a1628;font-weight:800;font-size:.85rem;padding:.6rem 1.25rem;border-radius:6px">Get In Touch →</div>
+                <div class="adv-tag" style="font-size:.8rem;letter-spacing:.12em">Advertisement</div>
+                <div style="font-weight:900;font-size:1.75rem;color:#fff;line-height:1.2">Advertise<br>With Us</div>
+                <div style="font-size:1rem;color:rgba(255,255,255,.65);line-height:1.6;max-width:220px">Reach active Gulf &amp; MENA forex traders</div>
+                <div style="margin-top:.75rem;background:#f59e0b;color:#0a1628;font-weight:900;font-size:1rem;padding:.8rem 1.75rem;border-radius:8px;letter-spacing:.02em">Get In Touch →</div>
             </a>
         </div>
 
@@ -120,10 +120,10 @@
         <!-- Right vertical ad -->
         <div class="calc-side-ad">
             <a href="<?= url('advertise') ?>" class="calc-side-ad-inner" data-track="cta_click" data-track-label="advertise_calc_right">
-                <div class="adv-tag">Advertisement</div>
-                <div style="font-weight:800;font-size:1.25rem;color:#fff;line-height:1.3">Advertise<br>With Us</div>
-                <div style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.5">Reach active Gulf forex traders</div>
-                <div style="margin-top:.5rem;background:#f59e0b;color:#0a1628;font-weight:800;font-size:.85rem;padding:.6rem 1.25rem;border-radius:6px">Get In Touch →</div>
+                <div class="adv-tag" style="font-size:.8rem;letter-spacing:.12em">Advertisement</div>
+                <div style="font-weight:900;font-size:1.75rem;color:#fff;line-height:1.2">Advertise<br>With Us</div>
+                <div style="font-size:1rem;color:rgba(255,255,255,.65);line-height:1.6;max-width:220px">Reach active Gulf &amp; MENA forex traders</div>
+                <div style="margin-top:.75rem;background:#f59e0b;color:#0a1628;font-weight:900;font-size:1rem;padding:.8rem 1.75rem;border-radius:8px;letter-spacing:.02em">Get In Touch →</div>
             </a>
         </div>
 
