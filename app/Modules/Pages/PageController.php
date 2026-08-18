@@ -172,9 +172,9 @@ class PageController extends Controller
     {
         $content = setting('robots_txt');
         if (empty($content)) {
-            $content = "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /go/\nDisallow: /set-lang/\nDisallow: /api/\nDisallow: /ad/\nDisallow: /compare/data\nDisallow: /newsletter/\n";
+            $content = "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /go/\nDisallow: /set-lang/\nDisallow: /api/\nDisallow: /ad/\nDisallow: /compare/data\nDisallow: /newsletter/\nDisallow: /author/\nDisallow: /?s=\n";
         }
-        foreach (['/go/', '/set-lang/', '/api/', '/ad/', '/compare/data', '/newsletter/'] as $path) {
+        foreach (['/go/', '/set-lang/', '/api/', '/ad/', '/compare/data', '/newsletter/', '/author/', '/?s='] as $path) {
             if (!str_contains($content, 'Disallow: ' . $path)) {
                 $content = rtrim($content) . "\nDisallow: " . $path . "\n";
             }
