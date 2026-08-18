@@ -36,6 +36,7 @@ use App\Modules\Country\CountryController;
 use App\Modules\Search\SearchController;
 use App\Modules\Api\TickerController;
 use App\Modules\Api\NewsWidgetController;
+use App\Modules\Api\CurrencyRatesController;
 
 $router = $app->router();
 
@@ -116,6 +117,7 @@ $router->post('/api/chat', [ChatController::class, 'respond']);
 // Market data widgets
 $router->get('/api/ticker', [TickerController::class, 'rates']);
 $router->get('/api/news-widget', [NewsWidgetController::class, 'feed']);
+$router->get('/api/currency-rates', [CurrencyRatesController::class, 'rates']);
 
 // Ad click tracking
 $router->get('/ad/{id}/click', [AdsController::class, 'click']);

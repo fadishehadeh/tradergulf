@@ -156,8 +156,6 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
                 <div class="nav-dropdown-menu" role="menu">
                     <a href="<?= url('guides') ?>" role="menuitem"><?= t('All Guides') ?></a>
                     <a href="<?= url('glossary') ?>" role="menuitem"><?= t('Forex Glossary') ?></a>
-                    <a href="<?= url('best/best-forex-brokers-beginners-gcc') ?>" role="menuitem"><?= t('Beginner Guides') ?></a>
-                    <a href="<?= url('best/best-mt4-forex-brokers-gcc') ?>" role="menuitem">MT4 Brokers Guide</a>
                 </div>
             </div>
 
@@ -230,9 +228,6 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
                 <h4><?= t('Educational Guides') ?></h4>
                 <a href="<?= url('guides') ?>"><?= t('All Guides') ?></a>
                 <a href="<?= url('glossary') ?>"><?= t('Forex Glossary') ?></a>
-                <a href="<?= url('best/best-forex-brokers-beginners-gcc') ?>">Beginner Guide</a>
-                <a href="<?= url('best/best-mt4-forex-brokers-gcc') ?>">MT4 Brokers</a>
-                <a href="<?= url('best/best-islamic-forex-brokers-gcc') ?>">Islamic Accounts</a>
                 <a href="<?= url('best/best-low-spread-forex-brokers-mena') ?>">Low Spread Brokers</a>
             </div>
             <div class="footer-col">
