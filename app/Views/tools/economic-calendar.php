@@ -28,26 +28,48 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
 </section>
 
+<div class="container" style="padding:.75rem 0 0">
+    <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_calendar_top">
+        <div class="adv-inner">
+            <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach active forex traders across the Gulf &amp; MENA region</div></div>
+            <div class="adv-btn">Get In Touch →</div>
+        </div>
+    </a>
+</div>
+
 <section style="padding:1.5rem 0 3rem">
     <div class="container">
+
+        <!-- Filters -->
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center">
+            <span style="font-size:.82rem;font-weight:600;color:var(--text-muted)">Impact:</span>
+            <button class="ec-filter-btn ec-active" data-impact="all">All</button>
+            <button class="ec-filter-btn" data-impact="High">🔴 High</button>
+            <button class="ec-filter-btn" data-impact="Medium">🟡 Medium</button>
+            <button class="ec-filter-btn" data-impact="Low">⚪ Low</button>
+        </div>
+
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.5rem">
-            <div class="tradingview-widget-container" style="height:700px">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-                {
-                    "colorTheme": "light",
-                    "isTransparent": false,
-                    "width": "100%",
-                    "height": "700",
-                    "locale": "en",
-                    "importanceFilter": "-1,0,1",
-                    "countryFilter": "us,eu,gb,jp,cn,au,ca,ch,nz,ae,sa"
-                }
-                </script>
+            <div id="ecLoading" style="padding:3rem;text-align:center;color:var(--text-muted);font-size:.9rem">Loading economic events…</div>
+            <div id="ecError"   style="display:none;padding:3rem;text-align:center;color:var(--text-muted);font-size:.9rem">Unable to load calendar. Please try again later.</div>
+            <div id="ecTable"   style="display:none;overflow-x:auto">
+                <table style="width:100%;border-collapse:collapse;font-size:.85rem">
+                    <thead>
+                        <tr style="background:var(--navy);color:#fff;text-align:left">
+                            <th style="padding:.75rem 1rem;font-weight:600;white-space:nowrap">Date / Time</th>
+                            <th style="padding:.75rem .75rem;font-weight:600">Currency</th>
+                            <th style="padding:.75rem .75rem;font-weight:600">Impact</th>
+                            <th style="padding:.75rem .75rem;font-weight:600">Event</th>
+                            <th style="padding:.75rem .75rem;font-weight:600;text-align:right">Forecast</th>
+                            <th style="padding:.75rem 1rem;font-weight:600;text-align:right">Previous</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ecBody"></tbody>
+                </table>
             </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2rem">
             <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.25rem">
                 <h3 style="font-size:.92rem;margin-bottom:.5rem">🔴 High Impact Events</h3>
                 <p style="font-size:.82rem;color:var(--text-muted);line-height:1.55">Non-Farm Payrolls (NFP), FOMC Rate Decisions, CPI reports, and central bank speeches. These cause the most volatility.</p>
@@ -67,3 +89,98 @@ echo '<script type="application/ld+json">' . json_encode([
         </div>
     </div>
 </section>
+
+<style>
+.ec-filter-btn {
+    padding: .3rem .85rem;
+    font-size: .8rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--card-bg);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background .12s, color .12s;
+}
+.ec-filter-btn.ec-active, .ec-filter-btn:hover {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+}
+#ecBody tr { border-bottom: 1px solid var(--border); }
+#ecBody tr:last-child { border-bottom: none; }
+#ecBody tr:hover { background: rgba(245,158,11,.04); }
+#ecBody td { padding: .65rem .75rem; vertical-align: middle; }
+#ecBody td:first-child { padding-left: 1rem; white-space: nowrap; }
+#ecBody td:last-child  { padding-right: 1rem; }
+.ec-impact-high   { color: #ef4444; font-weight: 700; }
+.ec-impact-medium { color: #f59e0b; font-weight: 600; }
+.ec-impact-low    { color: var(--text-muted); }
+</style>
+<script>
+(function() {
+    var allEvents = [], activeImpact = 'all';
+
+    function impactIcon(imp) {
+        if (imp === 'High')   return '<span class="ec-impact-high">🔴 High</span>';
+        if (imp === 'Medium') return '<span class="ec-impact-medium">🟡 Medium</span>';
+        return '<span class="ec-impact-low">⚪ Low</span>';
+    }
+
+    function formatDT(dateStr) {
+        if (!dateStr) return '—';
+        var d = new Date(dateStr);
+        if (isNaN(d)) return dateStr;
+        return d.toLocaleDateString('en-GB', {day:'2-digit',month:'short'})
+               + ' ' + d.toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'});
+    }
+
+    function render(events) {
+        var tbody = document.getElementById('ecBody');
+        if (!events.length) {
+            tbody.innerHTML = '<tr><td colspan="6" style="padding:2rem;text-align:center;color:var(--text-muted)">No events found for this filter.</td></tr>';
+        } else {
+            tbody.innerHTML = events.map(function(e) {
+                return '<tr>'
+                    + '<td style="font-size:.78rem;color:var(--text-muted)">' + formatDT(e.date) + '</td>'
+                    + '<td><span style="font-weight:700;font-size:.88rem">' + (e.currency || '—') + '</span></td>'
+                    + '<td>' + impactIcon(e.impact) + '</td>'
+                    + '<td style="font-weight:500">' + (e.title || '—') + '</td>'
+                    + '<td style="text-align:right;color:var(--text-muted)">' + (e.forecast || '—') + '</td>'
+                    + '<td style="text-align:right;color:var(--text-muted)">' + (e.previous || '—') + '</td>'
+                    + '</tr>';
+            }).join('');
+        }
+        document.getElementById('ecLoading').style.display = 'none';
+        document.getElementById('ecTable').style.display   = 'block';
+    }
+
+    function applyFilter() {
+        var filtered = activeImpact === 'all'
+            ? allEvents
+            : allEvents.filter(function(e) { return e.impact === activeImpact; });
+        render(filtered);
+    }
+
+    document.querySelectorAll('.ec-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.ec-filter-btn').forEach(function(b) { b.classList.remove('ec-active'); });
+            btn.classList.add('ec-active');
+            activeImpact = btn.dataset.impact;
+            applyFilter();
+        });
+    });
+
+    fetch('/api/economic-calendar')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (data.error) throw new Error(data.error);
+            allEvents = data;
+            applyFilter();
+        })
+        .catch(function() {
+            document.getElementById('ecLoading').style.display = 'none';
+            document.getElementById('ecError').style.display   = 'block';
+        });
+})();
+</script>

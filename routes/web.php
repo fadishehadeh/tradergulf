@@ -37,6 +37,7 @@ use App\Modules\Search\SearchController;
 use App\Modules\Api\TickerController;
 use App\Modules\Api\NewsWidgetController;
 use App\Modules\Api\CurrencyRatesController;
+use App\Modules\Api\EconomicCalendarController;
 
 $router = $app->router();
 
@@ -118,6 +119,7 @@ $router->post('/api/chat', [ChatController::class, 'respond']);
 $router->get('/api/ticker', [TickerController::class, 'rates']);
 $router->get('/api/news-widget', [NewsWidgetController::class, 'feed']);
 $router->get('/api/currency-rates', [CurrencyRatesController::class, 'rates']);
+$router->get('/api/economic-calendar', [EconomicCalendarController::class, 'feed']);
 
 // Ad click tracking
 $router->get('/ad/{id}/click', [AdsController::class, 'click']);
