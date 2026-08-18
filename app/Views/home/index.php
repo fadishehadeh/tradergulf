@@ -75,33 +75,55 @@
 
 <!-- CALCULATORS -->
 <section class="section section-alt">
-    <div class="container">
-        <div class="section-header">
-            <h2><?= t('Trading Calculators') ?></h2>
-            <p><?= t('Free tools to help you manage risk and calculate trade parameters before you enter the market.') ?></p>
-        </div>
-        <div class="tools-grid">
-            <a href="<?= url('calculators/pip') ?>" class="tool-card">
-                <div class="tool-card-icon">📐</div>
-                <h3><?= t('Pip Calculator') ?></h3>
-                <p><?= t('Calculate the pip value for any currency pair and lot size.') ?></p>
-            </a>
-            <a href="<?= url('calculators/position-size') ?>" class="tool-card">
-                <div class="tool-card-icon">⚖️</div>
-                <h3><?= t('Position Size') ?></h3>
-                <p><?= t('Find the right lot size based on your risk % and stop loss.') ?></p>
-            </a>
-            <a href="<?= url('calculators/margin') ?>" class="tool-card">
-                <div class="tool-card-icon">💰</div>
-                <h3><?= t('Margin Calculator') ?></h3>
-                <p><?= t('Calculate the margin required to open any position.') ?></p>
-            </a>
-            <a href="<?= url('calculators/profit') ?>" class="tool-card">
-                <div class="tool-card-icon">📈</div>
-                <h3><?= t('Profit Calculator') ?></h3>
-                <p><?= t('Estimate profit or loss before entering a trade.') ?></p>
+    <div style="display:flex;align-items:stretch;gap:0">
+
+        <!-- Left vertical ad -->
+        <div class="calc-side-ad">
+            <a href="<?= url('advertise') ?>" class="calc-side-ad-inner" data-track="cta_click" data-track-label="advertise_calc_left">
+                <div class="adv-tag" style="writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.15em">Advertisement</div>
+                <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-weight:800;font-size:.85rem;color:#fff;letter-spacing:.04em;margin:.75rem 0">Advertise Here</div>
+                <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:.72rem;color:rgba(255,255,255,.45)">Get In Touch →</div>
             </a>
         </div>
+
+        <div class="container" style="flex:1;min-width:0">
+            <div class="section-header">
+                <h2><?= t('Trading Calculators') ?></h2>
+                <p><?= t('Free tools to help you manage risk and calculate trade parameters before you enter the market.') ?></p>
+            </div>
+            <div class="tools-grid">
+                <a href="<?= url('calculators/pip') ?>" class="tool-card">
+                    <div class="tool-card-icon">📐</div>
+                    <h3><?= t('Pip Calculator') ?></h3>
+                    <p><?= t('Calculate the pip value for any currency pair and lot size.') ?></p>
+                </a>
+                <a href="<?= url('calculators/position-size') ?>" class="tool-card">
+                    <div class="tool-card-icon">⚖️</div>
+                    <h3><?= t('Position Size') ?></h3>
+                    <p><?= t('Find the right lot size based on your risk % and stop loss.') ?></p>
+                </a>
+                <a href="<?= url('calculators/margin') ?>" class="tool-card">
+                    <div class="tool-card-icon">💰</div>
+                    <h3><?= t('Margin Calculator') ?></h3>
+                    <p><?= t('Calculate the margin required to open any position.') ?></p>
+                </a>
+                <a href="<?= url('calculators/profit') ?>" class="tool-card">
+                    <div class="tool-card-icon">📈</div>
+                    <h3><?= t('Profit Calculator') ?></h3>
+                    <p><?= t('Estimate profit or loss before entering a trade.') ?></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right vertical ad -->
+        <div class="calc-side-ad">
+            <a href="<?= url('advertise') ?>" class="calc-side-ad-inner" data-track="cta_click" data-track-label="advertise_calc_right">
+                <div class="adv-tag" style="writing-mode:vertical-rl;letter-spacing:.15em">Advertisement</div>
+                <div style="writing-mode:vertical-rl;font-weight:800;font-size:.85rem;color:#fff;letter-spacing:.04em;margin:.75rem 0">Advertise Here</div>
+                <div style="writing-mode:vertical-rl;font-size:.72rem;color:rgba(255,255,255,.45)">Get In Touch →</div>
+            </a>
+        </div>
+
     </div>
 </section>
 
@@ -137,56 +159,26 @@
     </div>
 </div>
 
-<!-- GUIDES + NEWS -->
-<?php if (!empty($latestGuides) || !empty($latestNews)): ?>
+<!-- GUIDES -->
+<?php if (!empty($latestGuides)): ?>
 <section class="section">
     <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem">
-
-            <?php if (!empty($latestGuides)): ?>
-            <div>
-                <h2 style="margin-bottom:1.5rem"><?= t('Trading Guides') ?></h2>
-                <div style="display:flex;flex-direction:column;gap:1rem">
-                <?php foreach ($latestGuides as $g): ?>
-                    <div class="article-card">
-                        <div class="article-card-body">
-                            <div class="article-meta"><?= date('M j, Y', strtotime($g['published_at'])) ?></div>
-                            <h3><a href="<?= url('guides/' . $g['slug']) ?>"><?= e($g['title']) ?></a></h3>
-                            <?php if ($g['excerpt']): ?>
-                            <p><?= e($g['excerpt']) ?></p>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-                </div>
-                <div style="margin-top:1.25rem">
-                    <a href="<?= url('guides') ?>" class="btn btn-ghost btn-sm"><?= t('All Guides') ?> &rarr;</a>
+        <h2 style="margin-bottom:1.5rem"><?= t('Trading Guides') ?></h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem">
+        <?php foreach ($latestGuides as $g): ?>
+            <div class="article-card">
+                <div class="article-card-body">
+                    <div class="article-meta"><?= date('M j, Y', strtotime($g['published_at'])) ?></div>
+                    <h3><a href="<?= url('guides/' . $g['slug']) ?>"><?= e($g['title']) ?></a></h3>
+                    <?php if ($g['excerpt']): ?>
+                    <p><?= e($g['excerpt']) ?></p>
+                    <?php endif; ?>
                 </div>
             </div>
-            <?php endif; ?>
-
-            <?php if (!empty($latestNews)): ?>
-            <div>
-                <h2 style="margin-bottom:1.5rem"><?= t('Market News') ?></h2>
-                <div style="display:flex;flex-direction:column;gap:1rem">
-                <?php foreach ($latestNews as $n): ?>
-                    <div class="article-card">
-                        <div class="article-card-body">
-                            <div class="article-meta"><?= date('M j, Y', strtotime($n['published_at'])) ?></div>
-                            <h3><a href="<?= url('news/' . $n['slug']) ?>"><?= e($n['title']) ?></a></h3>
-                            <?php if ($n['excerpt']): ?>
-                            <p><?= e($n['excerpt']) ?></p>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-                </div>
-                <div style="margin-top:1.25rem">
-                    <a href="<?= url('news') ?>" class="btn btn-ghost btn-sm"><?= t('All News') ?> &rarr;</a>
-                </div>
-            </div>
-            <?php endif; ?>
-
+        <?php endforeach; ?>
+        </div>
+        <div style="margin-top:1.5rem">
+            <a href="<?= url('guides') ?>" class="btn btn-ghost btn-sm"><?= t('All Guides') ?> &rarr;</a>
         </div>
     </div>
 </section>

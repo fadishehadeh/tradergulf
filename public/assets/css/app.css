@@ -1081,7 +1081,12 @@ main { flex: 1; padding: 0 0 2rem; }
     background: #0f1b35;
     border-left: 4px solid #f59e0b;
 }
-.advertise-here-hero .adv-inner { padding: 1.5rem 2.5rem; }
+.advertise-here-hero .adv-inner {
+    padding: 2.75rem 3.5rem;
+    background: linear-gradient(135deg, #0a1628 0%, #1a3060 100%);
+    border-left: 6px solid #f59e0b;
+    border-radius: 12px;
+}
 .advertise-here-sm  .adv-inner  { padding: .85rem 1.5rem; }
 
 .adv-tag {
@@ -1100,7 +1105,9 @@ main { flex: 1; padding: 0 0 2rem; }
     margin-bottom: .2rem;
     letter-spacing: .01em;
 }
-.advertise-here-hero .adv-title { font-size: 1.2rem; }
+.advertise-here-hero .adv-title { font-size: 2rem; letter-spacing: -.01em; }
+.advertise-here-hero .adv-sub   { font-size: 1rem; color: rgba(255,255,255,.65); }
+.advertise-here-hero .adv-btn   { font-size: 1rem; padding: 1rem 2.25rem; border-radius: 8px; }
 .adv-sub {
     font-size: .8rem;
     color: rgba(255,255,255,.5);
@@ -1117,6 +1124,32 @@ main { flex: 1; padding: 0 0 2rem; }
     white-space: nowrap;
     letter-spacing: .02em;
 }
+
+/* --- Calculator side ad strips ----------------------- */
+.calc-side-ad {
+    width: 54px;
+    flex-shrink: 0;
+    background: #0f1b35;
+    border-left: 3px solid #f59e0b;
+    display: flex;
+}
+.calc-side-ad:last-child {
+    border-left: none;
+    border-right: 3px solid #f59e0b;
+}
+.calc-side-ad-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1.5rem .5rem;
+    text-decoration: none;
+    transition: background .15s;
+    gap: .25rem;
+}
+.calc-side-ad-inner:hover { background: #1a2f5e; }
+@media (max-width: 768px) { .calc-side-ad { display: none; } }
 
 /* --- Mobile bottom nav -------------------------------- */
 .mobile-bottom-nav {
