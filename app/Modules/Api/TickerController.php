@@ -28,23 +28,30 @@ class TickerController extends Controller
         header('Cache-Control: public, max-age=300');
 
         $cacheFile = sys_get_temp_dir() . '/tg_ticker.json';
+        $cacheAge  = is_file($cacheFile) ? (time() - filemtime($cacheFile)) : PHP_INT_MAX;
 
-        if (is_file($cacheFile) && (time() - filemtime($cacheFile)) < self::CACHE_TTL) {
+        // Serve any cached data immediately (fresh or stale up to 20 minutes)
+        if ($cacheAge < self::CACHE_TTL * 4) {
             echo file_get_contents($cacheFile);
+
+            // Stale — refresh in background after response is flushed
+            if ($cacheAge >= self::CACHE_TTL) {
+                if (function_exists('fastcgi_finish_request')) fastcgi_finish_request();
+                $data = $this->fetchFromYahoo();
+                if (empty($data)) $data = $this->fetchFallback();
+                if (!empty($data)) file_put_contents($cacheFile, json_encode($data));
+            }
+
             exit;
         }
 
+        // No usable cache — fetch synchronously
         $data = $this->fetchFromYahoo();
-
-        if (empty($data)) {
-            $data = $this->fetchFallback();
-        }
+        if (empty($data)) $data = $this->fetchFallback();
 
         if (!empty($data)) {
             file_put_contents($cacheFile, json_encode($data));
             echo json_encode($data);
-        } elseif (is_file($cacheFile)) {
-            echo file_get_contents($cacheFile);
         } else {
             echo json_encode([]);
         }

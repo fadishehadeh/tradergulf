@@ -21,24 +21,30 @@ class NewsWidgetController extends Controller
         header('Cache-Control: public, max-age=900');
 
         $cacheFile = sys_get_temp_dir() . '/tg_news.json';
+        $cacheAge  = is_file($cacheFile) ? (time() - filemtime($cacheFile)) : PHP_INT_MAX;
 
-        if (is_file($cacheFile) && (time() - filemtime($cacheFile)) < self::CACHE_TTL) {
+        // Serve any cached data immediately (fresh or stale up to 1 hour)
+        if ($cacheAge < self::CACHE_TTL * 4) {
             echo file_get_contents($cacheFile);
+
+            // Stale — refresh in background after response is flushed
+            if ($cacheAge >= self::CACHE_TTL) {
+                if (function_exists('fastcgi_finish_request')) fastcgi_finish_request();
+                $items = $this->fetchNews();
+                if (!empty($items)) file_put_contents($cacheFile, json_encode($items));
+            }
+
             exit;
         }
 
+        // No usable cache — fetch synchronously
         $items = $this->fetchNews();
-
         if (!empty($items)) {
             file_put_contents($cacheFile, json_encode($items));
-        } elseif (is_file($cacheFile)) {
-            echo file_get_contents($cacheFile);
-            exit;
+            echo json_encode($items);
         } else {
-            $this->json([], 200);
+            echo '[]';
         }
-
-        echo json_encode($items);
         exit;
     }
 

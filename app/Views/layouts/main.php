@@ -103,7 +103,6 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
     <!-- Preconnect to critical third parties -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-    <link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
     <?php if (setting('adsense_publisher_id')): ?>
     <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
     <?php endif; ?>
