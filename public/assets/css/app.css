@@ -1093,12 +1093,12 @@ main { flex: 1; padding: 0 0 2rem; }
 .advertise-here-sm  .adv-inner  { padding: 1.1rem 1.75rem; }
 
 .adv-tag {
-    font-size: 1.05rem;
+    font-size: .85rem;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: .08em;
+    letter-spacing: .1em;
     color: #fef08a;
-    margin-bottom: .35rem;
+    margin-bottom: .3rem;
 }
 .adv-title {
     font-size: 1.35rem;

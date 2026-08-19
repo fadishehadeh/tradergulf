@@ -13,7 +13,7 @@
 <!-- ADVERTISE HERE – hero slot -->
 <div class="container" style="padding:.75rem 1.25rem">
     <a href="<?= url('advertise') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">
-        <div class="adv-inner">
+        <div class="adv-inner" style="padding:1.75rem 2.5rem">
             <div>
                 <div class="adv-tag">Advertise With Us</div>
                 <div class="adv-title">Reach Active Gulf Forex Traders</div>
