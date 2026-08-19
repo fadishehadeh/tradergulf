@@ -7,7 +7,10 @@
 
 <div class="page-hero-banner">
     <div class="container">
-        <img src="<?= url('assets/img/banners/sub-broker-reviews.svg') ?>" alt="Forex Broker Reviews" width="800" height="200" loading="lazy" decoding="async">
+        <div class="banner-wrap">
+            <img src="<?= url('assets/img/banners/sub-broker-reviews.svg') ?>" alt="Forex Broker Reviews" width="800" height="200" loading="lazy" decoding="async">
+            <a href="<?= url('brokers') ?>" class="banner-btn-link" aria-label="View All Broker Reviews"></a>
+        </div>
     </div>
 </div>
 

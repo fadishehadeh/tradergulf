@@ -7,7 +7,10 @@
 
 <div class="page-hero-banner">
     <div class="container">
-        <img src="<?= url('assets/img/banners/sub-trading-guides.svg') ?>" alt="Trading Guides" width="800" height="200" loading="lazy" decoding="async">
+        <div class="banner-wrap">
+            <img src="<?= url('assets/img/banners/sub-trading-guides.svg') ?>" alt="Trading Guides" width="800" height="200" loading="lazy" decoding="async">
+            <a href="<?= url('guides') ?>" class="banner-btn-link" aria-label="Browse Trading Guides"></a>
+        </div>
     </div>
 </div>
 

@@ -35,7 +35,10 @@ echo '<script type="application/ld+json">' . json_encode([
 
 <div class="page-hero-banner">
     <div class="container">
-        <img src="<?= url('assets/img/banners/sub-margin-calculator.svg') ?>" alt="Margin Calculator" width="800" height="200" loading="lazy" decoding="async">
+        <div class="banner-wrap">
+            <img src="<?= url('assets/img/banners/sub-margin-calculator.svg') ?>" alt="Margin Calculator" width="800" height="200" loading="lazy" decoding="async">
+            <a href="<?= url('calculators/margin') ?>" class="banner-btn-link" aria-label="Open Margin Calculator"></a>
+        </div>
     </div>
 </div>
 

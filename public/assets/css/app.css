@@ -1850,4 +1850,17 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
 .page-hero-banner img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
 .page-hero-banner--hero { padding: 0; }
 .page-hero-banner--hero img { border-radius: 0; max-height: 360px; object-fit: cover; }
+/* Clickable button overlay inside SVG banners */
+.banner-wrap { position: relative; display: block; }
+.banner-btn-link {
+    position: absolute;
+    left: 3.5%;
+    top: 76.5%;
+    width: 15.75%;
+    height: 15%;
+    border-radius: 5px;
+    cursor: pointer;
+    text-indent: -9999px;
+    overflow: hidden;
+}
 

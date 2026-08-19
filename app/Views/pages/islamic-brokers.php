@@ -36,7 +36,10 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bSc
 
 <div class="page-hero-banner">
     <div class="container">
-        <img src="<?= url('assets/img/banners/sub-islamic-forex.svg') ?>" alt="Islamic Forex Brokers" width="800" height="200" loading="lazy" decoding="async">
+        <div class="banner-wrap">
+            <img src="<?= url('assets/img/banners/sub-islamic-forex.svg') ?>" alt="Islamic Forex Brokers" width="800" height="200" loading="lazy" decoding="async">
+            <a href="<?= url('islamic-forex-brokers') ?>" class="banner-btn-link" aria-label="View Islamic Forex Brokers"></a>
+        </div>
     </div>
 </div>
 

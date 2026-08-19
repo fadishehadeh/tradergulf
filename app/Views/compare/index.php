@@ -29,7 +29,10 @@ echo '<script type="application/ld+json">' . json_encode([
 
 <div class="page-hero-banner">
     <div class="container">
-        <img src="<?= url('assets/img/banners/sub-compare-brokers.svg') ?>" alt="Compare Forex Brokers" width="800" height="200" loading="lazy" decoding="async">
+        <div class="banner-wrap">
+            <img src="<?= url('assets/img/banners/sub-compare-brokers.svg') ?>" alt="Compare Forex Brokers" width="800" height="200" loading="lazy" decoding="async">
+            <a href="<?= url('compare') ?>" class="banner-btn-link" aria-label="Compare Forex Brokers"></a>
+        </div>
     </div>
 </div>
 
