@@ -1849,7 +1849,7 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
 .page-hero-banner { padding: .75rem 0; overflow: hidden; }
 .page-hero-banner img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
 .page-hero-banner--hero { padding: 0; }
-.page-hero-banner--hero img { border-radius: 0; max-height: 360px; object-fit: cover; }
+.page-hero-banner--hero img { border-radius: 0; max-height: 720px; object-fit: cover; }
 /* Clickable button overlay inside SVG banners */
 .banner-wrap { position: relative; display: block; }
 .banner-btn-link {
@@ -1863,12 +1863,12 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
     text-indent: -9999px;
     overflow: hidden;
 }
-/* Hero banner button overlays — positions match SVG button rects (1400×360 viewBox) */
+/* Hero banner button overlays — positions match SVG button rects (1400×720 viewBox) */
 .hero-banner-btn-1,
 .hero-banner-btn-2 {
     position: absolute;
-    top: 71.4%;
-    height: 11.1%;
+    top: 57.9%;
+    height: 5.6%;
     width: 12.14%;
     border-radius: 7px;
     cursor: pointer;
