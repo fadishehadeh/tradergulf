@@ -328,7 +328,7 @@ main { flex: 1; padding: 0 0 2rem; }
 .broker-card-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1.25rem 1.5rem;
     border-bottom: 1px solid var(--border);
     gap: 1rem;
