@@ -36,7 +36,16 @@ $sections = [
     <!-- SIDEBAR -->
     <aside class="review-sidebar">
         <div class="review-broker-card">
-            <div class="broker-logo-placeholder" style="margin:0 auto .75rem;width:130px;height:50px"><?= e($broker['name']) ?></div>
+            <div class="broker-logo-wrap" style="margin:0 auto .75rem">
+                <?php if (!empty($broker['logo'])): ?>
+                <img src="<?= url('assets/img/brokers/' . e($broker['logo'])) ?>"
+                     alt="<?= e($broker['name']) ?> logo"
+                     class="broker-logo"
+                     loading="lazy" decoding="async">
+                <?php else: ?>
+                <span style="font-weight:800;font-size:1rem"><?= e($broker['name']) ?></span>
+                <?php endif; ?>
+            </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;text-align:center;margin-bottom:1.25rem">
                 <div class="stat-box"><div class="stat-box-value">$<?= e(number_format((float)$broker['min_deposit'])) ?></div><div class="stat-box-label">Min Deposit</div></div>
                 <div class="stat-box"><div class="stat-box-value"><?= e($broker['max_leverage']) ?></div><div class="stat-box-label">Max Leverage</div></div>

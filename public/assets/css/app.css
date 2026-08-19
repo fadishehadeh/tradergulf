@@ -1851,6 +1851,21 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
 .page-hero-banner--hero { padding: 0; }
 .page-hero-banner--hero img { border-radius: 0; max-height: 720px; object-fit: cover; }
 /* Clickable button overlay inside SVG banners */
+/* Broker logos — consistent 40px height across all formats */
+.broker-logo {
+    height: 40px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+.broker-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
 .banner-wrap { position: relative; display: block; }
 .banner-btn-link {
     position: absolute;

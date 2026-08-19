@@ -8,10 +8,6 @@ prod.env
 prod_index.php
 
 # Uploads (generated at runtime)
-public/assets/img/brokers/*.jpg
-public/assets/img/brokers/*.png
-public/assets/img/brokers/*.webp
-public/assets/img/brokers/*.svg
 public/assets/img/banners/*.jpg
 public/assets/img/banners/*.png
 public/assets/img/banners/*.webp

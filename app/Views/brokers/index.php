@@ -41,9 +41,16 @@
         <div class="card">
             <div class="card-body" style="display:grid;grid-template-columns:160px 1fr auto;gap:1.5rem;align-items:center">
 
-                <!-- Broker name -->
-                <div style="text-align:center">
-                    <div style="font-weight:800;font-size:1.1rem;color:var(--navy)"><?= e($b['name']) ?></div>
+                <!-- Broker logo -->
+                <div class="broker-logo-wrap">
+                    <?php if (!empty($b['logo'])): ?>
+                    <img src="<?= url('assets/img/brokers/' . e($b['logo'])) ?>"
+                         alt="<?= e($b['name']) ?> logo"
+                         class="broker-logo"
+                         loading="lazy" decoding="async">
+                    <?php else: ?>
+                    <span style="font-weight:800;font-size:1rem;color:var(--navy)"><?= e($b['name']) ?></span>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Stats -->
