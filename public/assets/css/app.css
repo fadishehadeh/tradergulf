@@ -1845,3 +1845,9 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
 .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius, 8px); }
 .card-body { padding: 1.25rem; }
 
+/* Page hero banners */
+.page-hero-banner { padding: .75rem 0; overflow: hidden; }
+.page-hero-banner img { width: 100%; height: auto; display: block; border-radius: var(--radius); }
+.page-hero-banner--hero { padding: 0; }
+.page-hero-banner--hero img { border-radius: 0; max-height: 360px; object-fit: cover; }
+

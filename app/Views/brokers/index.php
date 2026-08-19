@@ -5,6 +5,12 @@
     </div>
 </div>
 
+<div class="page-hero-banner">
+    <div class="container">
+        <img src="<?= url('assets/img/banners/sub-broker-reviews.svg') ?>" alt="Forex Broker Reviews" width="800" height="200" loading="lazy" decoding="async">
+    </div>
+</div>
+
 <div class="container">
 
     <div style="padding:1.25rem 0 .5rem;max-width:780px">

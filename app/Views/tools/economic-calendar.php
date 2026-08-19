@@ -28,6 +28,12 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
 </section>
 
+<div class="page-hero-banner">
+    <div class="container">
+        <img src="<?= url('assets/img/banners/sub-economic-calendar.svg') ?>" alt="Economic Calendar" width="800" height="200" loading="lazy" decoding="async">
+    </div>
+</div>
+
 <div class="container" style="padding:.75rem 0 0">
     <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_calendar_top">
         <div class="adv-inner">

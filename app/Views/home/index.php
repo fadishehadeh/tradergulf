@@ -10,6 +10,11 @@
     </div>
 </section>
 
+<!-- Hero market banner -->
+<div class="page-hero-banner page-hero-banner--hero">
+    <img src="<?= url('assets/img/banners/hero-1-market-charts.svg') ?>" alt="Live Forex Market Charts" width="1400" height="360" loading="lazy" decoding="async">
+</div>
+
 <!-- ADVERTISE HERE – hero slot -->
 <div class="container" style="padding:.75rem 1.25rem">
     <a href="<?= url('advertise') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">

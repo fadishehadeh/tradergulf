@@ -33,6 +33,12 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
 </div>
 
+<div class="page-hero-banner">
+    <div class="container">
+        <img src="<?= url('assets/img/banners/sub-profit-calculator.svg') ?>" alt="Profit Calculator" width="800" height="200" loading="lazy" decoding="async">
+    </div>
+</div>
+
 <div class="container">
 <div class="calc-grid">
 

@@ -34,6 +34,12 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bSc
     </div>
 </section>
 
+<div class="page-hero-banner">
+    <div class="container">
+        <img src="<?= url('assets/img/banners/sub-islamic-forex.svg') ?>" alt="Islamic Forex Brokers" width="800" height="200" loading="lazy" decoding="async">
+    </div>
+</div>
+
 <!-- Advertise here slot -->
 <div class="container" style="padding:.75rem 0">
     <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_islamic_top">

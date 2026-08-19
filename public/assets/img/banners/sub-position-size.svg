@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#f4fdf8"/><stop offset="1" stop-color="#eafaf3"/></linearGradient><linearGradient id="ab" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#10b981" stop-opacity="0"/><stop offset=".5" stop-color="#10b981"/><stop offset="1" stop-color="#10b981" stop-opacity="0"/></linearGradient></defs><rect width="800" height="200" fill="url(#bg)"/><rect x="0" y="0" width="4" height="200" fill="url(#ab)"/><text x="28" y="52" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="bold" fill="#10b981" letter-spacing="1.5">TRADING TOOL</text><text x="28" y="90" font-family="system-ui,-apple-system,sans-serif" font-size="26" font-weight="bold" fill="#0f1b35">Position Size</text><text x="28" y="118" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#596576">Lot size from your risk %</text><text x="28" y="136" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#596576">and stop loss — instantly.</text><rect x="28" y="153" width="126" height="30" rx="5" fill="#10b981"/><text x="91" y="173" font-family="system-ui,-apple-system,sans-serif" font-size="11.5" font-weight="bold" fill="#fff" text-anchor="middle">Calculate Now</text><!-- Pivot post -->
+<line x1="576" y1="84" x2="576" y2="150" stroke="#0f1b35" stroke-opacity=".25" stroke-width="3.5"/>
+<!-- Base -->
+<rect x="541" y="148" width="70" height="10" rx="4" fill="#0f1b35" fill-opacity=".15"/>
+<!-- Balance beam (slight tilt: left higher) -->
+<line x1="456" y1="76" x2="696" y2="92" stroke="#0f1b35" stroke-opacity=".22" stroke-width="3"/>
+<!-- Left pan string -->
+<line x1="456" y1="76" x2="456" y2="38" stroke="#0f1b35" stroke-opacity=".18" stroke-width="1.5"/>
+<!-- Left pan (0.01 LOT) -->
+<rect x="414" y="4" width="84" height="34" rx="5" fill="#10b981" fill-opacity=".12"/>
+<rect x="414" y="4" width="84" height="34" rx="5" fill="none" stroke="#10b981" stroke-width="1.5"/>
+<text x="456" y="22" font-family="monospace,sans-serif" font-size="11" font-weight="bold" fill="#065f46" text-anchor="middle">0.01 LOT</text>
+<text x="456" y="35" font-family="system-ui,sans-serif" font-size="9" fill="#059669" text-anchor="middle">micro</text>
+<!-- Right pan string -->
+<line x1="696" y1="92" x2="696" y2="64" stroke="#0f1b35" stroke-opacity=".18" stroke-width="1.5"/>
+<!-- Right pan (1.00 LOT) -->
+<rect x="654" y="30" width="84" height="34" rx="5" fill="#f59e0b" fill-opacity=".12"/>
+<rect x="654" y="30" width="84" height="34" rx="5" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="696" y="48" font-family="monospace,sans-serif" font-size="11" font-weight="bold" fill="#92400e" text-anchor="middle">1.00 LOT</text>
+<text x="696" y="61" font-family="system-ui,sans-serif" font-size="9" fill="#b45309" text-anchor="middle">standard</text></svg>

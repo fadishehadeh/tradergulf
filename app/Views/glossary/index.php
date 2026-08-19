@@ -23,6 +23,12 @@ echo '<script type="application/ld+json">' . json_encode([
     </div>
 </div>
 
+<div class="page-hero-banner">
+    <div class="container">
+        <img src="<?= url('assets/img/banners/sub-forex-glossary.svg') ?>" alt="Forex Glossary" width="800" height="200" loading="lazy" decoding="async">
+    </div>
+</div>
+
 <div class="container">
 
     <div style="padding:.5rem 0 1.25rem">
