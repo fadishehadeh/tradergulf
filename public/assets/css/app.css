@@ -1060,7 +1060,7 @@ main { flex: 1; padding: 0 0 2rem; }
 .advertise-here-sm {
     display: block;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     transition: transform .2s ease, box-shadow .2s ease;
 }
@@ -1068,7 +1068,7 @@ main { flex: 1; padding: 0 0 2rem; }
 .advertise-here-slot:hover,
 .advertise-here-sm:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(245,158,11,.28);
+    box-shadow: 0 10px 35px rgba(180,83,9,.40);
 }
 
 .advertise-here-hero { margin: .5rem 0; }
@@ -1080,59 +1080,54 @@ main { flex: 1; padding: 0 0 2rem; }
     justify-content: space-between;
     gap: 1.5rem;
     flex-wrap: wrap;
-    padding: 1.75rem 2.25rem;
-    background: linear-gradient(135deg, #0f1f3d 0%, #0d2244 100%);
-    border: 1px solid rgba(245,158,11,.45);
-    border-left: 5px solid #f59e0b;
-    box-shadow: inset 0 0 60px rgba(245,158,11,.06);
+    padding: 1.6rem 2.25rem;
+    background: linear-gradient(135deg, #3b1809 0%, #6b2d0e 60%, #92400e 100%);
+    border-left: 5px solid #fbbf24;
 }
 .advertise-here-hero .adv-inner {
     padding: 2.75rem 3.5rem;
-    background: linear-gradient(135deg, #0a1628 0%, #142244 60%, #0f1b35 100%);
-    border: 1px solid rgba(245,158,11,.55);
-    border-left: 6px solid #f59e0b;
-    border-radius: 14px;
-    box-shadow: inset 0 0 100px rgba(245,158,11,.09), 0 4px 24px rgba(0,0,0,.35);
+    background: linear-gradient(135deg, #2d1206 0%, #6b2d0e 50%, #92400e 100%);
+    border-left: 6px solid #fbbf24;
+    border-radius: 12px;
 }
-.advertise-here-sm .adv-inner { padding: 1.1rem 1.75rem; }
+.advertise-here-sm  .adv-inner  { padding: 1.1rem 1.75rem; }
 
 .adv-tag {
-    font-size: .72rem;
-    font-weight: 800;
+    font-size: 1.05rem;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: .14em;
-    color: #f59e0b;
-    margin-bottom: .4rem;
+    letter-spacing: .08em;
+    color: #fef08a;
+    margin-bottom: .35rem;
 }
 .adv-title {
-    font-size: 1.5rem;
-    font-weight: 900;
+    font-size: 1.35rem;
+    font-weight: 800;
     color: #fff;
-    margin-bottom: .3rem;
-    letter-spacing: -.01em;
-    line-height: 1.2;
+    margin-bottom: .25rem;
+    letter-spacing: .01em;
 }
-.advertise-here-hero .adv-title { font-size: 2.1rem; letter-spacing: -.02em; }
-.advertise-here-hero .adv-sub   { font-size: 1rem; color: rgba(255,255,255,.78); }
-.advertise-here-hero .adv-btn   { font-size: 1.05rem; padding: 1rem 2.5rem; border-radius: 8px; }
+.advertise-here-hero .adv-title { font-size: 2rem; letter-spacing: -.01em; }
+.advertise-here-hero .adv-sub   { font-size: 1rem; color: rgba(255,255,255,.80); }
+.advertise-here-hero .adv-btn   { font-size: 1rem; padding: 1rem 2.25rem; border-radius: 8px; }
 .adv-sub {
-    font-size: .92rem;
-    color: rgba(255,255,255,.70);
-    line-height: 1.5;
+    font-size: .88rem;
+    color: rgba(255,255,255,.75);
+    line-height: 1.4;
 }
 .adv-btn {
     flex-shrink: 0;
-    background: #f59e0b;
-    color: #0a1628;
+    background: #fff;
+    color: #7c2d12;
     font-weight: 900;
-    font-size: 1rem;
-    padding: .85rem 1.9rem;
-    border-radius: 8px;
+    font-size: .95rem;
+    padding: .75rem 1.75rem;
+    border-radius: 6px;
     white-space: nowrap;
     letter-spacing: .02em;
     transition: background .15s, transform .15s;
 }
-.adv-btn:hover { background: #fbbf24; transform: scale(1.04); }
+.adv-btn:hover { background: #fef3c7; transform: scale(1.03); }
 
 /* --- Calculator side ad strips ----------------------- */
 .calc-side-ad {
@@ -1140,7 +1135,7 @@ main { flex: 1; padding: 0 0 2rem; }
     min-width: 300px;
     flex-shrink: 0;
     display: flex;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
 }
 .calc-side-ad-inner {
@@ -1151,18 +1146,18 @@ main { flex: 1; padding: 0 0 2rem; }
     width: 300px;
     min-height: 600px;
     text-decoration: none;
-    background: linear-gradient(180deg, #0f1f3d 0%, #0d2244 100%);
-    border: 2px solid rgba(245,158,11,.5);
-    border-radius: 12px;
+    background: linear-gradient(180deg, #3b1809 0%, #6b2d0e 100%);
+    border: 2px solid rgba(251,191,36,.5);
+    border-radius: 10px;
     transition: background .2s, border-color .2s, box-shadow .2s;
     gap: 1rem;
     padding: 2rem 1.5rem;
     text-align: center;
 }
 .calc-side-ad-inner:hover {
-    background: linear-gradient(180deg, #142850 0%, #0f2040 100%);
-    border-color: #f59e0b;
-    box-shadow: 0 0 30px rgba(245,158,11,.2);
+    background: linear-gradient(180deg, #4a2010 0%, #7c3511 100%);
+    border-color: #fbbf24;
+    box-shadow: 0 0 30px rgba(251,191,36,.25);
 }
 @media (max-width: 1200px) { .calc-side-ad { display: none; } }
 
