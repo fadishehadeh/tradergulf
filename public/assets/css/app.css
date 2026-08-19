@@ -1867,7 +1867,9 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
     height: 50px;
 }
 .broker-logo[src*="pepperstone"],
-.broker-logo[src*="exness"] {
+.broker-logo[src*="exness"],
+.broker-logo[src*="xmlogo"],
+.broker-logo[src*="icmarkets"] {
     height: 60px;
     max-width: 180px;
 }
