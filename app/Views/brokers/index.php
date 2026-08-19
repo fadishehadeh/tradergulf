@@ -20,8 +20,8 @@
     <div style="padding:.5rem 0 1rem">
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_brokers_top">
             <div class="adv-inner">
-                <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach thousands of active forex traders</div></div>
-                <div class="adv-btn">Get In Touch →</div>
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Comparing Brokers</div><div class="adv-sub">Active audience in UAE, KSA, Kuwait &amp; Qatar — deciding which broker to open with. Get featured.</div></div>
+                <div class="adv-btn">Get a Quote →</div>
             </div>
         </a>
     </div>

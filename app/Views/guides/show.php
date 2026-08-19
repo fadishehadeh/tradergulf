@@ -160,8 +160,8 @@ if ($faqSchema) {
             <?php $__guideAd = ad_zone('guide_sidebar'); if ($__guideAd): echo $__guideAd; else: ?>
             <a href="<?= url('advertise') ?>" class="advertise-here-sm" style="display:block;margin-bottom:1rem" data-track="cta_click" data-track-label="advertise_guide_sidebar">
                 <div class="adv-inner" style="padding:.9rem 1.25rem;flex-direction:column;align-items:flex-start;gap:.5rem">
-                    <div><div class="adv-tag">Advertisement</div><div class="adv-title" style="font-size:.88rem">Advertise Here</div><div class="adv-sub">Reach active forex traders</div></div>
-                    <div class="adv-btn" style="font-size:.75rem;padding:.4rem .9rem">Get In Touch →</div>
+                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title" style="font-size:.95rem">Your Brand Here</div><div class="adv-sub">Gulf forex traders — UAE, KSA &amp; GCC.</div></div>
+                    <div class="adv-btn" style="font-size:.8rem;padding:.5rem 1rem">Get a Quote →</div>
                 </div>
             </a>
             <?php endif; ?>

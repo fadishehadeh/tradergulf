@@ -114,8 +114,8 @@ SCRIPT;
 <div class="container" style="padding:1.5rem 0 2.5rem">
     <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_profit_bottom">
         <div class="adv-inner" style="padding:2rem 2.5rem">
-            <div><div class="adv-tag">Advertisement</div><div class="adv-title" style="font-size:1.4rem">Advertise With Trader Gulf</div><div class="adv-sub" style="font-size:.9rem">Reach active forex traders across the Gulf &amp; MENA region</div></div>
-            <div class="adv-btn" style="font-size:.95rem;padding:.85rem 2rem">Get In Touch →</div>
+            <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Estimating Their Profits</div><div class="adv-sub">Gulf traders actively planning trades across UAE, KSA &amp; GCC. Get your brand in front of them.</div></div>
+            <div class="adv-btn">Get a Quote →</div>
         </div>
     </a>
 </div>

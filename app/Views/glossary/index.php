@@ -28,8 +28,8 @@ echo '<script type="application/ld+json">' . json_encode([
     <div style="padding:.5rem 0 1.25rem">
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_glossary_top">
             <div class="adv-inner">
-                <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach active forex traders across the Gulf region</div></div>
-                <div class="adv-btn">Get In Touch →</div>
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Gulf Traders Learning the Market</div><div class="adv-sub">Active traders in UAE, KSA &amp; GCC building their knowledge. Get your brand in front of them.</div></div>
+                <div class="adv-btn">Get a Quote →</div>
             </div>
         </a>
     </div>

@@ -63,8 +63,8 @@ $sections = [
         <?php $__sidebarAd = ad_zone('broker_review_sidebar'); if ($__sidebarAd): echo $__sidebarAd; else: ?>
         <a href="<?= url('advertise') ?>" class="advertise-here-sm" style="display:block;margin-top:1rem" data-track="cta_click" data-track-label="advertise_broker_sidebar">
             <div class="adv-inner" style="padding:.9rem 1.25rem;flex-direction:column;align-items:flex-start;gap:.5rem">
-                <div><div class="adv-tag">Advertisement</div><div class="adv-title" style="font-size:.88rem">Advertise Here</div><div class="adv-sub">Reach active forex traders</div></div>
-                <div class="adv-btn" style="font-size:.75rem;padding:.4rem .9rem">Get In Touch →</div>
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title" style="font-size:.95rem">Your Brand Here</div><div class="adv-sub">Gulf forex traders — UAE, KSA &amp; GCC.</div></div>
+                <div class="adv-btn" style="font-size:.8rem;padding:.5rem 1rem">Get a Quote →</div>
             </div>
         </a>
         <?php endif; ?>
@@ -84,8 +84,8 @@ $sections = [
         <div style="padding:.25rem 0 1.25rem">
             <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_review">
                 <div class="adv-inner">
-                    <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach active forex traders across the Gulf region</div></div>
-                    <div class="adv-btn">Get In Touch →</div>
+                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Researching Brokers</div><div class="adv-sub">Gulf traders reading in-depth reviews — UAE, KSA, Kuwait &amp; Qatar. High intent, low drop-off.</div></div>
+                    <div class="adv-btn">Get a Quote →</div>
                 </div>
             </a>
         </div>
@@ -142,8 +142,8 @@ $sections = [
         <div style="padding:.5rem 0 1.25rem">
             <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_mid">
                 <div class="adv-inner">
-                    <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach active forex traders across the Gulf &amp; MENA region</div></div>
-                    <div class="adv-btn">Get In Touch →</div>
+                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Your Brand Mid-Review</div><div class="adv-sub">Traders deep in a broker review — maximum engagement, high conversion intent in UAE, KSA &amp; GCC.</div></div>
+                    <div class="adv-btn">Get a Quote →</div>
                 </div>
             </a>
         </div>
@@ -230,11 +230,11 @@ $sections = [
             <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_bottom">
                 <div class="adv-inner" style="padding:2rem 2.5rem">
                     <div>
-                        <div class="adv-tag">Advertisement</div>
-                        <div class="adv-title" style="font-size:1.4rem">Advertise With Trader Gulf</div>
-                        <div class="adv-sub" style="font-size:.9rem">Reach active forex traders across the Gulf &amp; MENA region</div>
+                        <div class="adv-tag">Advertise With Us</div>
+                        <div class="adv-title">Get Your Brand in Front of Gulf Traders</div>
+                        <div class="adv-sub">Active traders across UAE, Saudi Arabia, Kuwait &amp; Qatar — reviewing brokers, ready to sign up. Limited placements.</div>
                     </div>
-                    <div class="adv-btn" style="font-size:.95rem;padding:.85rem 2rem">Get In Touch →</div>
+                    <div class="adv-btn">Get a Quote →</div>
                 </div>
             </a>
         </div>
@@ -261,11 +261,11 @@ $sections = [
             <a href="<?= url('advertise') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_broker_compare">
                 <div class="adv-inner" style="padding:2.5rem 3rem">
                     <div>
-                        <div class="adv-tag">Advertisement</div>
-                        <div class="adv-title" style="font-size:1.75rem">Advertise With Trader Gulf</div>
-                        <div class="adv-sub" style="font-size:.95rem">Put your broker in front of Gulf-region traders actively comparing options</div>
+                        <div class="adv-tag">Advertise With Us</div>
+                        <div class="adv-title">Reach Active Gulf Forex Traders</div>
+                        <div class="adv-sub">The GCC's dedicated forex comparison platform — traders in UAE, Saudi Arabia, Kuwait &amp; Qatar comparing brokers every day. Premium placements available.</div>
                     </div>
-                    <div class="adv-btn" style="font-size:.95rem;padding:.9rem 2.25rem">Get In Touch →</div>
+                    <div class="adv-btn">Get a Quote →</div>
                 </div>
             </a>
         </div>

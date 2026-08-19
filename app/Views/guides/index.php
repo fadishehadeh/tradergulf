@@ -10,8 +10,8 @@
     <div style="padding:.5rem 0 1.25rem">
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_guides_top">
             <div class="adv-inner">
-                <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach thousands of active forex traders</div></div>
-                <div class="adv-btn">Get In Touch →</div>
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Gulf Traders Reading Our Guides</div><div class="adv-sub">Engaged audience in UAE, Saudi Arabia &amp; GCC learning to trade. High-intent, high-value clicks.</div></div>
+                <div class="adv-btn">Get a Quote →</div>
             </div>
         </a>
     </div>

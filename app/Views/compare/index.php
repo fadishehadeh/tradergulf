@@ -32,8 +32,8 @@ echo '<script type="application/ld+json">' . json_encode([
     <div style="padding:.5rem 0 1.25rem">
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_compare_top">
             <div class="adv-inner">
-                <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach thousands of active forex traders</div></div>
-                <div class="adv-btn">Get In Touch →</div>
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders in Decision Mode</div><div class="adv-sub">These traders are actively comparing brokers side-by-side — highest buying intent in the Gulf market.</div></div>
+                <div class="adv-btn">Get a Quote →</div>
             </div>
         </a>
     </div>

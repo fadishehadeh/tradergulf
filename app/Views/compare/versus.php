@@ -115,8 +115,8 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
         <div style="padding:.25rem 0 1.25rem">
             <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_versus_top">
                 <div class="adv-inner">
-                    <div><div class="adv-tag">Advertisement</div><div class="adv-title">Advertise With Trader Gulf</div><div class="adv-sub">Reach thousands of active forex traders</div></div>
-                    <div class="adv-btn">Get In Touch →</div>
+                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders in Decision Mode</div><div class="adv-sub">These traders are comparing brokers head-to-head — highest-intent audience in the GCC.</div></div>
+                    <div class="adv-btn">Get a Quote →</div>
                 </div>
             </a>
         </div>

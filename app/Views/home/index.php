@@ -12,14 +12,14 @@
 
 <!-- ADVERTISE HERE – hero slot -->
 <div class="container" style="padding:.75rem 1.25rem">
-    <a href="<?= url('contact') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">
-        <div class="adv-inner" style="padding:1.75rem 2.5rem">
+    <a href="<?= url('advertise') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_hero_slot">
+        <div class="adv-inner">
             <div>
                 <div class="adv-tag">Advertise With Us</div>
-                <div class="adv-title" style="font-size:1.35rem">Reach Active Gulf Forex Traders</div>
-                <div class="adv-sub">Premium placements across the GCC &amp; MENA's leading forex comparison portal</div>
+                <div class="adv-title">Reach Active Gulf Forex Traders</div>
+                <div class="adv-sub">The GCC &amp; MENA's dedicated forex comparison platform — UAE, Saudi Arabia, Kuwait &amp; Qatar. Premium placements available now.</div>
             </div>
-            <div class="adv-btn" style="font-size:.9rem;padding:.75rem 1.75rem">Get In Touch →</div>
+            <div class="adv-btn">Get a Quote →</div>
         </div>
     </a>
 </div>
@@ -152,11 +152,11 @@
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_mid_slot">
             <div class="adv-inner">
                 <div>
-                    <div class="adv-tag">Advertisement</div>
-                    <div class="adv-title">Advertise With Trader Gulf</div>
-                    <div class="adv-sub">Reach active forex traders across the Gulf region</div>
+                    <div class="adv-tag">Advertise With Us</div>
+                    <div class="adv-title">Your Brand in Front of Gulf Traders</div>
+                    <div class="adv-sub">Traders actively comparing brokers in UAE, KSA, Kuwait &amp; Qatar. Limited placements — get in early.</div>
                 </div>
-                <div class="adv-btn">Get In Touch →</div>
+                <div class="adv-btn">Get a Quote →</div>
             </div>
         </a>
     </div>
