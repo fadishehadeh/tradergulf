@@ -1866,6 +1866,11 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
     justify-content: center;
     height: 50px;
 }
+.broker-logo[src*="pepperstone"],
+.broker-logo[src*="exness"] {
+    height: 60px;
+    max-width: 180px;
+}
 .banner-wrap { position: relative; display: block; }
 .banner-btn-link {
     position: absolute;
