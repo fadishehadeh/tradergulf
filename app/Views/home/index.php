@@ -33,7 +33,16 @@
         <?php foreach ($featuredBrokers as $broker): ?>
             <div class="broker-card">
                 <div class="broker-card-header">
+                    <?php if (!empty($broker['logo'])): ?>
+                    <a href="<?= url('brokers/' . $broker['slug']) ?>">
+                        <img src="<?= url('assets/img/brokers/' . e($broker['logo'])) ?>"
+                             alt="<?= e($broker['name']) ?> logo"
+                             class="broker-logo"
+                             loading="lazy" decoding="async">
+                    </a>
+                    <?php else: ?>
                     <a href="<?= url('brokers/' . $broker['slug']) ?>" class="broker-name-text" style="text-decoration:none;color:inherit"><?= e($broker['name']) ?></a>
+                    <?php endif; ?>
                 </div>
 
                 <div class="broker-card-stats">
