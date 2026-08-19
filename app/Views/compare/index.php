@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',
@@ -41,7 +41,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <div style="padding:.5rem 0 1.25rem">
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_compare_top">
             <div class="adv-inner">
-                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders in Decision Mode</div><div class="adv-sub">These traders are actively comparing brokers side-by-side — highest buying intent in the Gulf market.</div></div>
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders in Decision Mode</div><div class="adv-sub">These traders are actively comparing brokers side-by-side - highest buying intent in the Gulf market.</div></div>
                 <div class="adv-btn">Get a Quote →</div>
             </div>
         </a>
@@ -53,7 +53,7 @@ echo '<script type="application/ld+json">' . json_encode([
             <div>
                 <label style="display:block;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem">Broker <?= $i ?></label>
                 <select class="compare-select broker-selector" data-slot="<?= $i ?>">
-                    <option value=""><?= t('— Select broker —') ?></option>
+                    <option value=""><?= t('- Select broker -') ?></option>
                     <?php foreach ($allBrokers as $b): ?>
                     <option value="<?= e($b['slug']) ?>"><?= e($b['name']) ?></option>
                     <?php endforeach; ?>
@@ -134,7 +134,7 @@ function buildTable(brokers) {
         rows += `<tr><td class="row-label">${row.label}</td>`;
         brokers.forEach(b => {
             let val = b[row.key];
-            if (val === null || val === undefined || val === '') val = '—';
+            if (val === null || val === undefined || val === '') val = '-';
             let display = row.fmt ? row.fmt(val) : escHtml(String(val));
             rows += row.raw ? `<td>${display}</td>` : `<td>${escHtml(row.fmt ? row.fmt(val) : String(val))}</td>`;
         });

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $introHtml = $seoPage['intro_html'] ?? '';
 $bodyHtml  = $seoPage['body_html'] ?? '';
 ?>
@@ -71,8 +71,8 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bSc
                     <span style="font-size:.7rem;background:rgba(52,211,153,.12);color:var(--accent);padding:.15rem .45rem;border-radius:4px;font-weight:600;margin-left:.4rem">☪ Islamic</span>
                 </div>
                 <div style="font-size:.8rem;color:var(--text-muted)">
-                    Min deposit: $<?= e($b['min_deposit'] ?? '—') ?> &nbsp;·&nbsp;
-                    Leverage: <?= e($b['max_leverage'] ?? '—') ?> &nbsp;·&nbsp;
+                    Min deposit: $<?= e($b['min_deposit'] ?? '-') ?> &nbsp;·&nbsp;
+                    Leverage: <?= e($b['max_leverage'] ?? '-') ?> &nbsp;·&nbsp;
                     <?= e($b['regulation'] ?? '') ?>
                 </div>
             </div>

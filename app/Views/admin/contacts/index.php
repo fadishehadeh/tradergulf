@@ -1,4 +1,4 @@
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem">
+﻿<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem">
     <div>
         <h2 style="font-size:1.05rem;margin:0">Contact Messages</h2>
         <div style="font-size:.82rem;color:var(--a-text-muted);margin-top:.2rem">
@@ -38,7 +38,7 @@
                 <tr style="<?= $unreadRow ? 'background:rgba(52,211,153,.04)' : '' ?>">
                     <td style="padding:.65rem 1rem;font-size:.88rem;border-bottom:1px solid var(--a-border);white-space:nowrap">
                         <?php if ($unreadRow): ?><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--a-accent);margin-right:.4rem;vertical-align:middle"></span><?php endif; ?>
-                        <strong style="font-weight:<?= $unreadRow ? '700' : '500' ?>"><?= e($msg['name'] ?? '—') ?></strong>
+                        <strong style="font-weight:<?= $unreadRow ? '700' : '500' ?>"><?= e($msg['name'] ?? '-') ?></strong>
                         <div style="font-size:.75rem;color:var(--a-text-muted)"><?= e($msg['email'] ?? '') ?></div>
                     </td>
                     <td style="padding:.65rem 1rem;font-size:.85rem;border-bottom:1px solid var(--a-border);max-width:380px">

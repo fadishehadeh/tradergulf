@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',
-    'name'                => 'Currency Converter — Live Exchange Rates',
+    'name'                => 'Currency Converter - Live Exchange Rates',
     'description'         => 'Convert between 150+ currencies with live mid-market rates from the European Central Bank, updated daily. Free online tool for AED, SAR, USD, EUR, GBP, and more.',
     'url'                 => url('currency-converter'),
     'applicationCategory' => 'FinanceApplication',
@@ -23,7 +23,7 @@ echo '<script type="application/ld+json">' . json_encode([
 <!-- Currency Converter -->
 <section class="tool-hero">
     <div class="container">
-        <h1>Currency Converter — Live Exchange Rates</h1>
+        <h1>Currency Converter - Live Exchange Rates</h1>
         <p>Convert between 150+ currencies with live mid-market rates from the European Central Bank, updated daily.</p>
     </div>
 </section>
@@ -58,7 +58,7 @@ echo '<script type="application/ld+json">' . json_encode([
                 <button class="converter-swap-btn" id="ccSwap" title="Swap currencies">&#8644;</button>
                 <div>
                     <label style="display:block;font-size:.82rem;font-weight:600;margin-bottom:.4rem;color:var(--text-muted)">Result</label>
-                    <div class="converter-result" id="ccResult">—</div>
+                    <div class="converter-result" id="ccResult">-</div>
                 </div>
             </div>
 
@@ -124,7 +124,7 @@ echo '<script type="application/ld+json">' . json_encode([
         var f = fromEl.value, t2 = toEl.value;
         var inEUR_f = f === 'EUR' ? 1 : (rates[f] ? 1/rates[f] : null);
         var inEUR_t = t2 === 'EUR' ? 1 : (rates[t2] ? 1/rates[t2] : null);
-        if (!inEUR_f || !inEUR_t) { resEl.textContent = '—'; return; }
+        if (!inEUR_f || !inEUR_t) { resEl.textContent = '-'; return; }
         var result = amt * inEUR_f / inEUR_t;
         resEl.textContent = result.toLocaleString(undefined, {minimumFractionDigits:2,maximumFractionDigits:6}) + ' ' + t2;
         var rate1 = 1 * inEUR_f / inEUR_t;

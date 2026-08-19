@@ -1,5 +1,5 @@
-<?php
-$ctr = fn($imp, $clk) => $imp > 0 ? round($clk / $imp * 100, 2) . '%' : '—';
+﻿<?php
+$ctr = fn($imp, $clk) => $imp > 0 ? round($clk / $imp * 100, 2) . '%' : '-';
 ?>
 
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
@@ -45,7 +45,7 @@ $ctr = fn($imp, $clk) => $imp > 0 ? round($clk / $imp * 100, 2) . '%' : '—';
         <tbody>
         <?php foreach ($zone['ads'] as $ad): ?>
         <tr style="border-bottom:1px solid var(--a-border)">
-            <td style="padding:.75rem 1rem;font-weight:600"><?= e($ad['advertiser'] ?: '—') ?></td>
+            <td style="padding:.75rem 1rem;font-weight:600"><?= e($ad['advertiser'] ?: '-') ?></td>
             <td style="padding:.75rem 1rem">
                 <a href="<?= e($ad['image_url']) ?>" target="_blank" rel="noopener"
                    style="font-size:.78rem;color:var(--a-accent);word-break:break-all">
@@ -53,7 +53,7 @@ $ctr = fn($imp, $clk) => $imp > 0 ? round($clk / $imp * 100, 2) . '%' : '—';
                 </a>
             </td>
             <td style="padding:.75rem 1rem;font-size:.8rem;color:var(--a-muted)">
-                <?= $ad['starts_at'] ? date('d M y', strtotime($ad['starts_at'])) : '—' ?>
+                <?= $ad['starts_at'] ? date('d M y', strtotime($ad['starts_at'])) : '-' ?>
                 →
                 <?= $ad['ends_at'] ? date('d M y', strtotime($ad['ends_at'])) : 'open' ?>
             </td>

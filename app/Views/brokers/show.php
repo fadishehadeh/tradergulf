@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $sections = [
     'overview'      => 'Overview',
     'pros-cons'     => 'Pros & Cons',
@@ -72,7 +72,7 @@ $sections = [
         <?php $__sidebarAd = ad_zone('broker_review_sidebar'); if ($__sidebarAd): echo $__sidebarAd; else: ?>
         <a href="<?= url('advertise') ?>" class="advertise-here-sm" style="display:block;margin-top:1rem" data-track="cta_click" data-track-label="advertise_broker_sidebar">
             <div class="adv-inner" style="padding:.9rem 1.25rem;flex-direction:column;align-items:flex-start;gap:.5rem">
-                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title" style="font-size:.95rem">Your Brand Here</div><div class="adv-sub">Gulf forex traders — UAE, KSA &amp; GCC.</div></div>
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title" style="font-size:.95rem">Your Brand Here</div><div class="adv-sub">Gulf forex traders - UAE, KSA &amp; GCC.</div></div>
                 <div class="adv-btn" style="font-size:.8rem;padding:.5rem 1rem">Get a Quote →</div>
             </div>
         </a>
@@ -93,7 +93,7 @@ $sections = [
         <div style="padding:.25rem 0 1.25rem">
             <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_review">
                 <div class="adv-inner">
-                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Researching Brokers</div><div class="adv-sub">Gulf traders reading in-depth reviews — UAE, KSA, Kuwait &amp; Qatar. High intent, low drop-off.</div></div>
+                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Researching Brokers</div><div class="adv-sub">Gulf traders reading in-depth reviews - UAE, KSA, Kuwait &amp; Qatar. High intent, low drop-off.</div></div>
                     <div class="adv-btn">Get a Quote →</div>
                 </div>
             </a>
@@ -106,9 +106,9 @@ $sections = [
                 <?= $broker['overview_html'] ?>
             <?php else: ?>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
-                <div class="stat-box"><div class="stat-box-value"><?= e($broker['founded_year'] ?: '—') ?></div><div class="stat-box-label">Founded</div></div>
-                <div class="stat-box"><div class="stat-box-value" style="font-size:1rem"><?= e($broker['headquarters'] ?: '—') ?></div><div class="stat-box-label">Headquarters</div></div>
-                <div class="stat-box"><div class="stat-box-value" style="font-size:1rem"><?= e($broker['platforms'] ?: '—') ?></div><div class="stat-box-label">Platforms</div></div>
+                <div class="stat-box"><div class="stat-box-value"><?= e($broker['founded_year'] ?: '-') ?></div><div class="stat-box-label">Founded</div></div>
+                <div class="stat-box"><div class="stat-box-value" style="font-size:1rem"><?= e($broker['headquarters'] ?: '-') ?></div><div class="stat-box-label">Headquarters</div></div>
+                <div class="stat-box"><div class="stat-box-value" style="font-size:1rem"><?= e($broker['platforms'] ?: '-') ?></div><div class="stat-box-label">Platforms</div></div>
             </div>
             <?php endif; ?>
         </section>
@@ -151,7 +151,7 @@ $sections = [
         <div style="padding:.5rem 0 1.25rem">
             <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_mid">
                 <div class="adv-inner">
-                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Your Brand Mid-Review</div><div class="adv-sub">Traders deep in a broker review — maximum engagement, high conversion intent in UAE, KSA &amp; GCC.</div></div>
+                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Your Brand Mid-Review</div><div class="adv-sub">Traders deep in a broker review - maximum engagement, high conversion intent in UAE, KSA &amp; GCC.</div></div>
                     <div class="adv-btn">Get a Quote →</div>
                 </div>
             </a>
@@ -241,7 +241,7 @@ $sections = [
                     <div>
                         <div class="adv-tag">Advertise With Us</div>
                         <div class="adv-title">Get Your Brand in Front of Gulf Traders</div>
-                        <div class="adv-sub">Active traders across UAE, Saudi Arabia, Kuwait &amp; Qatar — reviewing brokers, ready to sign up. Limited placements.</div>
+                        <div class="adv-sub">Active traders across UAE, Saudi Arabia, Kuwait &amp; Qatar - reviewing brokers, ready to sign up. Limited placements.</div>
                     </div>
                     <div class="adv-btn">Get a Quote →</div>
                 </div>
@@ -251,7 +251,7 @@ $sections = [
         <!-- Social Share -->
         <?php
         $shareUrl   = urlencode(url('brokers/' . $broker['slug']));
-        $shareTitle = urlencode($broker['name'] . ' Review — Is it Safe? Spreads, Regulation & More');
+        $shareTitle = urlencode($broker['name'] . ' Review - Is it Safe? Spreads, Regulation & More');
         ?>
         <div style="margin-top:1.5rem;padding:1rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;gap:.65rem;flex-wrap:wrap">
             <span style="font-size:.82rem;color:var(--muted);font-weight:600">Share this review:</span>
@@ -272,7 +272,7 @@ $sections = [
                     <div>
                         <div class="adv-tag">Advertise With Us</div>
                         <div class="adv-title">Reach Active Gulf Forex Traders</div>
-                        <div class="adv-sub">The GCC's dedicated forex comparison platform — traders in UAE, Saudi Arabia, Kuwait &amp; Qatar comparing brokers every day. Premium placements available.</div>
+                        <div class="adv-sub">The GCC's dedicated forex comparison platform - traders in UAE, Saudi Arabia, Kuwait &amp; Qatar comparing brokers every day. Premium placements available.</div>
                     </div>
                     <div class="adv-btn">Get a Quote →</div>
                 </div>
@@ -319,7 +319,7 @@ $reviewSchema = [
     'itemReviewed' => [
         '@type'       => 'FinancialService',
         'name'        => $broker['name'],
-        'description' => $broker['tagline'] ?? ($broker['name'] . ' forex broker review — spreads, regulation, platforms, and fees.'),
+        'description' => $broker['tagline'] ?? ($broker['name'] . ' forex broker review - spreads, regulation, platforms, and fees.'),
         'url'         => $broker['affiliate_url'] ?: url('brokers/' . $broker['slug']),
         'areaServed'  => 'Worldwide',
         'currenciesAccepted' => 'USD, EUR, GBP',
@@ -333,7 +333,7 @@ $reviewSchema = [
     ],
 ];
 
-// ── FAQPage — common questions AI Overviews love ───────────────────
+// ── FAQPage - common questions AI Overviews love ───────────────────
 $faqs = [
     ['q' => 'Is ' . $broker['name'] . ' regulated?',
      'a' => $broker['name'] . ' is regulated by ' . ($broker['regulation'] ?: 'multiple financial authorities') . '. Always verify regulatory status directly with the relevant authority before depositing funds.'],

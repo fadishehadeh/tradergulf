@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',
@@ -91,7 +91,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <div>
         <div class="calc-result">
             <div class="calc-result-label"><?= t('Required Margin') ?></div>
-            <div class="calc-result-value" id="marginVal">—</div>
+            <div class="calc-result-value" id="marginVal">-</div>
             <div class="calc-result-sub" id="marginSub">USD</div>
         </div>
         <div class="card card-body" style="margin-top:1.5rem;font-size:.88rem;color:var(--muted);line-height:1.8">
@@ -129,7 +129,7 @@ SCRIPT;
 <div class="container" style="padding:1.5rem 0 2.5rem">
     <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_margin_bottom">
         <div class="adv-inner" style="padding:2rem 2.5rem">
-            <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Calculating Their Margin</div><div class="adv-sub">Active Gulf traders managing leverage &amp; risk — UAE, KSA, Kuwait &amp; Qatar. High-intent, premium audience.</div></div>
+            <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Calculating Their Margin</div><div class="adv-sub">Active Gulf traders managing leverage &amp; risk - UAE, KSA, Kuwait &amp; Qatar. High-intent, premium audience.</div></div>
             <div class="adv-btn">Get a Quote →</div>
         </div>
     </a>

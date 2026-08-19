@@ -1,4 +1,4 @@
-<div class="a-card" style="max-width:800px">
+﻿<div class="a-card" style="max-width:800px">
     <div class="a-card-header" style="display:flex;justify-content:space-between;align-items:center">
         <h2>Admin Users</h2>
         <a href="<?= url('admin/admins/create') ?>" class="btn-a btn-a-accent">+ Add Admin</a>
@@ -18,7 +18,7 @@
             <?php foreach ($admins as $a): $isSelf = ((int)$a['id'] === (int)session()->get('admin_id')); ?>
                 <tr>
                     <td><?= e($a['email']) ?> <?= $isSelf ? '<span style="font-size:.72rem;background:var(--a-accent);color:#fff;border-radius:4px;padding:1px 5px">you</span>' : '' ?></td>
-                    <td><?= e($a['name'] ?: '—') ?></td>
+                    <td><?= e($a['name'] ?: '-') ?></td>
                     <td><span class="badge <?= $a['is_active'] ? 'badge-green' : 'badge-red' ?>"><?= $a['is_active'] ? 'Active' : 'Inactive' ?></span></td>
                     <td style="font-size:.82rem;color:var(--a-muted)"><?= e(date('M j, Y', strtotime($a['created_at']))) ?></td>
                     <td>

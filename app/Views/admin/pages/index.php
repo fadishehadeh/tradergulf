@@ -1,4 +1,4 @@
-<div class="a-card">
+﻿<div class="a-card">
     <div class="a-card-header">
         <h2>Static Pages</h2>
     </div>
@@ -21,7 +21,7 @@
                 <td style="font-weight:600"><?= e($p['title']) ?></td>
                 <td style="font-size:.82rem;color:#64748b"><?= e($p['slug']) ?></td>
                 <td style="font-size:.82rem;color:#64748b">
-                    <?= $p['updated_at'] ? date('M j, Y', strtotime($p['updated_at'])) : '—' ?>
+                    <?= $p['updated_at'] ? date('M j, Y', strtotime($p['updated_at'])) : '-' ?>
                 </td>
                 <td>
                     <div class="row-actions">

@@ -1093,22 +1093,23 @@ main { flex: 1; padding: 0 0 2rem; }
 .advertise-here-sm  .adv-inner  { padding: 1.1rem 1.75rem; }
 
 .adv-tag {
-    font-size: .85rem;
+    font-size: 1.6rem;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: .08em;
     color: #fef08a;
-    margin-bottom: .3rem;
+    margin-bottom: .4rem;
+    line-height: 1.1;
 }
 .adv-title {
-    font-size: 1.35rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #fff;
     margin-bottom: .25rem;
     letter-spacing: .01em;
 }
-.advertise-here-hero .adv-title { font-size: 2rem; letter-spacing: -.01em; }
-.advertise-here-hero .adv-sub   { font-size: 1rem; color: rgba(255,255,255,.80); }
+.advertise-here-hero .adv-title { font-size: 1.25rem; letter-spacing: -.01em; }
+.advertise-here-hero .adv-sub   { font-size: .85rem; color: rgba(255,255,255,.80); }
 .advertise-here-hero .adv-btn   { font-size: 1rem; padding: 1rem 2.25rem; border-radius: 8px; }
 .adv-sub {
     font-size: .88rem;

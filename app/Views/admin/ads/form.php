@@ -1,8 +1,8 @@
-<div class="a-card" style="max-width:640px">
+﻿<div class="a-card" style="max-width:640px">
     <div class="a-card-header">
         <div>
             <h3 style="margin:0;font-size:1rem">
-                <?= $ad ? 'Edit Ad' : 'New Ad' ?> — <?= e($zone['name']) ?>
+                <?= $ad ? 'Edit Ad' : 'New Ad' ?> - <?= e($zone['name']) ?>
             </h3>
             <p style="color:var(--a-muted);font-size:.8rem;margin:.2rem 0 0">
                 <?= e((string)$zone['width']) ?>×<?= e((string)$zone['height']) ?>px &nbsp;·&nbsp;
@@ -45,7 +45,7 @@
             <label class="a-label">Alt Text (for accessibility)</label>
             <input type="text" name="alt_text" class="a-input"
                    value="<?= e($ad['alt_text'] ?? '') ?>"
-                   placeholder="e.g. Trade with XTB — tight spreads, no commissions">
+                   placeholder="e.g. Trade with XTB - tight spreads, no commissions">
         </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">

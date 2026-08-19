@@ -1,4 +1,4 @@
-<div style="margin-bottom:1rem">
+﻿<div style="margin-bottom:1rem">
     <a href="<?= url('admin/contacts') ?>" class="btn-a btn-a-ghost btn-a-sm">&#8592; Back to Messages</a>
 </div>
 
@@ -12,11 +12,11 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem 2rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--a-border)">
             <div>
                 <div style="font-size:.75rem;color:var(--a-text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem">Name</div>
-                <div><?= e($msg['name'] ?? '—') ?></div>
+                <div><?= e($msg['name'] ?? '-') ?></div>
             </div>
             <div>
                 <div style="font-size:.75rem;color:var(--a-text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem">Email</div>
-                <div><a href="mailto:<?= e($msg['email'] ?? '') ?>" style="color:var(--a-accent)"><?= e($msg['email'] ?? '—') ?></a></div>
+                <div><a href="mailto:<?= e($msg['email'] ?? '') ?>" style="color:var(--a-accent)"><?= e($msg['email'] ?? '-') ?></a></div>
             </div>
             <?php if (!empty($msg['subject'])): ?>
             <div style="grid-column:1/-1">

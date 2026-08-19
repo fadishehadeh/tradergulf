@@ -1,6 +1,6 @@
-<?php
-/** @var array $b1  — first broker (with review HTML) */
-/** @var array $b2  — second broker (with review HTML) */
+﻿<?php
+/** @var array $b1  - first broker (with review HTML) */
+/** @var array $b2  - second broker (with review HTML) */
 
 function brokerRating(array $b): string {
     $r = (float)($b['overall_rating'] ?? 0);
@@ -63,7 +63,7 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
         </nav>
 
         <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;text-align:center;margin:0 0 1.75rem">
-            <?= e($b1['name']) ?> vs <?= e($b2['name']) ?> — 2025 Broker Comparison
+            <?= e($b1['name']) ?> vs <?= e($b2['name']) ?> - 2025 Broker Comparison
         </h1>
 
         <div class="vs-brokers">
@@ -115,13 +115,13 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
         <div style="padding:.25rem 0 1.25rem">
             <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_versus_top">
                 <div class="adv-inner">
-                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders in Decision Mode</div><div class="adv-sub">These traders are comparing brokers head-to-head — highest-intent audience in the GCC.</div></div>
+                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders in Decision Mode</div><div class="adv-sub">These traders are comparing brokers head-to-head - highest-intent audience in the GCC.</div></div>
                     <div class="adv-btn">Get a Quote →</div>
                 </div>
             </a>
         </div>
 
-        <h2 style="font-size:1.2rem;margin-bottom:1.25rem"><?= e($b1['name']) ?> vs <?= e($b2['name']) ?> — Quick Comparison</h2>
+        <h2 style="font-size:1.2rem;margin-bottom:1.25rem"><?= e($b1['name']) ?> vs <?= e($b2['name']) ?> - Quick Comparison</h2>
 
         <?php
         $minDepositClass = vsCell((string)($b1['min_deposit'] ?? 0), (string)($b2['min_deposit'] ?? 0), true);
@@ -146,28 +146,28 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
                 </tr>
                 <tr>
                     <td class="label">Regulation</td>
-                    <td class="val b1" style="font-size:.8rem"><?= e($b1['regulation'] ?? '—') ?></td>
-                    <td class="val b2" style="font-size:.8rem"><?= e($b2['regulation'] ?? '—') ?></td>
+                    <td class="val b1" style="font-size:.8rem"><?= e($b1['regulation'] ?? '-') ?></td>
+                    <td class="val b2" style="font-size:.8rem"><?= e($b2['regulation'] ?? '-') ?></td>
                 </tr>
                 <tr class="<?= $minDepositClass ?>">
                     <td class="label">Min. Deposit</td>
-                    <td class="val b1">$<?= e($b1['min_deposit'] ?? '—') ?></td>
-                    <td class="val b2">$<?= e($b2['min_deposit'] ?? '—') ?></td>
+                    <td class="val b1">$<?= e($b1['min_deposit'] ?? '-') ?></td>
+                    <td class="val b2">$<?= e($b2['min_deposit'] ?? '-') ?></td>
                 </tr>
                 <tr class="<?= $spreadClass ?>">
                     <td class="label">EUR/USD Spread</td>
-                    <td class="val b1"><?= e($b1['spread_eurusd'] ?? '—') ?> pips</td>
-                    <td class="val b2"><?= e($b2['spread_eurusd'] ?? '—') ?> pips</td>
+                    <td class="val b1"><?= e($b1['spread_eurusd'] ?? '-') ?> pips</td>
+                    <td class="val b2"><?= e($b2['spread_eurusd'] ?? '-') ?> pips</td>
                 </tr>
                 <tr>
                     <td class="label">Max Leverage</td>
-                    <td class="val b1"><?= e($b1['max_leverage'] ?? '—') ?></td>
-                    <td class="val b2"><?= e($b2['max_leverage'] ?? '—') ?></td>
+                    <td class="val b1"><?= e($b1['max_leverage'] ?? '-') ?></td>
+                    <td class="val b2"><?= e($b2['max_leverage'] ?? '-') ?></td>
                 </tr>
                 <tr>
                     <td class="label">Platforms</td>
-                    <td class="val b1" style="font-size:.8rem"><?= e($b1['platforms'] ?? '—') ?></td>
-                    <td class="val b2" style="font-size:.8rem"><?= e($b2['platforms'] ?? '—') ?></td>
+                    <td class="val b1" style="font-size:.8rem"><?= e($b1['platforms'] ?? '-') ?></td>
+                    <td class="val b2" style="font-size:.8rem"><?= e($b2['platforms'] ?? '-') ?></td>
                 </tr>
                 <tr>
                     <td class="label">Islamic Account</td>
@@ -181,13 +181,13 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
                 </tr>
                 <tr>
                     <td class="label">Founded</td>
-                    <td class="val b1"><?= e($b1['founded_year'] ?? '—') ?></td>
-                    <td class="val b2"><?= e($b2['founded_year'] ?? '—') ?></td>
+                    <td class="val b1"><?= e($b1['founded_year'] ?? '-') ?></td>
+                    <td class="val b2"><?= e($b2['founded_year'] ?? '-') ?></td>
                 </tr>
                 <tr>
                     <td class="label">Headquarters</td>
-                    <td class="val b1"><?= e($b1['headquarters'] ?? '—') ?></td>
-                    <td class="val b2"><?= e($b2['headquarters'] ?? '—') ?></td>
+                    <td class="val b1"><?= e($b1['headquarters'] ?? '-') ?></td>
+                    <td class="val b2"><?= e($b2['headquarters'] ?? '-') ?></td>
                 </tr>
                 <tr>
                     <td></td>

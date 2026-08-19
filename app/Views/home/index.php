@@ -1,4 +1,4 @@
-<!-- Hero market banner -->
+﻿<!-- Hero market banner -->
 <div class="page-hero-banner page-hero-banner--hero">
     <div class="banner-wrap">
         <img src="<?= url('assets/img/banners/hero-1-market-charts.svg') ?>" alt="Best Forex Brokers in UAE &amp; Gulf" width="1400" height="360" loading="lazy" decoding="async">
@@ -14,7 +14,7 @@
             <div>
                 <div class="adv-tag">Advertise With Us</div>
                 <div class="adv-title">Reach Active Gulf Forex Traders</div>
-                <div class="adv-sub">The GCC &amp; MENA's dedicated forex comparison platform — UAE, Saudi Arabia, Kuwait &amp; Qatar. Premium placements available now.</div>
+                <div class="adv-sub">The GCC &amp; MENA's dedicated forex comparison platform - UAE, Saudi Arabia, Kuwait &amp; Qatar. Premium placements available now.</div>
             </div>
             <div class="adv-btn">Get a Quote →</div>
         </div>
@@ -160,7 +160,7 @@
                 <div>
                     <div class="adv-tag">Advertise With Us</div>
                     <div class="adv-title">Your Brand in Front of Gulf Traders</div>
-                    <div class="adv-sub">Traders actively comparing brokers in UAE, KSA, Kuwait &amp; Qatar. Limited placements — get in early.</div>
+                    <div class="adv-sub">Traders actively comparing brokers in UAE, KSA, Kuwait &amp; Qatar. Limited placements - get in early.</div>
                 </div>
                 <div class="adv-btn">Get a Quote →</div>
             </div>

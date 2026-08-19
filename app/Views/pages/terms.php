@@ -1,4 +1,4 @@
-<section style="background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);padding:3rem 0 2rem;text-align:center">
+﻿<section style="background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);padding:3rem 0 2rem;text-align:center">
     <div class="container">
         <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;margin-bottom:.5rem">Terms of Service</h1>
         <p style="color:rgba(255,255,255,.65);font-size:.9rem">Last updated: <?= date('F Y') ?></p>
@@ -25,7 +25,7 @@
             <p>Some links on this Site are affiliate links. If you click these and sign up with a broker, we may earn a commission. This does not affect our editorial independence. See our <a href="<?= url('affiliate-disclosure') ?>" style="color:var(--accent)">Affiliate Disclosure</a> for full details.</p>
 
             <h2 style="font-size:1.05rem;color:var(--text-main);margin:1.5rem 0 .6rem 0">6. Intellectual Property</h2>
-            <p>All content on Trader Gulf — text, ratings, logos, and design — is the property of Trader Gulf and may not be reproduced without written permission.</p>
+            <p>All content on Trader Gulf - text, ratings, logos, and design - is the property of Trader Gulf and may not be reproduced without written permission.</p>
 
             <h2 style="font-size:1.05rem;color:var(--text-main);margin:1.5rem 0 .6rem 0">7. Limitation of Liability</h2>
             <p>Trader Gulf and its contributors shall not be liable for any losses or damages arising from the use of this Site, including reliance on broker reviews, ratings, or any information provided herein.</p>

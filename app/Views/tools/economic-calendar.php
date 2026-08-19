@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',
@@ -23,7 +23,7 @@ echo '<script type="application/ld+json">' . json_encode([
 <!-- Economic Calendar -->
 <section class="tool-hero">
     <div class="container">
-        <h1>Economic Calendar — Forex Market Events</h1>
+        <h1>Economic Calendar - Forex Market Events</h1>
         <p>Live economic events calendar with high-impact data releases, central bank decisions, and market-moving announcements.</p>
     </div>
 </section>
@@ -137,7 +137,7 @@ echo '<script type="application/ld+json">' . json_encode([
     }
 
     function formatDT(dateStr) {
-        if (!dateStr) return '—';
+        if (!dateStr) return '-';
         var d = new Date(dateStr);
         if (isNaN(d)) return dateStr;
         return d.toLocaleDateString('en-GB', {day:'2-digit',month:'short'})
@@ -152,11 +152,11 @@ echo '<script type="application/ld+json">' . json_encode([
             tbody.innerHTML = events.map(function(e) {
                 return '<tr>'
                     + '<td style="font-size:.78rem;color:var(--text-muted)">' + formatDT(e.date) + '</td>'
-                    + '<td><span style="font-weight:700;font-size:.88rem">' + (e.currency || '—') + '</span></td>'
+                    + '<td><span style="font-weight:700;font-size:.88rem">' + (e.currency || '-') + '</span></td>'
                     + '<td>' + impactIcon(e.impact) + '</td>'
-                    + '<td style="font-weight:500">' + (e.title || '—') + '</td>'
-                    + '<td style="text-align:right;color:var(--text-muted)">' + (e.forecast || '—') + '</td>'
-                    + '<td style="text-align:right;color:var(--text-muted)">' + (e.previous || '—') + '</td>'
+                    + '<td style="font-weight:500">' + (e.title || '-') + '</td>'
+                    + '<td style="text-align:right;color:var(--text-muted)">' + (e.forecast || '-') + '</td>'
+                    + '<td style="text-align:right;color:var(--text-muted)">' + (e.previous || '-') + '</td>'
                     + '</tr>';
             }).join('');
         }

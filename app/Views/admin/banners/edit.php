@@ -1,4 +1,4 @@
-<div class="a-card">
+﻿<div class="a-card">
     <div class="a-card-header">
         <h2><?= e($banner['label'] ?? $banner['position']) ?></h2>
         <div style="display:flex;gap:.5rem">
@@ -28,7 +28,7 @@
             <div class="a-field">
                 <label for="broker_id">Linked Broker (for portrait stats)</label>
                 <select id="broker_id" name="broker_id">
-                    <option value="">— None —</option>
+                    <option value="">- None -</option>
                     <?php foreach ($brokers as $br): ?>
                     <option value="<?= (int)$br['id'] ?>" <?= ((int)($banner['broker_id'] ?? 0) === (int)$br['id']) ? 'selected' : '' ?>>
                         <?= e($br['name']) ?>
@@ -112,7 +112,7 @@
 
             <!-- OR: external URL -->
             <div class="a-field">
-                <label for="image_url">— or paste an external URL</label>
+                <label for="image_url">- or paste an external URL</label>
                 <input type="url" id="image_url" name="image_url"
                        value="<?= e($banner['image_url'] ?? '') ?>"
                        placeholder="https://broker.com/banners/728x90.jpg"
@@ -144,7 +144,7 @@
                 <input type="text" id="bg_style" name="bg_style"
                        value="<?= e($banner['bg_style'] ?? '') ?>"
                        placeholder="background:linear-gradient(120deg,#09112a 0%,#0f1b35 100%)">
-                <div class="hint">Any valid CSS background property — colour, gradient, or image URL.</div>
+                <div class="hint">Any valid CSS background property - colour, gradient, or image URL.</div>
             </div>
             <div class="a-field" style="display:flex;align-items:center;gap:.75rem;padding-top:1.5rem">
                 <label class="a-checkbox">

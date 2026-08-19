@@ -1,4 +1,4 @@
-<div class="page-header">
+﻿<div class="page-header">
     <div class="container">
         <h1>Best Forex Brokers in UAE &amp; Gulf 2025</h1>
         <p>Independent, in-depth reviews of the top regulated forex brokers for UAE, Saudi Arabia, Kuwait and Gulf traders.</p>
@@ -29,7 +29,7 @@
     <div style="padding:.5rem 0 1rem">
         <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_brokers_top">
             <div class="adv-inner">
-                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Comparing Brokers</div><div class="adv-sub">Active audience in UAE, KSA, Kuwait &amp; Qatar — deciding which broker to open with. Get featured.</div></div>
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Comparing Brokers</div><div class="adv-sub">Active audience in UAE, KSA, Kuwait &amp; Qatar - deciding which broker to open with. Get featured.</div></div>
                 <div class="adv-btn">Get a Quote →</div>
             </div>
         </a>
@@ -105,7 +105,7 @@
     <div style="margin-top:2.5rem;padding:2rem;background:var(--card-bg);border:1px solid var(--border);border-radius:12px">
         <h2 style="font-size:1.15rem;margin-bottom:1rem">How We Choose the Best Forex Brokers for Gulf Traders</h2>
         <p style="font-size:.9rem;color:var(--text-muted);line-height:1.75;margin-bottom:1rem">
-            Every broker on this list is regulated by a recognised authority — such as the UAE's <strong>SCA</strong>, the UK's <strong>FCA</strong>,
+            Every broker on this list is regulated by a recognised authority - such as the UAE's <strong>SCA</strong>, the UK's <strong>FCA</strong>,
             Australia's <strong>ASIC</strong>, or Cyprus' <strong>CySEC</strong>. We prioritise brokers that officially accept clients
             from the UAE, Saudi Arabia, Kuwait, Qatar, Bahrain, and Oman, and that offer <strong>Islamic swap-free accounts</strong>
             compliant with Sharia law.

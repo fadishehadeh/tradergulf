@@ -1,4 +1,4 @@
-<div class="a-card">
+﻿<div class="a-card">
     <div class="a-card-header">
         <h2><?= e($page['title']) ?></h2>
         <div style="display:flex;gap:.5rem;align-items:center">
@@ -32,7 +32,7 @@
             <textarea id="content_html" name="content_html" class="tall"
                       style="min-height:420px;font-family:monospace;font-size:.82rem"
             ><?= e($page['content_html'] ?? '') ?></textarea>
-            <div class="hint">HTML is allowed — use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;strong&gt;, etc.</div>
+            <div class="hint">HTML is allowed - use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;strong&gt;, etc.</div>
         </div>
 
         <div class="section-divider">SEO</div>

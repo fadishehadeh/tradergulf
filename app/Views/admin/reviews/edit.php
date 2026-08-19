@@ -1,4 +1,4 @@
-<div style="margin-bottom:1rem">
+﻿<div style="margin-bottom:1rem">
     <a href="<?= url('admin/brokers') ?>" class="btn-a btn-a-ghost btn-a-sm">← All Brokers</a>
     <a href="<?= url("brokers/{$broker['slug']}") ?>" target="_blank"
        class="btn-a btn-a-ghost btn-a-sm" style="margin-left:.4rem">View Public Page</a>
@@ -8,7 +8,7 @@
     <div class="a-card-header">
         <h2>Review Content: <?= e($broker['name']) ?></h2>
         <span style="font-size:.78rem;color:#94a3b8">
-            <?= $review ? 'Last updated: ' . e($review['last_updated'] ?? '—') : 'No review yet — fill in the fields below' ?>
+            <?= $review ? 'Last updated: ' . e($review['last_updated'] ?? '-') : 'No review yet - fill in the fields below' ?>
         </span>
     </div>
     <div class="a-card-body">

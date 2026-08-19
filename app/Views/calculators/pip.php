@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',
@@ -92,7 +92,7 @@ echo '<script type="application/ld+json">' . json_encode([
     <div>
         <div class="calc-result" id="result">
             <div class="calc-result-label"><?= t('Pip Value') ?></div>
-            <div class="calc-result-value" id="pipValue">—</div>
+            <div class="calc-result-value" id="pipValue">-</div>
             <div class="calc-result-sub" id="pipSub">per pip</div>
         </div>
 
@@ -136,7 +136,7 @@ SCRIPT;
 <div class="container" style="padding:1.5rem 0 2.5rem">
     <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_pip_bottom">
         <div class="adv-inner" style="padding:2rem 2.5rem">
-            <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Running Pip Calculations</div><div class="adv-sub">High-intent Gulf traders sizing trades in UAE, KSA &amp; GCC. They're ready to open — get in front of them.</div></div>
+            <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Running Pip Calculations</div><div class="adv-sub">High-intent Gulf traders sizing trades in UAE, KSA &amp; GCC. They're ready to open - get in front of them.</div></div>
             <div class="adv-btn">Get a Quote →</div>
         </div>
     </a>

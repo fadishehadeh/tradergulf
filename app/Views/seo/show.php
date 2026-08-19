@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 function seoStars(float $r): string {
     $f = (int)floor($r); $h = ($r - $f) >= 0.5 ? 1 : 0; $e = 5 - $f - $h;
     return str_repeat('★', $f) . ($h ? '½' : '') . str_repeat('☆', $e);
@@ -116,7 +116,7 @@ if (!empty($brokers)) {
                         <?php if ($br['has_islamic']): ?>
                         <span style="color:#059669;font-weight:700">✓ Yes</span>
                         <?php else: ?>
-                        <span style="color:var(--muted)">—</span>
+                        <span style="color:var(--muted)">-</span>
                         <?php endif; ?>
                     </td>
                     <td style="padding:.85rem 1rem;border-bottom:1px solid var(--border);font-size:.8rem;color:var(--muted)">

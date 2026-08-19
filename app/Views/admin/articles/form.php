@@ -1,4 +1,4 @@
-<div class="a-card">
+﻿<div class="a-card">
     <div class="a-card-header">
         <h2><?= isset($article['id']) ? 'Edit Article' : 'New Article' ?></h2>
         <a href="<?= url('admin/articles') ?>" class="btn-a btn-a-ghost btn-a-sm">← Back</a>
@@ -51,7 +51,7 @@
             <textarea id="content_html" name="content_html" class="tall"
                       style="min-height:380px;font-family:monospace;font-size:.82rem"
             ><?= e($article['content_html'] ?? '') ?></textarea>
-            <div class="hint">HTML is allowed — use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, etc.</div>
+            <div class="hint">HTML is allowed - use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, etc.</div>
         </div>
 
         <div class="section-divider">SEO</div>

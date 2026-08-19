@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $defaults = [
     'site_name'        => 'Trader Gulf',
     'site_tagline'     => 'Independent Forex Broker Reviews',
@@ -147,7 +147,7 @@ $s = array_merge($defaults, $settings ?? []);
             <input type="text" name="settings[google_analytics]"
                    placeholder="G-XXXXXXXXXX"
                    value="<?= e($s['google_analytics']) ?>">
-            <div class="hint">Paste your GA4 Measurement ID (starts with G-). Leave blank to disable. GA4 loads with Consent Mode v2 — analytics are only recorded after the visitor accepts cookies.</div>
+            <div class="hint">Paste your GA4 Measurement ID (starts with G-). Leave blank to disable. GA4 loads with Consent Mode v2 - analytics are only recorded after the visitor accepts cookies.</div>
         </div>
 
         <!-- ── Google Search Console ──────────── -->
@@ -159,7 +159,7 @@ $s = array_merge($defaults, $settings ?? []);
                    placeholder="aBcDeFgHiJkLmNoPqRsTuVwXyZ012345678"
                    value="<?= e($s['gsc_verification']) ?>">
             <div class="hint">
-                In Google Search Console → Settings → Ownership Verification → HTML tag, copy only the <code>content="..."</code> value — not the full tag.
+                In Google Search Console → Settings → Ownership Verification → HTML tag, copy only the <code>content="..."</code> value - not the full tag.
                 Example: <code>aBcDeFgHiJkLmNoPqRsTuVwXyZ012345678</code>
             </div>
         </div>

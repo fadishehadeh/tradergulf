@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $gscSubmitUrl = 'https://search.google.com/search-console/sitemaps?resource_id=' . urlencode(rtrim(config('app.url', url('')), '/') . '/');
 $sitemapEncoded = urlencode($sitemapUrl);
 ?>
@@ -77,7 +77,7 @@ $sitemapEncoded = urlencode($sitemapUrl);
 <!-- Submit to GSC step-by-step -->
 <?php if ($exists): ?>
 <div class="a-card" style="max-width:960px;margin-top:1.25rem">
-    <div class="a-card-header"><h3>Submit to Google Search Console — Step by Step</h3></div>
+    <div class="a-card-header"><h3>Submit to Google Search Console - Step by Step</h3></div>
     <div class="a-card-body">
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;font-size:.85rem">
             <div style="background:var(--a-bg);border-radius:8px;padding:1rem">
@@ -88,7 +88,7 @@ $sitemapEncoded = urlencode($sitemapUrl);
             <div style="background:var(--a-bg);border-radius:8px;padding:1rem">
                 <div style="font-size:1.5rem;margin-bottom:.5rem">2️⃣</div>
                 <strong>Open GSC</strong><br>
-                Click <em>Submit to Google Search Console</em> — opens the Sitemaps section of your property.
+                Click <em>Submit to Google Search Console</em> - opens the Sitemaps section of your property.
             </div>
             <div style="background:var(--a-bg);border-radius:8px;padding:1rem">
                 <div style="font-size:1.5rem;margin-bottom:.5rem">3️⃣</div>

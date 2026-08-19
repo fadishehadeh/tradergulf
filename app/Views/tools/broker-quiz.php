@@ -1,5 +1,5 @@
-<?php
-// broker-quiz.php — $brokersJson passed from ToolsController
+﻿<?php
+// broker-quiz.php - $brokersJson passed from ToolsController
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',
@@ -41,9 +41,9 @@ echo '<script type="application/ld+json">' . json_encode([
             <div class="quiz-step active" data-step="1">
                 <div class="quiz-question">What is your forex trading experience?</div>
                 <div class="quiz-options">
-                    <div class="quiz-option" data-key="experience" data-val="beginner">🌱 Beginner — I'm just starting out</div>
-                    <div class="quiz-option" data-key="experience" data-val="intermediate">📈 Intermediate — I've been trading for 1–3 years</div>
-                    <div class="quiz-option" data-key="experience" data-val="advanced">🏆 Advanced — I'm an experienced trader</div>
+                    <div class="quiz-option" data-key="experience" data-val="beginner">🌱 Beginner - I'm just starting out</div>
+                    <div class="quiz-option" data-key="experience" data-val="intermediate">📈 Intermediate - I've been trading for 1–3 years</div>
+                    <div class="quiz-option" data-key="experience" data-val="advanced">🏆 Advanced - I'm an experienced trader</div>
                 </div>
             </div>
 
@@ -61,8 +61,8 @@ echo '<script type="application/ld+json">' . json_encode([
             <div class="quiz-step" data-step="3">
                 <div class="quiz-question">Do you require an Islamic (swap-free) account?</div>
                 <div class="quiz-options">
-                    <div class="quiz-option" data-key="islamic" data-val="yes">☪️ Yes — I need a halal account</div>
-                    <div class="quiz-option" data-key="islamic" data-val="no">✗ No — standard account is fine</div>
+                    <div class="quiz-option" data-key="islamic" data-val="yes">☪️ Yes - I need a halal account</div>
+                    <div class="quiz-option" data-key="islamic" data-val="no">✗ No - standard account is fine</div>
                 </div>
             </div>
 
@@ -184,7 +184,7 @@ echo '<script type="application/ld+json">' . json_encode([
             var div = document.createElement('div');
             div.className = 'quiz-result-broker';
 
-            /* Build logo safely — use DOM methods to avoid innerHTML injection */
+            /* Build logo safely - use DOM methods to avoid innerHTML injection */
             var logoWrap = document.createElement('div');
             logoWrap.style.cssText = 'width:60px;height:40px;flex-shrink:0';
             if (b.logo) {
@@ -210,7 +210,7 @@ echo '<script type="application/ld+json">' . json_encode([
                 strong.appendChild(badge);
             }
             var meta = document.createElement('span');
-            meta.textContent = 'Min deposit: $' + (b.min_deposit || '—') + ' · Rating: ' + (b.overall_rating || '—') + '/10';
+            meta.textContent = 'Min deposit: $' + (b.min_deposit || '-') + ' · Rating: ' + (b.overall_rating || '-') + '/10';
             info.appendChild(strong);
             info.appendChild(meta);
 

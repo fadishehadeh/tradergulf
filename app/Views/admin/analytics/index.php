@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $maxDaily  = max(array_column($daily, 'views') ?: [1]);
 $maxPage   = $topPages[0]['views'] ?? 1;
 $ga4Id     = setting('google_analytics', '');
@@ -56,7 +56,7 @@ $debugUrl  = url('') . '?ga_debug=1';
 
 <!-- Daily chart -->
 <div class="section-card" style="margin-bottom:0">
-    <h3>Daily Views — Last 14 Days (humans only)</h3>
+    <h3>Daily Views - Last 14 Days (humans only)</h3>
     <?php if (empty($daily)): ?>
         <p class="empty">No data yet.</p>
     <?php else: ?>
@@ -83,7 +83,7 @@ $debugUrl  = url('') . '?ga_debug=1';
 <div class="two-col">
     <!-- Top Pages -->
     <div class="section-card">
-        <h3>Top Pages — Last 30 Days</h3>
+        <h3>Top Pages - Last 30 Days</h3>
         <?php if (empty($topPages)): ?>
             <p class="empty">No data yet.</p>
         <?php else: foreach ($topPages as $row): $pct = round($row['views'] / $maxPage * 100); ?>
@@ -97,7 +97,7 @@ $debugUrl  = url('') . '?ga_debug=1';
 
     <!-- Top Referrers -->
     <div class="section-card">
-        <h3>Top Referrers — Last 30 Days</h3>
+        <h3>Top Referrers - Last 30 Days</h3>
         <?php if (empty($topReferrers)): ?>
             <p class="empty">No referrer data yet.</p>
         <?php else: foreach ($topReferrers as $row):
@@ -113,7 +113,7 @@ $debugUrl  = url('') . '?ga_debug=1';
 
 <!-- GA4 Test Panel -->
 <div class="section-card" style="margin-top:1.5rem">
-    <h3>Google Analytics 4 — Live Test</h3>
+    <h3>Google Analytics 4 - Live Test</h3>
 
     <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem">
         <?php if ($ga4Active): ?>
@@ -138,8 +138,8 @@ $debugUrl  = url('') . '?ga_debug=1';
         </a>
     </div>
     <ol style="margin:1.25rem 0 0;padding-left:1.25rem;font-size:.84rem;line-height:1.9;color:var(--a-muted)">
-        <li>Click <strong>Open Site in Debug Mode</strong> — this opens the homepage with <code>?ga_debug=1</code>, fires a <code>ga4_test_event</code>, and shows a blue confirmation badge.</li>
-        <li>Click <strong>Open GA4 DebugView</strong> — go to <strong>Reports → Realtime</strong> or <strong>Configure → DebugView</strong>.</li>
+        <li>Click <strong>Open Site in Debug Mode</strong> - this opens the homepage with <code>?ga_debug=1</code>, fires a <code>ga4_test_event</code>, and shows a blue confirmation badge.</li>
+        <li>Click <strong>Open GA4 DebugView</strong> - go to <strong>Reports → Realtime</strong> or <strong>Configure → DebugView</strong>.</li>
         <li>Within ~30 seconds you should see your device appear and the <code>ga4_test_event</code> listed.</li>
         <li>If nothing appears: check browser ad-blocker, confirm the <strong><?= e($ga4Id) ?></strong> ID matches your GA4 property, and make sure the data stream is set to <em>Web</em>.</li>
     </ol>

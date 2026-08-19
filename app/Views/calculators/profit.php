@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',
@@ -75,8 +75,8 @@ echo '<script type="application/ld+json">' . json_encode([
     <div>
         <div class="calc-result" id="resultBox">
             <div class="calc-result-label"><?= t('Profit / Loss') ?></div>
-            <div class="calc-result-value" id="plValue">—</div>
-            <div class="calc-result-sub" id="plPips">—</div>
+            <div class="calc-result-value" id="plValue">-</div>
+            <div class="calc-result-sub" id="plPips">-</div>
         </div>
         <div class="card card-body" style="margin-top:1.5rem;font-size:.88rem;color:var(--muted);line-height:1.8">
             <h4 style="color:var(--navy);margin-bottom:.75rem">Formula</h4>

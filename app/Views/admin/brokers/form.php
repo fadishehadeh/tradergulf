@@ -1,4 +1,4 @@
-<div class="a-card">
+﻿<div class="a-card">
     <div class="a-card-header">
         <h2><?= isset($broker['id']) ? 'Edit Broker' : 'Add New Broker' ?></h2>
         <a href="<?= url('admin/brokers') ?>" class="btn-a btn-a-ghost btn-a-sm">← Back</a>
@@ -121,7 +121,7 @@
         <label class="a-checkbox">
             <input type="checkbox" name="is_featured" value="1"
                    <?= !empty($broker['is_featured']) ? 'checked' : '' ?>>
-            ⭐ Featured (pinned to top, gold border — paid placement)
+            ⭐ Featured (pinned to top, gold border - paid placement)
         </label>
 
         <div class="form-actions">

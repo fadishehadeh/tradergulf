@@ -1,4 +1,4 @@
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem">
+﻿<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem">
     <div>
         <h2 style="font-size:1.05rem;margin:0">Send Campaign</h2>
         <div style="font-size:.82rem;color:var(--a-text-muted);margin-top:.2rem">
@@ -32,7 +32,7 @@
                     id="subject"
                     name="subject"
                     class="a-input"
-                    placeholder="e.g. Top Forex Brokers in the Gulf — August 2026"
+                    placeholder="e.g. Top Forex Brokers in the Gulf - August 2026"
                     style="width:100%;box-sizing:border-box"
                     required
                 >

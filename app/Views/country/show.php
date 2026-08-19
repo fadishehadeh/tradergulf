@@ -1,6 +1,6 @@
-<?php
-/** @var array $country  — country config array from CountryController */
-/** @var array $brokers  — all active brokers */
+﻿<?php
+/** @var array $country  - country config array from CountryController */
+/** @var array $brokers  - all active brokers */
 $slug     = $country['slug'];
 $name     = $country['name'];
 $fullName = $country['full_name'];
@@ -80,8 +80,8 @@ $fullName = $country['full_name'];
                     <?php endif; ?>
                 </div>
                 <div style="font-size:.8rem;color:var(--text-muted);margin-bottom:.4rem">
-                    Min deposit: $<?= e($b['min_deposit'] ?? '—') ?> &nbsp;·&nbsp;
-                    Leverage: <?= e($b['max_leverage'] ?? '—') ?> &nbsp;·&nbsp;
+                    Min deposit: $<?= e($b['min_deposit'] ?? '-') ?> &nbsp;·&nbsp;
+                    Leverage: <?= e($b['max_leverage'] ?? '-') ?> &nbsp;·&nbsp;
                     <?= e($b['regulation'] ?? '') ?>
                 </div>
                 <?php if (!empty($b['tagline'])): ?>
@@ -124,8 +124,8 @@ $fullName = $country['full_name'];
         <h2 style="font-size:1.3rem;margin-bottom:1.25rem">Trading Forex in <?= e($fullName) ?></h2>
         <div style="line-height:1.75;color:var(--text-muted);font-size:.92rem">
             <p>Choosing the right forex broker as a trader based in <?= e($name) ?> depends on several key factors: regulatory protection, payment method availability, platform quality, and whether Islamic (swap-free) accounts are offered.</p>
-            <p>We recommend prioritising brokers with licences from major regulators such as the <strong>FCA</strong> (UK), <strong>ASIC</strong> (Australia), <strong>CySEC</strong> (EU), or — where applicable — locally recognised bodies like the <strong><?= e($country['regulators']) ?></strong>. Multi-regulated brokers offer the strongest client protection.</p>
-            <p>All brokers listed above have been independently reviewed by the Trader Gulf team. We assess regulation depth, trading costs, platform quality, deposit and withdrawal reliability, and customer support responsiveness — factors that matter most to <?= e($name) ?>-based traders.</p>
+            <p>We recommend prioritising brokers with licences from major regulators such as the <strong>FCA</strong> (UK), <strong>ASIC</strong> (Australia), <strong>CySEC</strong> (EU), or - where applicable - locally recognised bodies like the <strong><?= e($country['regulators']) ?></strong>. Multi-regulated brokers offer the strongest client protection.</p>
+            <p>All brokers listed above have been independently reviewed by the Trader Gulf team. We assess regulation depth, trading costs, platform quality, deposit and withdrawal reliability, and customer support responsiveness - factors that matter most to <?= e($name) ?>-based traders.</p>
         </div>
 
         <!-- Risk warning -->
@@ -139,7 +139,7 @@ $fullName = $country['full_name'];
 <?php if (!empty($country['faqs'])): ?>
 <section style="padding:0 0 3rem">
     <div class="container" style="max-width:800px">
-        <h2 style="font-size:1.25rem;margin-bottom:1.25rem">Frequently Asked Questions — Forex Trading in <?= e($name) ?></h2>
+        <h2 style="font-size:1.25rem;margin-bottom:1.25rem">Frequently Asked Questions - Forex Trading in <?= e($name) ?></h2>
         <div class="faq-list">
         <?php foreach ($country['faqs'] as $faq): ?>
             <details class="faq-item">

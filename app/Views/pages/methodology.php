@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'    => 'https://schema.org',
     '@type'       => 'AboutPage',
-    'name'        => 'How We Rate Forex Brokers — Our Methodology',
+    'name'        => 'How We Rate Forex Brokers - Our Methodology',
     'description' => 'Transparent, consistent, and independent methodology for rating forex brokers. We assess regulation, spreads, platforms, deposits, and customer support.',
     'url'         => url('methodology'),
     'publisher'   => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],

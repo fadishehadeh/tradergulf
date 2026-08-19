@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $_lang   = lang();
 $_isRtl  = is_rtl();
 $_dir    = $_isRtl ? 'rtl' : 'ltr';
@@ -117,11 +117,11 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
 <div class="ticker-wrap" id="tickerWrap">
     <div class="ticker-track" id="tickerTrack">
         <div class="ticker-item ticker-placeholder">
-            <span class="ticker-label">EUR/USD</span><span class="ticker-price">—</span>
-            <span class="ticker-label">GBP/USD</span><span class="ticker-price">—</span>
-            <span class="ticker-label">USD/JPY</span><span class="ticker-price">—</span>
-            <span class="ticker-label">XAU/USD</span><span class="ticker-price">—</span>
-            <span class="ticker-label">BTC/USD</span><span class="ticker-price">—</span>
+            <span class="ticker-label">EUR/USD</span><span class="ticker-price">-</span>
+            <span class="ticker-label">GBP/USD</span><span class="ticker-price">-</span>
+            <span class="ticker-label">USD/JPY</span><span class="ticker-price">-</span>
+            <span class="ticker-label">XAU/USD</span><span class="ticker-price">-</span>
+            <span class="ticker-label">BTC/USD</span><span class="ticker-price">-</span>
         </div>
     </div>
 </div>

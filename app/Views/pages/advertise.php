@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $bCrumb = json_encode([
     '@context' => 'https://schema.org', '@type' => 'BreadcrumbList',
     'itemListElement' => [
@@ -29,15 +29,15 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
 <section class="adv-section">
     <div class="container" style="max-width:900px">
         <h2 class="adv-h2">Who We Serve</h2>
-        <p class="adv-lead">Trader Gulf is a forex broker comparison and education hub focused on the Gulf region and MENA. Our visitors come to compare brokers, read independent reviews, use trading calculators, and follow market news — a high-intent audience concentrated in the GCC.</p>
+        <p class="adv-lead">Trader Gulf is a forex broker comparison and education hub focused on the Gulf region and MENA. Our visitors come to compare brokers, read independent reviews, use trading calculators, and follow market news - a high-intent audience concentrated in the GCC.</p>
 
         <div class="adv-grid adv-grid-3">
             <?php $audiences = [
-                ['🎯', 'Broker Researchers', 'Traders actively comparing brokers, reading reviews, and evaluating where to open or fund an account — maximum commercial intent.'],
+                ['🎯', 'Broker Researchers', 'Traders actively comparing brokers, reading reviews, and evaluating where to open or fund an account - maximum commercial intent.'],
                 ['🧮', 'Calculator Users', 'Hands-on traders using our pip, margin, and position-size calculators while sizing real trades.'],
                 ['📚', 'Education Seekers', 'Beginner and intermediate traders reading forex guides to improve their understanding before they commit capital.'],
-                ['🌍', 'Gulf-Region Traders', 'Audience concentrated in the GCC and wider MENA — underserved by global forex media.'],
-                ['🕌', 'Islamic Finance Traders', 'Traders specifically looking for Shariah-compliant, swap-free accounts — a major segment unique to the Gulf.'],
+                ['🌍', 'Gulf-Region Traders', 'Audience concentrated in the GCC and wider MENA - underserved by global forex media.'],
+                ['🕌', 'Islamic Finance Traders', 'Traders specifically looking for Shariah-compliant, swap-free accounts - a major segment unique to the Gulf.'],
                 ['📱', 'Mobile-First Traders', 'Majority of traffic arrives on mobile, where our responsive, fast-loading pages keep engagement high.'],
             ]; foreach ($audiences as [$icon, $title, $desc]): ?>
             <div class="adv-card">
@@ -58,11 +58,11 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
 
         <div class="adv-grid adv-grid-2">
             <?php $placements = [
-                ['📣', 'Homepage Banner', 'Full-width banner directly below the hero — maximum visibility on the most-visited page.'],
-                ['📋', 'Broker Directory', 'Featured or sponsored slot within the main broker listing — seen by traders actively comparing.'],
+                ['📣', 'Homepage Banner', 'Full-width banner directly below the hero - maximum visibility on the most-visited page.'],
+                ['📋', 'Broker Directory', 'Featured or sponsored slot within the main broker listing - seen by traders actively comparing.'],
                 ['🔍', 'Broker Review Pages', 'Banner or sidebar ad on individual broker review pages, next to trading decision content.'],
-                ['📚', 'Guides & News', 'Rectangle sidebar ad across all trading guides and news articles — research-mode readers.'],
-                ['🧮', 'Calculators', 'Banner on pip, position-size, margin, and profit calculator pages — highest commercial intent.'],
+                ['📚', 'Guides & News', 'Rectangle sidebar ad across all trading guides and news articles - research-mode readers.'],
+                ['🧮', 'Calculators', 'Banner on pip, position-size, margin, and profit calculator pages - highest commercial intent.'],
                 ['✍️', 'Sponsored Content', 'SEO-optimised article or broker spotlight clearly labelled as sponsored. Stays live permanently.'],
             ]; foreach ($placements as [$icon, $title, $desc]): ?>
             <div class="adv-card adv-card-inline">
@@ -88,7 +88,7 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
                     <li>Click attribution by placement, page and campaign</li>
                     <li>Monthly reports covering clicks and conversions</li>
                     <li>UTM-tagged links flowing into your own analytics</li>
-                    <li>Transparent performance data — no inflated numbers</li>
+                    <li>Transparent performance data - no inflated numbers</li>
                 </ul>
             </div>
             <div>
@@ -96,7 +96,7 @@ $headSchemas = ($headSchemas ?? '') . "<script type=\"application/ld+json\">$bCr
                 <p style="color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:.75rem">We protect reader trust because it is what makes placements valuable. Our rules are simple and non-negotiable.</p>
                 <ul class="adv-check-list">
                     <li>Sponsored content is always clearly labelled</li>
-                    <li>Ratings stay independent — payment never affects scores</li>
+                    <li>Ratings stay independent - payment never affects scores</li>
                     <li>Affiliate links use <code>rel="sponsored nofollow"</code></li>
                     <li>Full affiliate disclosure published on site</li>
                 </ul>

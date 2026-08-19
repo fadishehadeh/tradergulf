@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $selectedBrokers = json_decode($page['broker_ids'] ?? '[]', true) ?: [];
 ?>
 
@@ -85,7 +85,7 @@ $selectedBrokers = json_decode($page['broker_ids'] ?? '[]', true) ?: [];
         <div class="a-field">
             <label for="faq_json">FAQ JSON Array</label>
             <textarea id="faq_json" name="faq_json" style="min-height:200px;font-family:monospace;font-size:.78rem"><?= e($page['faq_json'] ?? '[]') ?></textarea>
-            <div class="hint">Format: <code>[{"q":"Question 1?","a":"Answer 1."},{"q":"Question 2?","a":"Answer 2."}]</code> — Generates FAQ accordion + JSON-LD schema for search engines.</div>
+            <div class="hint">Format: <code>[{"q":"Question 1?","a":"Answer 1."},{"q":"Question 2?","a":"Answer 2."}]</code> - Generates FAQ accordion + JSON-LD schema for search engines.</div>
         </div>
 
         <div class="section-divider">SEO Meta</div>

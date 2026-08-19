@@ -1,4 +1,4 @@
-<div class="a-card">
+﻿<div class="a-card">
     <div class="a-card-header">
         <h2>All Banners</h2>
         <span class="badge badge-gray"><?= count($banners) ?> positions</span>
@@ -31,7 +31,7 @@
                     <span class="badge badge-amber">Portrait 300×600</span>
                     <?php endif; ?>
                 </td>
-                <td><?= $b['broker_name'] ? e($b['broker_name']) : '<span style="color:var(--muted)">—</span>' ?></td>
+                <td><?= $b['broker_name'] ? e($b['broker_name']) : '<span style="color:var(--muted)">-</span>' ?></td>
                 <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
                     <?php if (!empty($b['link_url']) && $b['link_url'] !== '#'): ?>
                     <a href="<?= e($b['link_url']) ?>" target="_blank" style="font-size:.8rem;color:var(--muted)"><?= e($b['link_url']) ?></a>

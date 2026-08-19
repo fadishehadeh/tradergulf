@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',
@@ -68,12 +68,12 @@ echo '<script type="application/ld+json">' . json_encode([
     <div>
         <div class="calc-result">
             <div class="calc-result-label"><?= t('Lot Size') ?></div>
-            <div class="calc-result-value" id="lotSize">—</div>
+            <div class="calc-result-value" id="lotSize">-</div>
             <div class="calc-result-sub" id="lotSub">standard lots</div>
         </div>
         <div class="calc-result" style="margin-top:1rem;background:var(--card);color:var(--text)">
             <div class="calc-result-label" style="color:var(--muted)">Amount at Risk</div>
-            <div class="calc-result-value" id="riskAmount" style="color:var(--red)">—</div>
+            <div class="calc-result-value" id="riskAmount" style="color:var(--red)">-</div>
             <div class="calc-result-sub" style="color:var(--muted)">USD</div>
         </div>
         <div class="card card-body" style="margin-top:1.5rem;font-size:.88rem;color:var(--muted);line-height:1.8">
@@ -114,7 +114,7 @@ SCRIPT;
 <div class="container" style="padding:1.5rem 0 2.5rem">
     <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_position_bottom">
         <div class="adv-inner" style="padding:2rem 2.5rem">
-            <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Managing Their Risk</div><div class="adv-sub">Serious Gulf traders sizing positions — UAE, KSA &amp; GCC. They know their numbers. Do they know your brand?</div></div>
+            <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Managing Their Risk</div><div class="adv-sub">Serious Gulf traders sizing positions - UAE, KSA &amp; GCC. They know their numbers. Do they know your brand?</div></div>
             <div class="adv-btn">Get a Quote →</div>
         </div>
     </a>
