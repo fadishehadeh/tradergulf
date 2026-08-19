@@ -1100,6 +1100,14 @@ main { flex: 1; padding: 0 0 2rem; }
     color: #fef08a;
     margin-bottom: .3rem;
 }
+.advertise-here-hero .adv-tag {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    letter-spacing: .06em;
+    margin-bottom: .5rem;
+    line-height: 1;
+    display: block;
+    width: 60%;
+}
 .adv-title {
     font-size: 1.35rem;
     font-weight: 800;
