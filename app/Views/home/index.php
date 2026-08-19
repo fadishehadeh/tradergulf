@@ -12,7 +12,11 @@
 
 <!-- Hero market banner -->
 <div class="page-hero-banner page-hero-banner--hero">
-    <img src="<?= url('assets/img/banners/hero-1-market-charts.svg') ?>" alt="Live Forex Market Charts" width="1400" height="360" loading="lazy" decoding="async">
+    <div class="banner-wrap">
+        <img src="<?= url('assets/img/banners/hero-1-market-charts.svg') ?>" alt="Best Forex Brokers in UAE &amp; Gulf" width="1400" height="360" loading="lazy" decoding="async">
+        <a href="<?= url('brokers') ?>" class="hero-banner-btn-1" aria-label="View All Brokers"></a>
+        <a href="<?= url('compare') ?>" class="hero-banner-btn-2" aria-label="Compare Brokers"></a>
+    </div>
 </div>
 
 <!-- ADVERTISE HERE – hero slot -->

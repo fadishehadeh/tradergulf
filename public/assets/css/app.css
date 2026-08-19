@@ -1863,4 +1863,18 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
     text-indent: -9999px;
     overflow: hidden;
 }
+/* Hero banner button overlays — positions match SVG button rects (1400×360 viewBox) */
+.hero-banner-btn-1,
+.hero-banner-btn-2 {
+    position: absolute;
+    top: 71.4%;
+    height: 11.1%;
+    width: 12.14%;
+    border-radius: 7px;
+    cursor: pointer;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.hero-banner-btn-1 { left: 37.4%; }
+.hero-banner-btn-2 { left: 50.4%; }
 
