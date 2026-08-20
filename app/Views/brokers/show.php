@@ -35,32 +35,6 @@ $sections = [
 
     <!-- SIDEBAR -->
     <aside class="review-sidebar">
-        <div class="review-broker-card">
-            <div class="broker-logo-wrap" style="margin:0 auto .75rem">
-                <?php if (!empty($broker['logo'])): ?>
-                <img src="<?= url('assets/img/brokers/' . e($broker['logo'])) ?>"
-                     alt="<?= e($broker['name']) ?> logo"
-                     class="broker-logo"
-                     loading="lazy" decoding="async">
-                <?php else: ?>
-                <span style="font-weight:800;font-size:1rem"><?= e($broker['name']) ?></span>
-                <?php endif; ?>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;text-align:center;margin-bottom:1.25rem">
-                <div class="stat-box"><div class="stat-box-value">$<?= e(number_format((float)$broker['min_deposit'])) ?></div><div class="stat-box-label">Min Deposit</div></div>
-                <div class="stat-box"><div class="stat-box-value"><?= e($broker['max_leverage']) ?></div><div class="stat-box-label">Max Leverage</div></div>
-                <div class="stat-box"><div class="stat-box-value"><?= e($broker['spread_eurusd']) ?></div><div class="stat-box-label">EUR/USD Pips</div></div>
-                <div class="stat-box"><div class="stat-box-value"><?= $broker['has_islamic'] ? '✓' : '✗' ?></div><div class="stat-box-label">Islamic Acct</div></div>
-            </div>
-
-            <?php if ($broker['affiliate_url']): ?>
-            <a href="<?= url('go/' . $broker['slug']) ?>" class="btn btn-primary btn-block" target="_blank" rel="nofollow noopener"
-               data-track="affiliate_click" data-track-label="<?= e($broker['name']) ?>_sidebar">
-                Visit <?= e($broker['name']) ?>
-            </a>
-            <?php endif; ?>
-            <p style="font-size:.72rem;color:var(--muted);margin-top:.5rem">Capital at risk. Trading involves risk.</p>
-        </div>
 
         <nav class="review-toc" id="reviewToc">
             <div class="toc-header">
@@ -108,6 +82,33 @@ $sections = [
                 <div class="toc-progress-fill" id="tocProgressFill"></div>
             </div>
         </nav>
+
+        <div class="review-broker-card">
+            <div class="broker-logo-wrap" style="margin:0 auto .75rem">
+                <?php if (!empty($broker['logo'])): ?>
+                <img src="<?= url('assets/img/brokers/' . e($broker['logo'])) ?>"
+                     alt="<?= e($broker['name']) ?> logo"
+                     class="broker-logo"
+                     loading="lazy" decoding="async">
+                <?php else: ?>
+                <span style="font-weight:800;font-size:1rem"><?= e($broker['name']) ?></span>
+                <?php endif; ?>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr;gap:.6rem;text-align:center;margin-bottom:1.25rem">
+                <div class="stat-box stat-box-row"><span class="stat-box-label">Min Deposit</span><span class="stat-box-value">$<?= e(number_format((float)$broker['min_deposit'])) ?></span></div>
+                <div class="stat-box stat-box-row"><span class="stat-box-label">Max Leverage</span><span class="stat-box-value"><?= e($broker['max_leverage']) ?></span></div>
+                <div class="stat-box stat-box-row"><span class="stat-box-label">EUR/USD Spread</span><span class="stat-box-value"><?= e($broker['spread_eurusd']) ?> pips</span></div>
+                <div class="stat-box stat-box-row"><span class="stat-box-label">Islamic Account</span><span class="stat-box-value"><?= $broker['has_islamic'] ? '✓' : '✗' ?></span></div>
+            </div>
+
+            <?php if ($broker['affiliate_url']): ?>
+            <a href="<?= url('go/' . $broker['slug']) ?>" class="btn btn-primary btn-block" target="_blank" rel="nofollow noopener"
+               data-track="affiliate_click" data-track-label="<?= e($broker['name']) ?>_sidebar">
+                Visit <?= e($broker['name']) ?>
+            </a>
+            <?php endif; ?>
+            <p style="font-size:.72rem;color:var(--muted);margin-top:.5rem">Capital at risk. Trading involves risk.</p>
+        </div>
 
         <?php $__sidebarAd = ad_zone('broker_review_sidebar'); if ($__sidebarAd): echo $__sidebarAd; else: ?>
         <a href="<?= url('advertise') ?>" class="advertise-here-sm" style="display:block;margin-top:1rem" data-track="cta_click" data-track-label="advertise_broker_sidebar">

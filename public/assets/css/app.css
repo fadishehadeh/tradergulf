@@ -965,6 +965,16 @@ main { flex: 1; padding: 0 0 2rem; }
 .tag-yellow { background: #fef3c7; color: #92400e; }
 
 /* --- Stat boxes ------------------------------------------- */
+.stat-box-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .55rem .85rem;
+    text-align: left;
+}
+.stat-box-row .stat-box-label { font-size: .82rem; margin: 0; }
+.stat-box-row .stat-box-value { font-size: 1rem; font-weight: 700; }
+
 .stat-box {
     background: var(--card);
     border: 1px solid var(--border);
