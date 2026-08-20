@@ -88,7 +88,6 @@ const BASE = document.querySelector('script[data-base]')?.dataset.base || window
 const API  = document.currentScript ? '' : '';
 
 const ROWS = [
-    { key: 'overall_rating',     label: 'Overall Rating',       fmt: v => v + ' / 5' },
     { key: 'regulation',         label: 'Regulation'            },
     { key: 'founded_year',       label: 'Founded'               },
     { key: 'headquarters',       label: 'Headquarters'          },
@@ -122,7 +121,6 @@ function buildTable(brokers) {
     brokers.forEach(b => {
         th += `<th>
             <div style="font-size:.95rem;margin-bottom:.25rem">${escHtml(b.name)}</div>
-            <div style="color:var(--accent);font-size:.85rem">★ ${b.overall_rating}</div>
             ${b.affiliate_url ? `<a href="${GO_BASE}${escHtml(b.slug)}" class="btn btn-primary btn-sm" style="margin-top:.5rem" target="_blank" rel="nofollow noopener">Visit</a>` : ''}
         </th>`;
     });

@@ -2,17 +2,6 @@
 /** @var array $b1  - first broker (with review HTML) */
 /** @var array $b2  - second broker (with review HTML) */
 
-function brokerRating(array $b): string {
-    $r = (float)($b['overall_rating'] ?? 0);
-    $stars = '';
-    for ($i = 1; $i <= 5; $i++) {
-        if ($i <= $r) $stars .= '★';
-        elseif ($i - 0.5 <= $r) $stars .= '½';
-        else $stars .= '☆';
-    }
-    return $stars;
-}
-
 function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
     if (!$a || !$b) return '';
     $aVal = (float)preg_replace('/[^0-9.]/', '', $a);
@@ -75,7 +64,6 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
                 <div style="height:56px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;margin-bottom:.75rem"><?= e($b1['name']) ?></div>
                 <?php endif; ?>
                 <div style="font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.25rem"><?= e($b1['name']) ?></div>
-                <div style="font-size:1rem;color:var(--accent)"><?= brokerRating($b1) ?> <?= number_format((float)($b1['overall_rating'] ?? 0), 1) ?></div>
                 <?php if (!empty($b1['affiliate_url'])): ?>
                 <a href="<?= url('go/' . $b1['slug']) ?>" target="_blank" rel="noopener sponsored"
                    style="display:inline-block;margin-top:.75rem;padding:.4rem .9rem;background:var(--accent);color:var(--navy-dark);border-radius:6px;font-size:.78rem;font-weight:700;text-decoration:none">
@@ -94,7 +82,6 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
                 <div style="height:56px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;margin-bottom:.75rem"><?= e($b2['name']) ?></div>
                 <?php endif; ?>
                 <div style="font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.25rem"><?= e($b2['name']) ?></div>
-                <div style="font-size:1rem;color:var(--accent)"><?= brokerRating($b2) ?> <?= number_format((float)($b2['overall_rating'] ?? 0), 1) ?></div>
                 <?php if (!empty($b2['affiliate_url'])): ?>
                 <a href="<?= url('go/' . $b2['slug']) ?>" target="_blank" rel="noopener sponsored"
                    style="display:inline-block;margin-top:.75rem;padding:.4rem .9rem;background:var(--accent);color:var(--navy-dark);border-radius:6px;font-size:.78rem;font-weight:700;text-decoration:none">
@@ -125,7 +112,6 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
 
         <?php
         $minDepositClass = vsCell((string)($b1['min_deposit'] ?? 0), (string)($b2['min_deposit'] ?? 0), true);
-        $ratingClass     = vsCell((string)($b1['overall_rating'] ?? 0), (string)($b2['overall_rating'] ?? 0), false);
         $spreadClass     = vsCell((string)($b1['spread_eurusd'] ?? 0), (string)($b2['spread_eurusd'] ?? 0), true);
         ?>
 
@@ -139,11 +125,6 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
                 </tr>
             </thead>
             <tbody>
-                <tr class="<?= $ratingClass ?>">
-                    <td class="label">Overall Rating</td>
-                    <td class="val b1"><?= number_format((float)($b1['overall_rating'] ?? 0), 1) ?>/5</td>
-                    <td class="val b2"><?= number_format((float)($b2['overall_rating'] ?? 0), 1) ?>/5</td>
-                </tr>
                 <tr>
                     <td class="label">Regulation</td>
                     <td class="val b1" style="font-size:.8rem"><?= e($b1['regulation'] ?? '-') ?></td>
