@@ -533,11 +533,17 @@ main { flex: 1; padding: 0 0 2rem; }
     grid-template-columns: 280px 1fr;
     gap: 2rem;
     align-items: start;
+    pointer-events: none;
 }
 
 .review-sidebar {
     position: sticky;
     top: 80px;
+    pointer-events: auto;
+}
+
+.review-content {
+    pointer-events: auto;
 }
 
 .review-toc {
