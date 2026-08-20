@@ -283,6 +283,37 @@ $sections = [
 </div><!-- .review-layout -->
 </div><!-- .container -->
 
+<script>
+(function () {
+    var content = document.querySelector('.review-content');
+    if (!content) return;
+
+    function scrollToId(id) {
+        var target = document.getElementById(id);
+        if (!target) return;
+        var offset = target.getBoundingClientRect().top
+                   - content.getBoundingClientRect().top
+                   + content.scrollTop - 16;
+        content.scrollTo({ top: Math.max(0, offset), behavior: 'smooth' });
+    }
+
+    // TOC link clicks — scroll within the content panel
+    document.querySelectorAll('.review-toc a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            var id = this.getAttribute('href').slice(1);
+            scrollToId(id);
+            history.pushState(null, '', '#' + id);
+        });
+    });
+
+    // On page load with a hash, scroll content to that section
+    if (window.location.hash) {
+        setTimeout(function () { scrollToId(window.location.hash.slice(1)); }, 150);
+    }
+}());
+</script>
+
 <?php
 // ── BreadcrumbList ──────────────────────────────────────────────────
 $breadcrumbSchema = [
