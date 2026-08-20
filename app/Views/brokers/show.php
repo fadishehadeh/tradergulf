@@ -62,11 +62,51 @@ $sections = [
             <p style="font-size:.72rem;color:var(--muted);margin-top:.5rem">Capital at risk. Trading involves risk.</p>
         </div>
 
-        <nav class="review-toc">
-            <h4>Jump to section</h4>
-            <?php foreach ($sections as $id => $label): ?>
-            <a href="#<?= $id ?>"><?= $label ?></a>
+        <nav class="review-toc" id="reviewToc">
+            <div class="toc-header">
+                <span class="toc-heading">In this review</span>
+                <span class="toc-progress-label" id="tocProgressLabel">0%</span>
+            </div>
+
+            <div class="toc-steps">
+            <?php
+            $sectionIcons = [
+                'overview'      => '📋',
+                'pros-cons'     => '⚖️',
+                'regulation'    => '🛡️',
+                'account-types' => '👤',
+                'platforms'     => '🖥️',
+                'spreads'       => '💰',
+                'deposits'      => '🏦',
+                'support'       => '💬',
+                'verdict'       => '🏆',
+            ];
+            $sectionList = array_keys($sections);
+            $totalSections = count($sectionList);
+            foreach ($sections as $id => $label):
+                $idx = array_search($id, $sectionList) + 1;
+                $icon = $sectionIcons[$id] ?? '•';
+                $isLast = ($idx === $totalSections);
+            ?>
+            <div class="toc-step" data-id="<?= $id ?>">
+                <div class="toc-track">
+                    <div class="toc-node" data-num="<?= $idx ?>">
+                        <span class="toc-num"><?= $idx ?></span>
+                        <span class="toc-check">✓</span>
+                    </div>
+                    <?php if (!$isLast): ?><div class="toc-connector"></div><?php endif; ?>
+                </div>
+                <a href="#<?= $id ?>" class="toc-label">
+                    <span class="toc-icon"><?= $icon ?></span>
+                    <?= $label ?>
+                </a>
+            </div>
             <?php endforeach; ?>
+            </div>
+
+            <div class="toc-progress-bar">
+                <div class="toc-progress-fill" id="tocProgressFill"></div>
+            </div>
         </nav>
 
         <?php $__sidebarAd = ad_zone('broker_review_sidebar'); if ($__sidebarAd): echo $__sidebarAd; else: ?>
@@ -285,9 +325,13 @@ $sections = [
 
 <script>
 (function () {
-    var content = document.querySelector('.review-content');
-    if (!content) return;
+    var content      = document.querySelector('.review-content');
+    var progressFill = document.getElementById('tocProgressFill');
+    var progressLbl  = document.getElementById('tocProgressLabel');
+    var steps        = Array.from(document.querySelectorAll('.toc-step'));
+    if (!content || !steps.length) return;
 
+    /* ── Scroll content panel to a section ── */
     function scrollToId(id) {
         var target = document.getElementById(id);
         if (!target) return;
@@ -297,17 +341,67 @@ $sections = [
         content.scrollTo({ top: Math.max(0, offset), behavior: 'smooth' });
     }
 
-    // TOC link clicks — scroll within the content panel
-    document.querySelectorAll('.review-toc a[href^="#"]').forEach(function (link) {
-        link.addEventListener('click', function (e) {
+    /* ── TOC link clicks ── */
+    steps.forEach(function (step) {
+        step.querySelector('a').addEventListener('click', function (e) {
             e.preventDefault();
-            var id = this.getAttribute('href').slice(1);
+            var id = step.dataset.id;
             scrollToId(id);
             history.pushState(null, '', '#' + id);
         });
     });
 
-    // On page load with a hash, scroll content to that section
+    /* ── Scrollspy via IntersectionObserver ── */
+    var activeId = steps[0] ? steps[0].dataset.id : null;
+
+    function setActive(id) {
+        if (id === activeId) return;
+        activeId = id;
+        var found = false;
+        steps.forEach(function (step) {
+            var sid = step.dataset.id;
+            if (sid === id) {
+                step.classList.remove('is-done');
+                step.classList.add('is-active');
+                found = true;
+            } else if (!found) {
+                step.classList.add('is-done');
+                step.classList.remove('is-active');
+            } else {
+                step.classList.remove('is-done', 'is-active');
+            }
+        });
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                setActive(entry.target.id);
+            }
+        });
+    }, {
+        root: content,
+        rootMargin: '0px 0px -65% 0px',
+        threshold: 0
+    });
+
+    steps.forEach(function (step) {
+        var el = document.getElementById(step.dataset.id);
+        if (el) observer.observe(el);
+    });
+
+    /* ── Reading progress bar ── */
+    function updateProgress() {
+        var max  = content.scrollHeight - content.clientHeight;
+        var pct  = max > 0 ? Math.round((content.scrollTop / max) * 100) : 0;
+        if (progressFill) progressFill.style.width = pct + '%';
+        if (progressLbl)  progressLbl.textContent  = pct + '%';
+    }
+
+    content.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    /* ── Handle initial hash ── */
     if (window.location.hash) {
         setTimeout(function () { scrollToId(window.location.hash.slice(1)); }, 150);
     }
