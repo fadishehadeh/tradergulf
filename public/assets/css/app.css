@@ -1183,6 +1183,7 @@ main { flex: 1; padding: 0 0 2rem; }
     border-radius: 10px;
     overflow: hidden;
     transition: transform .2s ease, box-shadow .2s ease;
+    cursor: pointer;
 }
 .advertise-here-hero:hover,
 .advertise-here-slot:hover,
@@ -1247,8 +1248,11 @@ main { flex: 1; padding: 0 0 2rem; }
     white-space: nowrap;
     letter-spacing: .02em;
     transition: background .15s, transform .15s;
+    pointer-events: none; /* clicks pass through to the parent <a> */
 }
-.adv-btn:hover { background: #fef3c7; transform: scale(1.03); }
+.advertise-here-hero:hover .adv-btn,
+.advertise-here-slot:hover .adv-btn,
+.advertise-here-sm:hover .adv-btn { background: #fef3c7; transform: scale(1.03); }
 
 /* --- Calculator side ad strips ----------------------- */
 .calc-side-ad {
