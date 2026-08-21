@@ -89,11 +89,8 @@ $fullName = $country['full_name'];
                 <?php endif; ?>
             </div>
 
-            <!-- Rating + CTA -->
+            <!-- CTA -->
             <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;flex-shrink:0">
-                <?php if (!empty($b['overall_rating'])): ?>
-                <div style="font-size:1.1rem;font-weight:800;color:var(--accent)"><?= number_format((float)$b['overall_rating'], 1) ?><span style="font-size:.7rem;color:var(--text-muted);font-weight:400">/5</span></div>
-                <?php endif; ?>
                 <div style="display:flex;gap:.5rem">
                     <a href="<?= url('brokers/' . e($b['slug'])) ?>"
                        style="padding:.45rem .9rem;border:1px solid var(--border);border-radius:7px;font-size:.8rem;font-weight:600;color:var(--text-main);text-decoration:none;white-space:nowrap">

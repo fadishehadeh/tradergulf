@@ -1,9 +1,4 @@
 ﻿<?php
-function seoStars(float $r): string {
-    $f = (int)floor($r); $h = ($r - $f) >= 0.5 ? 1 : 0; $e = 5 - $f - $h;
-    return str_repeat('★', $f) . ($h ? '½' : '') . str_repeat('☆', $e);
-}
-?>
 
 <?php
 $__seoBreadcrumb = [
@@ -78,7 +73,6 @@ if (!empty($brokers)) {
                 <thead>
                     <tr style="background:#f8fafc;font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em">
                         <th style="padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--border)">Broker</th>
-                        <th style="padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--border)">Rating</th>
                         <th style="padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--border)">Min Deposit</th>
                         <th style="padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--border)">EUR/USD</th>
                         <th style="padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--border)">Leverage</th>
@@ -98,10 +92,6 @@ if (!empty($brokers)) {
                         <?php else: ?>
                         <strong><?= e($br['name']) ?></strong>
                         <?php endif; ?>
-                    </td>
-                    <td style="padding:.85rem 1rem;border-bottom:1px solid var(--border)">
-                        <span style="color:#f59e0b"><?= seoStars((float)$br['overall_rating']) ?></span>
-                        <span style="font-weight:700;margin-left:.25rem"><?= e($br['overall_rating']) ?></span>
                     </td>
                     <td style="padding:.85rem 1rem;border-bottom:1px solid var(--border);font-weight:600">
                         $<?= number_format((float)$br['min_deposit']) ?>

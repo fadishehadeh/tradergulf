@@ -2216,3 +2216,83 @@ body.rtl .chat-panel      { right:auto; left:1.5rem; }
     .rv-stat-val { font-size: .88rem; }
     .rv-stat-lbl { font-size: .62rem; }
 }
+
+/* ─── Broker review hero v2 — two-row layout ────────────────────── */
+.rv-hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+}
+/* Bigger logo */
+.rv-hero-logo { width: 120px; height: 68px; padding: .5rem .8rem; }
+.rv-hero-logo-placeholder { width: 68px; height: 68px; font-size: 1.25rem; }
+/* Regulation chips */
+.rv-reg-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin: .55rem 0 .4rem; }
+.rv-reg-chip {
+    display: inline-block;
+    padding: .2rem .55rem;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 4px;
+    font-size: .7rem;
+    font-weight: 700;
+    color: rgba(255,255,255,.8);
+    letter-spacing: .04em;
+    white-space: nowrap;
+}
+/* CTA */
+.rv-cta-btn { padding: .8rem 2rem; font-size: 1rem; white-space: nowrap; }
+/* Stat cards row */
+.rv-stat-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.rv-stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    transition: background .2s, border-color .2s;
+}
+.rv-stat-card:hover { background: rgba(255,255,255,.11); border-color: rgba(255,255,255,.2); }
+.rv-stat-card--yes { border-color: rgba(52,211,153,.25); }
+.rv-stat-card-icon { font-size: 1.3rem; line-height: 1; }
+.rv-stat-card-val {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.2;
+}
+.rv-stat-card--yes .rv-stat-card-val { color: #34d399; }
+.rv-stat-card-lbl {
+    font-size: .72rem;
+    color: rgba(255,255,255,.48);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+/* Tab bar — pill-style active (override underline style) */
+.rv-tabs-wrap { padding: .45rem 0; border-bottom: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+.rv-tabs { gap: .2rem; padding: 0 .1rem; align-items: center; }
+.rv-tab { border-radius: 20px; border-bottom: none; margin-bottom: 0; padding: .5rem 1rem; }
+.rv-tab:hover:not(.is-active) { background: rgba(0,0,0,.06); color: var(--text); border-bottom: none; }
+.rv-tab.is-active { background: var(--accent); color: #09112a; border-bottom: none; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .rv-stat-bar { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+    .rv-hero-cta { width: 100%; text-align: center; }
+    .rv-cta-btn { width: 100%; }
+}
+@media (max-width: 480px) {
+    .rv-stat-card { padding: .9rem 1rem; }
+    .rv-stat-card-val { font-size: 1.15rem; }
+    .rv-hero-logo { width: 90px; height: 52px; }
+}

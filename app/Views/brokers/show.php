@@ -35,7 +35,8 @@ $sectionIcons = [
             <span><?= e($broker['name']) ?> Review</span>
         </nav>
 
-        <div class="rv-hero-inner">
+        <!-- Row 1: logo + title + CTA -->
+        <div class="rv-hero-top">
             <div class="rv-hero-brand">
                 <?php if (!empty($broker['logo'])): ?>
                 <img src="<?= url('assets/img/brokers/' . e($broker['logo'])) ?>"
@@ -47,47 +48,53 @@ $sectionIcons = [
                 <?php endif; ?>
                 <div class="rv-hero-title-wrap">
                     <h1 class="rv-hero-title"><?= e($broker['name']) ?> Review <?= date('Y') ?></h1>
-                    <p class="rv-hero-meta">
-                        Updated <?= $broker['last_updated'] ? date('M j, Y', strtotime($broker['last_updated'])) : date('M Y') ?>
-                        <?php if (!empty($broker['regulation'])): ?>&nbsp;&middot;&nbsp;<?= e($broker['regulation']) ?><?php endif; ?>
-                    </p>
-                </div>
-            </div>
-
-            <div class="rv-hero-stats">
-                <div class="rv-stat">
-                    <div class="rv-stat-val">$<?= e(number_format((float)$broker['min_deposit'])) ?></div>
-                    <div class="rv-stat-lbl">Min Deposit</div>
-                </div>
-                <div class="rv-stat-sep"></div>
-                <div class="rv-stat">
-                    <div class="rv-stat-val"><?= e($broker['max_leverage']) ?></div>
-                    <div class="rv-stat-lbl">Max Leverage</div>
-                </div>
-                <div class="rv-stat-sep"></div>
-                <div class="rv-stat">
-                    <div class="rv-stat-val"><?= e($broker['spread_eurusd']) ?> pips</div>
-                    <div class="rv-stat-lbl">EUR/USD Spread</div>
-                </div>
-                <div class="rv-stat-sep"></div>
-                <div class="rv-stat">
-                    <div class="rv-stat-val <?= !empty($broker['has_islamic']) ? 'rv-stat-yes' : 'rv-stat-no' ?>"><?= !empty($broker['has_islamic']) ? '✓ Yes' : '✗ No' ?></div>
-                    <div class="rv-stat-lbl">Islamic Account</div>
+                    <?php if (!empty($broker['regulation'])): ?>
+                    <div class="rv-reg-chips">
+                        <?php foreach (array_slice(array_map('trim', preg_split('/[,\/]+/', $broker['regulation'])), 0, 5) as $reg): if (!$reg) continue; ?>
+                        <span class="rv-reg-chip"><?= e($reg) ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif; ?>
+                    <p class="rv-hero-meta">Updated <?= $broker['last_updated'] ? date('M j, Y', strtotime($broker['last_updated'])) : date('M Y') ?></p>
                 </div>
             </div>
 
             <?php if (!empty($broker['affiliate_url'])): ?>
             <div class="rv-hero-cta">
                 <a href="<?= url('go/' . $broker['slug']) ?>"
-                   class="btn btn-primary"
+                   class="btn btn-primary rv-cta-btn"
                    target="_blank" rel="nofollow noopener"
                    data-track="affiliate_click"
                    data-track-label="<?= e($broker['name']) ?>_hero">
                     Visit <?= e($broker['name']) ?> &rarr;
                 </a>
-                <p class="rv-hero-disclaimer">Capital at risk.</p>
+                <p class="rv-hero-disclaimer">Capital at risk. Trading involves risk.</p>
             </div>
             <?php endif; ?>
+        </div>
+
+        <!-- Row 2: 4 prominent stat cards -->
+        <div class="rv-stat-bar">
+            <div class="rv-stat-card">
+                <span class="rv-stat-card-icon">💵</span>
+                <span class="rv-stat-card-val">$<?= e(number_format((float)$broker['min_deposit'])) ?></span>
+                <span class="rv-stat-card-lbl">Min Deposit</span>
+            </div>
+            <div class="rv-stat-card">
+                <span class="rv-stat-card-icon">📊</span>
+                <span class="rv-stat-card-val"><?= e($broker['max_leverage']) ?></span>
+                <span class="rv-stat-card-lbl">Max Leverage</span>
+            </div>
+            <div class="rv-stat-card">
+                <span class="rv-stat-card-icon">📉</span>
+                <span class="rv-stat-card-val"><?= e($broker['spread_eurusd']) ?> pips</span>
+                <span class="rv-stat-card-lbl">EUR/USD Spread</span>
+            </div>
+            <div class="rv-stat-card <?= !empty($broker['has_islamic']) ? 'rv-stat-card--yes' : '' ?>">
+                <span class="rv-stat-card-icon">🕌</span>
+                <span class="rv-stat-card-val <?= !empty($broker['has_islamic']) ? 'rv-stat-yes' : 'rv-stat-no' ?>"><?= !empty($broker['has_islamic']) ? '✓ Yes' : '✗ No' ?></span>
+                <span class="rv-stat-card-lbl">Islamic Account</span>
+            </div>
         </div>
     </div>
 </section>
