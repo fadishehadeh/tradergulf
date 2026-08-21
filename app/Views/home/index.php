@@ -1,7 +1,7 @@
 ﻿<!-- Hero market banner -->
 <div class="page-hero-banner page-hero-banner--hero">
     <div class="banner-wrap">
-        <img src="<?= url('assets/img/banners/hero-1-market-charts.svg') ?>" alt="Best Forex Brokers in UAE &amp; Gulf" width="1400" height="360" loading="lazy" decoding="async">
+        <img src="<?= url('assets/img/banners/hero-1-market-charts.svg') ?>" alt="Best Forex Brokers in UAE &amp; Gulf" width="1400" height="720" loading="eager" decoding="async">
         <a href="<?= url('brokers') ?>" class="hero-banner-btn-1" aria-label="View All Brokers"></a>
         <a href="<?= url('compare') ?>" class="hero-banner-btn-2" aria-label="Compare Brokers"></a>
     </div>
@@ -193,3 +193,37 @@
     </div>
 </section>
 <?php endif; ?>
+
+<script>
+/* Reposition hero-banner button overlays to match SVG button rects,
+   accounting for object-fit:cover scaling and any crop offset */
+(function () {
+    var SVG_W = 1400, SVG_H = 720;
+    var BTNS = [
+        { sel: '.hero-banner-btn-1', x: 524, y: 417, w: 170, h: 40 },
+        { sel: '.hero-banner-btn-2', x: 706, y: 417, w: 170, h: 40 },
+    ];
+
+    function pos() {
+        var img = document.querySelector('.page-hero-banner--hero img');
+        if (!img) return;
+        var boxW = img.offsetWidth, boxH = img.offsetHeight;
+        if (!boxW || !boxH) return;
+        var scale = Math.max(boxW / SVG_W, boxH / SVG_H);
+        var offX  = (boxW - SVG_W * scale) / 2;
+        var offY  = (boxH - SVG_H * scale) / 2;
+        BTNS.forEach(function (b) {
+            var el = document.querySelector(b.sel);
+            if (!el) return;
+            el.style.left   = ((b.x * scale + offX) / boxW * 100).toFixed(3) + '%';
+            el.style.top    = ((b.y * scale + offY) / boxH * 100).toFixed(3) + '%';
+            el.style.width  = (b.w * scale / boxW * 100).toFixed(3) + '%';
+            el.style.height = (b.h * scale / boxH * 100).toFixed(3) + '%';
+        });
+    }
+
+    if (document.readyState === 'complete') { pos(); }
+    else { window.addEventListener('load', pos); }
+    window.addEventListener('resize', pos);
+}());
+</script>
