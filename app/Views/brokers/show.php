@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $sections = [
     'overview'      => 'Overview',
     'pros-cons'     => 'Pros & Cons',
@@ -10,402 +10,324 @@ $sections = [
     'support'       => 'Customer Support',
     'verdict'       => 'Verdict',
 ];
+
+$sectionIcons = [
+    'overview'      => '📋',
+    'pros-cons'     => '⚖️',
+    'regulation'    => '🛡️',
+    'account-types' => '👤',
+    'platforms'     => '🖥️',
+    'spreads'       => '💰',
+    'deposits'      => '🏦',
+    'support'       => '💬',
+    'verdict'       => '🏆',
+];
 ?>
 
-<div class="page-header">
+<!-- ── Review Hero ─────────────────────────────────── -->
+<section class="rv-hero">
     <div class="container">
-        <div class="breadcrumbs">
+        <nav class="rv-breadcrumbs">
             <a href="<?= url() ?>">Home</a>
-            <span class="sep">›</span>
+            <span>›</span>
             <a href="<?= url('brokers') ?>">Brokers</a>
-            <span class="sep">›</span>
+            <span>›</span>
             <span><?= e($broker['name']) ?> Review</span>
-        </div>
-        <h1><?= e($broker['name']) ?> Review <?= date('Y') ?></h1>
-        <p>Last updated: <?= $broker['last_updated'] ? date('F j, Y', strtotime($broker['last_updated'])) : date('F Y') ?></p>
-    </div>
-</div>
-
-<?php $__reviewTopAd = ad_zone('broker_review_top'); if ($__reviewTopAd): ?>
-<div class="container" style="padding-top:1rem"><?= $__reviewTopAd ?></div>
-<?php endif; ?>
-
-<div class="container">
-<div class="review-layout">
-
-    <!-- SIDEBAR -->
-    <aside class="review-sidebar">
-
-        <nav class="review-toc" id="reviewToc">
-            <div class="toc-header">
-                <span class="toc-heading">In this review</span>
-                <span class="toc-progress-label" id="tocProgressLabel">0%</span>
-            </div>
-
-            <div class="toc-steps">
-            <?php
-            $sectionIcons = [
-                'overview'      => '📋',
-                'pros-cons'     => '⚖️',
-                'regulation'    => '🛡️',
-                'account-types' => '👤',
-                'platforms'     => '🖥️',
-                'spreads'       => '💰',
-                'deposits'      => '🏦',
-                'support'       => '💬',
-                'verdict'       => '🏆',
-            ];
-            $sectionList = array_keys($sections);
-            $totalSections = count($sectionList);
-            foreach ($sections as $id => $label):
-                $idx = array_search($id, $sectionList) + 1;
-                $icon = $sectionIcons[$id] ?? '•';
-                $isLast = ($idx === $totalSections);
-            ?>
-            <div class="toc-step" data-id="<?= $id ?>">
-                <div class="toc-track">
-                    <div class="toc-node" data-num="<?= $idx ?>">
-                        <span class="toc-num"><?= $idx ?></span>
-                        <span class="toc-check">✓</span>
-                    </div>
-                    <?php if (!$isLast): ?><div class="toc-connector"></div><?php endif; ?>
-                </div>
-                <a href="#<?= $id ?>" class="toc-label">
-                    <span class="toc-icon"><?= $icon ?></span>
-                    <?= $label ?>
-                </a>
-            </div>
-            <?php endforeach; ?>
-            </div>
-
-            <div class="toc-progress-bar">
-                <div class="toc-progress-fill" id="tocProgressFill"></div>
-            </div>
         </nav>
 
-        <div class="review-broker-card">
-            <div class="broker-logo-wrap" style="margin:0 auto .75rem">
+        <div class="rv-hero-inner">
+            <div class="rv-hero-brand">
                 <?php if (!empty($broker['logo'])): ?>
                 <img src="<?= url('assets/img/brokers/' . e($broker['logo'])) ?>"
                      alt="<?= e($broker['name']) ?> logo"
-                     class="broker-logo"
-                     loading="lazy" decoding="async">
+                     class="rv-hero-logo"
+                     loading="eager" decoding="async">
                 <?php else: ?>
-                <span style="font-weight:800;font-size:1rem"><?= e($broker['name']) ?></span>
+                <div class="rv-hero-logo-placeholder"><?= e(strtoupper(substr($broker['name'], 0, 2))) ?></div>
                 <?php endif; ?>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr;gap:.6rem;text-align:center;margin-bottom:1.25rem">
-                <div class="stat-box stat-box-row"><span class="stat-box-label">Min Deposit</span><span class="stat-box-value">$<?= e(number_format((float)$broker['min_deposit'])) ?></span></div>
-                <div class="stat-box stat-box-row"><span class="stat-box-label">Max Leverage</span><span class="stat-box-value"><?= e($broker['max_leverage']) ?></span></div>
-                <div class="stat-box stat-box-row"><span class="stat-box-label">EUR/USD Spread</span><span class="stat-box-value"><?= e($broker['spread_eurusd']) ?> pips</span></div>
-                <div class="stat-box stat-box-row"><span class="stat-box-label">Islamic Account</span><span class="stat-box-value"><?= $broker['has_islamic'] ? '✓' : '✗' ?></span></div>
+                <div class="rv-hero-title-wrap">
+                    <h1 class="rv-hero-title"><?= e($broker['name']) ?> Review <?= date('Y') ?></h1>
+                    <p class="rv-hero-meta">
+                        Updated <?= $broker['last_updated'] ? date('M j, Y', strtotime($broker['last_updated'])) : date('M Y') ?>
+                        <?php if (!empty($broker['regulation'])): ?>&nbsp;&middot;&nbsp;<?= e($broker['regulation']) ?><?php endif; ?>
+                    </p>
+                </div>
             </div>
 
-            <?php if ($broker['affiliate_url']): ?>
-            <a href="<?= url('go/' . $broker['slug']) ?>" class="btn btn-primary btn-block" target="_blank" rel="nofollow noopener"
-               data-track="affiliate_click" data-track-label="<?= e($broker['name']) ?>_sidebar">
-                Visit <?= e($broker['name']) ?>
-            </a>
+            <div class="rv-hero-stats">
+                <div class="rv-stat">
+                    <div class="rv-stat-val">$<?= e(number_format((float)$broker['min_deposit'])) ?></div>
+                    <div class="rv-stat-lbl">Min Deposit</div>
+                </div>
+                <div class="rv-stat-sep"></div>
+                <div class="rv-stat">
+                    <div class="rv-stat-val"><?= e($broker['max_leverage']) ?></div>
+                    <div class="rv-stat-lbl">Max Leverage</div>
+                </div>
+                <div class="rv-stat-sep"></div>
+                <div class="rv-stat">
+                    <div class="rv-stat-val"><?= e($broker['spread_eurusd']) ?> pips</div>
+                    <div class="rv-stat-lbl">EUR/USD Spread</div>
+                </div>
+                <div class="rv-stat-sep"></div>
+                <div class="rv-stat">
+                    <div class="rv-stat-val <?= !empty($broker['has_islamic']) ? 'rv-stat-yes' : 'rv-stat-no' ?>"><?= !empty($broker['has_islamic']) ? '✓ Yes' : '✗ No' ?></div>
+                    <div class="rv-stat-lbl">Islamic Account</div>
+                </div>
+            </div>
+
+            <?php if (!empty($broker['affiliate_url'])): ?>
+            <div class="rv-hero-cta">
+                <a href="<?= url('go/' . $broker['slug']) ?>"
+                   class="btn btn-primary"
+                   target="_blank" rel="nofollow noopener"
+                   data-track="affiliate_click"
+                   data-track-label="<?= e($broker['name']) ?>_hero">
+                    Visit <?= e($broker['name']) ?> &rarr;
+                </a>
+                <p class="rv-hero-disclaimer">Capital at risk.</p>
+            </div>
             <?php endif; ?>
-            <p style="font-size:.72rem;color:var(--muted);margin-top:.5rem">Capital at risk. Trading involves risk.</p>
         </div>
+    </div>
+</section>
 
-        <?php $__sidebarAd = ad_zone('broker_review_sidebar'); if ($__sidebarAd): echo $__sidebarAd; else: ?>
-        <a href="<?= url('advertise') ?>" class="advertise-here-sm" style="display:block;margin-top:1rem" data-track="cta_click" data-track-label="advertise_broker_sidebar">
-            <div class="adv-inner" style="padding:.9rem 1.25rem;flex-direction:column;align-items:flex-start;gap:.5rem">
-                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title" style="font-size:.95rem">Your Brand Here</div><div class="adv-sub">Gulf forex traders - UAE, KSA &amp; GCC.</div></div>
-                <div class="adv-btn" style="font-size:.8rem;padding:.5rem 1rem">Get a Quote →</div>
+<?php $__reviewTopAd = ad_zone('broker_review_top'); if ($__reviewTopAd): ?>
+<div class="container" style="padding-top:1rem;padding-bottom:.25rem"><?= $__reviewTopAd ?></div>
+<?php endif; ?>
+
+<!-- ── Sticky Tab Bar ────────────────────────────────── -->
+<div class="rv-tabs-wrap" id="rvTabsWrap">
+    <div class="container">
+        <nav class="rv-tabs" role="tablist" id="rvTabs">
+            <?php $first = true; foreach ($sections as $id => $label): ?>
+            <button class="rv-tab<?= $first ? ' is-active' : '' ?>"
+                    data-tab="<?= $id ?>"
+                    role="tab"
+                    aria-selected="<?= $first ? 'true' : 'false' ?>"
+                    aria-controls="rvPanel-<?= $id ?>">
+                <span class="rv-tab-icon"><?= $sectionIcons[$id] ?? '' ?></span>
+                <span class="rv-tab-label"><?= $label ?></span>
+            </button>
+            <?php $first = false; endforeach; ?>
+        </nav>
+    </div>
+</div>
+
+<!-- ── Tab Panels ────────────────────────────────────── -->
+<div class="rv-panels">
+<div class="container">
+
+    <!-- Overview -->
+    <div class="rv-panel is-active" id="rvPanel-overview" role="tabpanel">
+        <?php if (!empty($broker['intro_html'])): ?>
+        <div class="rv-intro-card"><?= $broker['intro_html'] ?></div>
+        <?php endif; ?>
+
+        <a href="<?= url('advertise') ?>" class="advertise-here-slot rv-ad-slot" data-track="cta_click" data-track-label="advertise_broker_review">
+            <div class="adv-inner">
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Researching Brokers</div><div class="adv-sub">Gulf traders reading in-depth reviews - UAE, KSA, Kuwait &amp; Qatar. High intent, low drop-off.</div></div>
+                <div class="adv-btn">Get a Quote &rarr;</div>
             </div>
         </a>
-        <?php endif; ?>
-    </aside>
 
-    <!-- REVIEW CONTENT -->
-    <div class="review-content">
-
-        <!-- Intro -->
-        <?php if ($broker['intro_html']): ?>
-        <div class="card card-body" style="margin-bottom:1.5rem;font-size:1.05rem;line-height:1.8">
-            <?= $broker['intro_html'] ?>
+        <h2>Overview</h2>
+        <?php if (!empty($broker['overview_html'])): ?>
+            <?= $broker['overview_html'] ?>
+        <?php else: ?>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem">
+            <div class="stat-box"><div class="stat-box-value"><?= e($broker['founded_year'] ?: '-') ?></div><div class="stat-box-label">Founded</div></div>
+            <div class="stat-box"><div class="stat-box-value" style="font-size:1rem"><?= e($broker['headquarters'] ?: '-') ?></div><div class="stat-box-label">Headquarters</div></div>
+            <div class="stat-box"><div class="stat-box-value" style="font-size:1rem"><?= e($broker['platforms'] ?: '-') ?></div><div class="stat-box-label">Platforms</div></div>
         </div>
         <?php endif; ?>
+    </div>
 
-        <!-- Advertise here slot -->
-        <div style="padding:.25rem 0 1.25rem">
-            <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_review">
-                <div class="adv-inner">
-                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Reach Traders Researching Brokers</div><div class="adv-sub">Gulf traders reading in-depth reviews - UAE, KSA, Kuwait &amp; Qatar. High intent, low drop-off.</div></div>
-                    <div class="adv-btn">Get a Quote →</div>
-                </div>
-            </a>
+    <!-- Pros & Cons -->
+    <div class="rv-panel" id="rvPanel-pros-cons" role="tabpanel">
+        <h2>Pros &amp; Cons</h2>
+        <div class="pros-cons">
+            <div>
+                <div class="pros-cons-header pros-header">&#10003; Pros</div>
+                <ul class="pros-list">
+                    <?php foreach ($broker['pros'] as $pro): ?>
+                    <li><?= e($pro) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <div>
+                <div class="pros-cons-header cons-header">&#10007; Cons</div>
+                <ul class="cons-list">
+                    <?php foreach ($broker['cons'] as $con): ?>
+                    <li><?= e($con) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
+    </div>
 
-        <!-- Overview -->
-        <section id="overview">
-            <h2>Overview</h2>
-            <?php if ($broker['overview_html']): ?>
-                <?= $broker['overview_html'] ?>
-            <?php else: ?>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
-                <div class="stat-box"><div class="stat-box-value"><?= e($broker['founded_year'] ?: '-') ?></div><div class="stat-box-label">Founded</div></div>
-                <div class="stat-box"><div class="stat-box-value" style="font-size:1rem"><?= e($broker['headquarters'] ?: '-') ?></div><div class="stat-box-label">Headquarters</div></div>
-                <div class="stat-box"><div class="stat-box-value" style="font-size:1rem"><?= e($broker['platforms'] ?: '-') ?></div><div class="stat-box-label">Platforms</div></div>
-            </div>
-            <?php endif; ?>
-        </section>
+    <!-- Regulation -->
+    <div class="rv-panel" id="rvPanel-regulation" role="tabpanel">
+        <h2>Regulation &amp; Safety</h2>
+        <?php if (!empty($broker['regulation_html'])): ?>
+            <?= $broker['regulation_html'] ?>
+        <?php else: ?>
+        <p><?= e($broker['name']) ?> is regulated by: <strong><?= e($broker['regulation']) ?></strong>.</p>
+        <p>Regulation provides a layer of protection for traders. Always verify a broker's regulatory status directly with the relevant authority before depositing funds.</p>
+        <?php endif; ?>
+    </div>
 
-        <!-- Pros & Cons -->
-        <section id="pros-cons">
-            <h2>Pros &amp; Cons</h2>
-            <div class="pros-cons">
-                <div>
-                    <div class="pros-cons-header pros-header">✓ Pros</div>
-                    <ul class="pros-list">
-                        <?php foreach ($broker['pros'] as $pro): ?>
-                        <li><?= e($pro) ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-                <div>
-                    <div class="pros-cons-header cons-header">✗ Cons</div>
-                    <ul class="cons-list">
-                        <?php foreach ($broker['cons'] as $con): ?>
-                        <li><?= e($con) ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- Account Types -->
+    <div class="rv-panel" id="rvPanel-account-types" role="tabpanel">
+        <h2>Account Types</h2>
+        <?php if (!empty($broker['account_types_html'])): ?>
+            <?= $broker['account_types_html'] ?>
+        <?php else: ?>
+        <p><?= e($broker['name']) ?> offers a range of account types to suit different trading styles and experience levels. <?= !empty($broker['has_islamic']) ? 'Islamic swap-free accounts are available.' : '' ?> A demo account is <?= !empty($broker['has_demo']) ? 'available' : 'not available' ?> for practice.</p>
+        <?php endif; ?>
+    </div>
 
-        <!-- Regulation -->
-        <section id="regulation">
-            <h2>Regulation &amp; Safety</h2>
-            <?php if ($broker['regulation_html']): ?>
-                <?= $broker['regulation_html'] ?>
-            <?php else: ?>
-            <p><?= e($broker['name']) ?> is regulated by: <strong><?= e($broker['regulation']) ?></strong>.</p>
-            <p>Regulation provides a layer of protection for traders. Always verify a broker's regulatory status directly with the relevant authority before depositing funds.</p>
-            <?php endif; ?>
-        </section>
+    <!-- Platforms -->
+    <div class="rv-panel" id="rvPanel-platforms" role="tabpanel">
+        <h2>Trading Platforms</h2>
+        <?php if (!empty($broker['platforms_html'])): ?>
+            <?= $broker['platforms_html'] ?>
+        <?php else: ?>
+        <p><?= e($broker['name']) ?> supports the following platforms: <strong><?= e($broker['platforms']) ?></strong>.</p>
+        <?php endif; ?>
+    </div>
 
-        <!-- Mid-page advertise banner -->
-        <div style="padding:.5rem 0 1.25rem">
-            <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_mid">
-                <div class="adv-inner">
-                    <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Your Brand Mid-Review</div><div class="adv-sub">Traders deep in a broker review - maximum engagement, high conversion intent in UAE, KSA &amp; GCC.</div></div>
-                    <div class="adv-btn">Get a Quote →</div>
-                </div>
-            </a>
+    <!-- Spreads & Fees -->
+    <div class="rv-panel" id="rvPanel-spreads" role="tabpanel">
+        <h2>Spreads &amp; Fees</h2>
+        <?php if (!empty($broker['spreads_html'])): ?>
+            <?= $broker['spreads_html'] ?>
+        <?php else: ?>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:1rem">
+            <div class="stat-box"><div class="stat-box-value"><?= e($broker['spread_eurusd']) ?> pips</div><div class="stat-box-label">EUR/USD Spread</div></div>
+            <div class="stat-box"><div class="stat-box-value"><?= ucfirst($broker['spread_type'] ?? 'variable') ?></div><div class="stat-box-label">Spread Type</div></div>
+            <div class="stat-box"><div class="stat-box-value">$<?= e(number_format((float)$broker['commission_per_lot'], 2)) ?></div><div class="stat-box-label">Commission/Lot</div></div>
         </div>
+        <?php endif; ?>
 
-        <!-- Account Types -->
-        <section id="account-types">
-            <h2>Account Types</h2>
-            <?php if ($broker['account_types_html']): ?>
-                <?= $broker['account_types_html'] ?>
-            <?php else: ?>
-            <p><?= e($broker['name']) ?> offers a range of account types to suit different trading styles and experience levels. <?= $broker['has_islamic'] ? 'Islamic swap-free accounts are available.' : '' ?> A demo account is <?= $broker['has_demo'] ? 'available' : 'not available' ?> for practice.</p>
-            <?php endif; ?>
-        </section>
-
-        <!-- Platforms -->
-        <section id="platforms">
-            <h2>Trading Platforms</h2>
-            <?php if ($broker['platforms_html']): ?>
-                <?= $broker['platforms_html'] ?>
-            <?php else: ?>
-            <p><?= e($broker['name']) ?> supports the following platforms: <strong><?= e($broker['platforms']) ?></strong>.</p>
-            <?php endif; ?>
-        </section>
-
-        <!-- Spreads -->
-        <section id="spreads">
-            <h2>Spreads &amp; Fees</h2>
-            <?php if ($broker['spreads_html']): ?>
-                <?= $broker['spreads_html'] ?>
-            <?php else: ?>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem">
-                <div class="stat-box"><div class="stat-box-value"><?= e($broker['spread_eurusd']) ?> pips</div><div class="stat-box-label">EUR/USD Spread</div></div>
-                <div class="stat-box"><div class="stat-box-value"><?= ucfirst($broker['spread_type'] ?? 'variable') ?></div><div class="stat-box-label">Spread Type</div></div>
-                <div class="stat-box"><div class="stat-box-value">$<?= e(number_format((float)$broker['commission_per_lot'], 2)) ?></div><div class="stat-box-label">Commission/Lot</div></div>
+        <a href="<?= url('advertise') ?>" class="advertise-here-slot rv-ad-slot" data-track="cta_click" data-track-label="advertise_broker_mid">
+            <div class="adv-inner">
+                <div><div class="adv-tag">Advertise With Us</div><div class="adv-title">Your Brand Mid-Review</div><div class="adv-sub">Traders deep in a broker review - maximum engagement, high conversion intent in UAE, KSA &amp; GCC.</div></div>
+                <div class="adv-btn">Get a Quote &rarr;</div>
             </div>
-            <?php endif; ?>
-        </section>
+        </a>
+    </div>
 
-        <!-- Deposits -->
-        <section id="deposits">
-            <h2>Deposits &amp; Withdrawals</h2>
-            <?php if ($broker['deposits_html']): ?>
-                <?= $broker['deposits_html'] ?>
-            <?php else: ?>
-            <p>Minimum deposit: <strong>$<?= e(number_format((float)$broker['min_deposit'])) ?></strong></p>
-            <?php if ($broker['deposit_methods']): ?>
-            <p>Accepted deposit methods: <strong><?= e($broker['deposit_methods']) ?></strong></p>
-            <?php endif; ?>
-            <?php endif; ?>
-        </section>
+    <!-- Deposits & Withdrawals -->
+    <div class="rv-panel" id="rvPanel-deposits" role="tabpanel">
+        <h2>Deposits &amp; Withdrawals</h2>
+        <?php if (!empty($broker['deposits_html'])): ?>
+            <?= $broker['deposits_html'] ?>
+        <?php else: ?>
+        <p>Minimum deposit: <strong>$<?= e(number_format((float)$broker['min_deposit'])) ?></strong></p>
+        <?php if (!empty($broker['deposit_methods'])): ?>
+        <p>Accepted deposit methods: <strong><?= e($broker['deposit_methods']) ?></strong></p>
+        <?php endif; ?>
+        <?php endif; ?>
+    </div>
 
-        <!-- Support -->
-        <section id="support">
-            <h2>Customer Support</h2>
-            <?php if ($broker['support_html']): ?>
-                <?= $broker['support_html'] ?>
-            <?php else: ?>
-            <p><?= e($broker['name']) ?> offers customer support via live chat, email, and telephone. Support availability and quality may vary by region.</p>
-            <?php endif; ?>
-        </section>
+    <!-- Customer Support -->
+    <div class="rv-panel" id="rvPanel-support" role="tabpanel">
+        <h2>Customer Support</h2>
+        <?php if (!empty($broker['support_html'])): ?>
+            <?= $broker['support_html'] ?>
+        <?php else: ?>
+        <p><?= e($broker['name']) ?> offers customer support via live chat, email, and telephone. Support availability and quality may vary by region.</p>
+        <?php endif; ?>
+    </div>
 
-        <!-- Verdict -->
-        <section id="verdict" style="border-left:4px solid var(--accent)">
+    <!-- Verdict -->
+    <div class="rv-panel" id="rvPanel-verdict" role="tabpanel">
+        <div class="rv-verdict-block">
             <h2>Our Verdict</h2>
-            <?php if ($broker['verdict_html']): ?>
+            <?php if (!empty($broker['verdict_html'])): ?>
                 <?= $broker['verdict_html'] ?>
             <?php else: ?>
             <p><?= e($broker['name']) ?> is a solid broker with competitive trading conditions. We recommend verifying all terms directly with the broker before opening an account.</p>
             <?php endif; ?>
 
-            <?php if ($broker['affiliate_url']): ?>
-            <div style="margin-top:1.5rem">
-                <a href="<?= url('go/' . $broker['slug']) ?>" class="btn btn-primary" target="_blank" rel="nofollow noopener"
-                   data-track="affiliate_click" data-track-label="<?= e($broker['name']) ?>_review_cta">
+            <?php if (!empty($broker['affiliate_url'])): ?>
+            <div class="rv-verdict-cta">
+                <a href="<?= url('go/' . $broker['slug']) ?>"
+                   class="btn btn-primary"
+                   target="_blank" rel="nofollow noopener"
+                   data-track="affiliate_click"
+                   data-track-label="<?= e($broker['name']) ?>_review_cta">
                     Open Account with <?= e($broker['name']) ?>
                 </a>
                 <p style="font-size:.75rem;color:var(--muted);margin-top:.5rem">Capital at risk. <?= (int)round((1/($broker['max_leverage'] ? (int)explode(':', $broker['max_leverage'])[1] : 500))*100) ?>% of retail CFD accounts lose money.</p>
             </div>
             <?php endif; ?>
-        </section>
-
-        <!-- Bottom advertise banner -->
-        <div style="margin:2rem 0">
-            <a href="<?= url('advertise') ?>" class="advertise-here-slot" data-track="cta_click" data-track-label="advertise_broker_bottom">
-                <div class="adv-inner" style="padding:2rem 2.5rem">
-                    <div>
-                        <div class="adv-tag">Advertise With Us</div>
-                        <div class="adv-title">Get Your Brand in Front of Gulf Traders</div>
-                        <div class="adv-sub">Active traders across UAE, Saudi Arabia, Kuwait &amp; Qatar - reviewing brokers, ready to sign up. Limited placements.</div>
-                    </div>
-                    <div class="adv-btn">Get a Quote →</div>
-                </div>
-            </a>
         </div>
 
-        <!-- Social Share -->
         <?php
         $shareUrl   = urlencode(url('brokers/' . $broker['slug']));
         $shareTitle = urlencode($broker['name'] . ' Review - Is it Safe? Spreads, Regulation & More');
         ?>
-        <div style="margin-top:1.5rem;padding:1rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;gap:.65rem;flex-wrap:wrap">
-            <span style="font-size:.82rem;color:var(--muted);font-weight:600">Share this review:</span>
-            <a href="https://twitter.com/intent/tweet?url=<?= $shareUrl ?>&text=<?= $shareTitle ?>" target="_blank" rel="noopener"
-               style="padding:.3rem .75rem;background:#1da1f2;color:#fff;border-radius:5px;font-size:.8rem;font-weight:600;text-decoration:none">Twitter</a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?= $shareUrl ?>" target="_blank" rel="noopener"
-               style="padding:.3rem .75rem;background:#0077b5;color:#fff;border-radius:5px;font-size:.8rem;font-weight:600;text-decoration:none">LinkedIn</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<?= $shareUrl ?>" target="_blank" rel="noopener"
-               style="padding:.3rem .75rem;background:#1877f2;color:#fff;border-radius:5px;font-size:.8rem;font-weight:600;text-decoration:none">Facebook</a>
-            <a href="https://wa.me/?text=<?= $shareTitle ?>+<?= $shareUrl ?>" target="_blank" rel="noopener"
-               style="padding:.3rem .75rem;background:#25d366;color:#fff;border-radius:5px;font-size:.8rem;font-weight:600;text-decoration:none">WhatsApp</a>
+        <div class="rv-share">
+            <span>Share this review:</span>
+            <a href="https://twitter.com/intent/tweet?url=<?= $shareUrl ?>&amp;text=<?= $shareTitle ?>" target="_blank" rel="noopener" class="rv-share-btn" style="background:#1da1f2">Twitter</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?= $shareUrl ?>" target="_blank" rel="noopener" class="rv-share-btn" style="background:#0077b5">LinkedIn</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?= $shareUrl ?>" target="_blank" rel="noopener" class="rv-share-btn" style="background:#1877f2">Facebook</a>
+            <a href="https://wa.me/?text=<?= $shareTitle ?>+<?= $shareUrl ?>" target="_blank" rel="noopener" class="rv-share-btn" style="background:#25d366">WhatsApp</a>
         </div>
 
-        <!-- Compare banner (full width) -->
-        <div style="margin-top:2rem">
-            <a href="<?= url('advertise') ?>" class="advertise-here-hero" data-track="cta_click" data-track-label="advertise_broker_compare">
-                <div class="adv-inner" style="padding:2.5rem 3rem">
-                    <div>
-                        <div class="adv-tag">Advertise With Us</div>
-                        <div class="adv-title">Reach Active Gulf Forex Traders</div>
-                        <div class="adv-sub">The GCC's dedicated forex comparison platform - traders in UAE, Saudi Arabia, Kuwait &amp; Qatar comparing brokers every day. Premium placements available.</div>
-                    </div>
-                    <div class="adv-btn">Get a Quote →</div>
+        <a href="<?= url('advertise') ?>" class="advertise-here-hero" style="display:block" data-track="cta_click" data-track-label="advertise_broker_compare">
+            <div class="adv-inner" style="padding:2.5rem 3rem">
+                <div>
+                    <div class="adv-tag">Advertise With Us</div>
+                    <div class="adv-title">Reach Active Gulf Forex Traders</div>
+                    <div class="adv-sub">The GCC's dedicated forex comparison platform - traders in UAE, Saudi Arabia, Kuwait &amp; Qatar comparing brokers every day. Premium placements available.</div>
                 </div>
-            </a>
-        </div>
+                <div class="adv-btn">Get a Quote &rarr;</div>
+            </div>
+        </a>
+    </div>
 
-    </div><!-- .review-content -->
-</div><!-- .review-layout -->
 </div><!-- .container -->
+</div><!-- .rv-panels -->
 
 <script>
 (function () {
-    var content      = document.querySelector('.review-content');
-    var progressFill = document.getElementById('tocProgressFill');
-    var progressLbl  = document.getElementById('tocProgressLabel');
-    var steps        = Array.from(document.querySelectorAll('.toc-step'));
-    if (!content || !steps.length) return;
+    var tabs   = Array.from(document.querySelectorAll('.rv-tab'));
+    var panels = Array.from(document.querySelectorAll('.rv-panel'));
 
-    /* ── Scroll content panel to a section ── */
-    function scrollToId(id) {
-        var target = document.getElementById(id);
-        if (!target) return;
-        var offset = target.getBoundingClientRect().top
-                   - content.getBoundingClientRect().top
-                   + content.scrollTop - 16;
-        content.scrollTo({ top: Math.max(0, offset), behavior: 'smooth' });
+    function activate(id) {
+        tabs.forEach(function (t) {
+            var on = t.dataset.tab === id;
+            t.classList.toggle('is-active', on);
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+            p.classList.toggle('is-active', p.id === 'rvPanel-' + id);
+        });
+        history.replaceState(null, '', '#' + id);
+        var activeTab = document.querySelector('.rv-tab.is-active');
+        if (activeTab) activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
-    /* ── TOC link clicks ── */
-    steps.forEach(function (step) {
-        step.querySelector('a').addEventListener('click', function (e) {
-            e.preventDefault();
-            var id = step.dataset.id;
-            scrollToId(id);
-            history.pushState(null, '', '#' + id);
-        });
-    });
-
-    /* ── Scrollspy via IntersectionObserver ── */
-    var activeId = steps[0] ? steps[0].dataset.id : null;
-
-    function setActive(id) {
-        if (id === activeId) return;
-        activeId = id;
-        var found = false;
-        steps.forEach(function (step) {
-            var sid = step.dataset.id;
-            if (sid === id) {
-                step.classList.remove('is-done');
-                step.classList.add('is-active');
-                found = true;
-            } else if (!found) {
-                step.classList.add('is-done');
-                step.classList.remove('is-active');
-            } else {
-                step.classList.remove('is-done', 'is-active');
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            activate(this.dataset.tab);
+            var panelsEl = document.querySelector('.rv-panels');
+            if (panelsEl) {
+                var top = panelsEl.getBoundingClientRect().top + window.pageYOffset - 130;
+                window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
             }
         });
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                setActive(entry.target.id);
-            }
-        });
-    }, {
-        root: content,
-        rootMargin: '0px 0px -65% 0px',
-        threshold: 0
     });
 
-    steps.forEach(function (step) {
-        var el = document.getElementById(step.dataset.id);
-        if (el) observer.observe(el);
-    });
-
-    /* ── Reading progress bar ── */
-    function updateProgress() {
-        var max  = content.scrollHeight - content.clientHeight;
-        var pct  = max > 0 ? Math.round((content.scrollTop / max) * 100) : 0;
-        if (progressFill) progressFill.style.width = pct + '%';
-        if (progressLbl)  progressLbl.textContent  = pct + '%';
+    function fromHash() {
+        var h = window.location.hash.slice(1);
+        if (h && document.getElementById('rvPanel-' + h)) activate(h);
     }
-
-    content.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress();
-
-    /* ── Handle initial hash ── */
-    if (window.location.hash) {
-        setTimeout(function () { scrollToId(window.location.hash.slice(1)); }, 150);
-    }
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
 }());
 </script>
 
