@@ -20,7 +20,7 @@ $fullName = $country['full_name'];
         <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem">
             <span style="font-size:2.5rem;line-height:1"><?= $country['flag'] ?></span>
             <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;margin:0">
-                Best Forex Brokers in <?= e($fullName) ?> 2025
+                Best Forex Brokers in <?= e($fullName) ?> <?= date('Y') ?>
             </h1>
         </div>
         <div style="color:rgba(255,255,255,.72);max-width:680px;font-size:.95rem;line-height:1.65">

@@ -21,8 +21,8 @@ class BrokerController extends Controller
         $pages = (int)ceil($total / $perPage);
 
         $this->render('brokers/index', [
-            'title'     => 'Best Forex Brokers in UAE & Gulf 2025 | Trader Gulf',
-            'metaDesc'  => 'Compare the best forex brokers for UAE, Saudi Arabia and Gulf traders. In-depth reviews of spreads, regulation, Islamic accounts and fees — updated 2025.',
+            'title'     => 'Best Forex Brokers in UAE & Gulf ' . date('Y') . ' | Trader Gulf',
+            'metaDesc'  => 'Compare the best forex brokers for UAE, Saudi Arabia and Gulf traders in ' . date('Y') . '. In-depth reviews of spreads, regulation, Islamic accounts and fees. Updated ' . date('M Y') . '.',
             'canonical' => url('brokers'),
             'brokers'   => $brokers,
             'page'    => $page,
@@ -55,9 +55,11 @@ class BrokerController extends Controller
             [$slug]
         );
 
+        $year = date('Y');
         $this->render('brokers/show', [
-            'title'         => $broker['meta_title'] ?? $broker['name'] . ' Review 2025 | Is it Safe for UAE Traders?',
-            'metaDesc'      => $broker['meta_description'] ?? 'Read our independent ' . $broker['name'] . ' review. Spreads, regulation, Islamic accounts, min deposit, platforms, and whether it is safe for Gulf traders.',
+            'title'         => $broker['meta_title'] ?? $broker['name'] . ' Review ' . $year . ' | Spreads, Fees & Regulation | Trader Gulf',
+            'metaDesc'      => $broker['meta_description'] ?? $broker['name'] . ' review ' . $year . ': min deposit $' . number_format((float)$broker['min_deposit']) . ', EUR/USD spread from ' . $broker['spread_eurusd'] . ' pips, max leverage ' . ($broker['max_leverage'] ?: '1:500') . '. Regulated by ' . ($broker['regulation'] ?: 'multiple authorities') . '. Independent review for UAE & Gulf traders.',
+            'canonical'     => url('brokers/' . $broker['slug']),
             'broker'        => $broker,
             'relatedBrokers'=> $relatedBrokers,
         ]);

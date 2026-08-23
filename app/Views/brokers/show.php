@@ -344,6 +344,27 @@ $sectionIcons = [
 }());
 </script>
 
+<?php if (!empty($relatedBrokers)): ?>
+<section style="background:var(--card);border-top:1px solid var(--border);padding:1.75rem 0">
+    <div class="container">
+        <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin:0 0 .9rem">Also compare</p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+            <?php foreach ($relatedBrokers as $rb): ?>
+            <a href="<?= url('brokers/' . e($rb['slug'])) ?>"
+               style="display:flex;align-items:center;gap:.6rem;padding:.55rem .9rem;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text-main);font-size:.875rem;font-weight:600;background:var(--bg);transition:border-color .15s,box-shadow .15s"
+               onmouseover="this.style.borderColor='var(--accent)';this.style.boxShadow='0 0 0 2px rgba(245,158,11,.15)'"
+               onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                <?php if (!empty($rb['logo'])): ?>
+                <img src="<?= url('assets/img/brokers/' . e($rb['logo'])) ?>" alt="<?= e($rb['name']) ?>" loading="lazy" style="height:22px;width:auto;max-width:60px;object-fit:contain">
+                <?php endif; ?>
+                <?= e($rb['name']) ?> Review
+            </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
 <?php
 // ── BreadcrumbList ──────────────────────────────────────────────────
 $breadcrumbSchema = [

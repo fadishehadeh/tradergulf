@@ -1,6 +1,4 @@
 ﻿<?php
-
-<?php
 $__seoBreadcrumb = [
     '@context'        => 'https://schema.org',
     '@type'           => 'BreadcrumbList',
