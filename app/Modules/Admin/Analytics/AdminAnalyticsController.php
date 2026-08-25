@@ -25,12 +25,15 @@ class AdminAnalyticsController extends AdminBaseController
         $topPages = $db->fetchAll(
             "SELECT path, COUNT(*) AS views FROM page_views
              WHERE created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY) $human
+               AND path NOT LIKE '/api/%'
              GROUP BY path ORDER BY views DESC LIMIT 20"
         );
 
         $topReferrers = $db->fetchAll(
             "SELECT referrer, COUNT(*) AS views FROM page_views
-             WHERE created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY) AND referrer != '' $human
+             WHERE created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY) AND referrer != ''
+               AND referrer NOT LIKE '%tradergulf.com%'
+               $human
              GROUP BY referrer ORDER BY views DESC LIMIT 15"
         );
 
