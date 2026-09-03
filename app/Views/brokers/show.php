@@ -416,21 +416,30 @@ $reviewSchema = [
 ];
 
 // ── FAQPage - common questions AI Overviews love ───────────────────
+$brokerName = $broker['name'];
 $faqs = [
-    ['q' => 'Is ' . $broker['name'] . ' regulated?',
-     'a' => $broker['name'] . ' is regulated by ' . ($broker['regulation'] ?: 'multiple financial authorities') . '. Always verify regulatory status directly with the relevant authority before depositing funds.'],
-    ['q' => 'What is the minimum deposit for ' . $broker['name'] . '?',
-     'a' => 'The minimum deposit for ' . $broker['name'] . ' is $' . number_format((float)$broker['min_deposit']) . '.'],
-    ['q' => 'What is the EUR/USD spread at ' . $broker['name'] . '?',
-     'a' => $broker['name'] . ' offers a EUR/USD spread of ' . $broker['spread_eurusd'] . ' pips.'],
-    ['q' => 'What is the maximum leverage at ' . $broker['name'] . '?',
-     'a' => $broker['name'] . ' offers a maximum leverage of ' . ($broker['max_leverage'] ?: '1:500') . '.'],
-    ['q' => 'Does ' . $broker['name'] . ' offer Islamic accounts?',
+    ['q' => 'Is ' . $brokerName . ' regulated?',
+     'a' => $brokerName . ' is regulated by ' . ($broker['regulation'] ?: 'multiple financial authorities') . '. Always verify regulatory status directly with the relevant authority before depositing funds.'],
+    ['q' => 'What is the minimum deposit for ' . $brokerName . '?',
+     'a' => 'The minimum deposit for ' . $brokerName . ' is $' . number_format((float)$broker['min_deposit']) . '.'],
+    ['q' => 'What are ' . $brokerName . '\'s fees and charges?',
+     'a' => $brokerName . ' charges a EUR/USD spread from ' . $broker['spread_eurusd'] . ' pips with maximum leverage of ' . ($broker['max_leverage'] ?: '1:500') . '. See the Spreads & Fees section above for a full breakdown of trading costs, commissions, and any non-trading fees.'],
+    ['q' => 'Does ' . $brokerName . ' charge an inactivity fee?',
+     'a' => 'Please refer to the Spreads & Fees section of this review for details on ' . $brokerName . '\'s inactivity fee policy, including the fee amount and the period of inactivity that triggers the charge.'],
+    ['q' => 'What is the EUR/USD spread at ' . $brokerName . '?',
+     'a' => $brokerName . ' offers a EUR/USD spread from ' . $broker['spread_eurusd'] . ' pips. Spreads vary by account type - see the Spreads & Fees section for a full account-by-account breakdown.'],
+    ['q' => 'What is the maximum leverage at ' . $brokerName . '?',
+     'a' => $brokerName . ' offers a maximum leverage of ' . ($broker['max_leverage'] ?: '1:500') . '. Leverage limits vary depending on your country of residence and the instrument traded.'],
+    ['q' => 'Does ' . $brokerName . ' offer Islamic accounts?',
      'a' => $broker['has_islamic']
-         ? $broker['name'] . ' offers Islamic (swap-free) accounts suitable for traders following Sharia law.'
-         : $broker['name'] . ' does not currently offer Islamic swap-free accounts.'],
-    ['q' => 'What trading platforms does ' . $broker['name'] . ' support?',
-     'a' => $broker['name'] . ' supports ' . ($broker['platforms'] ?: 'MetaTrader 4, MetaTrader 5') . '.'],
+         ? $brokerName . ' offers Islamic (swap-free) accounts, making it suitable for traders in the UAE, Saudi Arabia, Kuwait, and other Gulf countries who follow Sharia law. Islamic accounts replace overnight swap charges with an alternative fee structure.'
+         : $brokerName . ' does not currently offer Islamic swap-free accounts. Gulf traders requiring a halal account should consider brokers such as Exness, XM, or IC Markets.'],
+    ['q' => 'Is ' . $brokerName . ' available for traders in the UAE?',
+     'a' => $brokerName . ' accepts traders from the United Arab Emirates. ' . ($broker['has_islamic'] ? 'Islamic swap-free accounts are available. ' : '') . 'Always confirm that the broker\'s regulatory entity covers UAE residents before opening an account.'],
+    ['q' => 'What trading platforms does ' . $brokerName . ' support?',
+     'a' => $brokerName . ' supports ' . ($broker['platforms'] ?: 'MetaTrader 4 (MT4) and MetaTrader 5 (MT5)') . ', available on desktop, web browser, and mobile apps for Android and iOS.'],
+    ['q' => 'How do I withdraw money from ' . $brokerName . '?',
+     'a' => $brokerName . ' processes withdrawal requests through the same payment method used for the deposit, as required by anti-money laundering regulations. See the Deposits & Withdrawals section for processing times and any applicable fees.'],
 ];
 
 $faqSchema = [

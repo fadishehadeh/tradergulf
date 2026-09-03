@@ -36,7 +36,10 @@ class AdminSitemapController extends AdminBaseController
         $this->requireAuth();
         $this->verifyCsrf();
 
-        $base  = rtrim(config('app.url', 'http://localhost'), '/');
+        // Always use the canonical site URL; strip any path suffix (e.g. /tradergulf/public on localhost)
+        $cfgUrl = config('app.url', 'https://tradergulf.com');
+        $parsed = parse_url($cfgUrl);
+        $base   = rtrim(($parsed['scheme'] ?? 'https') . '://' . ($parsed['host'] ?? 'tradergulf.com'), '/');
         $today = date('Y-m-d');
         $urls  = [];
 
@@ -148,21 +151,21 @@ class AdminSitemapController extends AdminBaseController
         $this->requireAuth();
         $this->verifyCsrf();
 
-        $sitemapUrl = url('sitemap.xml');
+        // Always use the real production domain, not localhost
+        $cfgUrl    = config('app.url', 'https://tradergulf.com');
+        $parsed    = parse_url($cfgUrl);
+        $base      = rtrim(($parsed['scheme'] ?? 'https') . '://' . ($parsed['host'] ?? 'tradergulf.com'), '/');
+        $sitemapUrl = $base . '/sitemap.xml';
 
-        // Google (still partially functional)
         @file_get_contents('https://www.google.com/ping?sitemap=' . urlencode($sitemapUrl));
-
-        // Bing
         @file_get_contents('https://www.bing.com/ping?sitemap=' . urlencode($sitemapUrl));
 
-        // IndexNow (Bing, Yandex, etc.)
         $indexNowKey = setting('indexnow_key');
         if ($indexNowKey) {
             @file_get_contents('https://api.indexnow.org/indexnow?url=' . urlencode($sitemapUrl) . '&key=' . urlencode($indexNowKey));
         }
 
-        session()->flash('success', 'Search engines pinged. Tip: also submit manually in Google Search Console for fastest indexing.');
+        session()->flash('success', 'Search engines pinged (' . $sitemapUrl . '). Also submit manually in Google Search Console for fastest indexing.');
         Response::redirect('admin/sitemap');
     }
 }
