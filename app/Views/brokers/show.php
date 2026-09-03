@@ -55,7 +55,11 @@ $sectionIcons = [
                         <?php endforeach; ?>
                     </div>
                     <?php endif; ?>
-                    <p class="rv-hero-meta">Updated <?= $broker['last_updated'] ? date('M j, Y', strtotime($broker['last_updated'])) : date('M Y') ?></p>
+                    <p class="rv-hero-meta">
+                        Updated <?= $broker['last_updated'] ? date('M j, Y', strtotime($broker['last_updated'])) : date('M Y') ?>
+                        &nbsp;&middot;&nbsp;
+                        Reviewed by <a href="<?= url('about') ?>" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Trader Gulf Editorial Team</a>
+                    </p>
                 </div>
             </div>
 
@@ -389,9 +393,10 @@ $reviewSchema = [
         'worstRating' => '1',
     ],
     'author' => [
-        '@type' => 'Organization',
-        'name'  => setting('site_name', 'Trader Gulf'),
-        'url'   => url(),
+        '@type' => 'Person',
+        'name'  => 'Trader Gulf Editorial Team',
+        'url'   => url('about'),
+        'worksFor' => ['@type' => 'Organization', 'name' => setting('site_name', 'Trader Gulf'), 'url' => url()],
     ],
     'publisher' => [
         '@type' => 'Organization',
