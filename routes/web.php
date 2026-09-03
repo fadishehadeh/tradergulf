@@ -29,7 +29,6 @@ use App\Modules\Affiliate\AffiliateController;
 use App\Modules\Rss\RssController;
 use App\Modules\Admin\Contacts\AdminContactController;
 use App\Modules\Admin\Analytics\AdminAnalyticsController;
-use App\Modules\Admin\Analytics\AdminMigrateController;
 use App\Modules\Admin\Admins\AdminAdminsController;
 use App\Modules\Admin\Ads\AdminAdsController;
 use App\Modules\Ads\AdsController;
@@ -143,8 +142,6 @@ $router->get('/admin', [AdminDashboardController::class, 'index']);
 
 // Analytics
 $router->get('/admin/analytics', [AdminAnalyticsController::class, 'index']);
-$router->get('/admin/migrate/broker-metas', [AdminMigrateController::class, 'brokerMetas']);
-
 // Admin user management
 $router->get('/admin/admins', [AdminAdminsController::class, 'index']);
 $router->get('/admin/admins/create', [AdminAdminsController::class, 'create']);
