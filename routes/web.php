@@ -41,6 +41,27 @@ use App\Modules\Api\EconomicCalendarController;
 
 $router = $app->router();
 
+// ── 301 redirects for broken URLs (GSC 404 fixes) ──────────────
+$router->get('/position-size-calculator',   fn() => \App\Core\Response::redirect('calculators/position-size', 301));
+$router->get('/position-size-calculator/',  fn() => \App\Core\Response::redirect('calculators/position-size', 301));
+$router->get('/market-news',                fn() => \App\Core\Response::redirect('news', 301));
+$router->get('/market-news/',               fn() => \App\Core\Response::redirect('news', 301));
+$router->get('/best-forex-broker-in-uae',   fn() => \App\Core\Response::redirect('forex-brokers-in/uae', 301));
+$router->get('/best-forex-broker-in-uae/',  fn() => \App\Core\Response::redirect('forex-brokers-in/uae', 301));
+$router->get('/gold-profit-calculator',     fn() => \App\Core\Response::redirect('calculators/profit', 301));
+$router->get('/gold-profit-calculator/',    fn() => \App\Core\Response::redirect('calculators/profit', 301));
+$router->get('/what-is-leverage',           fn() => \App\Core\Response::redirect('glossary/leverage', 301));
+$router->get('/what-is-leverage/',          fn() => \App\Core\Response::redirect('glossary/leverage', 301));
+$router->get('/daily-gold-outlook',         fn() => \App\Core\Response::redirect('news', 301));
+$router->get('/daily-gold-outlook/',        fn() => \App\Core\Response::redirect('news', 301));
+$router->get('/gold-trading-guide-uae',     fn() => \App\Core\Response::redirect('forex-brokers-in/uae', 301));
+$router->get('/gold-trading-guide-uae/',    fn() => \App\Core\Response::redirect('forex-brokers-in/uae', 301));
+$router->get('/best-mt5-broker-uae-3',      fn() => \App\Core\Response::redirect('best/best-mt5-broker-uae', 301));
+$router->get('/best-mt5-broker-uae-3/',     fn() => \App\Core\Response::redirect('best/best-mt5-broker-uae', 301));
+$router->get('/ic-markets-review-uae-2',    fn() => \App\Core\Response::redirect('brokers/ic-markets', 301));
+$router->get('/ic-markets-review-uae-2/',   fn() => \App\Core\Response::redirect('brokers/ic-markets', 301));
+$router->get('/guides/what-is-leverage',    fn() => \App\Core\Response::redirect('glossary/leverage', 301));
+
 // ── Public routes ──────────────────────────────────────────────
 
 // Home
