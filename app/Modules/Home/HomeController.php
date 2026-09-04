@@ -36,10 +36,34 @@ class HomeController extends Controller
         );
         $banners = array_column($bannerRows, null, 'position');
 
+        $orgSchema = json_encode([
+            '@context'    => 'https://schema.org',
+            '@type'       => 'Organization',
+            'name'        => 'Trader Gulf',
+            'url'         => url(),
+            'logo'        => url('assets/img/logo.svg'),
+            'description' => 'Independent forex broker comparison platform for UAE, Saudi Arabia, Kuwait and the GCC. Reviews, calculators, and country guides.',
+            'areaServed'  => ['UAE', 'Saudi Arabia', 'Kuwait', 'Qatar', 'Bahrain', 'Oman', 'GCC'],
+            'sameAs'      => [],
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+        $siteSchema = json_encode([
+            '@context'        => 'https://schema.org',
+            '@type'           => 'WebSite',
+            'name'            => 'Trader Gulf',
+            'url'             => url(),
+            'potentialAction' => [
+                '@type'       => 'SearchAction',
+                'target'      => ['@type' => 'EntryPoint', 'urlTemplate' => url('search') . '?q={search_term_string}'],
+                'query-input' => 'required name=search_term_string',
+            ],
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
         $this->render('home/index', [
-            'title'          => 'Best Forex Brokers in UAE & Gulf 2025 | Trader Gulf',
-            'metaDesc'       => 'Compare the best forex brokers in UAE, Saudi Arabia, Kuwait and the Gulf region. Independent reviews, spreads, regulation and fees — updated 2025.',
+            'title'          => 'Best Forex Brokers in UAE & Gulf 2026 | Trader Gulf',
+            'metaDesc'       => 'Compare the best forex brokers in UAE, Saudi Arabia, Kuwait and the Gulf region. Independent reviews, spreads, regulation and fees — updated 2026.',
             'canonical'      => url(),
+            'headSchemas'    => "<script type=\"application/ld+json\">$orgSchema</script><script type=\"application/ld+json\">$siteSchema</script>",
             'featuredBrokers'=> $featuredBrokers,
             'latestGuides'   => $latestGuides,
             'latestNews'     => $latestNews,

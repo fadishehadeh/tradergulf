@@ -52,7 +52,7 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
         </nav>
 
         <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;text-align:center;margin:0 0 1.75rem">
-            <?= e($b1['name']) ?> vs <?= e($b2['name']) ?> - 2025 Broker Comparison
+            <?= e($b1['name']) ?> vs <?= e($b2['name']) ?> - <?= date('Y') ?> Broker Comparison
         </h1>
 
         <div class="vs-brokers">
@@ -227,6 +227,22 @@ function vsCell(string $a, string $b, bool $lowerIsBetter = false): string {
             </div>
         </div>
         <?php endforeach; ?>
+
+        <!-- Educational + FAQ -->
+        <div style="max-width:820px;margin:2rem 0">
+            <h2 style="font-size:1.2rem;font-weight:800;margin:0 0 .75rem"><?= e($b1['name']) ?> vs <?= e($b2['name']) ?> — Which Should You Choose?</h2>
+            <p style="line-height:1.75;color:var(--text-muted);font-size:.92rem;margin-bottom:.9rem">
+                Choosing between <?= e($b1['name']) ?> and <?= e($b2['name']) ?> depends on your trading style, account size, and which features matter most. Both are internationally regulated brokers with proven track records in the MENA region. Use the comparison table above to identify which broker has an edge in the areas most relevant to you — spreads, minimum deposit, leverage, or platform choice.
+            </p>
+            <p style="line-height:1.75;color:var(--text-muted);font-size:.92rem;margin-bottom:1.5rem">
+                For Gulf traders specifically, Islamic swap-free account availability, Arabic-language support, and local payment method support (AED, SAR, KWD bank wire) are often the deciding factors. Read both full reviews before making a final decision.
+            </p>
+
+            <h3 style="font-size:1.05rem;font-weight:700;margin:0 0 .75rem">Frequently Asked Questions</h3>
+            <details class="faq-item"><summary class="faq-q">Is <?= e($b1['name']) ?> or <?= e($b2['name']) ?> better for beginners?</summary><div class="faq-a"><?php if (!empty($b1['min_deposit']) && !empty($b2['min_deposit']) && (int)$b1['min_deposit'] <= (int)$b2['min_deposit']): ?><?= e($b1['name']) ?>'s lower minimum deposit of $<?= e($b1['min_deposit']) ?> makes it more accessible for beginners. However, both brokers offer demo accounts — always practice on a demo before trading real money. Beginners should prioritise regulated brokers with strong educational resources and responsive customer support.<?php else: ?><?= e($b2['name']) ?>'s lower minimum deposit of $<?= e($b2['min_deposit']) ?> makes it more accessible for beginners. However, both brokers offer demo accounts — always practice on a demo before trading real money. Beginners should prioritise regulated brokers with strong educational resources and responsive customer support.<?php endif; ?></div></details>
+            <details class="faq-item"><summary class="faq-q">Do both <?= e($b1['name']) ?> and <?= e($b2['name']) ?> offer Islamic accounts?</summary><div class="faq-a"><?php $b1Islamic = !empty($b1['has_islamic']); $b2Islamic = !empty($b2['has_islamic']); if ($b1Islamic && $b2Islamic): ?>Yes, both <?= e($b1['name']) ?> and <?= e($b2['name']) ?> offer Islamic swap-free accounts with no overnight interest charges, making them suitable for Muslim traders in the UAE, Saudi Arabia, Kuwait, and across the GCC.<?php elseif ($b1Islamic): ?><?= e($b1['name']) ?> offers an Islamic swap-free account. <?= e($b2['name']) ?> does not currently offer a dedicated Islamic account — check directly with the broker for the latest information.<?php elseif ($b2Islamic): ?><?= e($b2['name']) ?> offers an Islamic swap-free account. <?= e($b1['name']) ?> does not currently offer a dedicated Islamic account — check directly with the broker for the latest information.<?php else: ?>Neither broker currently lists a dedicated Islamic swap-free account. Contact both brokers directly for the most up-to-date information on Sharia-compliant account options.<?php endif; ?></div></details>
+            <details class="faq-item"><summary class="faq-q">Which broker has lower spreads — <?= e($b1['name']) ?> or <?= e($b2['name']) ?>?</summary><div class="faq-a"><?php if (!empty($b1['spread_eurusd']) && !empty($b2['spread_eurusd'])): if ((float)$b1['spread_eurusd'] < (float)$b2['spread_eurusd']): ?><?= e($b1['name']) ?> offers a tighter EUR/USD spread of <?= e($b1['spread_eurusd']) ?> pips versus <?= e($b2['name']) ?>'s <?= e($b2['spread_eurusd']) ?> pips. Lower spreads reduce your trading costs on every trade, which matters most for high-frequency or scalping strategies.<?php else: ?><?= e($b2['name']) ?> offers a tighter EUR/USD spread of <?= e($b2['spread_eurusd']) ?> pips versus <?= e($b1['name']) ?>'s <?= e($b1['spread_eurusd']) ?> pips. Lower spreads reduce trading costs on every position, which compounds significantly for active traders.<?php endif; else: ?>Spread data is subject to market conditions and account type. Check each broker's live spreads on their website and compare on the same account type (standard vs raw/ECN) for a fair comparison.<?php endif; ?></div></details>
+        </div>
 
         <!-- Other comparisons -->
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-top:1.5rem">

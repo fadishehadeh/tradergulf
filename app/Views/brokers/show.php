@@ -58,7 +58,7 @@ $sectionIcons = [
                     <p class="rv-hero-meta">
                         Updated <?= $broker['last_updated'] ? date('M j, Y', strtotime($broker['last_updated'])) : date('M Y') ?>
                         &nbsp;&middot;&nbsp;
-                        Reviewed by <a href="<?= url('about') ?>" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Trader Gulf Editorial Team</a>
+                        Reviewed by <a href="<?= url('team') ?>" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Trader Gulf Editorial Team</a>
                     </p>
                 </div>
             </div>
