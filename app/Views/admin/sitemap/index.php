@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $gscSubmitUrl = 'https://search.google.com/search-console/sitemaps?resource_id=' . urlencode(rtrim(config('app.url', url('')), '/') . '/');
 $sitemapEncoded = urlencode($sitemapUrl);
 ?>

@@ -1,4 +1,4 @@
-﻿<div class="a-card" style="max-width:640px">
+<div class="a-card" style="max-width:640px">
     <div class="a-card-header">
         <div>
             <h3 style="margin:0;font-size:1rem">

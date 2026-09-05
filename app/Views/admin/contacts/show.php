@@ -1,4 +1,4 @@
-﻿<div style="margin-bottom:1rem">
+<div style="margin-bottom:1rem">
     <a href="<?= url('admin/contacts') ?>" class="btn-a btn-a-ghost btn-a-sm">&#8592; Back to Messages</a>
 </div>
 

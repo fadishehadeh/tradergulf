@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $ctr = fn($imp, $clk) => $imp > 0 ? round($clk / $imp * 100, 2) . '%' : '-';
 ?>
 

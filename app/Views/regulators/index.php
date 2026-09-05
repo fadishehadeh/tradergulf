@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /** @var array $regulators */
 $tierColors = [
     1 => ['bg' => 'rgba(16,185,129,.12)', 'text' => '#10b981', 'label' => 'Tier 1'],

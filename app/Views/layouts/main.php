@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $_lang   = lang();
 $_isRtl  = is_rtl();
 $_dir    = $_isRtl ? 'rtl' : 'ltr';

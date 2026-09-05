@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /** @var array $b1  - first broker (with review HTML) */
 /** @var array $b2  - second broker (with review HTML) */
 

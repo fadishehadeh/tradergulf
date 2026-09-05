@@ -1,4 +1,4 @@
-﻿<section style="background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);padding:3rem 0 2rem;text-align:center">
+<section style="background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);padding:3rem 0 2rem;text-align:center">
     <div class="container">
         <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;margin-bottom:.5rem">Affiliate Disclosure</h1>
         <p style="color:rgba(255,255,255,.65);font-size:.9rem">Last updated: <?= date('F Y') ?></p>

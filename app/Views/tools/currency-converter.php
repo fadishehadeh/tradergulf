@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',
     '@type'               => 'WebApplication',

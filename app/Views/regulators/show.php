@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /** @var array $reg     - regulator config from RegulatorController */
 /** @var array $brokers - brokers filtered by regulation field */
 $tierColors = [

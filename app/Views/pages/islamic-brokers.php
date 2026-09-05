@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $introHtml = $seoPage['intro_html'] ?? '';
 $bodyHtml  = $seoPage['body_html'] ?? '';
 ?>

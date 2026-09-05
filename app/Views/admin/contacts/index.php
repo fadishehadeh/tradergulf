@@ -1,4 +1,4 @@
-﻿<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem">
     <div>
         <h2 style="font-size:1.05rem;margin:0">Contact Messages</h2>
         <div style="font-size:.82rem;color:var(--a-text-muted);margin-top:.2rem">

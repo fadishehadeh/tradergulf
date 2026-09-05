@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $selectedBrokers = json_decode($page['broker_ids'] ?? '[]', true) ?: [];
 ?>
 

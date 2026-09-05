@@ -1,4 +1,4 @@
-﻿<div class="a-card">
+<div class="a-card">
     <div class="a-card-header">
         <h2><?= e($page['title']) ?></h2>
         <div style="display:flex;gap:.5rem;align-items:center">

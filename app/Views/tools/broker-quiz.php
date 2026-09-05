@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // broker-quiz.php - $brokersJson passed from ToolsController
 echo '<script type="application/ld+json">' . json_encode([
     '@context'            => 'https://schema.org',

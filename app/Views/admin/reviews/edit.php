@@ -1,4 +1,4 @@
-﻿<div style="margin-bottom:1rem">
+<div style="margin-bottom:1rem">
     <a href="<?= url('admin/brokers') ?>" class="btn-a btn-a-ghost btn-a-sm">← All Brokers</a>
     <a href="<?= url("brokers/{$broker['slug']}") ?>" target="_blank"
        class="btn-a btn-a-ghost btn-a-sm" style="margin-left:.4rem">View Public Page</a>

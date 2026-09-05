@@ -1,4 +1,4 @@
-﻿<div class="a-card">
+<div class="a-card">
     <div class="a-card-header">
         <h2><?= isset($article['id']) ? 'Edit Article' : 'New Article' ?></h2>
         <a href="<?= url('admin/articles') ?>" class="btn-a btn-a-ghost btn-a-sm">← Back</a>

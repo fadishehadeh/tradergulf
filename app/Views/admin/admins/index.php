@@ -1,4 +1,4 @@
-﻿<div class="a-card" style="max-width:800px">
+<div class="a-card" style="max-width:800px">
     <div class="a-card-header" style="display:flex;justify-content:space-between;align-items:center">
         <h2>Admin Users</h2>
         <a href="<?= url('admin/admins/create') ?>" class="btn-a btn-a-accent">+ Add Admin</a>

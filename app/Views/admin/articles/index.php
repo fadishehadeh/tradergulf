@@ -1,4 +1,4 @@
-﻿<div class="a-card">
+<div class="a-card">
     <div class="a-card-header">
         <h2>Articles (<?= count($articles) ?>)</h2>
         <a href="<?= url('admin/articles/create') ?>" class="btn-a btn-a-accent">+ New Article</a>

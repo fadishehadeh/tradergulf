@@ -1,4 +1,4 @@
-﻿<div class="page-header">
+<div class="page-header">
     <div class="container">
         <h1>Best Forex Brokers in UAE &amp; Gulf 2025</h1>
         <p>Independent, in-depth reviews of the top regulated forex brokers for UAE, Saudi Arabia, Kuwait and Gulf traders.</p>

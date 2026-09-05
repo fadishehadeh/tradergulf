@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /* ── helpers ────────────────────────────────────────────────────────────── */
 $isNews  = ($guide['category'] ?? '') === 'news';
 $section = $isNews ? 'news' : 'guides';

@@ -1,4 +1,4 @@
-﻿<div class="a-card">
+<div class="a-card">
     <div class="a-card-header">
         <h2>Static Pages</h2>
     </div>

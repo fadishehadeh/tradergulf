@@ -1,4 +1,4 @@
-﻿<section style="background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);padding:3.5rem 0 2.5rem;text-align:center">
+<section style="background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);padding:3.5rem 0 2.5rem;text-align:center">
     <div class="container">
         <h1 style="font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:.65rem">Meet the Team</h1>
         <p style="color:rgba(255,255,255,.7);max-width:580px;margin:0 auto;font-size:.95rem">

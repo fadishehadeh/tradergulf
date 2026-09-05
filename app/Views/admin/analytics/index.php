@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $maxDaily  = max(array_column($daily, 'views') ?: [1]);
 $maxPage   = $topPages[0]['views'] ?? 1;
 $ga4Id     = setting('google_analytics', '');

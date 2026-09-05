@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /** @var array $country  - country config array from CountryController */
 /** @var array $brokers  - all active brokers */
 $slug     = $country['slug'];

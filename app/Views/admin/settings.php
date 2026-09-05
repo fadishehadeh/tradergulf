@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $defaults = [
     'site_name'        => 'Trader Gulf',
     'site_tagline'     => 'Independent Forex Broker Reviews',

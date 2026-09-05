@@ -1,4 +1,4 @@
-﻿<!-- Hero market banner -->
+<!-- Hero market banner -->
 <div class="page-hero-banner page-hero-banner--hero">
     <div class="banner-wrap">
         <img src="<?= url('assets/img/banners/hero-1-market-charts.svg') ?>" alt="Best Forex Brokers in UAE &amp; Gulf" width="1400" height="720" loading="eager" decoding="async">

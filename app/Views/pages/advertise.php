@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $bCrumb = json_encode([
     '@context' => 'https://schema.org', '@type' => 'BreadcrumbList',
     'itemListElement' => [
