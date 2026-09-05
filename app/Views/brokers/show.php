@@ -50,8 +50,20 @@ $sectionIcons = [
                     <h1 class="rv-hero-title"><?= e($broker['name']) ?> Review <?= date('Y') ?></h1>
                     <?php if (!empty($broker['regulation'])): ?>
                     <div class="rv-reg-chips">
-                        <?php foreach (array_slice(array_map('trim', preg_split('/[,\/]+/', $broker['regulation'])), 0, 5) as $reg): if (!$reg) continue; ?>
+                        <?php
+                        $regSlugMap = [
+                            'FCA'=>'fca','ASIC'=>'asic','CySEC'=>'cysec','DFSA'=>'dfsa',
+                            'SCA'=>'sca','CMA'=>'cma-saudi','FSCA'=>'fsca','FSA'=>'fsa-seychelles',
+                        ];
+                        foreach (array_slice(array_map('trim', preg_split('/[,\/]+/', $broker['regulation'])), 0, 5) as $reg):
+                            if (!$reg) continue;
+                            $regSlug = $regSlugMap[$reg] ?? null;
+                        ?>
+                        <?php if ($regSlug): ?>
+                        <a href="<?= url('regulators/' . $regSlug) ?>" class="rv-reg-chip" style="text-decoration:none"><?= e($reg) ?></a>
+                        <?php else: ?>
                         <span class="rv-reg-chip"><?= e($reg) ?></span>
+                        <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
                     <?php endif; ?>
@@ -186,6 +198,27 @@ $sectionIcons = [
             <p><?= e($broker['name']) ?> is regulated by: <strong><?= e($broker['regulation']) ?></strong>.</p>
             <p>Regulation provides a layer of protection for traders. Always verify a broker's regulatory status directly with the relevant authority before depositing funds.</p>
             <?php endif; ?>
+            <?php if (!empty($broker['regulation'])):
+                $regSlugMap2 = [
+                    'FCA'=>'fca','ASIC'=>'asic','CySEC'=>'cysec','DFSA'=>'dfsa',
+                    'SCA'=>'sca','CMA'=>'cma-saudi','FSCA'=>'fsca','FSA'=>'fsa-seychelles',
+                ];
+                $regs = array_filter(array_map('trim', preg_split('/[,\/]+/', $broker['regulation'])));
+                $hasLinks = false;
+                foreach ($regs as $r) { if (isset($regSlugMap2[$r])) { $hasLinks = true; break; } }
+                if ($hasLinks): ?>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem">
+                <span style="font-size:.8rem;color:var(--text-muted);line-height:2">Learn about:</span>
+                <?php foreach ($regs as $r):
+                    $s = $regSlugMap2[$r] ?? null;
+                    if (!$s) continue; ?>
+                <a href="<?= url('regulators/' . $s) ?>"
+                   style="font-size:.78rem;font-weight:600;padding:.25rem .7rem;border:1px solid var(--border);border-radius:20px;color:var(--accent);text-decoration:none;background:var(--card-bg)">
+                    <?= e($r) ?> Regulation &rarr;
+                </a>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; endif; ?>
         </section>
 
         <!-- Account Types -->
