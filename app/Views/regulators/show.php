@@ -157,8 +157,12 @@ $tc = $tierColors[$reg['tier']] ?? $tierColors[3];
                 <?php
                 $allRegs = [
                     'fca' => 'FCA (UK)', 'asic' => 'ASIC (AU)', 'cysec' => 'CySEC (EU)',
-                    'dfsa' => 'DFSA (UAE)', 'sca' => 'SCA (UAE)', 'cma-saudi' => 'CMA (SA)',
-                    'fsca' => 'FSCA (ZA)', 'fsa-seychelles' => 'FSA (SC)', 'cma-kuwait' => 'CMA (KW)',
+                    'dfsa' => 'DFSA (UAE)', 'fsra-adgm' => 'FSRA (ADGM)', 'sca' => 'SCA (UAE)',
+                    'cma-saudi' => 'CMA (SA)', 'cma-kuwait' => 'CMA (KW)', 'cbb' => 'CBB (BH)',
+                    'qfcra' => 'QFCRA (QA)', 'mas' => 'MAS (SG)', 'nfa' => 'NFA (US)',
+                    'bafin' => 'BaFin (DE)', 'fsca' => 'FSCA (ZA)', 'fma-nz' => 'FMA (NZ)',
+                    'fsa-seychelles' => 'FSA (SC)', 'fsc-mauritius' => 'FSC (MU)',
+                    'vfsc' => 'VFSC (VU)', 'cima' => 'CIMA (KY)',
                 ];
                 foreach ($allRegs as $slug => $label):
                     if ($slug === $reg['slug']) continue; ?>

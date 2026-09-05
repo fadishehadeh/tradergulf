@@ -54,6 +54,9 @@ $sectionIcons = [
                         $regSlugMap = [
                             'FCA'=>'fca','ASIC'=>'asic','CySEC'=>'cysec','DFSA'=>'dfsa',
                             'SCA'=>'sca','CMA'=>'cma-saudi','FSCA'=>'fsca','FSA'=>'fsa-seychelles',
+                            'FSRA'=>'fsra-adgm','CBB'=>'cbb','QFCRA'=>'qfcra','MAS'=>'mas',
+                            'NFA'=>'nfa','BaFin'=>'bafin','FSC'=>'fsc-mauritius',
+                            'VFSC'=>'vfsc','FMA'=>'fma-nz','CIMA'=>'cima',
                         ];
                         foreach (array_slice(array_map('trim', preg_split('/[,\/]+/', $broker['regulation'])), 0, 5) as $reg):
                             if (!$reg) continue;
@@ -202,6 +205,9 @@ $sectionIcons = [
                 $regSlugMap2 = [
                     'FCA'=>'fca','ASIC'=>'asic','CySEC'=>'cysec','DFSA'=>'dfsa',
                     'SCA'=>'sca','CMA'=>'cma-saudi','FSCA'=>'fsca','FSA'=>'fsa-seychelles',
+                    'FSRA'=>'fsra-adgm','CBB'=>'cbb','QFCRA'=>'qfcra','MAS'=>'mas',
+                    'NFA'=>'nfa','BaFin'=>'bafin','FSC'=>'fsc-mauritius',
+                    'VFSC'=>'vfsc','FMA'=>'fma-nz','CIMA'=>'cima',
                 ];
                 $regs = array_filter(array_map('trim', preg_split('/[,\/]+/', $broker['regulation'])));
                 $hasLinks = false;

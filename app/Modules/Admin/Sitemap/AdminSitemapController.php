@@ -118,7 +118,7 @@ class AdminSitemapController extends AdminBaseController
 
         // Regulators directory
         $urls[] = ['loc' => $base . '/regulators', 'lastmod' => $today, 'priority' => '0.8', 'freq' => 'monthly'];
-        foreach (['fca', 'asic', 'cysec', 'dfsa', 'sca', 'cma-saudi', 'fsca', 'fsa-seychelles', 'cma-kuwait'] as $slug) {
+        foreach (['fca', 'asic', 'cysec', 'dfsa', 'sca', 'cma-saudi', 'fsca', 'fsa-seychelles', 'cma-kuwait', 'fsra-adgm', 'cbb', 'qfcra', 'mas', 'nfa', 'bafin', 'fsc-mauritius', 'vfsc', 'fma-nz', 'cima'] as $slug) {
             $urls[] = ['loc' => $base . '/regulators/' . $slug, 'lastmod' => $today, 'priority' => '0.75', 'freq' => 'monthly'];
         }
 
