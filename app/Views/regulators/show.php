@@ -81,7 +81,7 @@ $tc = $tierColors[$reg['tier']] ?? $tierColors[3];
 
             <!-- Logo -->
             <?php if (!empty($b['logo'])): ?>
-            <img src="<?= e($b['logo']) ?>" alt="<?= e($b['name']) ?> logo" loading="lazy"
+            <img src="<?= url('assets/img/brokers/' . e($b['logo'])) ?>" alt="<?= e($b['name']) ?> logo" loading="lazy"
                  style="width:80px;height:52px;object-fit:contain;flex-shrink:0">
             <?php else: ?>
             <div style="width:80px;height:52px;background:var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--text-muted);flex-shrink:0"><?= e($b['name']) ?></div>
