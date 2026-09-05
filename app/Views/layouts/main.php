@@ -155,6 +155,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
                 <div class="nav-dropdown-menu" role="menu">
                     <a href="<?= url('guides') ?>" role="menuitem"><?= t('All Guides') ?></a>
                     <a href="<?= url('glossary') ?>" role="menuitem"><?= t('Forex Glossary') ?></a>
+                    <a href="<?= url('regulators') ?>" role="menuitem">Regulators Guide</a>
                 </div>
             </div>
 
@@ -213,6 +214,7 @@ $_dir    = $_isRtl ? 'rtl' : 'ltr';
                 <a href="<?= url('brokers') ?>"><?= t('All Reviews') ?></a>
                 <a href="<?= url('compare') ?>"><?= t('Compare Brokers') ?></a>
                 <a href="<?= url('islamic-forex-brokers') ?>">Islamic Accounts</a>
+                <a href="<?= url('regulators') ?>">Regulators Guide</a>
             </div>
             <div class="footer-col">
                 <h4><?= t('Educational Guides') ?></h4>

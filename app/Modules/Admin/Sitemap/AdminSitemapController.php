@@ -116,6 +116,12 @@ class AdminSitemapController extends AdminBaseController
             $urls[] = ['loc' => $base . '/glossary/' . $g['slug'], 'lastmod' => $today, 'priority' => '0.5', 'freq' => 'monthly'];
         }
 
+        // Regulators directory
+        $urls[] = ['loc' => $base . '/regulators', 'lastmod' => $today, 'priority' => '0.8', 'freq' => 'monthly'];
+        foreach (['fca', 'asic', 'cysec', 'dfsa', 'sca', 'cma-saudi', 'fsca', 'fsa-seychelles', 'cma-kuwait'] as $slug) {
+            $urls[] = ['loc' => $base . '/regulators/' . $slug, 'lastmod' => $today, 'priority' => '0.75', 'freq' => 'monthly'];
+        }
+
         // Build XML
         $xml  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' . "\n";

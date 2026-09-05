@@ -33,6 +33,7 @@ use App\Modules\Admin\Admins\AdminAdminsController;
 use App\Modules\Admin\Ads\AdminAdsController;
 use App\Modules\Ads\AdsController;
 use App\Modules\Country\CountryController;
+use App\Modules\Regulators\RegulatorController;
 use App\Modules\Search\SearchController;
 use App\Modules\Api\TickerController;
 use App\Modules\Api\NewsWidgetController;
@@ -129,6 +130,10 @@ $router->get('/islamic-forex-brokers', [PageController::class, 'islamicBrokers']
 
 // Country SEO pages — /forex-brokers-in/{country-slug}
 $router->get('/forex-brokers-in/{country}', [CountryController::class, 'show']);
+
+// Regulators directory
+$router->get('/regulators', [RegulatorController::class, 'index']);
+$router->get('/regulators/{regulator}', [RegulatorController::class, 'show']);
 
 // Advertise page
 $router->get('/advertise', [PageController::class, 'advertise']);
