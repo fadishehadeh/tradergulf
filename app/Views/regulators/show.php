@@ -1,10 +1,10 @@
-<?php
+﻿<?php
 /** @var array $reg     - regulator config from RegulatorController */
 /** @var array $brokers - brokers filtered by regulation field */
 $tierColors = [
-    1 => ['bg' => 'rgba(16,185,129,.12)', 'text' => '#10b981', 'label' => 'Tier 1 — Top Rated'],
-    2 => ['bg' => 'rgba(245,158,11,.12)',  'text' => '#f59e0b', 'label' => 'Tier 2 — Well Regulated'],
-    3 => ['bg' => 'rgba(156,163,175,.12)', 'text' => '#9ca3af', 'label' => 'Tier 3 — Offshore'],
+    1 => ['bg' => 'rgba(16,185,129,.12)', 'text' => '#10b981', 'label' => 'Tier 1 - Top Rated'],
+    2 => ['bg' => 'rgba(245,158,11,.12)',  'text' => '#f59e0b', 'label' => 'Tier 2 - Well Regulated'],
+    3 => ['bg' => 'rgba(156,163,175,.12)', 'text' => '#9ca3af', 'label' => 'Tier 3 - Offshore'],
 ];
 $tc = $tierColors[$reg['tier']] ?? $tierColors[3];
 ?>
@@ -136,7 +136,7 @@ $tc = $tierColors[$reg['tier']] ?? $tierColors[3];
 
         <h2 style="font-size:1.2rem;font-weight:800;margin:1.75rem 0 1rem">How to Verify <?= e($reg['name']) ?> Regulation</h2>
         <p style="line-height:1.75;color:var(--text-muted);font-size:.92rem;margin-bottom:.9rem">
-            Before depositing funds with any broker, verify their regulatory status directly on the <?= e($reg['name']) ?> official register. Do not rely solely on licence numbers displayed on a broker's website — always cross-check the number against the public register. The official website is listed in the key facts above. Be wary of clone firms that use the names and registration numbers of legitimate brokers to deceive traders.
+            Before depositing funds with any broker, verify their regulatory status directly on the <?= e($reg['name']) ?> official register. Do not rely solely on licence numbers displayed on a broker's website - always cross-check the number against the public register. The official website is listed in the key facts above. Be wary of clone firms that use the names and registration numbers of legitimate brokers to deceive traders.
         </p>
 
         <h2 style="font-size:1.2rem;font-weight:800;margin:1.75rem 0 1rem">Frequently Asked Questions</h2>

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Pages;
@@ -87,7 +87,7 @@ class PageController extends Controller
 
         $this->render('pages/team', [
             'title'   => 'Meet the Team | Trader Gulf',
-            'metaDesc'=> 'The experts behind Trader Gulf — independent forex analysts, traders, and researchers dedicated to unbiased broker reviews.',
+            'metaDesc'=> 'The experts behind Trader Gulf - independent forex analysts, traders, and researchers dedicated to unbiased broker reviews.',
             'canonical' => url('team'),
             'members' => $members,
         ]);
@@ -96,7 +96,7 @@ class PageController extends Controller
     public function methodology(Request $request): void
     {
         $this->render('pages/methodology', [
-            'title'   => 'How We Rate Forex Brokers — Our Methodology | Trader Gulf',
+            'title'   => 'How We Rate Forex Brokers - Our Methodology | Trader Gulf',
             'metaDesc'=> 'Learn how Trader Gulf rates and ranks forex brokers. Our transparent methodology covers regulation, spreads, platforms, deposits, and more.',
             'canonical' => url('methodology'),
         ]);
@@ -162,7 +162,7 @@ class PageController extends Controller
     public function advertise(Request $request): void
     {
         $this->render('pages/advertise', [
-            'title'     => 'Advertise With Trader Gulf — Reach MENA Forex Traders',
+            'title'     => 'Advertise With Trader Gulf - Reach MENA Forex Traders',
             'metaDesc'  => 'Reach thousands of active forex traders in UAE, Saudi Arabia, and Kuwait. View our ad formats, pricing, and media kit.',
             'canonical' => url('advertise'),
         ]);

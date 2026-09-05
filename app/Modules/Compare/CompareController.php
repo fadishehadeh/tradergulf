@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Compare;
@@ -24,7 +24,7 @@ class CompareController extends Controller
 
     public function comparison(Request $request, string $versus): void
     {
-        // Parse "broker-a-vs-broker-b" — split on first "-vs-"
+        // Parse "broker-a-vs-broker-b" - split on first "-vs-"
         $pos = strpos($versus, '-vs-');
         if ($pos === false) $this->notFound();
 
@@ -48,7 +48,7 @@ class CompareController extends Controller
         [$b1, $b2] = $brokers;
 
         $pageUrl   = url('compare/' . $versus);
-        $pageTitle = $b1['name'] . ' vs ' . $b2['name'] . ' 2025 — Broker Comparison | Trader Gulf';
+        $pageTitle = $b1['name'] . ' vs ' . $b2['name'] . ' 2025 - Broker Comparison | Trader Gulf';
         $metaDesc  = 'Compare ' . $b1['name'] . ' vs ' . $b2['name'] . ' side-by-side. Spreads, regulation, platforms, minimum deposit, Islamic accounts. Which is best for MENA traders?';
 
         $bSchema = json_encode([

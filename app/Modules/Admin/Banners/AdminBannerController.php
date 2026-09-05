@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Admin\Banners;
@@ -119,7 +119,7 @@ class AdminBannerController extends AdminBaseController
             return ['error' => 'File too large (max 3 MB)'];
         }
 
-        // Validate MIME via finfo (ignore $_FILES['type'] — it's client-supplied)
+        // Validate MIME via finfo (ignore $_FILES['type'] - it's client-supplied)
         $finfo = new \finfo(FILEINFO_MIME_TYPE);
         $mime  = $finfo->file($file['tmp_name']);
         if (!in_array($mime, self::ALLOWED_MIME, true)) {
@@ -151,7 +151,7 @@ class AdminBannerController extends AdminBaseController
         // Only delete files we own (stored under our asset path)
         $assetBase = asset(self::UPLOAD_DIR);
         if (!str_starts_with($url, $assetBase)) {
-            return; // external URL — don't touch
+            return; // external URL - don't touch
         }
         $filename = basename($url);
         $path     = base_path('public/assets/' . self::UPLOAD_DIR . $filename);

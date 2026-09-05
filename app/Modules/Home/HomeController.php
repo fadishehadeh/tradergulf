@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Home;
@@ -61,7 +61,7 @@ class HomeController extends Controller
 
         $this->render('home/index', [
             'title'          => 'Best Forex Brokers in UAE & Gulf 2026 | Trader Gulf',
-            'metaDesc'       => 'Compare the best forex brokers in UAE, Saudi Arabia, Kuwait and the Gulf region. Independent reviews, spreads, regulation and fees — updated 2026.',
+            'metaDesc'       => 'Compare the best forex brokers in UAE, Saudi Arabia, Kuwait and the Gulf region. Independent reviews, spreads, regulation and fees - updated 2026.',
             'canonical'      => url(),
             'headSchemas'    => "<script type=\"application/ld+json\">$orgSchema</script><script type=\"application/ld+json\">$siteSchema</script>",
             'featuredBrokers'=> $featuredBrokers,

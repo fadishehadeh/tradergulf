@@ -111,12 +111,12 @@ calc();
 SCRIPT;
 ?>
 
-<!-- Educational content — SEO body for "position size calculator" queries -->
+<!-- Educational content - SEO body for "position size calculator" queries -->
 <div class="container" style="padding:0 0 2rem">
 <div style="max-width:820px;margin:0 auto">
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">What Is Position Sizing in Forex?</h2>
-<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem"><strong>Position sizing</strong> is the process of calculating how many lots to trade so that a losing trade — stopped out at your predetermined stop-loss level — costs no more than your chosen risk amount. It is the single most important risk management discipline in forex trading.</p>
+<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem"><strong>Position sizing</strong> is the process of calculating how many lots to trade so that a losing trade - stopped out at your predetermined stop-loss level - costs no more than your chosen risk amount. It is the single most important risk management discipline in forex trading.</p>
 <p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Professional traders in the UAE and Gulf region typically risk <strong>1–2% of their account</strong> per trade. This keeps any single loss small enough that a run of losing trades does not wipe the account.</p>
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">Position Size Formula</h2>
@@ -150,7 +150,7 @@ SCRIPT;
 </div>
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">Frequently Asked Questions</h2>
-<details class="faq-item"><summary class="faq-q">How much should I risk per forex trade?</summary><div class="faq-a">Most professional traders risk 1–2% of their account per trade. At 1% risk, you need 50 consecutive losing trades to lose half your account — which gives you enough runway to recover. Risking 5% or more per trade is considered high risk and common among traders who blow accounts.</div></details>
+<details class="faq-item"><summary class="faq-q">How much should I risk per forex trade?</summary><div class="faq-a">Most professional traders risk 1–2% of their account per trade. At 1% risk, you need 50 consecutive losing trades to lose half your account - which gives you enough runway to recover. Risking 5% or more per trade is considered high risk and common among traders who blow accounts.</div></details>
 <details class="faq-item"><summary class="faq-q">What is a good position size for a $1,000 account?</summary><div class="faq-a">At 1% risk ($10) with a 50-pip stop-loss on EUR/USD, the correct position size is 0.02 lots (2,000 units). Many beginners trade 0.1 or 1 lot without calculating, risking 10–100 times more than they should.</div></details>
 <details class="faq-item"><summary class="faq-q">Does position size change for different currency pairs?</summary><div class="faq-a">Yes. Pip value differs by pair, especially for JPY pairs where one pip = 0.01 instead of 0.0001. Always calculate using the correct pip value for the pair you are trading. Use the pip value calculator to find the right number before entering the position size formula.</div></details>
 

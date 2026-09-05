@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Api;
@@ -8,7 +8,7 @@ use App\Core\Request;
 
 class CurrencyRatesController extends Controller
 {
-    private const CACHE_TTL = 3600; // 1 hour — ECB rates update once daily
+    private const CACHE_TTL = 3600; // 1 hour - ECB rates update once daily
     private const API_URL   = 'https://api.frankfurter.app/latest?base=EUR';
 
     public function rates(Request $request): never

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Affiliate;
@@ -34,7 +34,7 @@ class AffiliateController extends Controller
                 [(int)$broker['id'], $broker['slug'], $source ?: null, $ip ?: null, $ua ?: null, $referer ?: null]
             );
         } catch (\Throwable) {
-            // Non-fatal — still redirect
+            // Non-fatal - still redirect
         }
 
         $url = $broker['affiliate_url'];

@@ -107,22 +107,22 @@ echo '<script type="application/ld+json">' . json_encode([
 </div>
 </div>
 
-<!-- Educational content — SEO body for "forex pip calculator" queries -->
+<!-- Educational content - SEO body for "forex pip calculator" queries -->
 <div class="container" style="padding:0 0 2.5rem">
 <div style="max-width:820px;margin:0 auto">
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">What Is a Pip in Forex?</h2>
-<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">A <strong>pip</strong> (percentage in point) is the smallest standardised price move in a currency pair. For most pairs, one pip equals <strong>0.0001</strong> — the fourth decimal place. For JPY pairs (USD/JPY, EUR/JPY), one pip equals <strong>0.01</strong>, the second decimal place, because the Japanese yen trades at a fundamentally different scale.</p>
-<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Many brokers now quote prices to a fifth decimal place (0.00001) — this fractional unit is called a <strong>pipette</strong> or point, and equals one-tenth of a pip. Your broker's platform may display both.</p>
+<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">A <strong>pip</strong> (percentage in point) is the smallest standardised price move in a currency pair. For most pairs, one pip equals <strong>0.0001</strong> - the fourth decimal place. For JPY pairs (USD/JPY, EUR/JPY), one pip equals <strong>0.01</strong>, the second decimal place, because the Japanese yen trades at a fundamentally different scale.</p>
+<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Many brokers now quote prices to a fifth decimal place (0.00001) - this fractional unit is called a <strong>pipette</strong> or point, and equals one-tenth of a pip. Your broker's platform may display both.</p>
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">How to Calculate Pip Value</h2>
 <p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Pip value depends on three things: the pip size for the pair, the lot size you are trading, and the current exchange rate if your account currency differs from the pair's quote currency.</p>
 <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem">
     <strong>Formula:</strong><br>
     <code style="font-size:.95rem;color:var(--accent)">Pip Value = (Pip Size × Lot Size in Units) ÷ Exchange Rate</code><br><br>
-    <strong>Example — EUR/USD standard lot (100,000 units):</strong><br>
+    <strong>Example - EUR/USD standard lot (100,000 units):</strong><br>
     Pip Value = (0.0001 × 100,000) ÷ 1 = <strong>$10 per pip</strong><br><br>
-    <strong>Example — USD/JPY standard lot at 150.00:</strong><br>
+    <strong>Example - USD/JPY standard lot at 150.00:</strong><br>
     Pip Value = (0.01 × 100,000) ÷ 150.00 = <strong>$6.67 per pip</strong>
 </div>
 
@@ -147,13 +147,13 @@ echo '<script type="application/ld+json">' . json_encode([
 </div>
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">Why Pip Value Matters for Risk Management</h2>
-<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Knowing your pip value before entering a trade is the foundation of position sizing. If you are risking 1% of a $10,000 account ($100) and your stop-loss is 50 pips on EUR/USD, you need a pip value of $100 ÷ 50 = $2 per pip — which means trading 0.2 standard lots (20,000 units).</p>
-<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Without calculating pip value, traders in the UAE and Gulf region often over-leverage — risking far more capital per pip than their account can withstand. Use this calculator before every trade to confirm your exposure.</p>
+<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Knowing your pip value before entering a trade is the foundation of position sizing. If you are risking 1% of a $10,000 account ($100) and your stop-loss is 50 pips on EUR/USD, you need a pip value of $100 ÷ 50 = $2 per pip - which means trading 0.2 standard lots (20,000 units).</p>
+<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Without calculating pip value, traders in the UAE and Gulf region often over-leverage - risking far more capital per pip than their account can withstand. Use this calculator before every trade to confirm your exposure.</p>
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">Frequently Asked Questions</h2>
 <details class="faq-item"><summary class="faq-q">How much is one pip in USD for EUR/USD?</summary><div class="faq-a">One pip on EUR/USD equals $10 for a standard lot (100,000 units), $1 for a mini lot (10,000 units), and $0.10 for a micro lot (1,000 units). These values assume a USD account and an EUR/USD rate close to 1.0000.</div></details>
 <details class="faq-item"><summary class="faq-q">How do I calculate pip value for JPY pairs?</summary><div class="faq-a">For JPY pairs such as USD/JPY, one pip is 0.01 (not 0.0001). Use the formula: Pip Value = (0.01 × lot units) ÷ current USD/JPY rate. At 150.00, a standard lot gives a pip value of approximately $6.67.</div></details>
-<details class="faq-item"><summary class="faq-q">What is a pipette?</summary><div class="faq-a">A pipette is one-tenth of a pip — the fifth decimal place on standard pairs (0.00001) or the third decimal place on JPY pairs. Many brokers quote prices at this level of precision. Ten pipettes equal one pip.</div></details>
+<details class="faq-item"><summary class="faq-q">What is a pipette?</summary><div class="faq-a">A pipette is one-tenth of a pip - the fifth decimal place on standard pairs (0.00001) or the third decimal place on JPY pairs. Many brokers quote prices at this level of precision. Ten pipettes equal one pip.</div></details>
 <details class="faq-item"><summary class="faq-q">Does pip value change when the exchange rate changes?</summary><div class="faq-a">For pairs where the quote currency is not USD (e.g. EUR/GBP, USD/JPY), pip value changes as the exchange rate moves, because you are dividing by a changing rate. For USD-quoted pairs like EUR/USD and GBP/USD, the pip value is fixed in USD terms regardless of the rate.</div></details>
 
 <?php
@@ -163,7 +163,7 @@ $faqSchema = [
     'mainEntity' => [
         ['@type' => 'Question', 'name' => 'How much is one pip in USD for EUR/USD?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'One pip on EUR/USD equals $10 for a standard lot (100,000 units), $1 for a mini lot (10,000 units), and $0.10 for a micro lot (1,000 units).']],
         ['@type' => 'Question', 'name' => 'How do I calculate pip value for JPY pairs?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'For JPY pairs such as USD/JPY, one pip is 0.01. Use: Pip Value = (0.01 × lot units) ÷ current USD/JPY rate. At 150.00, a standard lot gives $6.67 per pip.']],
-        ['@type' => 'Question', 'name' => 'What is a pipette?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'A pipette is one-tenth of a pip — the fifth decimal place on standard pairs. Ten pipettes equal one pip.']],
+        ['@type' => 'Question', 'name' => 'What is a pipette?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'A pipette is one-tenth of a pip - the fifth decimal place on standard pairs. Ten pipettes equal one pip.']],
         ['@type' => 'Question', 'name' => 'Does pip value change when the exchange rate changes?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'For pairs where the quote currency is not USD (e.g. EUR/GBP, USD/JPY), pip value changes as the rate moves. For USD-quoted pairs like EUR/USD, the pip value is fixed in USD terms.']],
     ],
 ];

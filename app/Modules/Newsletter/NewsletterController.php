@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Newsletter;
@@ -35,7 +35,7 @@ class NewsletterController extends Controller
             exit;
         }
 
-        /* honeypot — bots fill in the hidden 'hp' field, legit JS form never does */
+        /* honeypot - bots fill in the hidden 'hp' field, legit JS form never does */
         if ($request->input('hp', '') !== '') {
             header('Content-Type: application/json');
             echo json_encode(['ok' => true]);

@@ -126,12 +126,12 @@ calc();
 SCRIPT;
 ?>
 
-<!-- Educational content — SEO body for "forex margin calculator" queries -->
+<!-- Educational content - SEO body for "forex margin calculator" queries -->
 <div class="container" style="padding:0 0 2rem">
 <div style="max-width:820px;margin:0 auto">
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">What Is Forex Margin?</h2>
-<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem"><strong>Margin</strong> is the amount of money your broker holds as collateral to keep a leveraged position open. It is not a fee — it is a deposit that is returned when you close the trade. The higher your leverage, the less margin you need to control a large position.</p>
+<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem"><strong>Margin</strong> is the amount of money your broker holds as collateral to keep a leveraged position open. It is not a fee - it is a deposit that is returned when you close the trade. The higher your leverage, the less margin you need to control a large position.</p>
 <p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">For example, trading 1 standard lot of EUR/USD (100,000 units) at 1:100 leverage requires just <strong>$1,090 in margin</strong> (at a rate of 1.09), instead of the full $109,000 notional value. Leverage amplifies both profits and losses equally.</p>
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">Margin Formula Explained</h2>
@@ -165,7 +165,7 @@ SCRIPT;
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">Frequently Asked Questions</h2>
 <details class="faq-item"><summary class="faq-q">What happens if my margin runs out?</summary><div class="faq-a">When your account equity falls below the broker's margin call level (typically 50–100% of required margin), your broker issues a margin call warning. If equity falls below the stop-out level (usually 20–50%), the broker automatically closes your positions starting with the largest losing trade. To avoid margin calls, never use more than 20–30% of your available margin at one time.</div></details>
-<details class="faq-item"><summary class="faq-q">What is the difference between margin and leverage?</summary><div class="faq-a">Leverage is the ratio between your deposit and the position size you can control (e.g. 1:100 means $1 controls $100). Margin is the actual dollar amount your broker requires as collateral to open that position. Higher leverage means lower margin requirement — they are two sides of the same relationship.</div></details>
+<details class="faq-item"><summary class="faq-q">What is the difference between margin and leverage?</summary><div class="faq-a">Leverage is the ratio between your deposit and the position size you can control (e.g. 1:100 means $1 controls $100). Margin is the actual dollar amount your broker requires as collateral to open that position. Higher leverage means lower margin requirement - they are two sides of the same relationship.</div></details>
 <details class="faq-item"><summary class="faq-q">How much margin do I need to trade 0.1 lots EUR/USD at 1:100?</summary><div class="faq-a">At 1:100 leverage and an exchange rate of 1.09, trading 0.1 lots (10,000 units) of EUR/USD requires $109 in margin. The formula is: (0.1 × 100,000 × 1.09) ÷ 100 = $109. Always check your broker's specific margin requirements, as they may differ for exotic pairs or during volatile market conditions.</div></details>
 
 <?php

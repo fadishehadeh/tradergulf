@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Admin\Ads;
@@ -48,7 +48,7 @@ class AdminAdsController extends AdminBaseController
         }
 
         $this->render('admin/ads/form', [
-            'pageTitle' => 'New Ad — ' . $zone['name'],
+            'pageTitle' => 'New Ad - ' . $zone['name'],
             'zone'      => $zone,
             'ad'        => null,
         ]);
@@ -94,7 +94,7 @@ class AdminAdsController extends AdminBaseController
         }
 
         $this->render('admin/ads/form', [
-            'pageTitle' => 'Edit Ad — ' . $zone['name'],
+            'pageTitle' => 'Edit Ad - ' . $zone['name'],
             'zone'      => $zone,
             'ad'        => $ad,
         ]);

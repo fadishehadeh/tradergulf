@@ -120,13 +120,13 @@ calc();
 SCRIPT;
 ?>
 
-<!-- Educational content — SEO body for "forex profit calculator" queries -->
+<!-- Educational content - SEO body for "forex profit calculator" queries -->
 <div class="container" style="padding:0 0 2rem">
 <div style="max-width:820px;margin:0 auto">
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">How to Calculate Forex Profit and Loss</h2>
 <p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Your <strong>profit or loss</strong> on a forex trade is determined by three factors: the number of pips you captured, the pip value for the currency pair you traded, and how many lots you traded. Knowing your potential P&amp;L before entering a trade is essential for setting realistic take-profit levels and evaluating your risk-to-reward ratio.</p>
-<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Professional Gulf traders target a minimum <strong>1:2 risk-to-reward ratio</strong> — meaning for every pip they risk (stop-loss), they aim to capture at least 2 pips of profit (take-profit). This ensures profitability even with a 40% win rate.</p>
+<p style="line-height:1.75;color:var(--text-muted);margin-bottom:.9rem">Professional Gulf traders target a minimum <strong>1:2 risk-to-reward ratio</strong> - meaning for every pip they risk (stop-loss), they aim to capture at least 2 pips of profit (take-profit). This ensures profitability even with a 40% win rate.</p>
 
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">Profit & Loss Formula</h2>
 <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0;font-size:.9rem">
@@ -161,7 +161,7 @@ SCRIPT;
 <h2 style="font-size:1.25rem;font-weight:800;margin:2rem 0 1rem">Frequently Asked Questions</h2>
 <details class="faq-item"><summary class="faq-q">How is forex profit calculated?</summary><div class="faq-a">Forex profit is calculated by multiplying the number of pips gained by the pip value and lot size. For EUR/USD (pip value $10 per standard lot): if you buy 1 lot at 1.0900 and close at 1.0950, that is 50 pips profit = $500. For a sell trade, profit comes when the price moves down from your entry.</div></details>
 <details class="faq-item"><summary class="faq-q">Does profit calculation differ for JPY pairs?</summary><div class="faq-a">Yes. For JPY pairs (USD/JPY, EUR/JPY, etc.), a pip is 0.01 instead of 0.0001, and the pip value in USD depends on the current exchange rate. The profit calculator automatically handles JPY pairs differently from standard major pairs.</div></details>
-<details class="faq-item"><summary class="faq-q">What is a good risk-to-reward ratio in forex?</summary><div class="faq-a">A risk-to-reward ratio of 1:2 or better is considered professional. This means for every 20 pips you risk (stop-loss), you target at least 40 pips of profit (take-profit). At a 1:2 ratio, you only need to win 34% of your trades to break even — making consistent profitability achievable even without a high win rate.</div></details>
+<details class="faq-item"><summary class="faq-q">What is a good risk-to-reward ratio in forex?</summary><div class="faq-a">A risk-to-reward ratio of 1:2 or better is considered professional. This means for every 20 pips you risk (stop-loss), you target at least 40 pips of profit (take-profit). At a 1:2 ratio, you only need to win 34% of your trades to break even - making consistent profitability achievable even without a high win rate.</div></details>
 
 <?php
 $faqProfit = [
@@ -170,7 +170,7 @@ $faqProfit = [
     'mainEntity' => [
         ['@type' => 'Question', 'name' => 'How is forex profit calculated?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Forex profit is calculated by multiplying the number of pips gained by the pip value and lot size. For EUR/USD (pip value $10 per standard lot): buying 1 lot at 1.0900 and closing at 1.0950 gives 50 pips profit = $500.']],
         ['@type' => 'Question', 'name' => 'Does profit calculation differ for JPY pairs?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes. For JPY pairs, a pip is 0.01 instead of 0.0001, and the pip value in USD depends on the current exchange rate. Always use the correct pip size for JPY pairs in your calculations.']],
-        ['@type' => 'Question', 'name' => 'What is a good risk-to-reward ratio in forex?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'A risk-to-reward ratio of 1:2 or better is considered professional. At 1:2, you need to win only 34% of trades to break even — making consistent profitability achievable even without a high win rate.']],
+        ['@type' => 'Question', 'name' => 'What is a good risk-to-reward ratio in forex?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'A risk-to-reward ratio of 1:2 or better is considered professional. At 1:2, you need to win only 34% of trades to break even - making consistent profitability achievable even without a high win rate.']],
     ],
 ];
 echo '<script type="application/ld+json">' . json_encode($faqProfit, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';

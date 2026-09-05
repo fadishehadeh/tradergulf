@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 namespace App\Modules\Api;
@@ -34,7 +34,7 @@ class TickerController extends Controller
         if ($cacheAge < self::CACHE_TTL * 4) {
             echo file_get_contents($cacheFile);
 
-            // Stale — refresh in background after response is flushed
+            // Stale - refresh in background after response is flushed
             if ($cacheAge >= self::CACHE_TTL) {
                 if (function_exists('fastcgi_finish_request')) fastcgi_finish_request();
                 $data = $this->fetchFromYahoo();
@@ -45,7 +45,7 @@ class TickerController extends Controller
             exit;
         }
 
-        // No usable cache — fetch synchronously
+        // No usable cache - fetch synchronously
         $data = $this->fetchFromYahoo();
         if (empty($data)) $data = $this->fetchFallback();
 
